@@ -25,13 +25,13 @@ class ControllerProduto{
  
     public function listar(Request $request, Response $response, $args) {
          
-      // $conn = ConnectionFactory::Connect();
+       $conn = \ConnectionFactory::Connect();
        
       // $CatDAO = new CategoriaDAO();
        
       // $ListCat = $CatDAO->verCategoria();
 
-       $ProdutoDAO = new ProdutoDAO();
+       $ProdutoDAO = new ProdutoDAO($conn);
        
        $ListProduto = $ProdutoDAO->verProduto();
 

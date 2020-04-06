@@ -4,19 +4,15 @@
 namespace App\Application\Models;
 
 use App\Application\Models\ConnectionFactory as Connection;
-use App\Application\Models\Categoria;
 use App\Application\Models\Produto;
 require_once (__DIR__."/../Models/Produto.classe.php");
-require_once (__DIR__."/../Models/Categoria.classe.php");
 require_once (__DIR__."/../Models/Connection.Classe.php"); // importando a Connection.Classe.php para fazer  a conexao com o banco de dados // importando a Produto.classe.php para poder cadastrar o obj no banco de dados
-require_once ("/var/www/html/ProjetoSlim/ProjetoSlim/src/Application/DAO/CategoriaDAO.php"); 
-
 class ProdutoDAO {
 
     //put your code here
 
-    function __construct(/*mysqli $conn*/) {
-        //$this->conn = $conn;
+    function __construct($conn) {
+        $this->conn = $conn;
 }
     public function verProduto() {
       $conn= new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
@@ -81,6 +77,53 @@ class ProdutoDAO {
         //$stmt->execute();
         //$stmt->close();
     }
+
+
+
+
+    public function buscarProdutosCarrinho($produto) {
+      
+      $primeiroValor = array_shift($produto);
+      $obj = json_decode($primeiroValor);  
+      $sql = "SELECT * FROM Produto WHERE idProduto = ".$obj->Produtoid;
+
+      foreach($produto as $valor){
+        
+          $obj = json_decode($valor);  
+        
+          $sql = $sql." OR idProduto = ".$obj->Produtoid." ";
+      
+      
+      }
+      
+      $sql = $sql.";";
+
+      $resultado = $this->conn->query($sql);
+
+
+      if ($resultado->num_rows > 0) {
+
+
+        while ($row = $resultado->fetch_assoc()) {
+                $prodt = new Produto();
+                $prodt->setId($row["idProduto"]);
+                $prodt->setNome($row["nome"]);
+                $prodt->setModelo($row["modelo"]);
+                $prodt->setValDiaria($row["valdiaria"]);
+                $prodt->setDimensao($row["dimensao"]);
+                $prodt->setQuantidade($row["quantidade"]);
+                $prodt->setPrecoPerda($row["precoPerda"]);
+                $listProd[] = $prodt;
+            
+        }
+
+        return $listProd;
+    }else{
+        return false;
+    }
+
+     
+  }
 
     public function buscarProdutoPorId(\Produto $prodtEdit) {
 

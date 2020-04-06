@@ -46,7 +46,7 @@
                   <li><a href="#"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="cart.html" class="site-cart">
+                    <a href="/finalizar" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
@@ -137,20 +137,23 @@
                 </div>
               </div>
             </div>
+            
             <div class="row mb-5">
             <?php foreach ($ListaProduto as $ListaProduto){?>
+             <form action="adicionarCarrinho">
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
                     <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html"><?php echo $ListaProduto->getNome();?></a></h3>
+                    <h3><a href="/AdicionarCarrinho?Produto_id=<?php echo $ListaProduto->getId();?>&Quantidade=<?php echo $ListaProduto->getQuantidade();?>"><?php echo $ListaProduto->getNome();?></a></h3>
                     <p class="mb-0">Finding perfect t-shirt</p>
                     <p class="text-primary font-weight-bold">R$<?php echo $ListaProduto->getValDiaria();?></p>
                   </div>
                 </div>
               </div>
+             </form>
             <?php } ?>
             </div>
             <div class="row" data-aos="fade-up">
@@ -171,9 +174,9 @@
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
               <ul class="list-unstyled mb-0">
-              <?php foreach ($ListaCategoria as $ListaCategoria){?>
-                <li class="mb-1"><a href="#" class="d-flex"><span><?php echo $ListaCategoria->getNomeCategoria();?></span> <span class="text-black ml-auto"></span></a></li>
-                <?php }?>
+        
+                <li class="mb-1"><a href="#" class="d-flex"><span></span> <span class="text-black ml-auto"></span></a></li>
+           
               </ul>
             </div>
 

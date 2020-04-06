@@ -20,12 +20,17 @@ return function (App $app) {
     //Locatario
     $app->group('', function (Group $group) {
 
+        $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
+        $group->get('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
+        $group->get('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
+        $group->get('/finalizar', ControllerCarrinho::class .':finalizarProduto');
+
         $group->get('/', function ($request, $response, $args) {
 
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
             
-            session_start();
-            unset($_SESSION['user']);
+            #session_start();
+            #unset($_SESSION['user']);
         
         
             return $renderer->render($response, "login.php", $args);
@@ -33,14 +38,30 @@ return function (App $app) {
 
             
         });
-        $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
-        $group->post('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
+
+
+        $group->get('/cart', function ($request, $response, $args) {
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
+            
+            #session_start();
+            #unset($_SESSION['user']);
+        
+        
+            return $renderer->render($response, "cart.php", $args);
+   
+
+            
+        });
+        
+        
 
 
 
 
         
         $group->get('/Home/Endereco/{id}', ControllerLocatario::class .':buscarEndereco' );
+        $group->get('/produtos', ControllerProduto::class .':listar');
         $group->post('/Home', ControllerLocatario::class .':login');
         $group->post('/CadastraEnd', ControllerLocatario::class .':cadastrarNovoEndereco');
         $group->post('/EditarEnd', ControllerLocatario::class .':editarEndereco');
@@ -83,7 +104,7 @@ return function (App $app) {
    
     //Testes 
 
-    $app->group('/Test', function (Group $group) {
+    $app->group('/Teste', function (Group $group) {
 
         $group->get('/produto', ControllerProduto::class .':listar');
         $group->post('/categoria', ControllerTest::class .':adicionar');

@@ -1,7 +1,7 @@
 <?php
-foreach($_SESSION['Carrinho'] as $key=>$produto){
+foreach($ListaProdutos as $produto){
 
-    echo $produto;
+    echo $produto->getNome();
 
 }
 

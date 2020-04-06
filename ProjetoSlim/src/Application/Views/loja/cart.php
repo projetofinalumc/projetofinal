@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/loja_css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/loja_css/magnific-popup.css">
+    <link rel="stylesheet" href="css/loja_css/jquery-ui.css">
+    <link rel="stylesheet" href="css/loja_css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/loja_css/owl.theme.default.min.css">
 
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/loja_css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loja_css/style.css">
     
   </head>
   <body>
@@ -87,7 +87,7 @@
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="/produtos">Shop</a></li>
             <li><a href="#">Catalogue</a></li>
             <li><a href="#">New Arrivals</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -121,14 +121,15 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?php foreach($ListaProdutos as $produto){?>
                   <tr>
                     <td class="product-thumbnail">
                       <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">Top Up T-Shirt</h2>
+                      <h2 class="h5 text-black"><?php echo $produto->getNome()?></h2>
                     </td>
-                    <td>$49.00</td>
+                    <td>R$ <?php echo $produto->getValDiaria()?></td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
@@ -139,35 +140,11 @@
                           <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                         </div>
                       </div>
-
                     </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
+                    <td><?php echo $produto->getValDiaria()?></td>
+                    <td><a href="retirarCarrinho?Produto_id=<?php echo $produto->getId();?>" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
-
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="images/cloth_2.jpg" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">Polo Shirt</h2>
-                    </td>
-                    <td>$49.00</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
-
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                  </tr>
+                 <?php }?>
                 </tbody>
               </table>
             </div>
@@ -309,15 +286,15 @@
     </footer>
   </div>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
+  <script src="js/loja_js/jquery-3.3.1.min.js"></script>
+  <script src="js/loja_js/jquery-ui.js"></script>
+  <script src="js/loja_js/popper.min.js"></script>
+  <script src="js/loja_js/bootstrap.min.js"></script>
+  <script src="js/loja_js/owl.carousel.min.js"></script>
+  <script src="js/loja_js/jquery.magnific-popup.min.js"></script>
+  <script src="js/loja_js/aos.js"></script>
 
-  <script src="js/main.js"></script>
+  <script src="js/loja_js/main.js"></script>
     
   </body>
 </html>
