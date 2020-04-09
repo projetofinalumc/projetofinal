@@ -54,6 +54,20 @@ return function (App $app) {
             
         });
         
+        $group->get('/Inicio', function($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+
+            return $renderer->render($response,"index.php",$args);
+
+
+        });
+        $group->get('/Sobre', function($request, $response, $args){
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+
+            return $renderer->render($response, "about.php");
+        });
+        
         
 
 
@@ -113,6 +127,5 @@ return function (App $app) {
         $group->get('/', ControllerTest::class .':listar');
        
 
-    });
-    
+    });    
 };
