@@ -14,13 +14,13 @@ namespace App\Application\Models;
  */
 class Endereco {
     //put your code here
-    private $id;
-    private $idLocatario;//
-    private $Logradouro;
-    private $numero;
-    private $cep;
-    private $estado;
-    private $bairro;
+    private int $id;
+    private int $idLocatario;//
+    private String $Logradouro;
+    private int $numero;
+    private String $cep;
+    private String $estado;
+    private String $bairro;
     
         
     function getId() {

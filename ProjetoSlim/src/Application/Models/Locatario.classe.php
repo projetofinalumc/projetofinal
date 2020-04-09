@@ -66,7 +66,7 @@ class Locatario extends Pessoa {
         parent::setEmail($email);
     }
 
-    public function setEndereco(\Endereco $endereco) {
+    public function setEndereco(Endereco $endereco) {
         parent::setEndereco($endereco);
     }
 

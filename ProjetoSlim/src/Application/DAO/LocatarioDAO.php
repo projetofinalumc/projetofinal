@@ -1,12 +1,13 @@
 <?php
 namespace App\Application\Models;
 
+//  require '../Models/Locatario.classe.php';
+//  require '../Models/Connection.classe.php';
+//  require_once ("/ProjetoSlim/ProjetoSlim/src/Application/Models/Locatario.Classe.php");
+//  require_once ("/ProjetoSlim/ProjetoSlim/src/Application/Models/Connection.Classe.php");
+require_once (__DIR__."/../Models/Locatario.classe.php");
+require_once (__DIR__."/../Models/Connection.classe.php");
 
-use App\Application\Models\Locatario;
-use App\Application\Models\ConnectionFactory as Connection;
-
-require_once ("/var/www/html/ProjetoSlim/ProjetoSlim/src/Application/Models/Locatario.classe.php");
-require_once ("/var/www/html/ProjetoSlim/ProjetoSlim/src/Application/Models/Connection.Classe.php");
 
 
 
