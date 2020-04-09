@@ -45,7 +45,8 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                <!-- <img src="images/icon/logo.png" alt="CoolAdmin"> -->
+                                <h2><b>Login do Administrador</b></h2>
                             </a> <br>
                         <?php 
                             if(isset($_SESSION['msgErro'])){
@@ -55,32 +56,32 @@
                         <div class="login-form">
                             <form action="/Home" method="post">
                                 <div class="form-group">
-                                    <label>Email Address</label>
+                                    <label>Email</label>
                                     <input class="au-input au-input--full" type="text" name="user"  placeholder="Usuário">
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Senha</label>
                                     <input class="au-input au-input--full" type="password" name="senha"  placeholder="Senha">
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember">Remember Me
+                                        <input type="checkbox" name="remember">Lembre-me
                                     </label>
                                     <label>
-                                        <a href="#">Forgotten Password?</a>
+                                        <a href="#">Esqueceu a senha?</a>
                                     </label>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Entrar</button>
                                 <div class="social-login-content">
                                     <div class="social-button">
-                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</button>
-                                        <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button>
+                                        <!-- <button class="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</button>
+                                        <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button> -->
                                     </div>
                                 </div>
                             </form>
                             <div class="register-link">
                                 <p>
-                                    Don't you have account?
+                                    Não possui uma conta?
                                     <a href="#">Cadastre-se</a>
                                 </p>
                             </div>

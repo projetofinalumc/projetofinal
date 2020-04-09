@@ -15,6 +15,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 require_once  (__DIR__."/../../DAO/AdminDAO.php");
 require_once (__DIR__."/../../Models/Admin.classe.php");
+require_once (__DIR__."/../../Models/Connection.Classe.php");
 
 
 
