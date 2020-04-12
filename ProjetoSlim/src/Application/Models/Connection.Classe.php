@@ -1,6 +1,6 @@
 <?php
 
-//snamespace App\Application\Models;
+namespace App\Application\Models;
 
 class ConnectionFactory {
 

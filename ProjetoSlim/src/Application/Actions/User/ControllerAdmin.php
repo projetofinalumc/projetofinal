@@ -33,10 +33,11 @@ class ControllerAdmin{
 
    public function login (Request $request, Response $response, $args) {
 
+        
+
         $conn = ConnectionFactory::Connect();
         
         $admin = new \Admin(); 
-
 
         $admin->setLogin((String)$_POST['user']);
         $admin->setSenha((String)$_POST['senha']);

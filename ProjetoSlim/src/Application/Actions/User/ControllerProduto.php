@@ -10,7 +10,7 @@ use App\Application\Models\ProdutoDAO;
 use App\Application\Models\Produto;
 use App\Application\Models\CategoriaDAO;
 use App\Application\Models\Categoria;
-//use App\Application\Models\ConnectionFactory;
+use App\Application\Models\ConnectionFactory;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -25,7 +25,7 @@ class ControllerProduto{
  
     public function listar(Request $request, Response $response, $args) {
          
-       $conn = \ConnectionFactory::Connect();
+       $conn = ConnectionFactory::Connect();
        
       // $CatDAO = new CategoriaDAO();
        

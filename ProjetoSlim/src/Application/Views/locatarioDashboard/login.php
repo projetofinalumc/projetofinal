@@ -82,7 +82,7 @@
                             <div class="register-link">
                                 <p>
                                     Não possui uma conta?
-                                    <a href="#">Cadastre-se</a>
+                                    <a href="/Cadastro/NovoLocatario">Cadastre-se</a>
                                 </p>
                             </div>
                         </div>

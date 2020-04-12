@@ -9,11 +9,11 @@ use App\Application\Models\Categoria;
 class Produto extends \PDO {
 
     private $id;
-    private $nome;
+    private $nome;//#
     private $modelo;
-    private $valDiaria;
+    private $valDiaria;//#
     private $dimensao;
-    private $quantidade;
+    private $quantidade;//#
     private $precoPerda;
     private $categoria;
 

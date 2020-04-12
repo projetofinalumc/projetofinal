@@ -23,7 +23,7 @@ return function (App $app) {
         $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
         $group->get('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
         $group->get('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
-        $group->get('/finalizar', ControllerCarrinho::class .':finalizarProduto');
+        $group->get('/finalizar', ControllerCarrinho::class .':finalizarCarrinho');
 
         $group->get('/', function ($request, $response, $args) {
 
@@ -37,6 +37,13 @@ return function (App $app) {
    
 
             
+        });
+        $group->get('/Cadastro/NovoLocatario', function($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
+    
+            return $renderer->render($response, "newloc.php", $args);
+    
         });
 
 
@@ -66,6 +73,13 @@ return function (App $app) {
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
 
             return $renderer->render($response, "about.php");
+        });
+        $group->get('/listaproduto', function($request, $response, $args){
+            foreach($args['ListaProdutos'] as $produto){
+                echo $produto->getNome();
+            }
+            
+
         });
         
         
@@ -128,4 +142,9 @@ return function (App $app) {
        
 
     });    
+    //Locatario
+    // $app->group('/Locatario', function(Group $group){
+
+    //     $group->get('/',);
+    // });
 };

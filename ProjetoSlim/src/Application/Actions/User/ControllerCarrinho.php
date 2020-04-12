@@ -78,11 +78,11 @@ class ControllerCarrinho{
 
 
 
-     public function finalizarProduto(Request $request, Response $response, $args) {
+     public function finalizarCarrinho(Request $request, Response $response, $args) {
         
         session_start();
          
-        $conn = \ConnectionFactory::Connect();
+        $conn = ConnectionFactory::Connect();
 
         $produtoDAO = new ProdutoDAO($conn);
 
@@ -91,7 +91,7 @@ class ControllerCarrinho{
         $listProduto = $produtoDAO->buscarProdutosCarrinho($produtos);
 
 
-        $args = ["ListaProdutos" => $listProduto];
+        $args = ["ListaProdutos" => $listProduto];//passando todos os produtos da lista carrinho, que estão no carrinho
         
           $renderer = new PhpRenderer(__DIR__."/../../Views/loja/"); 
 

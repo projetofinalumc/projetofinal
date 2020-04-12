@@ -15,12 +15,11 @@ class ProdutoDAO {
         $this->conn = $conn;
 }
     public function verProduto() {
-      $conn= new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
         $listProd = array();
         $sql = "SELECT * from Produto;"; 
 
         //recebendo os dados da query
-        $resultado = $conn->query($sql);
+        $resultado = $this->conn->query($sql);
        if ($resultado->num_rows > 0) {
 
             
