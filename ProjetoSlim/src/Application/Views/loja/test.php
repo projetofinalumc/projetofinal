@@ -1,5 +1,5 @@
 <?php
 
-//echo $resposta->getNome();
+echo $resposta->getNome();
 
 ?>
