@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bancoteste123`
 --
-CREATE DATABASE IF NOT EXISTS `bancoteste123` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `bancoteste123`;
 USE `bancoteste123`;
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ USE `bancoteste123`;
 CREATE TABLE `admin` (
   `login` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Extraindo dados da tabela `admin`
@@ -50,7 +50,7 @@ INSERT INTO `admin` (`login`, `senha`) VALUES
 CREATE TABLE `Categoria` (
   `codcategoria` int NOT NULL,
   `nomeCategoria` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Extraindo dados da tabela `Categoria`
@@ -81,7 +81,7 @@ CREATE TABLE `Endereco` (
   `numero` int NOT NULL,
   `Bairro` varchar(255) DEFAULT NULL,
   `id_endereco` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Extraindo dados da tabela `Endereco`
@@ -103,7 +103,7 @@ CREATE TABLE `itemPedido` (
   `valorUnitario` double DEFAULT NULL,
   `quantidade` int DEFAULT NULL,
   `fk_Produto` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -116,9 +116,9 @@ CREATE TABLE `Locatario` (
   `cpf` int NOT NULL,
   `Nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senhaloc` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `senhaloc` varchar(100),
   `data_nascimento` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Extraindo dados da tabela `Locatario`
@@ -147,7 +147,7 @@ CREATE TABLE `Pedido` (
   `dataPedido` date NOT NULL,
   `id_endereco` int NOT NULL,
   `idLocatario` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -164,7 +164,7 @@ CREATE TABLE `Produto` (
   `quantidade` int DEFAULT NULL,
   `precoPerda` double DEFAULT NULL,
   `categoria` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Extraindo dados da tabela `Produto`
@@ -237,7 +237,7 @@ CREATE TABLE `usuarios` (
   `id` int NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
   `senha` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Extraindo dados da tabela `usuarios`

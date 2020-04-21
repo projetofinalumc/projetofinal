@@ -32,14 +32,33 @@ class PedidoDAO{
     }
     public function BuscarPedidos_Locatario(Pedido $pedido){
         $locatario = $pedido->getLocatarioPedido();//Aqui instanciei um objeto de Locatario(Com todos os dados)
-        $id_Locatario = $locatario->getId();//Aqui recebi apenas o id do locatario no Pedido
-        $sql = 'SELECT * FROM Pedido WHERE idPedido = id_Locatario';//
+        $id_Locatario = $locatario->getId();//Aqui recebi apenas o id do locatario no Pedido.
+        $sql = 'SELECT * FROM Pedido WHERE idLocatario = ?';//
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam($idPedido, $id_Locatario);
-        $stmt->execute();   
+        $stmt->bindParam('i', $id_Locatario);
+        $stmt->execute(); 
+        if($stmt->num_rows > 0){
+            while($rows = $stmt->fetch_assoc()){
+                $Pedido_cliente = new Pedido();
+
+                $Pedido_cliente->setdataRetirada($row['dataRetirada']);
+                $Pedido_cliente->setvalorTotal($row['valorTotal']);
+                $Pedido_cliente->setdataDevolucao($row['dataDevolucao']);
+                $Pedido_cliente->setdataPedido($row['dataPedido']); 
+
+                $Endereco = new Endereco();
+                $Endereco->setId($row['id_endereco']);
+
+                $EnderecoDAO = new EnderecoDAO($conn);
+                $listEnderecoLocatario = $EnderecoDAO->buscarEnderecoPorId($Endereco);//retornando a lista de endereço do locatario que vem da EnderecoDAO       
+                $Pedido_cliente->setEnderecoPedido($listEnderecoLocatario);
+                $listaPedidos[] = $Pedido_cliente;//criei a lista de Pedidos 
+            }
+            return $listaPedidos;
+        }  
     }
     public function ImprimirPedidos(){
-        $sql = 'SELECT * FROM ItemPedido WHERE id';
+        
     }
 }   
 ?>

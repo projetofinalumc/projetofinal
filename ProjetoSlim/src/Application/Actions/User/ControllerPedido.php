@@ -51,8 +51,13 @@ class ControllerPedido{
         $Pedido->setLocatarioPedido($locatario);
         // $_SESSION['idLocatario']
         $PedidoDAO = new PedidoDAO($conn);
-        $PedidoDAO->BuscarPedidos_Locatario($Pedido);
+        $listaPedidos = $PedidoDAO->BuscarPedidos_Locatario($Pedido);
 
+        $args = ['ListaPedidos' => $listaPedidos];
+
+        $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+        
+        return $renderer->render($response, "pedido.php", $args);
     }
     public function Ver_Pedido_Administrador(Request $request, Response $response, $args)
     {

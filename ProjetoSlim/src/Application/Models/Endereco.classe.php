@@ -15,7 +15,7 @@ namespace App\Application\Models;
 class Endereco {
     //put your code here
     private int $id;
-    private int $idLocatario;//
+    private int $idLocatario;
     private String $Logradouro;
     private int $numero;
     private String $cep;

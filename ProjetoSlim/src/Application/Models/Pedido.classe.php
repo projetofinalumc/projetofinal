@@ -10,7 +10,6 @@ class Pedido{
     private int $valorTotal;
     private date $dataDevolucao;
     private date $dataPedido;
-    // private date $funcEntrega;
     private Endereco $enderecoPedido;
     private array $listaProduto;
     private $locatarioPedido;
