@@ -30,11 +30,16 @@ class PedidoDAO{
         $stmt->execute();
         $stmt->close(); 
     }
-    public function Ver_Pedido_Locatario(){
-        
+    public function BuscarPedidos_Locatario(Pedido $pedido){
+        $locatario = $pedido->getLocatarioPedido();//Aqui instanciei um objeto de Locatario(Com todos os dados)
+        $id_Locatario = $locatario->getId();//Aqui recebi apenas o id do locatario no Pedido
+        $sql = 'SELECT * FROM Pedido WHERE idPedido = id_Locatario';//
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam($idPedido, $id_Locatario);
+        $stmt->execute();   
     }
-    public function Ver_Pedido_Administrador(){
-        
+    public function ImprimirPedidos(){
+        $sql = 'SELECT * FROM ItemPedido WHERE id';
     }
-}
+}   
 ?>

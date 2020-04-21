@@ -42,11 +42,21 @@ class ControllerPedido{
 
         return $renderer->render($response,"pedido.php",$args);       
     }
-    public function Ver_Pedido_Locatario(Request $request, Response $response, $args){
+    public function Ver_Pedido_Locatario(Request $request, Response $response, $args)
+    {
+        $sessaoid = 1;//teste sem sessão
+        $locatario = new Locatario();
+        $locatario->setId($sessaoid);
+        $Pedido = new Pedido();
+        $Pedido->setLocatarioPedido($locatario);
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+        $PedidoDAO->BuscarPedidos_Locatario($Pedido);
 
     }
-    public function Ver_Pedido_Administrador(Request $request, Response $response, $args){
-
+    public function Ver_Pedido_Administrador(Request $request, Response $response, $args)
+    {
+        
     }
 }
 ?>
