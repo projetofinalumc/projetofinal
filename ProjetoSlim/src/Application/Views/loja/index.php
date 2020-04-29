@@ -31,7 +31,7 @@
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
               <form action="" class="site-block-top-search">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
+                <input type="text" class="form-control border-0" placeholder="Pesquise">
               </form>
             </div>
 
@@ -63,40 +63,21 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children active">
+            <li class="active">
               <a href="/Inicio">Inicio</a>
-              <!-- <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul> -->
-                <!-- </li>
-              </ul> -->
             </li>
-            <li class="has-children">
+            <li class="">
               <a href="/Sobre">Sobre nós</a>
-              <!-- <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
-            </li> -->
             <li><a href="shop.html">Loja</a></li>
             <li><a href="#">Catálogo</a></li>
             <!-- <li><a href="#">New Arrivals</a></li> -->
-            <li><a href="contact.html">Contato</a></li>
+            <li><a href="/contato">Contato</a></li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <div class="site-blocks-cover" style="background-image: url(images/loja_img/hero_1.jpg);" data-aos="fade">
+    <div class="site-blocks-cover" style="background-image: url(images/loja_img/pula3.jpg);" data-aos="fade">
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
@@ -104,7 +85,7 @@
             <div class="intro-text text-center text-md-left">
               <p1 class="mb-4">Consulte os preços no catálogo ou entre em contato com o nosso consultor de venda</p1>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Shop Now</a>
+                <a href="#" class="btn btn-sm btn-primary">Alugue agora</a>
               </p>
             </div>
           </div>
@@ -117,20 +98,20 @@
         <div class="row">
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
             <div class="icon mr-4 align-self-start">
-              <span class="icon-truck"></span>
+              <span class="icon-plus"></span>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Free Shipping</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <h2 class="text-uppercase">Acessibilidade</h2>
+              <p>Locação com preço acessível e com facil acesso e site. </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
             <div class="icon mr-4 align-self-start">
-              <span class="icon-refresh2"></span>
+              <span class="icon-group"></span>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Free Returns</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <h2 class="text-uppercase">Brinquedos para a família toda</h2>
+              <p>Todos os brinquedos para sua festa de aniversário, festas de familiares e eventos direcionados para as crianças, tudo isso em um único lugar.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -138,8 +119,8 @@
               <span class="icon-help"></span>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Customer Support</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <h2 class="text-uppercase">Suporte ágil e rápido</h2>
+              <p>Nosso suporte sempre está em atendimento do horário das 8:00 às 18:00 Horas. Para mais informações ou contatos <a href="/contato">clique aqui.</a></p>
             </div>
           </div>
         </div>
@@ -152,7 +133,7 @@
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
             <a class="block-2-item" href="#">
               <figure class="image">
-                <img src="images/women.jpg" alt="" class="img-fluid">
+                <img src="public/images/women.jpg" alt="" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>

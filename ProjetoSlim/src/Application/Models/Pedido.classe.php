@@ -6,6 +6,7 @@ use Application\Models\Endereco;
 use Application\Models\Produto;
 
 class Pedido{
+    private int $idPedido;
     private date $dataRetirada;
     private int $valorTotal;
     private date $dataDevolucao;
@@ -13,7 +14,13 @@ class Pedido{
     private Endereco $enderecoPedido;
     private array $listaProduto;
     private $locatarioPedido;
-
+    
+    public function setidPedido($idPedido){
+        $this->idPedido = $idPedido;
+    }
+    public function getidPedido(){
+        return $this->idPedido;
+    }
     public function setdataRetirada( $dataRetirada){
         $this->dataRetirada = $dataRetirada;
     }

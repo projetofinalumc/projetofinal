@@ -38,6 +38,19 @@ return function (App $app) {
 
             
         });
+        $group->get('/contato', function ($request, $response, $args) {
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
+            
+            #session_start();
+            #unset($_SESSION['user']);
+        
+        
+            return $renderer->render($response, "contact.php", $args);
+   
+
+            
+        });
         $group->get('/Cadastro/NovoLocatario', function($request, $response, $args){
 
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
