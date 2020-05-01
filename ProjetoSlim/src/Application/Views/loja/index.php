@@ -171,7 +171,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Featured Products</h2>
+            <h2>Nossos Produtos</h2>
           </div>
         </div>
         <div class="row">
@@ -180,12 +180,13 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="images/loja_img/pula.jpg" alt="" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Tank Top</a></h3>
-                    <p class="mb-0">Finding perfect t-shirt</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="#">Pula Pula</a></h3>
+                    <p class="mb-0">Com uma dimensão de 2x1x3, multi-colorido</p>
+                    <br>
+                    <p class="text-primary font-weight-bold">R$250,00 reais</p>
                   </div>
                 </div>
               </div>

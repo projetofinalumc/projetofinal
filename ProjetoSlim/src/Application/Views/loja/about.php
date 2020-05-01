@@ -104,7 +104,7 @@
             <div class="site-section-heading pt-3 mb-4">
               <h2 class="text-black">Sobre nós...</h2>
             </div>
-            <p>A Loca Articles foi fundada em 10 de fevereiro de 2018, por luma awsville, em ribeirão preto, interior paulista.Com o intuito de oferecer aos seus clientes, artigos para locação para eventos, estes sendo propriamente para eventos de criança.</p>
+            <p>A Loca Articles foi fundada em 10 de fevereiro de 2018, por luma awsville, em ribeirão preto, interior paulista. Com o intuito de oferecer aos seus clientes, artigos para locação para eventos, estes sendo propriamente para eventos de criança.</p>
             <p></p>
             
           </div>
