@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Loca Articles &mdash; Colorlib e-Commerce Template</title>
+    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,12 +18,7 @@
     <link rel="stylesheet" href="css/loja_css/aos.css">
 
     <link rel="stylesheet" href="css/loja_css/style.css">
-    <style>
-    img{
-      position: relative;
-      left: 40px;
-    }
-    </style>
+    
   </head>
   <body>
   
@@ -49,10 +44,10 @@
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="/"><span class="icon icon-person"></span></a></li>
+                  <li><a href="#"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="/cart" class="site-cart">
+                    <a href="cart.html" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
@@ -61,7 +56,6 @@
                 </ul>
               </div> 
             </div>
-            </div>
 
           </div>
         </div>
@@ -69,34 +63,15 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
-              <a href="/Inicio">Inicio</a>
-              <!-- <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li> -->
-            <li class="has-children active">
-              <a href="about.html">Sobre nós</a>
-              <!-- <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul> -->
+            <li class="">
+              <a href="index.html">Inicio</a>
+            </li>
+            <li class="">
+              <a href="/Sobre">Sobre nós</a>
             </li>
             <li><a href="shop.html">Loja</a></li>
-            <li><a href="#">Catalogo</a></li>
-            <!-- <li><a href="#">New Arrivals</a></li> -->
-            <li><a href="/Contato">Contato</a></li>
+            <li><a href="#">Catálogo</a></li>
+            <li class="active"><a href="/contato">Contato</a></li>
           </ul>
         </div>
       </nav>
@@ -105,7 +80,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="/Inicio">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">About</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Sobre</strong></div>
         </div>
       </div>
     </div>  
@@ -129,7 +104,7 @@
             <div class="site-section-heading pt-3 mb-4">
               <h2 class="text-black">Sobre nós...</h2>
             </div>
-            <p>A Loca Articles foi fundada em 10 de fevereiro de 2018, por luma awsville, em ribeirão preto, interior paulista.Com o intuito de oferecer aos seus clientes, artigos para locação para eventos, estes sendo propriamente para eventos de criança.</p>
+            <p>A Loca Articles foi fundada em 10 de fevereiro de 2018, por luma awsville, em ribeirão preto, interior paulista. Com o intuito de oferecer aos seus clientes, artigos para locação para eventos, estes sendo propriamente para eventos de criança.</p>
             <p></p>
             
           </div>
@@ -315,7 +290,6 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-          
         </div>
       </div>
     </footer>

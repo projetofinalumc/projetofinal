@@ -42,7 +42,7 @@ class ControllerCarrinho{
                 $obj->Quantidade = $_GET['Quantidade'];
                 
                 $_SESSION['Carrinho'][$key] = json_encode($obj);
-                return $renderer->render($response, "teste.php", $args); 
+                return $renderer->render($response, "teste2.php", $args); 
             }
         }
        array_push($_SESSION['Carrinho'],'{"Produtoid":'.$_GET['Produto_id'].', "Quantidade":'.$_GET['Quantidade'].' }');
