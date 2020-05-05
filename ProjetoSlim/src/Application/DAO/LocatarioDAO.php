@@ -92,7 +92,7 @@ class LocatarioDAO {
 
     public function buscarLocatarioPorEmail($locatario){
         
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+        $conexao = new \mysqli('localhost', 'root','','bancoteste123');
 
         $email = $locatario->getEmail();
         $senha = $locatario->getSenha();
@@ -113,7 +113,7 @@ class LocatarioDAO {
 
                         $novo_locatario->setId($row["id"]);
                         $novo_locatario->setCPF($row["cpf"]);
-                        $novo_locatario->setNome((string)$row["Nome"]);
+                        $novo_locatario->setNome((string)$row["nome"]);
                         $novo_locatario->setEmail((string)$row["email"]);
                 
                 }

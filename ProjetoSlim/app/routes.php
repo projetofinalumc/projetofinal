@@ -8,6 +8,7 @@ use App\Application\Actions\User\ControllerLocatario;
 use App\Application\Actions\User\ControllerCarrinho;
 use App\Application\Actions\User\ControllerProduto;
 use App\Application\Actions\User\ControllerAdmin;
+use App\Application\Actions\User\ControllerSession;
 use Slim\Views\PhpRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -25,7 +26,7 @@ return function (App $app) {
         $group->get('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
         $group->get('/finalizar', ControllerCarrinho::class .':finalizarCarrinho');
 
-        $group->get('/', function ($request, $response, $args) {
+        $group->get('/Entrar', function ($request, $response, $args) {
 
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
             
@@ -51,8 +52,8 @@ return function (App $app) {
 
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
             
-            #session_start();
-            #unset($_SESSION['user']);
+            //session_start();
+            //unset($_SESSION['user']);
         
         
             return $renderer->render($response, "cart.php", $args);
@@ -122,7 +123,7 @@ return function (App $app) {
     $app->group('/Admin', function (Group $group) {
 
         
-        $group->get('/', ControllerAdmin::class .':entrar');
+        
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->post('/Sair' , ControllerAdmin::class . 'logout');
        
@@ -138,7 +139,7 @@ return function (App $app) {
         $group->post('/categoria', ControllerTest::class .':adicionar');
         $group->post('/excluir', ControllerTest::class .':excluir');
         $group->post('/alterar', ControllerTest::class .':alterar');
-        $group->get('/', ControllerTest::class .':listar');
+        $group->get('/Home', ControllerSession::class .':login');
        
 
     });    

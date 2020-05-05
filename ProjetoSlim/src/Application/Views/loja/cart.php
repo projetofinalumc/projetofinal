@@ -31,13 +31,13 @@
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
               <form action="" class="site-block-top-search">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
+                <input type="text" class="form-control border-0" placeholder="Buscar">
               </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Loca Articles</a>
+                <a href="index.html" class="js-logo-clone">Locação de Artigos</a>
               </div>
             </div>
 
@@ -80,7 +80,7 @@
               </ul>
             </li>
             <li class="has-children">
-              <a href="about.html">About</a>
+              <a href="about.html">Sobre Nós</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
@@ -88,21 +88,13 @@
               </ul>
             </li>
             <li><a href="/produtos">Shop</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Catalogo</a></li>
+            <li><a href="#">Novidades</a></li>
+            <li><a href="contact.html">Contatos</a></li>
           </ul>
         </div>
       </nav>
     </header>
-
-    <div class="bg-light py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
-        </div>
-      </div>
-    </div>
 
     <div class="site-section">
       <div class="container">
@@ -112,12 +104,12 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th class="product-thumbnail">Image</th>
-                    <th class="product-name">Product</th>
-                    <th class="product-price">Price</th>
-                    <th class="product-quantity">Quantity</th>
+                    <th class="product-thumbnail">Imagem</th>
+                    <th class="product-name">Produto</th>
+                    <th class="product-price">Valor Diária</th>
+                    <th class="product-quantity">Quantidade</th>
                     <th class="product-total">Total</th>
-                    <th class="product-remove">Remove</th>
+                    <th class="product-remove">Remover</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -160,10 +152,11 @@
               </div>
               <div class="col-md-6">
                 <!-- <button class="btn btn-outline-primary btn-sm btn-block">Continuar comprando</button> -->
-                <a href="/shop" class="btn btn-outline-primary btn-sm btn-block">CONTINUAR COMPRANDO</a>
+                <a href="/shop" class="btn btn-outline-primary btn-sm btn-block">CONTINUAR alugando</a>
               </div>
             </div>
-            <div class="row">
+            <!-- Cupom de desconto
+              <div class="row">
               <div class="col-md-12">
                 <label class="text-black h4" for="coupon">Coupon</label>
                 <p>Enter your coupon code if you have one.</p>
@@ -173,7 +166,7 @@
               </div>
               <div class="col-md-4">
                 <button class="btn btn-primary btn-sm">Apply Coupon</button>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="col-md-6 pl-5">
@@ -181,7 +174,7 @@
               <div class="col-md-7">
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                    <h3 class="text-black h4 text-uppercase">Resumo do Pedido</h3>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -203,7 +196,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Continuar alugando</button>
                   </div>
                 </div>
               </div>
