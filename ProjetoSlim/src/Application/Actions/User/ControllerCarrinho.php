@@ -23,7 +23,7 @@ require_once (__DIR__."/../../Models/Produto.classe.php");
 
 class ControllerCarrinho{
  
-    public function adicionarProduto(Request $request, Response $response, $args) {
+    static function adicionarProduto(Request $request, Response $response, $args) {
       
         session_start();
         
@@ -48,11 +48,12 @@ class ControllerCarrinho{
        array_push($_SESSION['Carrinho'],'{"Produtoid":'.$_GET['Produto_id'].', "Quantidade":'.$_GET['Quantidade'].' }');
         
        }
+   
 
-       
+      $_SESSION['Total_Carrinho'] = count($_SESSION['Carrinho']);
+      
 
-
-       return $renderer->render($response, "teste2.php", $args); 
+       //return $renderer->render($response, "teste2.php", $args); 
        
 
     }
@@ -73,7 +74,7 @@ class ControllerCarrinho{
         
           $renderer = new PhpRenderer(__DIR__."/../../Views/loja/"); 
 
-         return $this->finalizarProduto( $request,$response,$args);
+         return $this->finalizarCarrinho($request,$response,$args);
      } 
 
 

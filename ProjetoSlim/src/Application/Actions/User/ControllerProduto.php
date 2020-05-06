@@ -23,7 +23,7 @@ require_once (__DIR__."/../../Models/Categoria.classe.php");
 
 class ControllerProduto{
  
-    public function listar(Request $request, Response $response, $args) {
+    static function listar(Request $request, Response $response, $args) {
          
        $conn = ConnectionFactory::Connect();
        

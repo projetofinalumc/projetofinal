@@ -51,6 +51,7 @@
                         <?php 
                             if(isset($_SESSION['msgErro'])){
                             echo $_SESSION['msgErro'];
+                            session_destroy();
                         }?>
                         </div>
                         <div class="login-form">

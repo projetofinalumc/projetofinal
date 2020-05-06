@@ -47,8 +47,17 @@
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="/finalizar" class="site-cart">
-                      <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="icon icon-shopping_cart"></span> 
+                      <?php 
+                      if(!isset($_COOKIE["PHPSESSID"]))
+                       {
+                          session_start();
+                       }
+                       ?>
+                      <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
+            
+                       <span class="count"><?php echo $_SESSION['Total_Carrinho']?></span>
+                      <?php }?>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>

@@ -125,7 +125,7 @@ class ControllerLocatario
     {
 
         $conn = ConnectionFactory::Connect();
-        session_start();
+       // session_start();
 
         $idloc = $_SESSION['idLocatario'];
 
@@ -181,7 +181,7 @@ class ControllerLocatario
         return $this->retornarDadosLocario($request, $response, $args);
     }
 
-    /*public function login(Request $request, Response $response, $args)
+    public function login(Request $request, Response $response, $args)
     {
 
         $conn = ConnectionFactory::Connect();
@@ -214,5 +214,5 @@ class ControllerLocatario
 
             return $renderer->render($response, "login.php", $args);
         }
-    }*/
+    }
 }

@@ -1,12 +1,11 @@
 <?php
 namespace App\Application\Models;
 
-//  require '../Models/Locatario.classe.php';
-//  require '../Models/Connection.classe.php';
-//  require_once ("/ProjetoSlim/ProjetoSlim/src/Application/Models/Locatario.Classe.php");
-//  require_once ("/ProjetoSlim/ProjetoSlim/src/Application/Models/Connection.Classe.php");
+
+use App\Application\Models\ConnectionFactory as Connection;
+use App\Application\Models\Locatario;
 require_once (__DIR__."/../Models/Locatario.classe.php");
-require_once (__DIR__."/../Models/Connection.classe.php");
+require_once (__DIR__."/../Models/Connection.Classe.php");
 
 
 
@@ -92,12 +91,12 @@ class LocatarioDAO {
 
     public function buscarLocatarioPorEmail($locatario){
         
-        $conexao = new \mysqli('localhost', 'root','','bancoteste123');
+        //$conexao = new \mysqli('localhost', 'root','','bancoteste123');
 
         $email = $locatario->getEmail();
         $senha = $locatario->getSenha();
 
-        $stmt = $conexao->prepare("SELECT * FROM Locatario WHERE email = ? AND senhaloc = ?;");
+        $stmt = $this->conn->prepare("SELECT * FROM Locatario WHERE email = ? AND senhaloc = ?;");
       
         $stmt->bind_param('ss', $email, $senha );
         $stmt->execute();
@@ -113,7 +112,7 @@ class LocatarioDAO {
 
                         $novo_locatario->setId($row["id"]);
                         $novo_locatario->setCPF($row["cpf"]);
-                        $novo_locatario->setNome((string)$row["nome"]);
+                        $novo_locatario->setNome((string)$row["Nome"]);
                         $novo_locatario->setEmail((string)$row["email"]);
                 
                 }

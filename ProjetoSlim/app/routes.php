@@ -22,7 +22,7 @@ return function (App $app) {
     $app->group('', function (Group $group) {
 
         $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
-        $group->get('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
+        //$group->get('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
         $group->get('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
         $group->get('/finalizar', ControllerCarrinho::class .':finalizarCarrinho');
 
@@ -98,8 +98,10 @@ return function (App $app) {
         
         
 
-
-
+        $group->get('/AdicionarCarrinho', function($request, $response, $args){
+            ControllerCarrinho::adicionarProduto($request, $response,$args);
+           return ControllerProduto::listar($request, $response,$args);
+        });
 
         
         $group->get('/Home/Endereco/{id}', ControllerLocatario::class .':buscarEndereco' );
