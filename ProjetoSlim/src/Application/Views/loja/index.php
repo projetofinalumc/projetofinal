@@ -49,10 +49,12 @@
                   <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Teste";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="/cart" class="site-cart">
+                  <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
+                    <a href="/finalizar" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $_SESSION['Total_Carrinho']?></span>
                     </a>
+                    <?php }?>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>

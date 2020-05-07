@@ -187,9 +187,21 @@ return function (App $app) {
 
             
         });
+        
        
 
     });    
+    
+
+               //ROTAS DE TESTE PARA LOJA
+    $app->group('/Loja', function (Group $group) {
+
+        $group->get('/checkout', function ($request, $response, $args) {
+                $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
+                return $renderer->render($response,"checkout.php",$args);
+        
+               });
+    });
     //Locatario
     // $app->group('/Locatario', function(Group $group){
 
