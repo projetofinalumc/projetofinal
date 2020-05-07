@@ -149,7 +149,6 @@
             
             <div class="row mb-5">
             <?php foreach ($ListaProduto as $ListaProduto){?>
-             <form action="adicionarCarrinho">
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
@@ -162,7 +161,6 @@
                   </div>
                 </div>
               </div>
-             </form>
             <?php } ?>
             </div>
             <div class="row" data-aos="fade-up">

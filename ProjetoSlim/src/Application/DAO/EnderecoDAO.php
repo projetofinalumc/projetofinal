@@ -39,7 +39,7 @@ class EnderecoDAO {
     }
 
     public function buscarEnderecoPorId(Endereco $endereco) {
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+        //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
        
         //Preparando um comando sql para parametrização           
         $sql = "SELECT * FROM Endereco WHERE id_Locatario = ?;";

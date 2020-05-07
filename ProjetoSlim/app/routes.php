@@ -18,7 +18,7 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 return function (App $app) {
 
 
-    //Locatario
+    //Carrinho
     $app->group('', function (Group $group) {
 
         $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
@@ -146,7 +146,11 @@ return function (App $app) {
     $app->group('/Admin', function (Group $group) {
 
         
-    
+        $group->get('/Entrar' ,function ($request, $response, $args){
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+            
+            return $renderer->render($response, "login.php", $args);
+        });
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->post('/Sair' , ControllerAdmin::class . 'logout');
        
@@ -163,6 +167,33 @@ return function (App $app) {
         $group->post('/excluir', ControllerTest::class .':excluir');
         $group->post('/alterar', ControllerTest::class .':alterar');
         $group->get('/Home', ControllerSession::class .':login');
+       
+
+    });    
+
+    //ROTAS DE TESTE PARA A DASHBOARD DE LOCATARIO
+    $app->group('/Locatario', function (Group $group) {
+
+        $group->get('/table', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"table.php",$args);
+
+        });
+
+
+        $group->get('/map', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"map.php",$args);
+
+            
+        });
+
+        $group->get('/modal', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"modal.php",$args);
+
+            
+        });
        
 
     });    

@@ -44,7 +44,7 @@ class ControllerAdmin{
 
         $AdminDAO = new AdminDAO($conn);
         
-        $login = false;#$AdminDAO->fazerLogin($admin); 
+        $login = $AdminDAO->fazerLogin($admin); 
         
         $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
 

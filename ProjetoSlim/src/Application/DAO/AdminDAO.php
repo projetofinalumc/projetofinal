@@ -20,18 +20,26 @@ class AdminDAO {
             }
 
     public function fazerLogin(\Admin $admin) {
-        
-        $sql = "SELECT * FROM admin WHERE login = ".$admin->getLogin()." AND senha = ".$admin->getSenha().";";
-        
+
+        $sql = "SELECT * FROM admin WHERE login = ? AND senha = ?;";
         //recebendo os dados da query
-        $resultado =  $this->conn->query($sql);
-        if ($resultado->num_rows > 0) {
+        $stmt =  $this->conn->prepare($sql);
+
+        $admin_login = $admin->getLogin();
+        $admin_senha = $admin->getSenha();
+
+        $stmt->bind_param('ss', $admin_login,$admin_senha);
+        $stmt->execute();
+        
+        $resultado = $stmt->get_result();
+
+       if ($resultado->num_rows > 0) {
 
 
             while ($row = $resultado->fetch_assoc()) {
 
             
-                $adm = new Admin();
+                $adm = new \Admin();
                 $adm->setLogin($row['login']);
                 $adm->setSenha($row['senha']);
                 $login = $adm;
