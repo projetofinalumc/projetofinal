@@ -200,17 +200,22 @@ class ControllerLocatario
         $locatarioLogado =  $locatarioDAO->buscarLocatarioPorEmail($locatario);
 
 
-        $renderer = new PhpRenderer(__DIR__ . "/../../Views/locatarioDashboard/");
+        
 
         session_start();
 
         if ($locatarioLogado != NULL) {
 
+
+            $renderer = new PhpRenderer(__DIR__ . "/../../Views/loja/");
+
             $_SESSION['user'] = "<div class='alert alert-sucess'>Login realizado com sucesso!</div>";
             $_SESSION['idLocatario'] = $locatarioLogado->getId();
-
-            return $this->retornarDadosLocario($request, $response, $args);
+            $_SESSION['nomeLocatario'] =  $locatarioLogado->getNome();
+            return $renderer->render($response, "index.php", $args);
         } else {
+
+            $renderer = new PhpRenderer(__DIR__ . "/../../Views/locatarioDashboard/");
 
             $_SESSION['msgErro'] = "<div class='alert alert-danger'>Login e/ou senha inválidos</div>";
 

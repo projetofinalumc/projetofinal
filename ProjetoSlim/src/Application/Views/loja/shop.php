@@ -49,10 +49,8 @@
                     <a href="/finalizar" class="site-cart">
                       <span class="icon icon-shopping_cart"></span> 
                       <?php 
-                      if(!isset($_COOKIE["PHPSESSID"]))
-                       {
                           session_start();
-                       }
+                       
                        ?>
                       <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
             
@@ -155,7 +153,7 @@
                     <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="/AdicionarCarrinho?Produto_id=<?php echo $ListaProduto->getId();?>&Quantidade=<?php echo $ListaProduto->getQuantidade();?>"><?php echo $ListaProduto->getNome();?></a></h3>
+                    <h3><a href="<?php if(isset($_SESSION['idLocatario'])){ echo "/AdicionarCarrinho?Produto_id=".$ListaProduto->getId()."&Quantidade=".$ListaProduto->getQuantidade();}else{ echo "/Entrar";}?>"><?php echo $ListaProduto->getNome();?></a></h3>
                     <p class="mb-0">Finding perfect t-shirt</p>
                     <p class="text-primary font-weight-bold">R$<?php echo $ListaProduto->getValDiaria();?></p>
                   </div>

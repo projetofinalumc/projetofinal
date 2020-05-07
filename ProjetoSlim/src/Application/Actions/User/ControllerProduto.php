@@ -26,10 +26,6 @@ class ControllerProduto{
     static function listar(Request $request, Response $response, $args) {
          
        $conn = ConnectionFactory::Connect();
-       
-      // $CatDAO = new CategoriaDAO();
-       
-      // $ListCat = $CatDAO->verCategoria();
 
        $ProdutoDAO = new ProdutoDAO($conn);
        
