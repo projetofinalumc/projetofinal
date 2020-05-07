@@ -72,6 +72,8 @@ class ControllerCarrinho{
               }
           }
         
+          $_SESSION['Total_Carrinho'] = count($_SESSION['Carrinho']);
+          
           $renderer = new PhpRenderer(__DIR__."/../../Views/loja/"); 
 
          return $this->finalizarCarrinho($request,$response,$args);
