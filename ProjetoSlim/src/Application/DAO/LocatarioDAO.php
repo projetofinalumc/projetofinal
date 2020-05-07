@@ -36,10 +36,10 @@ class LocatarioDAO {
 
     public function buscarLocatarioPorCpf($locatario){
         
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+       // $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
         $cpf = $locatario->getCPF();
-        $stmt = $conexao->prepare("SELECT * FROM Locatario WHERE cpf = ?;");
+        $stmt = $this->conn->prepare("SELECT * FROM Locatario WHERE cpf = ?;");
       
         $stmt->bind_param('i', $cpf );
        
@@ -122,9 +122,9 @@ class LocatarioDAO {
         return NULL;
     }
     
-    public function cadastrarLocatario (\Locatario $locatario){
+    public function cadastrarLocatario ($locatario){
         
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+        //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
         $cpf = $locatario->getCpf();
         $nome = $locatario->getNome();
@@ -134,7 +134,7 @@ class LocatarioDAO {
         
 
         //Preparando um comando sql para parametrização
-        $stmt =  $conexao->prepare("INSERT INTO `Locatario` (`cpf`, `Nome`, `email`,`senhaloc`) VALUES (?,?,?,?);");
+        $stmt =  $this->conn->prepare("INSERT INTO `Locatario` (`cpf`, `Nome`, `email`,`senhaloc`) VALUES (?,?,?,?);");
         //Passando os parametros e seus tipos (s = String, d = double, i = Int )
         $stmt->bind_param('isss', $cpf,$nome,$email,$senha);
         //Executando o comando parametrizado

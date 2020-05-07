@@ -78,6 +78,14 @@ return function (App $app) {
         $group->get('/Inicio', function($request, $response, $args){
 
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+            session_start();
+            if(isset($_SESSION['idLocatario'])){
+                $link_login = '/Teste';
+            }else{
+                $link_login = '/Entrar';
+            }
+
+            $args = ['link' => $link_login ];
 
             return $renderer->render($response,"index.php",$args);
 
@@ -138,7 +146,7 @@ return function (App $app) {
     $app->group('/Admin', function (Group $group) {
 
         
-        
+    
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->post('/Sair' , ControllerAdmin::class . 'logout');
        

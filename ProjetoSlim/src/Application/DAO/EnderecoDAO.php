@@ -15,12 +15,12 @@ class EnderecoDAO {
 }
 
     public function cadastrarEndereco(Endereco $endereco) {
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+        //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
        
         //Preparando um comando sql para parametrização           
         $sql = "INSERT INTO Endereco (id_locatario, logradouro, cep, estado, numero, Bairro) VALUES (?,?,?,?,?,?);";
 
-        $stmt = $conexao->prepare($sql);   
+        $stmt = $this->conn->prepare($sql);   
 
         $idLocatario = $endereco->getIdLocatario();   
         $Logradouro = $endereco->getLogradouro();
@@ -35,7 +35,7 @@ class EnderecoDAO {
          // Executando o comando parametrizado
          $stmt->execute();
 
-         $conexao->close();
+         $this->conn->close();
     }
 
     public function buscarEnderecoPorId(Endereco $endereco) {

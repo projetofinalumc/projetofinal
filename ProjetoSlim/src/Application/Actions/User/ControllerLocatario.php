@@ -8,6 +8,7 @@ namespace App\Application\Actions\User;
 
 use Slim\Views\PhpRenderer;
 use App\Application\Models\LocatarioDAO;
+use App\Application\Models\EnderecoDAO;
 use App\Application\Models\Locatario;
 use App\Application\Models\Endereco as Endereco;
 use App\Application\Models\ConnectionFactory;
@@ -40,7 +41,7 @@ class ControllerLocatario
 
         $conn = ConnectionFactory::Connect();
 
-        $locatario = new \Locatario();
+        $locatario = new Locatario();
 
 
         $locatario->setCPF((int) $_POST['cpf']);
@@ -54,12 +55,13 @@ class ControllerLocatario
 
         $locatarioCadastrado = $locatarioDAO->buscarLocatarioPorCpf($locatario);
 
-        $endereco_locatario = new \Endereco();
+        $endereco_locatario = new Endereco();
 
         $endereco_locatario->setLogradouro($_POST['logradouro_end']);
         $endereco_locatario->setNumero((int) $_POST['numero_end']);
         $endereco_locatario->setCep((int) $_POST['numero_cep']);
         $endereco_locatario->setEstado($_POST['estado_end']);
+        $endereco_locatario->setBairro($_POST['bairro_loc']);
         $endereco_locatario->setIdLocatario($locatarioCadastrado->getId());
 
 

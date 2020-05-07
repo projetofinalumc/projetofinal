@@ -160,7 +160,7 @@
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">Bairro:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="c_subject" name="c_subject">
+                      <input type="text" class="form-control" id="c_subject" name="bairro_loc">
                     </div>
                   </div>
                   <div class="form-group row">
