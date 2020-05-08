@@ -17,8 +17,7 @@ use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
-
-
+//ola_teste
     //Carrinho
     $app->group('', function (Group $group) {
 
