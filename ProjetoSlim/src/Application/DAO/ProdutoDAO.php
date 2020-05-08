@@ -7,6 +7,7 @@ use App\Application\Models\ConnectionFactory as Connection;
 use App\Application\Models\Produto;
 require_once (__DIR__."/../Models/Produto.classe.php");
 require_once (__DIR__."/../Models/Connection.Classe.php"); // importando a Connection.Classe.php para fazer  a conexao com o banco de dados // importando a Produto.classe.php para poder cadastrar o obj no banco de dados
+
 class ProdutoDAO {
 
     //put your code here

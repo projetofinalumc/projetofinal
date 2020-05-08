@@ -6,6 +6,7 @@ use App\Application\Actions\User\ViewUserAction;
 use App\Application\Actions\User\ControllerTest;
 use App\Application\Actions\User\ControllerLocatario;
 use App\Application\Actions\User\ControllerCarrinho;
+use App\Application\Actions\User\ControllerPedido;
 use App\Application\Actions\User\ControllerProduto;
 use App\Application\Actions\User\ControllerAdmin;
 use App\Application\Actions\User\ControllerSession;
@@ -196,11 +197,7 @@ return function (App $app) {
                //ROTAS DE TESTE PARA LOJA
     $app->group('/Loja', function (Group $group) {
 
-        $group->get('/checkout', function ($request, $response, $args) {
-                $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
-                return $renderer->render($response,"checkout.php",$args);
-        
-               });
+        $group->get('/checkout',ControllerPedido::class . ':gerarPedido');
     });
     //Locatario
     // $app->group('/Locatario', function(Group $group){

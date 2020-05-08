@@ -22,6 +22,7 @@ class Locatario extends Pessoa {
     
     private $CPF;
     private $id;
+    private array $listaEndereco;
       
     function __construct() {
         
@@ -42,12 +43,8 @@ class Locatario extends Pessoa {
         return parent::getEmail();
     }
 
-    public function getEndereco() {
-        return parent::getEndereco();
-    }
-
-    public function getNome() {
-        return parent::getNome();
+    public function getListaEndereco() {
+        return $this->listaEndereco;
     }
 
     public function getSenha() {
@@ -66,8 +63,8 @@ class Locatario extends Pessoa {
         parent::setEmail($email);
     }
 
-    public function setEndereco(Endereco $endereco) {
-        parent::setEndereco($endereco);
+    public function setListaEndereco(array $listaEndereco) {
+        $this->listaEndereco = $listaEndereco;
     }
 
     public function setNome(string $nome) {

@@ -1,6 +1,6 @@
 <?php
 
-
+namespace App\Application\Models;
 use App\Application\Models\ConnectionFactory as Connection;
 use App\Application\Models\Endereco as Endereco;
 
@@ -38,13 +38,13 @@ class EnderecoDAO {
          $this->conn->close();
     }
 
-    public function buscarEnderecoPorId(Endereco $endereco) {
+    public function buscarEnderecoPorId($endereco) {
         //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
        
         //Preparando um comando sql para parametrização           
-        $sql = "SELECT * FROM Endereco WHERE id_Locatario = ?;";
+        $sql = "SELECT * FROM Endereco WHERE id_locatario = ?;";
 
-        $stmt = $conexao->prepare($sql);   
+        $stmt = $this->conn->prepare($sql);   
 
         $idLocatario = $endereco->getIdLocatario();   
     

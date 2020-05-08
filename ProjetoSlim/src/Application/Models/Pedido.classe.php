@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Models;
+namespace App\Application\Models;
 
 use Application\Models\Endereco;
 use Application\Models\Produto;
@@ -8,7 +8,7 @@ use Application\Models\Produto;
 class Pedido{
     private int $idPedido;
     private date $dataRetirada;
-    private int $valorTotal;
+    private float $valorTotal;
     private date $dataDevolucao;
     private date $dataPedido;
     private Endereco $enderecoPedido;
@@ -28,7 +28,7 @@ class Pedido{
         return $this->dataRetirada;
     }
 
-    public function setvalorTotal(double $valorTotal){
+    public function setvalorTotal(float $valorTotal){
         $this->valorTotal = $valorTotal;
     }
     public function getvalorTotal(){
@@ -61,7 +61,7 @@ class Pedido{
     public function getEnderecoPedido(){
         return $this->EnderecoPedido;
     }
-    public function setlistaProduto(Produto $listaProduto){
+    public function setlistaProduto($listaProduto){
         $this->listaProduto = $listaProduto;
     }
     public function getlistaProduto(){

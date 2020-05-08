@@ -17,7 +17,6 @@ namespace App\Application\Models;
 abstract class Pessoa {
     //put your code here
     protected $nome;
-    protected $endereco;
     protected $email;
     protected $senha;
     
@@ -25,7 +24,7 @@ abstract class Pessoa {
         return $this->nome;
     }
 
-    function getEndereco() {
+    function getListaEndereco() {
         return $this->endereco;
     }
 
@@ -41,9 +40,6 @@ abstract class Pessoa {
         $this->nome = $nome;
     }
 
-    function setEndereco(Endereco $endereco) {
-        $this->endereco = $endereco;
-    }
 
     function setEmail(string $email) {
         $this->email = $email;

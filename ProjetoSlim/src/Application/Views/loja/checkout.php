@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php if (session_status() !== PHP_SESSION_ACTIVE) {
+                            session_start();
+                          }
+  $PedidoLocatario = $_SESSION['PedidoLocatario']                         
+  ?>
 <html lang="en">
   <head>
     <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
@@ -21,6 +26,9 @@
     
   </head>
   <body>
+  <?php  $Locatario = $PedidoLocatario->getLocatarioPedido();?>
+  <?php   $listaEndereco = $Locatario->getListaEndereco();?>
+
   
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
@@ -120,15 +128,12 @@
               <div class="form-group">
                 <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
                 <select id="c_country" class="form-control">
-                  <option value="1">Select a country</option>    
-                  <option value="2">bangladesh</option>    
-                  <option value="3">Algeria</option>    
-                  <option value="4">Afghanistan</option>    
-                  <option value="5">Ghana</option>    
-                  <option value="6">Albania</option>    
-                  <option value="7">Bahrain</option>    
-                  <option value="8">Colombia</option>    
-                  <option value="9">Dominican Republic</option>    
+
+                
+                  <option value="1">Selecione um endereço</option> 
+                  <?php   foreach($listaEndereco as $key=>$Endereco){?>
+                    <option value="<?php echo $key?>"><?php echo $Endereco->getLogradouro();?></option> 
+                  <?php   }?>   
                 </select>
               </div>
               <div class="form-group row">
@@ -305,25 +310,25 @@
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
-                      <th>Product</th>
+                      <th>Produto</th>
                       <th>Total</th>
                     </thead>
                     <tbody>
+
+                    <?php $listaDeProdutos = $PedidoLocatario->getlistaProduto();?>
+                    <?php foreach( $listaDeProdutos as $Produto){?>
                       <tr>
-                        <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
-                        <td>$250.00</td>
+                        <td> <?php echo $Produto->getNome();?> <strong class="mx-2">x</strong> 1</td>
+                        <td>R$ <?php echo $Produto->getValDiaria();?></td>
                       </tr>
-                      <tr>
-                        <td>Polo Shirt <strong class="mx-2">x</strong>   1</td>
-                        <td>$100.00</td>
-                      </tr>
+                    <?php }?>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">$350.00</td>
+                        <td class="text-black">R$<?php echo $PedidoLocatario->getValorTotal(); ?></td>
                       </tr>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+                        <td class="text-black font-weight-bold"><strong>R$<?php echo $PedidoLocatario->getValorTotal();?></strong></td>
                       </tr>
                     </tbody>
                   </table>
@@ -446,7 +451,27 @@
       </div>
     </footer>
   </div>
+  <script>
+    document.getElementById("c_country").addEventListener("change", myFunction);
 
+      function myFunction() {
+        var e = document.getElementById("c_country");
+        var value = e.options[e.selectedIndex].value;
+        
+        switch(value) {
+          <?php  foreach($listaEndereco as $key=>$Endereco){?>
+            <?php  echo "case ".$key.":"; ?>
+            <?php  echo "document.getElementById('c_fname').innerHTML ='".$Endereco->getLogradouro()."'" ?>
+            <?php  echo "break;"?>
+          <?php }?>
+            default:
+              // code block
+              }
+      }
+
+
+
+    </script>
   <script src="/js/loja_js/jquery-3.3.1.min.js"></script>
   <script src="/js/loja_js/jquery-ui.js"></script>
   <script src="/js/loja_js/popper.min.js"></script>
