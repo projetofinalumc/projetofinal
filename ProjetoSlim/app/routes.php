@@ -151,7 +151,7 @@ return function (App $app) {
    
    
    
-    //Testes 
+    //ROTAS PARA TESTES VICTOR
 
     $app->group('/Teste', function (Group $group) {
 
@@ -160,6 +160,7 @@ return function (App $app) {
         $group->post('/excluir', ControllerTest::class .':excluir');
         $group->post('/alterar', ControllerTest::class .':alterar');
         $group->get('/Home', ControllerSession::class .':login');
+        $group->get('/Entrar', ControllerSession::class .':entrar');
        
 
     });    

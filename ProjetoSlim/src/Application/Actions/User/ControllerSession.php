@@ -30,7 +30,7 @@ class ControllerSession
          
       
 
-        $renderer = new PhpRenderer(__DIR__."/../../Views/LocatarioDashboard/");
+        $renderer = new PhpRenderer(__DIR__."/../../Views/locatarioDashboard/");
 
         return $renderer->render($response, "login.php", $args);
     }
