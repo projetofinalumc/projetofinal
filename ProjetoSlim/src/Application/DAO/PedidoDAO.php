@@ -1,5 +1,5 @@
 <?php
-namespace App\Application\DAO;
+namespace App\Application\Models;
 
 use App\Application\Models\Produto;
 use App\Application\Models\Pedido;

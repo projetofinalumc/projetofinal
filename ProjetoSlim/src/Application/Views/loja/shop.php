@@ -67,36 +67,16 @@
         </div>
       </div> 
       <nav class="site-navigation text-right text-md-center" role="navigation">
-        <div class="container">
+      <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
-              <a href="index.html">Home</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <li class="">
+              <a href="/Inicio">Inicio</a>
             </li>
-            <li class="has-children">
-              <a href="about.html">About</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
-            </li>
-            <li class="active"><a href="shop.html">Shop</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="">
+              <a href="/Sobre">Sobre nós</a>
+            <li class="active"><a href="/produtos">Loja</a></li>
+            <!-- <li><a href="#">New Arrivals</a></li> -->
+            <li><a href="/contato">Contato</a></li>
           </ul>
         </div>
       </nav>

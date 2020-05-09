@@ -543,8 +543,8 @@
     </div>
 
 
-			<!-- modal large -->
-			<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+			<!-- modal large inicio-->
+			<div class="modal fade" id="largeModal<?php echo $pedido->getid();?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -568,7 +568,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- end modal large -->
+			<!-- end modal large fiim-->
 
     <!-- Jquery JS-->
     <script src="/vendor/jquery-3.2.1.min.js"></script>

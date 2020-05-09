@@ -8,30 +8,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/loja_css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/loja_css/magnific-popup.css">
-    <link rel="stylesheet" href="css/loja_css/jquery-ui.css">
-    <link rel="stylesheet" href="css/loja_css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/loja_css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/loja_css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/loja_css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/loja_css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/loja_css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/loja_css/owl.theme.default.min.css">
 
 
-    <link rel="stylesheet" href="css/loja_css/aos.css">
+    <link rel="stylesheet" href="/css/loja_css/aos.css">
 
-    <link rel="stylesheet" href="css/loja_css/style.css">
+    <link rel="stylesheet" href="/css/loja_css/style.css">
     
   </head>
   <body>
   
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
-      <div class="site-navbar-top">
+    <div class="site-navbar-top">
         <div class="container">
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
               <form action="" class="site-block-top-search">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
+                <input type="text" class="form-control border-0" placeholder="Pesquise">
               </form>
             </div>
 
@@ -44,13 +44,17 @@
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                <?php session_start();?>
+                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}?>
+                  <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Teste";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="cart.html" class="site-cart">
+                  <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
+                    <a href="/finalizar" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $_SESSION['Total_Carrinho']?></span>
                     </a>
+                    <?php }?>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
@@ -61,16 +65,15 @@
         </div>
       </div> 
       <nav class="site-navigation text-right text-md-center" role="navigation">
-        <div class="container">
+      <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="">
-              <a href="index.html">Inicio</a>
+            <li class="a">
+              <a href="/Inicio">Inicio</a>
             </li>
-            <li class="">
+            <li>
               <a href="/Sobre">Sobre nós</a>
-            </li>
-            <li><a href="shop.html">Loja</a></li>
-            <li><a href="#">Catálogo</a></li>
+            <li><a href="/produtos">Loja</a></li>
+            <!-- <li><a href="#">New Arrivals</a></li> -->
             <li class="active"><a href="/contato">Contato</a></li>
           </ul>
         </div>
@@ -220,15 +223,15 @@
     </footer>
   </div>
 
-  <script src="js/loja_js/jquery-3.3.1.min.js"></script>
-  <script src="js/loja_js/jquery-ui.js"></script>
-  <script src="js/loja_js/popper.min.js"></script>
-  <script src="js/loja_js/bootstrap.min.js"></script>
-  <script src="js/loja_js/owl.carousel.min.js"></script>
-  <script src="js/loja_js/jquery.magnific-popup.min.js"></script>
-  <script src="js/loja_js/aos.js"></script>
+  <script src="/js/loja_js/jquery-3.3.1.min.js"></script>
+  <script src="/js/loja_js/jquery-ui.js"></script>
+  <script src="/js/loja_js/popper.min.js"></script>
+  <script src="/js/loja_js/bootstrap.min.js"></script>
+  <script src="/js/loja_js/owl.carousel.min.js"></script>
+  <script src="/js/loja_js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/loja_js/aos.js"></script>
 
-  <script src="js/loja_js/main.js"></script>
+  <script src="/js/loja_js/main.js"></script>
     
   </body>
 </html>

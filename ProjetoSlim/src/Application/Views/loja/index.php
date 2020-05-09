@@ -73,7 +73,6 @@
             <li class="">
               <a href="/Sobre">Sobre nós</a>
             <li><a href="/produtos">Loja</a></li>
-            <li><a href="#">Catálogo</a></li>
             <!-- <li><a href="#">New Arrivals</a></li> -->
             <li><a href="/contato">Contato</a></li>
           </ul>
