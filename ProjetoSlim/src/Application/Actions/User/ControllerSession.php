@@ -28,7 +28,7 @@ class ControllerSession
 {   
     public function entrar (Request $request, Response $response, $args) {
          
-      
+        //teste de commit
 
         $renderer = new PhpRenderer(__DIR__."/../../Views/locatarioDashboard/");
 
