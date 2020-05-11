@@ -90,9 +90,30 @@ class ControllerPedido{
         
         return $renderer->render($response, "pedido.php", $args);
     }
-    public function Ver_Pedido_Administrador(Request $request, Response $response, $args)
+    public function gerandoPedido(Request $request, Response $response, $args)
     {
+        $pedido = $_SESSION['PedidoLocatario'];
+        $conn = ConnectionFactory::Connect();
+
+        $EnderecoSelecionado = new Endereco();
+        $EnderecoSelecionado->setId($_POST['idEndereco']);
+
+        $EnderecoDAO = new EnderecoDAO($conn);
+        $EnderecoPedido = $EnderecoDAO->buscarPorIdEndereco($EnderecoSelecionado);
+
+        $pedido->setEnderecoPedido($EnderecoPedido);
+
+        $data = getdate();
+
+        $dataPedido = $data['mday'].'/'.$data['mon'].'/'.$data['year'];
+        $dataDevolucao = $_POST['dataDevolucao'];
         
+        $pedido->setdataPedido($dataPedido);
+        $pedido->setDataDevolucao($dataDevolucao);
+
+        $PedidoDAO = new PedidoDAO($conn);
+
+        $PedidoDAO->gerarPedido($pedido);
     }
 }
 ?>

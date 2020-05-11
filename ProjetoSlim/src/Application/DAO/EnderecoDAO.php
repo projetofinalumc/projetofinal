@@ -64,6 +64,45 @@ class EnderecoDAO {
                     $enderecoLocatario->setLogradouro((string)$row["logradouro"]);
                     $enderecoLocatario->setId((int)$row["id_endereco"]);
                     $enderecoLocatario->setCep((int)$row["cep"]);
+                    $enderecoLocatario->setNumero((int)$row["numero"]);
+                    $enderecoLocatario->setEstado((string)$row["estado"]);
+                    $enderecoLocatario->setBairro((string)$row["Bairro"]);
+                    $listEnderecoLocatario[] = $enderecoLocatario;
+            
+            }
+      
+      return $listEnderecoLocatario;
+    }
+
+         $conexao->close();
+    }
+
+    public function buscarPorIdEndereco($endereco) {
+        //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+       
+        //Preparando um comando sql para parametrização           
+        $sql = "SELECT * FROM Endereco WHERE id_endereco = ?;";
+
+        $stmt = $this->conn->prepare($sql);   
+
+        $idEndereco = $endereco->getId();   
+    
+
+        //Passando os parametros e seus tipos (s = String, d = Double , i = Int)
+         $stmt->bind_param('i', $idEndereco);
+        
+         // Executando o comando parametrizad
+
+         if ($stmt->execute()){
+            /* store first result set */
+           $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {      
+
+                    $enderecoLocatario = new Endereco();
+                    $enderecoLocatario->setIdLocatario((int)$row["id_locatario"]);
+                    $enderecoLocatario->setLogradouro((string)$row["logradouro"]);
+                    $enderecoLocatario->setId((int)$row["id_endereco"]);
+                    $enderecoLocatario->setCep((int)$row["cep"]);
                     $enderecoLocatario->setEstado((string)$row["estado"]);
                     $enderecoLocatario->setBairro((string)$row["Bairro"]);
                     $listEnderecoLocatario[] = $enderecoLocatario;

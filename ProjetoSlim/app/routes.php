@@ -84,6 +84,22 @@ return function (App $app) {
 
 
         });
+
+        $group->get('/Sair', function($request, $response, $args){
+
+            if (session_status() !== PHP_SESSION_ACTIVE) {
+                session_start();
+                session_destroy();
+              }
+            
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+
+
+            return $renderer->render($response,"index.php",$args);
+
+
+        });
         $group->get('/Sobre', function($request, $response, $args){
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
 

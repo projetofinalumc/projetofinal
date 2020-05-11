@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="css/loja_css/aos.css">
 
     <link rel="stylesheet" href="css/loja_css/style.css">
-    
+    <script src="https://kit.fontawesome.com/a3c008cb1b.js" crossorigin="anonymous"></script>
+
   </head>
   <body>
   
@@ -42,23 +43,25 @@
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-              <div class="site-top-icons">
+            <div class="site-top-icons">
                 <ul>
                 <?php if (session_status() !== PHP_SESSION_ACTIVE) {
                             session_start();
                           }?>
                 <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}?>
                   <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Teste";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                  <li>                      
-                     <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
+                  <li>
+                  <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
                     <a href="/finalizar" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count"><?php echo $_SESSION['Total_Carrinho']?></span>
                     </a>
                     <?php }?>
                   </li> 
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                  <?php if(isset($_SESSION['idLocatario'])){ ?>
+                  <li><a href="/Sair"><span class="fa fa-power-off fa-lg"></span></a></li>
+                  <?php } ?>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="/" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
               </div> 
             </div>
