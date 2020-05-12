@@ -112,9 +112,6 @@ return function (App $app) {
             
 
         });
-        
-        
-
         $group->get('/AdicionarCarrinho', function($request, $response, $args){
             ControllerCarrinho::adicionarProduto($request, $response,$args);
            return ControllerProduto::listar($request, $response,$args);
@@ -156,9 +153,18 @@ return function (App $app) {
 
         
         $group->get('/Entrar' ,function ($request, $response, $args){
+
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+
             
             return $renderer->render($response, "login.php", $args);
+        });
+        $group->get('/ListaProduto' ,function ($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+
+            
+            return $renderer->render($response, "ListaProduto.php", $args);
         });
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->post('/Sair' , ControllerAdmin::class . 'logout');
