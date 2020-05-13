@@ -450,26 +450,35 @@
                                         <?php
                                         ?>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Nome</th>
-                                                <th>Modelo</th>
+                                                <th class="text-right">ID</th>
+                                                <th class="text-right">Nome</th>
+                                                <th class="text-right">Modelo</th>
                                                 <th class="text-right">Valor Diário</th>
                                                 <th class="text-right">Quantidade</th>
                                                 <th class="text-right">Preço de Perda</th>
                                             </tr>
                                         </thead>
+                                        <?php
+                                            
+                                            foreach($listProd as $produto){                                      
+                                        ?>
                                         <tbody>
                                             <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td><? echo $listProd->getid();?></td>
+                                            <td><? echo $listProd->getNome();?></td>
+                                            <td><? echo $listProd->getModelo();?></td>
+                                            <td><? echo $listProd->getvalDiaria();?></td>
+                                            <td><? echo $listProd->getDimensao();?></td>
+                                            <td><? echo $listProd->getQuantidade();?></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            
                         </div>
-                        
+                        <?php
+                         }
+                        ?>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
