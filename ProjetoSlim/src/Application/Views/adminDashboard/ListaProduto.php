@@ -459,17 +459,16 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                            
                                             foreach($listProd as $produto){                                      
                                         ?>
                                         <tbody>
                                             <tr>
-                                            <td><? echo $listProd->getid();?></td>
-                                            <td><? echo $listProd->getNome();?></td>
-                                            <td><? echo $listProd->getModelo();?></td>
-                                            <td><? echo $listProd->getvalDiaria();?></td>
-                                            <td><? echo $listProd->getDimensao();?></td>
-                                            <td><? echo $listProd->getQuantidade();?></td>
+                                            <td><? echo $produto->getid();?></td>
+                                            <td><? echo $produto->getNome();?></td>
+                                            <td><? echo $produto->getModelo();?></td>
+                                            <td><? echo $produto->getValDiaria();?></td>
+                                            <td><? echo $produto->getDimensao();?></td>
+                                            <td><? echo $produto->getQuantidade();?></td>
                                             </tr>
                                         </tbody>
                                     </table>
