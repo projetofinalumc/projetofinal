@@ -6,7 +6,7 @@ class ConnectionFactory {
 
     public static function Connect(){
 
-         return $mysqli = new \mysqli('localhost', 'root','123456AsD@','bancoteste123');
+         return $mysqli = new \MySQLi('localhost', 'root','','bancoteste123');
         
     }
 

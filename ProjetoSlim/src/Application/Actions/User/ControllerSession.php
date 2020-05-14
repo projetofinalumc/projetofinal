@@ -17,18 +17,17 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 require_once(__DIR__ . "/../../DAO/LocatarioDAO.php");
-require_once(__DIR__ . "/../../User/ControllerLocatario.php");
-//require_once (__DIR__."/../../Models/Locatario.classe.php");
+require_once(__DIR__."/../../Models/Locatario.classe.php");
 require_once(__DIR__ . "/../../DAO/EnderecoDAO.php");
 require_once(__DIR__ . "/../../Models/Endereco.classe.php");
-
+//  require_once(__DIR__ . "/../../Models/ConnectionFactory");
 
 
 class ControllerSession
 {   
     public function entrar (Request $request, Response $response, $args) {
          
-        //teste de commit
+        
 
         $renderer = new PhpRenderer(__DIR__."/../../Views/locatarioDashboard/");
 

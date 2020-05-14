@@ -153,14 +153,24 @@ return function (App $app) {
    
     //ROTAS PARA TESTES VICTOR
 
-    $app->group('/Teste', function (Group $group) {
+    $app->group('/victor', function (Group $group) {
 
-        $group->get('/produto', ControllerProduto::class .':listar');
-        $group->post('/categoria', ControllerTest::class .':adicionar');
-        $group->post('/excluir', ControllerTest::class .':excluir');
+        $group->get('/Login', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"login.php",$args);
+
+        });
+
+        $group->get('/locatario', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"table.php",$args);
+
+        });
+
+        
         $group->post('/alterar', ControllerTest::class .':alterar');
         $group->get('/Home', ControllerSession::class .':login');
-        $group->get('/Entrar', ControllerSession::class .':entrar');
+        $group->get('/ir', ControllerSession::class .':entrar');
        
 
     });    

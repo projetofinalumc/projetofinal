@@ -142,7 +142,7 @@ class ControllerLocatario
 
         $endereco_locatario->setIdLocatario($idloc);
 
-        $enderecoDAO = new \EnderecoDAO($conn);
+        $enderecoDAO = new EnderecoDAO($conn);
 
         $endereco = $enderecoDAO->buscarEnderecoPorId($endereco_locatario);
 
@@ -164,7 +164,7 @@ class ControllerLocatario
         $idloc = $_SESSION['idLocatario'];
 
 
-        $locatario = new \Locatario();
+        $locatario = new Locatario();
 
 
         $locatario->setId($idloc);
@@ -174,7 +174,7 @@ class ControllerLocatario
         $locatario->setSenha((string) $_POST['txtSenha']);
 
 
-        $locatarioDAO = new LocatarioDAO($conn);
+        $locatarioDAO = new \LocatarioDAO($conn);
 
         $locatarioDAO->alterarLocatario($locatario);
 
