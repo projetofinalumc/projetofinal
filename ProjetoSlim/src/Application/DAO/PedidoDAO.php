@@ -13,23 +13,48 @@ class PedidoDAO{
     public function __construct(\mysqli $conn){
         $this->conn = $conn;
     }
-    public function gerarPedido(Locatario $locatario){
-        $pedido = new Pedido();
+    public function gerarPedido($pedido){
 
         $valorTotal = $pedido->getvalorTotal();
         $dataPedido = $pedido->getdataPedido();
         $LocatarioPedido = $pedido->getLocatarioPedido();
-        $listaProduto = $pedido->getlistaProduto();
-        $sql = 'INSERT INTO Pedido (idPedido, valorTotal, dataPedido, LocatarioPedido, listaProduto) values (?,?,?,?,?)';
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(1, $idPedido);
+        $idLocatarioPedido = $LocatarioPedido->getId();
+
+        $listaProdutos = $pedidos->getlistaProduto();
+        $sql = 'INSERT INTO Pedido (dataPedido ,dataRetirada, valorTotal, dataDevolucao, id_endereco, idLocatario) values (?,?,?,?,?,?)';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $dataPedido);
         $stmt->bindParam(2, $valorTotal);
-        $stmt->bindParam(3, $dataPedido);
+        $stmt->bindParam(3, $LocatarioPedido);
         $stmt->bindParam(4, $LocatarioPedido);
-        $stmt->bindParam(5, $listaProduto);
+        $stmt->bindParam(5, $idLocatarioPedido);
         $stmt->execute();
-        $stmt->close(); 
+
+        $sql = 'SELECT LAST_INSERT_ID();';
+        $stmt->execute();
+        if($stmt->num_rows > 0){
+            while($rows = $stmt->fetch_assoc()){
+
+                $PedidoId = $row['LAST_INSERT_ID()'];
+                    }
+            }
+
+       foreach($listaProdutos as $produtos ){
+        $sql = 'INSERT INTO itemPedido (quantidade, fk_Produto) values (?,?,?)'; 
+       
+        $stmt = $this->conn->prepare($sql);
+
+        $quantidade = $produtos->getQuantidade();
+        
+        $stmt->bindParam(1, $valorDiaria);
+        $stmt->bindParam(3, $PedidoId);
+  
+        $stmt->execute();
+
+       }
+        
     }
+   
     public function BuscarPedidos_Locatario(Pedido $pedido){
         $locatario = $pedido->getLocatarioPedido();//Aqui instanciei um objeto de Locatario(Com todos os dados)
         $id_Locatario = $locatario->getId();//Aqui recebi apenas o id do locatario no Pedido.

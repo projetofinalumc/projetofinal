@@ -209,7 +209,7 @@ class ControllerLocatario
 
             $renderer = new PhpRenderer(__DIR__ . "/../../Views/loja/");
 
-            $_SESSION['user'] = "<div class='alert alert-sucess'>Login realizado com sucesso!</div>";
+           
             $_SESSION['idLocatario'] = $locatarioLogado->getId();
             $_SESSION['nomeLocatario'] =  $locatarioLogado->getNome();
             return $renderer->render($response, "index.php", $args);

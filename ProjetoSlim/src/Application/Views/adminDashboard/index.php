@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Área do Usuário</title>
 
     <!-- Fontfaces CSS-->
     <link href="/css/admin_css/font-face.css" rel="stylesheet" media="all">
@@ -166,10 +166,10 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tags"></i>Produtos</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Dashboard 2</a>
