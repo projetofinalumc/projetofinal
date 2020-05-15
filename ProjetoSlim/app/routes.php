@@ -175,25 +175,14 @@ return function (App $app) {
    
     //ROTAS PARA TESTES VICTOR
 
-    $app->group('/victor', function (Group $group) {
+    $app->group('/victor', function (Group $group) {    
 
-        $group->get('/Login', function ($request, $response, $args) {
+        //teste de view
+        $group->get('/Dados', function ($request, $response, $args) {
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
-            return $renderer->render($response,"login.php",$args);
+            return $renderer->render($response,"dadosLocatario.php",$args);
 
-        });
-
-        $group->get('/locatario', function ($request, $response, $args) {
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
-            return $renderer->render($response,"table.php",$args);
-
-        });
-
-        
-        $group->post('/alterar', ControllerTest::class .':alterar');
-        $group->get('/Home', ControllerSession::class .':login');
-        $group->get('/ir', ControllerSession::class .':entrar');
-       
+        });     
 
     });    
 
@@ -222,6 +211,30 @@ return function (App $app) {
         });
         
        
+        //Edições de Victor para Dashboard Locatario
+        $group->get('/Entrar', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"login.php",$args);
+
+        });
+
+        $group->get('/locatario', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"locatario.php",$args);
+
+        });
+
+        $group->get('/carrinho', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"chart.php",$args);
+
+        });
+
+        $group->post('/alterar', ControllerTest::class .':alterar');
+        $group->post('/Login', ControllerSession::class .':login');
+        $group->get('/Sair', ControllerSession::class .':logout');
+        $group->get('/ir', ControllerSession::class .':entrar');
+
 
     });    
     

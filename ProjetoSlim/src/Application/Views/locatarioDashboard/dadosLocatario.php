@@ -10,28 +10,28 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Forms</title>
+    <title>Meus Dados</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/admin_css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="/css/font-face.css" rel="stylesheet" media="all">
+    <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/admin_css/theme.css" rel="stylesheet" media="all">
+    <link href="/css/locatario_css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -454,26 +454,26 @@
                                         <div class="card-body card-block">
                                             <div class="form-group">
                                                 <label for="company" class=" form-control-label">Nome:</label>
-                                                <input type="text" id="company" value="<?php echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome"> 
+                                                <input type="text" id="company" value="<?php //echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome"> 
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Email</label>
-                                                <input type="text" id="vat" value="<?php echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
+                                                <input type="text" id="vat" value="<?php //echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Senha</label>
-                                                <input type="password" id="vat" value="<?php echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
+                                                <input type="password" id="vat" value="<?php //echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
                                             </div>
                                             <div class="form-group">
                                                 <label for="street" class=" form-control-label">Data de Nascimento</label>
-                                                <?php  $endereco = $dados_locatario->getEndereco(); ?>
+                                                <?php  //$endereco = $dados_locatario->getEndereco(); ?>
                                                 <input type="date" id="street" class="form-control" value="">
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-8">
                                                     <div class="form-group">
                                                         <label for="city" class=" form-control-label">CPF</label>
-                                                        <input type="text" id="city" placeholder="<?php echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF">
+                                                        <input type="text" id="city" placeholder="<?php //echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF">
                                                     </div>
                                                 </div>
 
@@ -490,29 +490,29 @@
                                     <div class="card-header">
                                         <strong>Basic Form</strong> Elements
                                     </div>
-                                    <?php $count = 0?>
-                                    <?php foreach($lista_endereco as $lista_endereco){?>
+                                    <?php //$count = 0?>
+                                    <?php //foreach($lista_endereco as $lista_endereco){?>
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                             
                                             
                                 <div class="card">
                                     <div class="card-header">
-                                       Endereco <strong>#<?php echo $count +=1 ?></strong> 
+                                       Endereco <strong>#<?php //echo $count +=1 ?></strong> 
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" class="form-inline">
                                             <div class="form-group">
                                                 <label for="exampleInputName2" class="pr-1  form-control-label">CEP</label>
-                                                <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getCep();?>" required="" class="form-control">
+                                                <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getCep();?>" required="" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName2" class="pr-1  form-control-label">Bairro</label>
-                                                <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getBairro();?>" required="" class="form-control">
+                                                <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getBairro();?>" required="" class="form-control">
                                             </di>
                                             <div class="form-group">
                                                 <label for="exampleInputName2" class="pr-1  form-control-label">Estado</label>
-                                                <input type="text" id="exampleInputName2"  value="<?php echo $lista_endereco->getEstado();?>" class="form-control">
+                                                <input type="text" id="exampleInputName2"  value="<?php //echo $lista_endereco->getEstado();?>" class="form-control">
                                             </div>
                                         </form>
                                     </div>
@@ -525,15 +525,13 @@
                                         </button>
                                     </div>
                                 </div>
-                                <?php }?>
+                                <?php //}?>
                              </div>
                             
                             
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

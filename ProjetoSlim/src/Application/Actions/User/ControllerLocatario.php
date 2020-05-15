@@ -65,7 +65,7 @@ class ControllerLocatario
         $endereco_locatario->setIdLocatario($locatarioCadastrado->getId());
 
 
-        $enderecoDAO = new \EnderecoDAO($conn);
+        $enderecoDAO = new EnderecoDAO($conn);
 
         $enderecoDAO->cadastrarEndereco($endereco_locatario);
 
@@ -88,7 +88,7 @@ class ControllerLocatario
         $novo_endereco->setCep((int) $_POST['numero_cep']);
         $novo_endereco->setEstado($_POST['estado_end']);
 
-        $novo_enderecoDAO = new \EnderecoDAO($conn);
+        $novo_enderecoDAO = new EnderecoDAO($conn);
 
         $novo_enderecoDAO->cadastrarEndereco($novo_endereco);
 
@@ -112,9 +112,9 @@ class ControllerLocatario
         $endereco_edit->setCep((int) $_POST['cep_edit']);
         $endereco_edit->setEstado($_POST['estado_edit']);
 
-        $endereco_editDAO = new \EnderecoDAO($conn);
+        $endereco_editDAO = new EnderecoDAO($conn);
 
-        $endereco_editDAO->alterarEndereco($endereco_edit);
+        $endereco_editDAO->alterarEndereco($_SESSION['idEndereco']);
 
 
         return $this->retornarDadosLocario($request, $response, $args);
@@ -174,9 +174,9 @@ class ControllerLocatario
         $locatario->setSenha((string) $_POST['txtSenha']);
 
 
-        $locatarioDAO = new \LocatarioDAO($conn);
+        $locatarioDAO = new LocatarioDAO($conn);
 
-        $locatarioDAO->alterarLocatario($locatario);
+        $locatarioDAO->alterarLocatario($_SESSION['idLocatario']);
 
 
 

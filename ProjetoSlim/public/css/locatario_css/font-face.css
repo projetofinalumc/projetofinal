@@ -102,6 +102,16 @@
        url('../fonts/poppins/poppins-v5-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../fonts/poppins/poppins-v5-latin-italic.svg#Poppins') format('svg'); /* Legacy iOS */
 }
+
+.site-navbar .site-logo a {
+    text-transform: uppercase;
+    color: #25262a;
+    letter-spacing: .2em;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid #25262a; }
+
 /* poppins-500 - latin */
 @font-face {
   font-family: 'Poppins';

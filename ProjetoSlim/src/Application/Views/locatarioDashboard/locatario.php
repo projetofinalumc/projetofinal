@@ -14,6 +14,7 @@
 
     <!-- Fontfaces CSS-->
     <link href="/css/font-face.css" rel="stylesheet" media="all">
+    <link href="/css/style.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -42,9 +43,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
-                        </a>
+                        <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -156,10 +155,10 @@
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
-                </a>
+            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                <div class="site-logo">
+                    <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
+                </div>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -187,17 +186,17 @@
                                 <i class="fas fa-box"></i>Pedidos</a>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="/Locatario">
                                 <i class="fas fa-shopping-cart"></i>Carrinho</a>
                         </li>
                         <li>
-                            <a href="Home">
-                                <i class="fa fa-user"></i>Cadastro</a>
+                            <a href="/Locatario/">
+                                <i class="fa fa-user"></i>Meus Dados</a>
                         </li>
-                                          
-                       
-                            </ul>
-                        </li>
+
+
+                    </ul>
+                    </li>
                     </ul>
                 </nav>
             </div>
@@ -219,7 +218,7 @@
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                    <div class="noti__item js-item-menu">
+                                    <!-- <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-comment-more"></i>
                                         <span class="quantity">1</span>
                                         <div class="mess-dropdown js-dropdown">
@@ -250,7 +249,7 @@
                                                 <a href="#">View all messages</a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> 
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-email"></i>
                                         <span class="quantity">1</span>
@@ -328,47 +327,45 @@
                                                 <a href="#">All notifications</a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
-                                        </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#"><?php if (session_status() !== PHP_SESSION_ACTIVE) {
+                                                                                session_start();
+                                                                            } ?>
+                                                <?php if (isset($_SESSION['nomeLocatario'])) {
+                                                    echo "Bem Vindo! " . $_SESSION['nomeLocatario'];
+                                                } ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
-                                                </div>
                                                 <div class="content">
                                                     <h5 class="name">
                                                         <a href="#">john doe</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?php if (isset($_SESSION['nomeLocatario'])) {
+                                                    echo "Bem Vindo! " . $_SESSION['nomeLocatario']; } ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                    <a href="/victor/locatario">
+                                                        <i class="zmdi zmdi-account"></i>Conta</a>
                                                 </div>
-                                                <div class="account-dropdown__item">
+                                                <!-- <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <a href="/Locatario/Sair">
+                                                    <i class="zmdi zmdi-power"></i>Sair</a>
                                             </div>
                                         </div>
                                     </div>
@@ -467,14 +464,12 @@
                                     </table>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -485,32 +480,33 @@
     </div>
 
 
-			<!-- modal large inicio-->
-			<div class="modal fade" id="largeModal<?php //echo $pedido->getid();?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<p>
-								There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra and the mountain
-								zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus Dolichohippus. The latter
-								resembles an ass, to which it is closely related, while the former two are more horse-like. All three belong to the
-								genus Equus, along with other living equids.
-							</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-							<button type="button" class="btn btn-primary">Confirm</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end modal large fiim-->
+    <!-- modal large inicio-->
+    <div class="modal fade" id="largeModal<?php //echo $pedido->getid();
+                                            ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra and the mountain
+                        zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus Dolichohippus. The latter
+                        resembles an ass, to which it is closely related, while the former two are more horse-like. All three belong to the
+                        genus Equus, along with other living equids.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal large fiim-->
 
     <!-- Jquery JS-->
     <script src="/vendor/jquery-3.2.1.min.js"></script>
