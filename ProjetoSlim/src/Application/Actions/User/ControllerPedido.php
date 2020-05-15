@@ -92,11 +92,22 @@ class ControllerPedido{
     }
     public function gerandoPedido(Request $request, Response $response, $args)
     {
+            session_start();
+
+        
         $pedido = $_SESSION['PedidoLocatario'];
+        $todosEnderecos = $_POST['inputEndereco'];
+        
+        $N = count($todosEnderecos);
+        $enderecoSelecionado = 0;
+        for($i=0; $i < $N; $i++)
+        {
+            $enderecoSelecionado = $todosEnderecos[$i];
+        }
         $conn = ConnectionFactory::Connect();
 
         $EnderecoSelecionado = new Endereco();
-        $EnderecoSelecionado->setId($_POST['idEndereco']);
+        $EnderecoSelecionado->setId($enderecoSelecionado);
 
         $EnderecoDAO = new EnderecoDAO($conn);
         $EnderecoPedido = $EnderecoDAO->buscarPorIdEndereco($EnderecoSelecionado);
@@ -106,14 +117,20 @@ class ControllerPedido{
         $data = getdate();
 
         $dataPedido = $data['mday'].'/'.$data['mon'].'/'.$data['year'];
-        $dataDevolucao = $_POST['dataDevolucao'];
+        //$dataDevolucao = $_POST['dataDevolucao'];
         
         $pedido->setdataPedido($dataPedido);
-        $pedido->setDataDevolucao($dataDevolucao);
+        //$pedido->setDataDevolucao($dataDevolucao);
 
         $PedidoDAO = new PedidoDAO($conn);
 
         $PedidoDAO->gerarPedido($pedido);
+
+
+        $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+        
+        return $renderer->render($response, "about.php", $args);
     }
+
 }
 ?>
