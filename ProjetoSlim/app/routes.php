@@ -169,7 +169,7 @@ return function (App $app) {
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->post('/Sair' , ControllerAdmin::class . ':logout');
         $group->get('/ListaProduto', ControllerProduto::class . ':listarprodutoAdmin');
-        $group->get('/table', ControllerProduto::class . ':listarprodutoAdmin');
+        // $group->get('/table', ControllerProduto::class . ':listarprodutoAdmin');
     });
    
    

@@ -53,7 +53,7 @@ class ControllerProduto{
  
          $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
  
-         return $renderer->render($response, "table.php", $args);
+         return $renderer->render($response, "ListaProduto.php", $args);
  
      }
  

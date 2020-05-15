@@ -14,21 +14,21 @@
 
     <!-- Fontfaces CSS-->
     <link href="/css/admin_css/font-face.css" rel="stylesheet" media="all">
-    <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-    <!-- /vendor CSS-->
-    <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="/css/admin_css/theme.css" rel="stylesheet" media="all">
@@ -510,13 +510,13 @@
                                                 <th>dimensao</th>
                                                 <th>quantidade</th>
                                                 <th>Preco Perda</th>
-                            
+                                                <th>Categoria</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         <?php
-                                          foreach ($ListaProduto as $ListaProduto){
+                                        foreach ($ListProduto as $produto){
                                         ?>
                                             <tr class="tr-shadow">
                                                 <td>
@@ -525,22 +525,22 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </td>
-                                                <td><?php echo (string)$ListaProduto->getId();?></td>
-                                                <td><?php echo (string)$ListaProduto->getNome();?></td>
+                                                <td><?php echo $produto->getId();?></td>
+                                                <td><?php echo $produto->getNome();?></td>
                                                 <td>
                                                     <span><?php echo (string)$ListaProduto->getModelo();?></span>
                                                 </td>
-                                                <td><?php echo (string)$ListaProduto->getValDiaria();?></td>
-                                                <td><?php echo (string)$ListaProduto->getDimensao();?></td>
-                                                <td><?php echo (string)$ListaProduto->getQuantidade();?></td>
-                                                <td><?php echo (string)$ListaProduto->getPrecoPerda();?></td>
-                                                    <td>
+                                                <td><?php echo $produto->getValDiaria();?></td>
+                                                <td><?php echo $produto->getDimensao();?></td>
+                                                <td><?php echo $produto->getQuantidade();?></td>
+                                                <td><?php echo $produto->getPrecoPerda();?></td>
+                                                <td>
                                                     <div class="table-data-feature">
-                                                    <a href="/editar/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a href="/editar/<?php echo (string)$ListProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
                                                 
-                                                        <a href="/produto/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <a href="/produto/<?php echo (string)$ListProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </a>
                                                     </div>
@@ -624,18 +624,18 @@
                                                 </div>
                                             </div>
 
-                                            <!-- <div class="row form-group">
+                                            <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="select" class=" form-control-label">Select</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <select name="id_categoria" id="select" class="form-control">
-                                                    <?php /*foreach ($ListaCategoria as $ListaCategoria){ */ ?>
-                                                        <option value="<?php// echo $ListaCategoria->getIdCategoria(); ?>"><?php //echo $ListaCategoria->getNomeCategoria(); ?></option>
-                                                    <?php /*}*/ ?>
+                                                    <?php foreach ($ListaCategoria as $ListaCategoria){  ?>
+                                                        <option value="<?php echo $ListaCategoria->getIdCategoria(); ?>"><?php echo $ListaCategoria->getNomeCategoria(); ?></option>
+                                                    <?php } ?>
                                                     </select>
                                                 </div>
-                                            </div> -->
+                                            </div>
 
                                         
                                     </div>
@@ -671,24 +671,24 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="/vendor/jquery-3.2.1.min.js"></script>
+    <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- /vendor JS       -->
-    <script src="/vendor/slick/slick.min.js">
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
     </script>
-    <script src="/vendor/wow/wow.min.js"></script>
-    <script src="/vendor/animsition/animsition.min.js"></script>
-    <script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="/vendor/counter-up/jquery.counterup.min.js">
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="/vendor/select2/select2.min.js">
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
