@@ -37,7 +37,26 @@ class ControllerProduto{
         $renderer = new PhpRenderer(__DIR__."/../../Views/loja/");
 
         return $renderer->render($response, "shop.php", $args);
+
     }
+
+    static function listarprodutoAdmin(Request $request, Response $response, $args) {
+         
+        $conn = ConnectionFactory::Connect();
+ 
+        $ProdutoDAO = new ProdutoDAO($conn);
+        
+        $ListProduto = $ProdutoDAO->verProduto();
+ 
+        $args = ["ListaProduto" => $ListProduto];
+         
+ 
+         $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+ 
+         return $renderer->render($response, "table.php", $args);
+ 
+     }
+ 
 
     public function cadastrarProduto(Request $request, Response $response, $args) {
          

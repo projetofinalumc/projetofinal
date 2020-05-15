@@ -458,26 +458,26 @@
                                                 <th class="text-right">Preço de Perda</th>
                                             </tr>
                                         </thead>
-                                        <?php
-                                            foreach($listProd as $produto){                                      
-                                        ?>
                                         <tbody>
+                                        <?php
+                                            foreach($ListaProduto as $produto){                                      
+                                        ?>
                                             <tr>
-                                            <td><? echo $produto->getid();?></td>
-                                            <td><? echo $produto->getNome();?></td>
-                                            <td><? echo $produto->getModelo();?></td>
-                                            <td><? echo $produto->getValDiaria();?></td>
-                                            <td><? echo $produto->getDimensao();?></td>
-                                            <td><? echo $produto->getQuantidade();?></td>
+                                            <td><?php echo $produto->getid();?></td>
+                                            <td><?php echo $produto->getNome();?></td>
+                                            <td><?php echo $produto->getModelo();?></td>
+                                            <td><?php echo $produto->getValDiaria();?></td>
+                                            <td><?php echo $produto->getDimensao();?></td>
+                                            <td><?php echo $produto->getQuantidade();?></td>
                                             </tr>
+                                            <?php
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                         }
-                        ?>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
