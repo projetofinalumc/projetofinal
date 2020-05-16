@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Tables</title>
+    <title>Lista Produtos</title>
 
     <!-- Fontfaces CSS-->
     <link href="/css/admin_css/font-face.css" rel="stylesheet" media="all">
@@ -172,7 +172,7 @@
                                     <a href="/Admin/ListaProduto">Lista de Produtos</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Dashboard 2</a>
+                                    <a href="">Novo Produto 2</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
@@ -481,16 +481,17 @@
                                             <i class="zmdi zmdi-filter-list"></i>filters</button>
                                     </div>
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add item</button>
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                            <select class="js-select2" name="type">
+                                        <!-- <button class="au-btn au-btn-icon au-btn--green au-btn--small"> -->
+                                        <a href="" class="btn btn-primary">Novo Produto</a>
+                                            <!-- <i class="zmdi zmdi-plus"></i>Novo Produto</button> -->
+                                        <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2"> -->
+                                            <!-- <select class="js-select2" name="type">
                                                 <option selected="selected">Export</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
+                                            </select> -->
+                                            <!-- <div class="dropDownSelect2"></div> -->
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                                 <div class="table-responsive table-responsive-data2">
