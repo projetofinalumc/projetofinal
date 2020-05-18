@@ -1,3 +1,15 @@
+<?php
+use Slim\Views\PhpRenderer;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+  }
+
+   
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +64,7 @@
                         </button>
                     </div>
                 </div>
-            </div>            
+            </div>
         </header>
         <!-- END HEADER MOBILE-->
 
@@ -66,7 +78,7 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active">
+                        <li>
                             <a href="/Locatario/locatario">
                                 <i class="fas fa-box"></i>Pedidos</a>
                         </li>
@@ -74,7 +86,7 @@
                             <a href="/Locatario">
                                 <i class="fas fa-shopping-cart"></i>Carrinho</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="/Locatario/DadosLocatario'">
                                 <i class="fa fa-user"></i>Meus Dados</a>
                         </li>
@@ -103,29 +115,26 @@
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                   
+
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php if (session_status() !== PHP_SESSION_ACTIVE) {
-                                                                                session_start();
-                                                                            } ?>
-                                                <?php if (isset($_SESSION['nomeLocatario'])) {
-                                                    echo "Bem Vindo! " . $_SESSION['nomeLocatario'];
-                                                } ?></a>
+                                            <a class="js-acc-btn" href="#"><?php if (isset($_SESSION['nomeLocatario'])) { echo "Bem Vindo! " . $_SESSION['nomeLocatario']; } ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="content">
-                                                     <span class="email"><?php if (isset($_SESSION['nomeLocatario'])) { echo " " . $_SESSION['nomeLocatario']; } ?></span>
+                                                    <span class="email"><?php if (isset($_SESSION['nomeLocatario'])) { echo " " . $_SESSION['nomeLocatario']; } ?></span>
+                                                                            
+                                                                    
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="/victor/locatario">
                                                         <i class="zmdi zmdi-account"></i>Conta</a>
-                                                </div>                                                
+                                                </div>
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="/Locatario/Sair">
@@ -146,22 +155,24 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                           
+
                             <div class="col-lg-6">
 
-                               <?php //foreach ($dados_locatario as $dados_locatario){  ?>
-                               <form action="/Locatario/retornaDados" method="get">
+                                
+                                <form action="/Locatario/retornaDados" method="post">
                                     <div class="card">
                                         <div class="card-header">
                                             <strong>Dados Pessoais</strong>
-                                            <small> Form</small>
+
                                         </div>
 
-                                                
+                                        <?php foreach ($dados_locatario as $dados_locatario){  
+                                            //echo $dadoslocatario->getNome();    
+                                        ?>
                                         <div class="card-body card-block">
                                             <div class="form-group">
                                                 <label for="company" class=" form-control-label">Nome:</label>
-                                                <input type="text" id="company" value="<?php //echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome"> 
+                                                <input type="text" id="company" value="<?php //echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome">
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Email</label>
@@ -172,106 +183,116 @@
                                                 <input type="password" id="vat" value="<?php //echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
                                             </div>
                                             <div class="form-group">
-                                                <label for="street" class=" form-control-label">Data de Nascimento</label>
-                                                <?php  //$endereco = $dados_locatario->getEndereco(); ?>
+                                                <label for="street" class=" form-control-label">Data de Nascimento</label><?php  //$endereco = $dados_locatario->getEndereco(); ?>
                                                 <input type="date" id="street" class="form-control" value="">
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-8">
                                                     <div class="form-group">
                                                         <label for="city" class=" form-control-label">CPF</label>
-                                                        <input type="text" id="city" placeholder="<?php //echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF">
+                                                        <input type="text" id="city" placeholder="<?php //echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF"> 
+                                                                                                    
                                                     </div>
                                                 </div>
 
                                             </div>
                                             <button type="submit" class="btn btn-warning">
-                                                <i class="fa fa-pencil"></i> Editar
+                                                <i class="fa fa-edit"></i> Atualizar
+                                            </button>
+                                            <button type="reset" class="btn btn-danger">
+                                                <i class="fa fa-trash"></i> Limpar
                                             </button>
                                         </div>
                                     </div>
                                 </form>
-                               <?php //}?>
+                                <?php } ?>
                             </div>
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Basic Form</strong> Elements
+                                        <strong>Endereço</strong>
                                     </div>
-                                    <?php //$count = 0?>
-                                    <?php //foreach($lista_endereco as $lista_endereco){?>
+                                    <?php //$count = 0
+                                    ?>
+                                    <?php //foreach($lista_endereco as $lista_endereco){
+                                    ?>
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                            
-                                            
-                                <div class="card">
-                                    <div class="card-header">
-                                       Endereco <strong>#<?php //echo $count +=1 ?></strong> 
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="" method="post" class="form-inline">
-                                            <div class="form-group">
-                                                <label for="exampleInputName2" class="pr-1  form-control-label">CEP</label>
-                                                <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getCep();?>" required="" class="form-control">
+
+
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Endereco <strong>#<?php //echo $count +=1 
+                                                                        ?></strong>
+                                                </div>
+                                                <div class="card-body card-block">
+                                                    <form action="" method="post" class="form-inline">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName2" class="pr-1  form-control-label">CEP</label>
+                                                            <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getCep();
+                                                                                                                ?>" required="" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName2" class="pr-1  form-control-label">Bairro</label>
+                                                            <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getBairro();
+                                                                                                                ?>" required="" class="form-control">
+                                                            </di>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputName2" class="pr-1  form-control-label">Estado</label>
+                                                                <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getEstado();
+                                                                                                                    ?>" class="form-control">
+                                                            </div>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-send"></i> Editar
+                                                    </button>
+                                                    <button type="reset" class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i> Limpar
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputName2" class="pr-1  form-control-label">Bairro</label>
-                                                <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getBairro();?>" required="" class="form-control">
-                                            </di>
-                                            <div class="form-group">
-                                                <label for="exampleInputName2" class="pr-1  form-control-label">Estado</label>
-                                                <input type="text" id="exampleInputName2"  value="<?php //echo $lista_endereco->getEstado();?>" class="form-control">
-                                            </div>
-                                        </form>
+                                            <?php //}
+                                            ?>
                                     </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reset
-                                        </button>
+
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                        </div>
                                     </div>
                                 </div>
-                                <?php //}?>
-                             </div>
-                            
-                            
-                        <div class="row">
-                            <div class="col-md-12">
-                                
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
-        </div>
 
-    </div>
+                <!-- Jquery JS-->
+                <script src="/vendor/jquery-3.2.1.min.js"></script>
+                <!-- Bootstrap JS-->
+                <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
+                <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+                <!-- Vendor JS       -->
+                <script src="/vendor/slick/slick.min.js">
+                </script>
+                <script src="/vendor/wow/wow.min.js"></script>
+                <script src="/vendor/animsition/animsition.min.js"></script>
+                <script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+                </script>
+                <script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
+                <script src="/vendor/counter-up/jquery.counterup.min.js">
+                </script>
+                <script src="/vendor/circle-progress/circle-progress.min.js"></script>
+                <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+                <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
+                <script src="/vendor/select2/select2.min.js">
+                </script>
 
-    <!-- Jquery JS-->
-    <script src="/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="/vendor/slick/slick.min.js">
-    </script>
-    <script src="/vendor/wow/wow.min.js"></script>
-    <script src="/vendor/animsition/animsition.min.js"></script>
-    <script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="/vendor/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="/js/admin_js/main.js"></script>
+                <!-- Main JS-->
+                <script src="/js/admin_js/main.js"></script>
 
 </body>
 

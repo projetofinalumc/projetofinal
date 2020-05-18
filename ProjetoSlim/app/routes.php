@@ -180,9 +180,9 @@ return function (App $app) {
     $app->group('/victor', function (Group $group) {    
 
         //teste de view
-        $group->get('/', function ($request, $response, $args) {
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
-            return $renderer->render($response,"dadosLocatario.php",$args);
+        $group->get('/entrar', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+            return $renderer->render($response,"index.php",$args);
 
         });     
 
@@ -232,17 +232,12 @@ return function (App $app) {
 
         });
 
-        $group->get('/DadosLocatario', function ($request, $response, $args) {
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
-            return $renderer->render($response,"dadosLocatario.php",$args);
-
-        });
+        $group->get('/DadosLocatario', ControllerLocatario::class .':retornarDadosLocario');
 
         $group->post('/alterar', ControllerTest::class .':alterar');
         $group->post('/Login', ControllerSession::class .':login');
         $group->get('/Sair', ControllerSession::class .':logout');
-        $group->get('/ir', ControllerSession::class .':entrar');
-        $group->get('/retornaDados', ControllerLocatario::class .':retornarDadosLocario');
+        $group->post('/retornaDados', ControllerLocatario::class .':retornarDadosLocario');
 
     });    
     

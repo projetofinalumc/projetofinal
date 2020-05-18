@@ -63,10 +63,11 @@ class LocatarioDAO {
 
     public function buscarLocatarioPorID($locatario){
         
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+        //$conexao = new \mysqli('loca', 'usercaneta123','123456as','bancoteste123');
+
 
         $id = $locatario->getId();
-        $stmt = $conexao->prepare("SELECT * FROM Locatario WHERE id = ?;");
+        $stmt = $this->conn->prepare("SELECT * FROM Locatario WHERE id = ?;");
         
       
         $stmt->bind_param('i', $id );
@@ -77,14 +78,15 @@ class LocatarioDAO {
                 while ($row = $result->fetch_assoc()) {                       
                         $novo_locatario = new Locatario();
 
-                        $novo_locatario->setId($row["id"]);
+                        $novo_locatario->setId((int)$row["id"]);
                         $novo_locatario->setCPF($row["cpf"]);
                         $novo_locatario->setNome((string)$row["Nome"]);
                         $novo_locatario->setEmail((string)$row["email"]);
                 
+                        $listLocatario[] = $novo_locatario;
                 }
           
-          return $novo_locatario;
+          return $listLocatario;
         }
         return false;
     }
@@ -142,7 +144,7 @@ class LocatarioDAO {
         $stmt->close();
     }
     
-    public function alterarLocatario(\Locatario $locatario){
+    public function alterarLocatario(Locatario $locatario){
 
         $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
@@ -159,7 +161,7 @@ class LocatarioDAO {
         $stmt->close();             
     }
     
-    public function alterarEnderecoLocatario(\Locatario $locatario){
+    public function alterarEnderecoLocatario(Locatario $locatario){
 
         $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 

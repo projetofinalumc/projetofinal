@@ -45,10 +45,10 @@ class ProdutoDAO {
        
     }
 
-    public function adicionarProduto(\Produto $prodt) {
+    public function adicionarProduto(Produto $prodt) {
               //Preparando um comando sql para parametrização     
         $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda,categoria) Values(?,?,?,?,?,?,?);";                    
-      $stmt = $conn->prepare($sql);
+      $stmt = $this->conn->prepare($sql);
       //Passando os parametros e seus tipos (s = String, d = Double , i = Int)
       $nome = $prodt->getNome();
       $modelo = $prodt->getModelo();

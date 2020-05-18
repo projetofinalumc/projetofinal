@@ -82,7 +82,7 @@ class ControllerSession
             }
             
 
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+            $renderer = new PhpRenderer(__DIR__ . "/../../Views/loja/");
 
 
             return $renderer->render($response,"index.php",$args);

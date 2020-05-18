@@ -74,7 +74,7 @@
                                 <i class="fas fa-shopping-cart"></i>Carrinho</a>
                         </li>
                         <li>
-                            <a href="/Locatario/DadosLocatario'">
+                            <a href="/Locatario/DadosLocatario">
                                 <i class="fa fa-user"></i>Meus Dados</a>
                         </li>
 

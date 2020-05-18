@@ -127,13 +127,16 @@ class ControllerLocatario
     {
 
         $conn = ConnectionFactory::Connect();
-       // session_start();
+        
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
 
         $idloc = $_SESSION['idLocatario'];
 
         $locatario = new Locatario();
 
-        $locatario->setId((int) $idloc);
+        $locatario->setId((int)$idloc);
         $locatarioDAO = new LocatarioDAO($conn);
 
         $DadosLocatario = $locatarioDAO->buscarLocatarioPorID($locatario);
@@ -213,6 +216,7 @@ class ControllerLocatario
             $_SESSION['idLocatario'] = $locatarioLogado->getId();
             $_SESSION['nomeLocatario'] =  $locatarioLogado->getNome();
             return $renderer->render($response, "index.php", $args);
+
         } else {
 
             $renderer = new PhpRenderer(__DIR__ . "/../../Views/locatarioDashboard/");
@@ -221,5 +225,8 @@ class ControllerLocatario
 
             return $renderer->render($response, "login.php", $args);
         }
+
     }
+
+    
 }
