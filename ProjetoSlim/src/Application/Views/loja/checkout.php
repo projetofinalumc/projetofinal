@@ -2,7 +2,7 @@
 <?php if (session_status() !== PHP_SESSION_ACTIVE) {
                             session_start();
                           }
-  $PedidoLocatario = $_SESSION['PedidoLocatario']                         
+  $PedidoLocatario = $_SESSION['PedidoLocatario'];                       
   ?>
 <html lang="en">
   <head>
@@ -19,12 +19,37 @@
     <link rel="stylesheet" href="/css/loja_css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/loja_css/owl.theme.default.min.css">
 
-
     <link rel="stylesheet" href="/css/loja_css/aos.css">
 
     <link rel="stylesheet" href="/css/loja_css/style.css">
     
   </head>
+  <script>
+ 
+  function checkEndereco(idProduto) {
+  document.getElementById("c_ship_different_address").checked = false;
+  document.getElementById("ship_different_address").className = "collapse";
+
+  var inputs = document.querySelectorAll('.c_create_account'); 
+     for (var i = 0; i < inputs.length; i++) { 
+          if(inputs[i].getAttribute('id') !== idProduto){
+            inputs[i].checked = false; 
+            document.getElementById("endereco" + inputs[i].getAttribute('id')).className = "collapse";
+          }
+            
+        } 
+
+
+}
+function checkOutroEndereco() {
+  var inputs = document.querySelectorAll('.c_create_account'); 
+        for (var i = 0; i < inputs.length; i++) { 
+            inputs[i].checked = false; 
+            document.getElementById("endereco" + inputs[i].getAttribute('id')).className = "collapse";
+        } 
+
+}
+  </script>
   <body>
   <?php  $Locatario = $PedidoLocatario->getLocatarioPedido();?>
   <?php   $listaEndereco = $Locatario->getListaEndereco();?>
@@ -113,6 +138,7 @@
     </div>
 
     <div class="site-section">
+     <form action="/Loja/pedidoFinal" method="POST">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12">
@@ -129,8 +155,8 @@
               <label for="c_country" class="text-black">Escolha um endereço para envio: <span class="text-danger">*</span></label>
               <?php  foreach($listaEndereco as $key=>$Endereco){?>
               <div class="form-group">
-                <label for="c_create_account" class="text-black" data-toggle="collapse" href="#endereco<?php echo $key?>" role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account"> <?php echo $Endereco->getLogradouro();?></label>
-                <div class="collapse" id="endereco<?php echo $key?>">
+                <label for="c_create_account" class="text-black"  aria-controls="create_an_account"><input  name="inputEndereco[]" data-toggle="collapse" href="#endereco<?php echo $Endereco->getId();?>" role="button" aria-expanded="false" onclick="checkEndereco('<?php echo $Endereco->getId();?>')" type="checkbox" value="<?php echo $Endereco->getId();?>" class="c_create_account" id="<?php echo $Endereco->getId();?>"> <?php echo $Endereco->getLogradouro();?></label>
+                <div class="collapse" id="endereco<?php echo $Endereco->getId();?>">
                   <div class="py-2">
                     <p class="mb-3"> <?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero()." ".$Endereco->getBairro()." ".$Endereco->getEstado();?> </p>
                   </div>
@@ -141,7 +167,7 @@
 
 
               <div class="form-group">
-                <label for="c_ship_different_address" class="text-black" data-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" aria-controls="ship_different_address"><input type="checkbox" value="1" id="c_ship_different_address"> Ship To A Different Address?</label>
+                <label for="c_ship_different_address" class="text-black"  ><input  aria-controls="ship_different_address" data-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" onclick="checkOutroEndereco()" type="checkbox" value="1" id="c_ship_different_address"> Ship To A Different Address?</label>
                 <div class="collapse" id="ship_different_address">
                   <div class="py-2">
 
@@ -297,7 +323,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Place Order</button>
                   </div>
 
                 </div>
@@ -308,6 +334,7 @@
         </div>
         <!-- </form> -->
       </div>
+     </form>
     </div>
 
     <footer class="site-footer border-top">
@@ -379,7 +406,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-          
+          <?php #session_regenerate_id(); session_write_close();?>
         </div>
       </div>
     </footer>

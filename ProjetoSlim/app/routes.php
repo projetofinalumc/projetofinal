@@ -160,16 +160,17 @@ return function (App $app) {
             
             return $renderer->render($response, "login.php", $args);
         });
-        $group->get('/ListaProduto' ,function ($request, $response, $args){
+        // $group->get('/ListaProduto' ,function ($request, $response, $args){
 
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+        //     $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
 
             
-            return $renderer->render($response, "ListaProduto.php", $args);
-        });
+        //     return $renderer->render($response, "ListaProduto.php", $args);
+        // });
         $group->post('/Home', ControllerAdmin::class .':login');
-        $group->post('/Sair' , ControllerAdmin::class . 'logout');
-       
+        $group->post('/Sair' , ControllerAdmin::class . ':logout');
+        $group->get('/ListaProduto', ControllerProduto::class . ':listarprodutoAdmin');
+        // $group->get('/table', ControllerProduto::class . ':listarprodutoAdmin');
     });
    
    
@@ -250,6 +251,12 @@ return function (App $app) {
     $app->group('/Loja', function (Group $group) {
 
         $group->get('/checkout',ControllerPedido::class . ':gerarPedido');
+        #$group->post('/pedidoFinal',ControllerPedido::class . ':gerandoPedido');
+        $group->post('/pedidoFinal', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"teste2.php",$args);
+
+        });
     });
     //Locatario
     // $app->group('/Locatario', function(Group $group){

@@ -10,35 +10,35 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Lista Produtos</title>
+    <title>Forms</title>
 
     <!-- Fontfaces CSS-->
-    <link href="/css/admin_css/font-face.css" rel="stylesheet" media="all">
-    <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="css/admin_css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-    <!-- /vendor CSS-->
-    <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="/css/admin_css/theme.css" rel="stylesheet" media="all">
+    <link href="css/admin_css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <!-- <header class="header-mobile d-block d-lg-none">
+        <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
@@ -151,15 +151,14 @@
                     </ul>
                 </div>
             </nav>
-        </header> -->
+        </header>
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="/Inicio">
-                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
-                    <h2>Loca Articles</h2>
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -167,13 +166,13 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tags"></i>Produtos</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
+                                    <a href="index.html">Dashboard 1</a>
                                 </li>
                                 <li>
-                                    <a href="">Novo Produto 2</a>
+                                    <a href="index2.html">Dashboard 2</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
@@ -183,15 +182,15 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
-                        <li class="active">
-                            <a href="table.html">
+                        <li>
+                            <a href="/Tabelas">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
@@ -202,8 +201,8 @@
                         <li>
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li> -->
-                        <!-- <li class="has-sub">
+                        </li>
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -217,8 +216,8 @@
                                     <a href="forget-pass.html">Forget Password</a>
                                 </li>
                             </ul>
-                        </li> -->
-                        <!-- <li class="has-sub">
+                        </li>
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -256,7 +255,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -437,209 +436,85 @@
                     </div>
                 </div>
             </header>
-            <!-- END HEADER DESKTOP-->
+            <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                        </div>
-                        <div class="row">
+                           
                             <div class="col-lg-6">
-                                <!-- USER DATA-->
-                                <!-- END USER DATA-->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- TOP CAMPAIGN-->
-                                
-                                <!--  END TOP CAMPAIGN-->
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Lista de Produtos</h3>
-                                <div class="table-data__tool">
-                                    <div class="table-data__tool-left">
-                                        <div class="rs-select2--light rs-select2--md">
-                                            <select class="js-select2" name="property">
-                                                <option selected="selected">All Properties</option>
-                                                <option value="">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
+                               <form action="/Editar" method="post">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <strong>Dados Pessoais</strong>
+                                            <small> Form</small>
                                         </div>
-                                        <div class="rs-select2--light rs-select2--sm">
-                                            <select class="js-select2" name="time">
-                                                <option selected="selected">Today</option>
-                                                <option value="">3 Days</option>
-                                                <option value="">1 Week</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <button class="au-btn-filter">
-                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                    </div>
-                                    <div class="table-data__tool-right">
-                                        <!-- <button class="au-btn au-btn-icon au-btn--green au-btn--small"> -->
-                                        <a href="" class="btn btn-primary">Novo Produto</a>
-                                            <!-- <i class="zmdi zmdi-plus"></i>Novo Produto</button> -->
-                                        <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2"> -->
-                                            <!-- <select class="js-select2" name="type">
-                                                <option selected="selected">Export</option>
-                                                <option value="">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select> -->
-                                            <!-- <div class="dropDownSelect2"></div> -->
-                                        <!-- </div> -->
-                                    </div>
-                                </div>
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </th>
-                                                <th>id</th>
-                                                <th>nome</th>
-                                                <th>modelo</th>
-                                                <th>Valor Diaria</th>
-                                                <th>dimensao</th>
-                                                <th>quantidade</th>
-                                                <th>Preco Perda</th>
-                            
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php
-                                          foreach ($ListaProduto as $ListaProduto){
-                                        ?>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td><?php echo (string)$ListaProduto->getId();?></td>
-                                                <td><?php echo (string)$ListaProduto->getNome();?></td>
-                                                <td>
-                                                    <span><?php echo (string)$ListaProduto->getModelo();?></span>
-                                                </td>
-                                                <td><?php echo (string)$ListaProduto->getValDiaria();?></td>
-                                                <td><?php echo (string)$ListaProduto->getDimensao();?></td>
-                                                <td><?php echo (string)$ListaProduto->getQuantidade();?></td>
-                                                <td><?php echo (string)$ListaProduto->getPrecoPerda();?></td>
-                                                    <td>
-                                                    <div class="table-data-feature">
-                                                    <a href="/editar/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                
-                                                        <a href="/produto/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </a>
+                                        <div class="card-body card-block">
+                                            <div class="form-group">
+                                                <label for="company" class=" form-control-label">Nome:</label>
+                                                <input type="text" id="company" value="<?php echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome"> 
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="vat" class=" form-control-label">Email</label>
+                                                <input type="text" id="vat" value="<?php echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="vat" class=" form-control-label">Senha</label>
+                                                <input type="password" id="vat" value="<?php echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="street" class=" form-control-label">Data de Nascimento</label>
+                                                <?php  $endereco = $dados_locatario->getEndereco(); ?>
+                                                <input type="date" id="street" class="form-control" value="">
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-8">
+                                                    <div class="form-group">
+                                                        <label for="city" class=" form-control-label">CPF</label>
+                                                        <input type="text" id="city" placeholder="<?php echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF">
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                          <?php }?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- END DATA TABLE -->
+                                                </div>
+
+                                            </div>
+                                            <button type="submit" class="btn btn-warning">
+                                                <i class="fa fa-pencil"></i> Editar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
-                        <!--form teste--> 
-                         <div class="card">
+                            <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Basic Form</strong> Elements
                                     </div>
+                                    <?php $count = 0?>
+                                    <?php foreach($lista_endereco as $lista_endereco){?>
                                     <div class="card-body card-block">
-                                        <form action="/cadastrar" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Static</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <p class="form-control-static">Username</p>
-                                                </div>
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            
+                                            
+                                <div class="card">
+                                    <div class="card-header">
+                                       Endereco <strong>#<?php echo $count +=1 ?></strong> 
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" class="form-inline">
+                                            <div class="form-group">
+                                                <label for="exampleInputName2" class="pr-1  form-control-label">CEP</label>
+                                                <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getCep();?>" required="" class="form-control">
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Nome</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtNome" placeholder="Text" class="form-control" require>
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputName2" class="pr-1  form-control-label">Bairro</label>
+                                                <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getBairro();?>" required="" class="form-control">
+                                            </di>
+                                            <div class="form-group">
+                                                <label for="exampleInputName2" class="pr-1  form-control-label">Estado</label>
+                                                <input type="text" id="exampleInputName2"  value="<?php echo $lista_endereco->getEstado();?>" class="form-control">
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Modelo</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtModelo" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Valor da Diaria</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtValDiaria" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Dimensão</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtDimensao" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Quantidade</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtQuantidade" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Preco Perda</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtPrecoPerda" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-
-                                            <!-- <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Select</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="id_categoria" id="select" class="form-control">
-                                                    <?php /*foreach ($ListaCategoria as $ListaCategoria){ */ ?>
-                                                        <option value="<?php// echo $ListaCategoria->getIdCategoria(); ?>"><?php //echo $ListaCategoria->getNomeCategoria(); ?></option>
-                                                    <?php /*}*/ ?>
-                                                    </select>
-                                                </div>
-                                            </div> -->
-
-                                        
+                                        </form>
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm">
@@ -650,14 +525,10 @@
                                         </button>
                                     </div>
                                 </div>
-                                </form>
-                        <div class="row m-t-30">
-                            <div class="col-md-12">
-                                <!-- DATA TABLE-->
-                                
-                                <!-- END DATA TABLE-->
-                            </div>
-                        </div>
+                                <?php }?>
+                             </div>
+                            
+                            
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -673,28 +544,28 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="/vendor/jquery-3.2.1.min.js"></script>
+    <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- /vendor JS       -->
-    <script src="/vendor/slick/slick.min.js">
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
     </script>
-    <script src="/vendor/wow/wow.min.js"></script>
-    <script src="/vendor/animsition/animsition.min.js"></script>
-    <script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="/vendor/counter-up/jquery.counterup.min.js">
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="/vendor/select2/select2.min.js">
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="/js/admin_js/main.js"></script>
+    <script src="js/admin_js/main.js"></script>
 
 </body>
 

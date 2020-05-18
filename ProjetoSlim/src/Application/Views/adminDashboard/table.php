@@ -516,7 +516,7 @@
                                         </thead>
                                         <tbody>
                                         <?php
-                                          foreach ($ListaProduto as $ListaProduto){
+                                        foreach ($ListProduto as $produto){
                                         ?>
                                             <tr class="tr-shadow">
                                                 <td>
@@ -525,23 +525,22 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </td>
-                                                <td><?php echo (string)$ListaProduto->getId();?></td>
-                                                <td><?php echo (string)$ListaProduto->getNome();?></td>
+                                                <td><?php echo $produto->getId();?></td>
+                                                <td><?php echo $produto->getNome();?></td>
                                                 <td>
                                                     <span><?php echo (string)$ListaProduto->getModelo();?></span>
                                                 </td>
-                                                <td><?php echo (string)$ListaProduto->getValDiaria();?></td>
-                                                <td><?php echo (string)$ListaProduto->getDimensao();?></td>
-                                                <td><?php echo (string)$ListaProduto->getQuantidade();?></td>
-                                                <td><?php echo (string)$ListaProduto->getPrecoPerda();?></td>
-                                                <td><?php echo (string)$ListaProduto->getCategoria()->getNomeCategoria();?></td>
+                                                <td><?php echo $produto->getValDiaria();?></td>
+                                                <td><?php echo $produto->getDimensao();?></td>
+                                                <td><?php echo $produto->getQuantidade();?></td>
+                                                <td><?php echo $produto->getPrecoPerda();?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                    <a href="/editar/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a href="/editar/<?php echo (string)$ListProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
                                                 
-                                                        <a href="/produto/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <a href="/produto/<?php echo (string)$ListProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </a>
                                                     </div>

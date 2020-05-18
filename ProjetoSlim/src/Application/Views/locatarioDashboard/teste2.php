@@ -1,10 +1,6 @@
 <?php
 
-foreach($_SESSION['Carrinho'] as $produto){
-
-    echo $produto;
-
-}
-
-
+if(!isset($_SESSION)){ session_start(); }
+    
+    echo $_SESSION['PedidoLocatario'];
 ?>

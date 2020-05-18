@@ -21,8 +21,15 @@ class PedidoDAO{
         $idLocatarioPedido = $LocatarioPedido->getId();
 
         $listaProdutos = $pedidos->getlistaProduto();
-        $sql = 'INSERT INTO Pedido (dataPedido ,dataRetirada, valorTotal, dataDevolucao, id_endereco, idLocatario) values (?,?,?,?,?,?)';
+        #$sql = 'INSERT INTO Pedido (dataPedido ,dataRetirada, valorTotal, dataDevolucao, id_endereco, idLocatario) values (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO Pedido (dataPedido ,valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?)';
         $stmt = $this->conn->prepare($sql);
+        #$stmt->bindParam(1, $dataPedido);
+        #$stmt->bindParam(2, $valorTotal);
+        #$stmt->bindParam(3, $LocatarioPedido);
+        #$stmt->bindParam(4, $LocatarioPedido);
+        #$stmt->bindParam(5, $idLocatarioPedido);
+
         $stmt->bindParam(1, $dataPedido);
         $stmt->bindParam(2, $valorTotal);
         $stmt->bindParam(3, $LocatarioPedido);
@@ -105,4 +112,4 @@ class PedidoDAO{
 
     }
 }   
-?>0
+?>

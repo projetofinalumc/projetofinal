@@ -10,10 +10,10 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Lista Produtos</title>
+    <title>Tables</title>
 
     <!-- Fontfaces CSS-->
-    <link href="/css/admin_css/font-face.css" rel="stylesheet" media="all">
+    <link href="/css/font-face.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -21,7 +21,7 @@
     <!-- Bootstrap CSS-->
     <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-    <!-- /vendor CSS-->
+    <!-- Vendor CSS-->
     <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
@@ -31,14 +31,14 @@
     <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="/css/admin_css/theme.css" rel="stylesheet" media="all">
+    <link href="/css/locatario_css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <!-- <header class="header-mobile d-block d-lg-none">
+        <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
@@ -83,7 +83,7 @@
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="/Home">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
@@ -151,15 +151,14 @@
                     </ul>
                 </div>
             </nav>
-        </header> -->
+        </header>
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="/Inicio">
-                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
-                    <h2>Loca Articles</h2>
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -167,13 +166,13 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tags"></i>Produtos</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
+                                    <a href="index.html">Dashboard 1</a>
                                 </li>
                                 <li>
-                                    <a href="">Novo Produto 2</a>
+                                    <a href="index2.html">Dashboard 2</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
@@ -183,7 +182,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
@@ -192,7 +191,7 @@
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="Home">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
@@ -202,8 +201,8 @@
                         <li>
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li> -->
-                        <!-- <li class="has-sub">
+                        </li>
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -217,8 +216,8 @@
                                     <a href="forget-pass.html">Forget Password</a>
                                 </li>
                             </ul>
-                        </li> -->
-                        <!-- <li class="has-sub">
+                        </li>
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -256,7 +255,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -444,220 +443,91 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- USER DATA-->
-                                <!-- END USER DATA-->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- TOP CAMPAIGN-->
-                                
-                                <!--  END TOP CAMPAIGN-->
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Lista de Produtos</h3>
-                                <div class="table-data__tool">
-                                    <div class="table-data__tool-left">
-                                        <div class="rs-select2--light rs-select2--md">
-                                            <select class="js-select2" name="property">
-                                                <option selected="selected">All Properties</option>
-                                                <option value="">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <div class="rs-select2--light rs-select2--sm">
-                                            <select class="js-select2" name="time">
-                                                <option selected="selected">Today</option>
-                                                <option value="">3 Days</option>
-                                                <option value="">1 Week</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <button class="au-btn-filter">
-                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                    </div>
-                                    <div class="table-data__tool-right">
-                                        <!-- <button class="au-btn au-btn-icon au-btn--green au-btn--small"> -->
-                                        <a href="" class="btn btn-primary">Novo Produto</a>
-                                            <!-- <i class="zmdi zmdi-plus"></i>Novo Produto</button> -->
-                                        <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2"> -->
-                                            <!-- <select class="js-select2" name="type">
-                                                <option selected="selected">Export</option>
-                                                <option value="">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select> -->
-                                            <!-- <div class="dropDownSelect2"></div> -->
-                                        <!-- </div> -->
-                                    </div>
-                                </div>
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
+                            <div class="col-lg-13">
+                                <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
-                                                <th>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </th>
-                                                <th>id</th>
-                                                <th>nome</th>
-                                                <th>modelo</th>
-                                                <th>Valor Diaria</th>
-                                                <th>dimensao</th>
-                                                <th>quantidade</th>
-                                                <th>Preco Perda</th>
-                            
-                                                <th></th>
+                                                <th>date</th>
+                                                <th>order ID</th>
+                                                <th>name</th>
+                                                <th class="text-right">price</th>
+                                                <th class="text-right">quantity</th>
+                                                <th class="text-right">total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
-                                          foreach ($ListaProduto as $ListaProduto){
-                                        ?>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td><?php echo (string)$ListaProduto->getId();?></td>
-                                                <td><?php echo (string)$ListaProduto->getNome();?></td>
-                                                <td>
-                                                    <span><?php echo (string)$ListaProduto->getModelo();?></span>
-                                                </td>
-                                                <td><?php echo (string)$ListaProduto->getValDiaria();?></td>
-                                                <td><?php echo (string)$ListaProduto->getDimensao();?></td>
-                                                <td><?php echo (string)$ListaProduto->getQuantidade();?></td>
-                                                <td><?php echo (string)$ListaProduto->getPrecoPerda();?></td>
-                                                    <td>
-                                                    <div class="table-data-feature">
-                                                    <a href="/editar/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                
-                                                        <a href="/produto/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
+                                            <tr data-toggle="modal" data-target="#largeModal">
+                                                <td>2018-09-29 05:57</td>
+                                                <td>100398</td>
+                                                <td>iPhone X 64Gb Grey</td>
+                                                <td class="text-right">$999.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$999.00</td>
                                             </tr>
-                                            <tr class="spacer"></tr>
-                                          <?php }?>
+                                            <tr>
+                                                <td>2018-09-28 01:22</td>
+                                                <td>100397</td>
+                                                <td>Samsung S8 Black</td>
+                                                <td class="text-right">$756.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$756.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-27 02:12</td>
+                                                <td>100396</td>
+                                                <td>Game Console Controller</td>
+                                                <td class="text-right">$22.00</td>
+                                                <td class="text-right">2</td>
+                                                <td class="text-right">$44.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-26 23:06</td>
+                                                <td>100395</td>
+                                                <td>iPhone X 256Gb Black</td>
+                                                <td class="text-right">$1199.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$1199.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-25 19:03</td>
+                                                <td>100393</td>
+                                                <td>USB 3.0 Cable</td>
+                                                <td class="text-right">$10.00</td>
+                                                <td class="text-right">3</td>
+                                                <td class="text-right">$30.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-29 05:57</td>
+                                                <td>100392</td>
+                                                <td>Smartwatch 4.0 LTE Wifi</td>
+                                                <td class="text-right">$199.00</td>
+                                                <td class="text-right">6</td>
+                                                <td class="text-right">$1494.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-24 19:10</td>
+                                                <td>100391</td>
+                                                <td>Camera C430W 4k</td>
+                                                <td class="text-right">$699.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$699.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-22 00:43</td>
+                                                <td>100393</td>
+                                                <td>USB 3.0 Cable</td>
+                                                <td class="text-right">$10.00</td>
+                                                <td class="text-right">3</td>
+                                                <td class="text-right">$30.00</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- END DATA TABLE -->
                             </div>
+                            
                         </div>
-                        <!--form teste--> 
-                         <div class="card">
-                                    <div class="card-header">
-                                        <strong>Basic Form</strong> Elements
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="/cadastrar" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Static</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <p class="form-control-static">Username</p>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Nome</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtNome" placeholder="Text" class="form-control" require>
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Modelo</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtModelo" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Valor da Diaria</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtValDiaria" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Dimensão</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtDimensao" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Quantidade</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtQuantidade" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Preco Perda</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="txtPrecoPerda" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-
-                                            <!-- <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Select</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="id_categoria" id="select" class="form-control">
-                                                    <?php /*foreach ($ListaCategoria as $ListaCategoria){ */ ?>
-                                                        <option value="<?php// echo $ListaCategoria->getIdCategoria(); ?>"><?php //echo $ListaCategoria->getNomeCategoria(); ?></option>
-                                                    <?php /*}*/ ?>
-                                                    </select>
-                                                </div>
-                                            </div> -->
-
-                                        
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                                </form>
-                        <div class="row m-t-30">
-                            <div class="col-md-12">
-                                <!-- DATA TABLE-->
-                                
-                                <!-- END DATA TABLE-->
-                            </div>
-                        </div>
+                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -671,6 +541,34 @@
         </div>
 
     </div>
+
+
+			<!-- modal large -->
+			<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>
+								There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra and the mountain
+								zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus Dolichohippus. The latter
+								resembles an ass, to which it is closely related, while the former two are more horse-like. All three belong to the
+								genus Equus, along with other living equids.
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-primary">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end modal large -->
 
     <!-- Jquery JS-->
     <script src="/vendor/jquery-3.2.1.min.js"></script>
@@ -694,7 +592,7 @@
     </script>
 
     <!-- Main JS-->
-    <script src="/js/admin_js/main.js"></script>
+    <script src="/js/locatario_js/main.js"></script>
 
 </body>
 
