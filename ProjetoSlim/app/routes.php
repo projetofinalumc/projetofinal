@@ -100,6 +100,7 @@ return function (App $app) {
 
 
         });
+
         $group->get('/Sobre', function($request, $response, $args){
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
 
@@ -178,7 +179,7 @@ return function (App $app) {
     $app->group('/victor', function (Group $group) {    
 
         //teste de view
-        $group->get('/Dados', function ($request, $response, $args) {
+        $group->get('/', function ($request, $response, $args) {
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
             return $renderer->render($response,"dadosLocatario.php",$args);
 
@@ -230,11 +231,17 @@ return function (App $app) {
 
         });
 
+        $group->get('/DadosLocatario', function ($request, $response, $args) {
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
+            return $renderer->render($response,"dadosLocatario.php",$args);
+
+        });
+
         $group->post('/alterar', ControllerTest::class .':alterar');
         $group->post('/Login', ControllerSession::class .':login');
         $group->get('/Sair', ControllerSession::class .':logout');
         $group->get('/ir', ControllerSession::class .':entrar');
-
+        $group->get('/retornaDados', ControllerLocatario::class .':retornarDadosLocario');
 
     });    
     

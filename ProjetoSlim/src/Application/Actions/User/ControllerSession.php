@@ -76,14 +76,19 @@ class ControllerSession
 
     public function logout(Request $request, Response $response, $args)
     {
-
-        $renderer = new PhpRenderer(__DIR__ . "/../../Views/locatarioDashboard/");
-
-        if (isset($_SESSION['idLocatario'])){
-            session_destroy();
+            if (session_status() !== PHP_SESSION_ACTIVE) {
+                session_start();
+                session_destroy();
+            }
             
-            return $renderer->render($response, "login.php", $args);
-        }
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+
+
+            return $renderer->render($response,"index.php",$args);
+
+
+             
 
     }
 }

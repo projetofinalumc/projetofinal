@@ -152,7 +152,7 @@ class ControllerLocatario
 
         $renderer = new PhpRenderer(__DIR__ . "/../../Views/locatarioDashboard/");
 
-        return $renderer->render($response, "form.php", $args);
+        return $renderer->render($response, "dadosLocatario.php", $args);
     }
 
     public function alterar(Request $request, Response $response, $args)
