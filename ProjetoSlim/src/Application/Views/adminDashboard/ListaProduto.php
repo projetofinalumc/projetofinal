@@ -38,7 +38,7 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
+        <!-- <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
@@ -151,14 +151,15 @@
                     </ul>
                 </div>
             </nav>
-        </header>
+        </header> -->
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                <a href="/Inicio">
+                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
+                    <h2>Loca Articles</h2>
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
