@@ -247,7 +247,7 @@ return function (App $app) {
 
         $group->get('/checkout',ControllerPedido::class . ':gerarPedido');
         #$group->post('/pedidoFinal',ControllerPedido::class . ':gerandoPedido');
-        $group->post('/pedidoFinal', function ($request, $response, $args) {
+        $group->get('/pedidoFinal', function ($request, $response, $args) {
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
             return $renderer->render($response,"teste2.php",$args);
 

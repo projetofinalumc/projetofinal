@@ -43,10 +43,10 @@ class ControllerPedido{
         foreach($listProdutoPedido as $Produto){
             $valorTotal += $Produto->getValDiaria();
         }
-         
+        
         
         $locatario = new Locatario();
-        $locatario->setId($_SESSION['idLocatario']);
+        $locatario->setId((int)$_SESSION['idLocatario']);
         $locatarioDAO = new LocatarioDAO($conn);
         $locatarioPedido = $locatarioDAO->buscarLocatarioPorID($locatario);
 
@@ -68,7 +68,7 @@ class ControllerPedido{
        
 
         //$args = ['PedidoLocatario' => $pedido];
-         $_SESSION['PedidoLocatario'] = $pedido; 
+         $_SESSION['PedidoLocatario'] = serialize($pedido); 
         $renderer = new PhpRenderer(__DIR__.'/../../Views/loja/');
 
         return $renderer->render($response,"checkout.php",$args);       
@@ -129,7 +129,7 @@ class ControllerPedido{
 
         $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
         
-        return $renderer->render($response, "about.php", $args);
+        return $renderer->render($response, "sucesso.php", $args);
     }
 
 }

@@ -83,10 +83,10 @@ class LocatarioDAO {
                         $novo_locatario->setNome((string)$row["Nome"]);
                         $novo_locatario->setEmail((string)$row["email"]);
                 
-                        $listLocatario[] = $novo_locatario;
+                        
                 }
           
-          return $listLocatario;
+          return $novo_locatario;
         }
         return false;
     }
