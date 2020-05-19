@@ -172,31 +172,31 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                                         <div class="card-body card-block">
                                             <div class="form-group">
                                                 <label for="company" class=" form-control-label">Nome:</label>
-                                                <input type="text" id="company" value="<?php //echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome">
+                                                <input type="text" id="company" value="<?php echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome">
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Email</label>
-                                                <input type="text" id="vat" value="<?php //echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
+                                                <input type="text" id="vat" value="<?php echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Senha</label>
-                                                <input type="password" id="vat" value="<?php //echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
+                                                <input type="password" id="vat" value="<?php echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="street" class=" form-control-label">Data de Nascimento</label><?php  //$endereco = $dados_locatario->getEndereco(); ?>
+                                           <!-- <div class="form-group">
+                                                <label for="street" class=" form-control-label">Data de Nascimento</label><?php  //$ = $dados_locatario->getData(); ?>
                                                 <input type="date" id="street" class="form-control" value="">
-                                            </div>
+                                            </div> -->
                                             <div class="row form-group">
                                                 <div class="col-8">
                                                     <div class="form-group">
                                                         <label for="city" class=" form-control-label">CPF</label>
-                                                        <input type="text" id="city" placeholder="<?php //echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF"> 
+                                                        <input type="text" id="city" value="<?php echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF"> 
                                                                                                     
                                                     </div>
                                                 </div>
 
                                             </div>
-                                            <button type="submit" class="btn btn-warning">
+                                            <button type="submit" action="/Locatario/EditarDados" class="btn btn-warning">
                                                 <i class="fa fa-edit"></i> Atualizar
                                             </button>
                                             <button type="reset" class="btn btn-danger">

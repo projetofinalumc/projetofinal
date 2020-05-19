@@ -47,6 +47,7 @@ class ControllerLocatario
         $locatario->setCPF((int) $_POST['cpf']);
         $locatario->setEmail((string) $_POST['email_loc']);
         $locatario->setNome((string) $_POST['first_name']);
+        //$locatario->setDataNascimento((string) $_POST['data_nascimento']);
         $locatario->setSenha((string) $_POST['password_loc']);
 
         $locatarioDAO = new LocatarioDAO($conn);
@@ -127,7 +128,7 @@ class ControllerLocatario
     {
 
         $conn = ConnectionFactory::Connect();
-        
+
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
