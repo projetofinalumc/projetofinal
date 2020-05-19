@@ -68,10 +68,10 @@ class Pedido{
         return $this->listaProduto;
     }
     public function setLocatarioPedido($locatarioPedido){
-        $this->LocatarioPedido = $locatarioPedido;
+        $this->locatarioPedido = $locatarioPedido;
     }
     public function getLocatarioPedido(){
-        return $this->LocatarioPedido;
+        return $this->locatarioPedido;
     }
 }
 ?>

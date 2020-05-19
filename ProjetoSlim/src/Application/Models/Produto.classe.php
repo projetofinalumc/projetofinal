@@ -6,7 +6,7 @@ namespace App\Application\Models;
 use App\Application\Models\Categoria;
 //require_once (__DIR__."/Categoria.classe.php");
 
-class Produto extends \PDO {
+class Produto {
 
     private $id;
     private $nome;//#
@@ -17,77 +17,65 @@ class Produto extends \PDO {
     private $precoPerda;
     private $categoria;
 
-    function __construct(){
-
-    }
-
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function getNome() {
+    public function getNome() {
         return $this->nome;
     }
 
-    function getModelo() {
+    public function getModelo() {
         return $this->modelo;
     }
 
-    function getValDiaria() {
+    public function getValDiaria() {
         return $this->valDiaria;
     }
 
-    function getDimensao() {
+    public function getDimensao() {
         return $this->dimensao;
     }
 
-    function getQuantidade() {
+    public function getQuantidade() {
         return $this->quantidade;
     }
 
-    function getPrecoPerda() {
+    public function getPrecoPerda() {
         return $this->precoPerda;
     }
 
-    function getCategoria() {
+    public function getCategoria() {
         return $this->categoria;
     }
 
-    function setId(int $id) {
+    public function setId(int $id) {
         $this->id = $id;
     }
 
-    function setNome(string $nome) {
+    public function setNome(string $nome) {
         $this->nome = $nome;
     }
 
-    function setModelo(string $modelo) {
+    public function setModelo(string $modelo) {
         $this->modelo = $modelo;
     }
 
-    function setValDiaria($valDiaria) {
+    public function setValDiaria($valDiaria) {
         $this->valDiaria = $valDiaria;
     }
 
-    function setDimensao($dimensao) {
+    public function setDimensao($dimensao) {
         $this->dimensao = $dimensao;
     }
 
-    function setQuantidade(int $quantidade) {
+    public  function setQuantidade(int $quantidade) {
         $this->quantidade = $quantidade;
     }
 
-    function setPrecoPerda(float $precoPerda) {
+    public function setPrecoPerda(float $precoPerda) {
         $this->precoPerda = $precoPerda;
     }
 
-    function setCategoria(\Categoria $categoria) {
-        $this->categoria = $categoria;
-    }
-
- function getCategoriaId() {
-        $val =  $this->categoria->getIdCategoria();
-        return $val;
-    }
 
 }

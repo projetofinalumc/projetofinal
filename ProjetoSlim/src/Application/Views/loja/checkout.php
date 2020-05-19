@@ -1,8 +1,16 @@
 <!DOCTYPE html>
-<?php if (session_status() !== PHP_SESSION_ACTIVE) {
+<?php 
+
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
                             session_start();
                           }
-  $PedidoLocatario = $_SESSION['PedidoLocatario'];                       
+                          
+
+   $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);   
+    
+  echo var_dump($_SESSION);
+  //setcookie("PedidoLocatario", $PedidoLocatario);           
   ?>
 <html lang="en">
   <head>
@@ -138,7 +146,7 @@ function checkOutroEndereco() {
     </div>
 
     <div class="site-section">
-     <form action="/Loja/pedidoFinal" method="POST">
+    <!-- <form action="/Loja/pedidoFinal" method="POST"> -->
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12">
@@ -323,7 +331,7 @@ function checkOutroEndereco() {
                   </div>
 
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Place Order</button>
+                    <a class="btn btn-primary btn-lg py-3 btn-block" href="/Loja/pedidoFinal">Place Order</a>
                   </div>
 
                 </div>
@@ -334,7 +342,7 @@ function checkOutroEndereco() {
         </div>
         <!-- </form> -->
       </div>
-     </form>
+    <!-- </form> -->
     </div>
 
     <footer class="site-footer border-top">
