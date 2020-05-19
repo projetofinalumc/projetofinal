@@ -165,6 +165,10 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
+                         <li>
+                            <a href="#">
+                                <i class="fas fa-chart-bar"></i>Área do Usuário</a>
+                        </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tags"></i>Produtos</a>
@@ -173,7 +177,7 @@
                                     <a href="/Admin/ListaProduto">Lista de Produtos</a>
                                 </li>
                                 <li>
-                                    <a href="">Novo Produto 2</a>
+                                    <a href="">Cadastrar novo produto</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
@@ -183,10 +187,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        <!--
                         <li class="active">
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
@@ -461,29 +462,29 @@
                                 <!-- DATA TABLE -->
                                 <h3 class="title-5 m-b-35">Lista de Produtos</h3>
                                 <div class="table-data__tool">
-                                    <div class="table-data__tool-left">
-                                        <div class="rs-select2--light rs-select2--md">
+                                    <!-- <div class="table-data__tool-left"> -->
+                                        <!-- <div class="rs-select2--light rs-select2--md">
                                             <select class="js-select2" name="property">
                                                 <option selected="selected">All Properties</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
                                             </select>
                                             <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <div class="rs-select2--light rs-select2--sm">
+                                        </div> -->
+                                        <!-- <div class="rs-select2--light rs-select2--sm">
                                             <select class="js-select2" name="time">
                                                 <option selected="selected">Today</option>
                                                 <option value="">3 Days</option>
                                                 <option value="">1 Week</option>
                                             </select>
                                             <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <button class="au-btn-filter">
-                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                    </div>
+                                        </div> -->
+                                        <!-- <button class="au-btn-filter">
+                                            <i class="zmdi zmdi-filter-list"></i>filters</button> -->
+                                    <!-- </div> -->
                                     <div class="table-data__tool-right">
                                         <!-- <button class="au-btn au-btn-icon au-btn--green au-btn--small"> -->
-                                        <a href="" class="btn btn-primary">Novo Produto</a>
+                                        <!-- <a href="" class="btn btn-primary">Novo Produto</a> -->
                                             <!-- <i class="zmdi zmdi-plus"></i>Novo Produto</button> -->
                                         <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2"> -->
                                             <!-- <select class="js-select2" name="type">

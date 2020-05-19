@@ -170,10 +170,10 @@
                                 <i class="fas fa-tags"></i>Produtos</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
+                                    <a href="index2.html">Cadastrar novo produto</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Dashboard 2</a>
+                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
@@ -452,7 +452,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-t-25">
+                        <!-- <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c1">
                                     <div class="overview__inner">
@@ -506,8 +506,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
+                            </div> -->
+                            <!-- <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c4">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -524,9 +524,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="row">
                             <div class="col-lg-6">
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
@@ -587,9 +587,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9">
+                        </div> -->
+                        <!-- <div class="row"> -->
+                            <!-- <div class="col-lg-9">
                                 <h2 class="title-1 m-b-25">Earnings By Items</h2>
                                 <div class="table-responsive table--no-card m-b-40">
                                     <table class="table table-borderless table-striped table-earning">
@@ -671,8 +671,8 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
+                            </div> -->
+                            <!-- <div class="col-lg-3">
                                 <h2 class="title-1 m-b-25">Top countries</h2>
                                 <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
                                     <div class="au-card-inner">
@@ -716,9 +716,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="row">
                             <div class="col-lg-6">
                                 <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
                                     <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
@@ -969,7 +969,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
