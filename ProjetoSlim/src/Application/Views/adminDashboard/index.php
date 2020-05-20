@@ -171,7 +171,7 @@
                                 <i class="fas fa-tags"></i>Produtos</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index2.html">Cadastrar novo produto</a>
+                                    <a href="/Admin/NovoProduto">Cadastrar novo produto</a>
                                 </li>
                                 <li>
                                     <a href="/Admin/ListaProduto">Lista de Produtos</a>
@@ -184,10 +184,29 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-list-ul"></i>Pedido</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="index2.html">Lista de Pedidos</a>
+                                </li>
+                                <li>
+                                    <a href="#">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
                         </li>
+                         <!-- <li>
+                            <a href="chart.html">
+                                <i class="fas fa-list-ul"></i>Pedidos</a>
+                        </li> -->
+                        <!--
                         <li class="active">
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
@@ -393,7 +412,15 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">
+                                            <?php 
+                                            if (session_status() !== PHP_SESSION_ACTIVE) {
+                                            session_start();
+                                             } ?>
+                                             <?php if (isset($_SESSION['nomeAdmm'])) {
+                                                echo "Bem Vindo! " . $_SESSION['nomeAdm'];
+                                            } ?>
+                                            </a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -444,9 +471,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
+                                    <h2 class="title-1">Bem vindo </h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                        <!-- <i class="zmdi zmdi-plus"></i>add item</button> -->
                                 </div>
                             </div>
                         </div>

@@ -51,10 +51,9 @@ class ControllerAdmin{
         session_start();
 
         if ($login != false){
-
             
             $_SESSION['msgSucesso'] = "<div class='alert alert-sucess'>Login realizado com sucesso!</div>";
-            
+            $_SESSION['nomeAdm'] = $login->getLogin();
            
             return $renderer->render($response, "index.php", $args);
             

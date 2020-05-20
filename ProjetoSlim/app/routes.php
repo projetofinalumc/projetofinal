@@ -165,7 +165,8 @@ return function (App $app) {
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
 
             
-            return $renderer->render($response, "adicionar.php", $args);
+            return $renderer->render($response, "novoproduto.php", $args);
+            // return $renderer->render($response, "novoproduto.php", $args);
         });
         // $group->get('/ListaProduto' ,function ($request, $response, $args){
 
