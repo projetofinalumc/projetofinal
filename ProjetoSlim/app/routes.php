@@ -149,7 +149,7 @@ return function (App $app) {
         $group->post('/login/cadastro', ControllerLocatario::class .':adicionar');
     });
 
-    //Admin
+    //Admin -> edição ishi
     $app->group('/Admin', function (Group $group) {
 
         
@@ -159,6 +159,13 @@ return function (App $app) {
 
             
             return $renderer->render($response, "login.php", $args);
+        });
+        $group->get('/NovoProduto' ,function ($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+
+            
+            return $renderer->render($response, "adicionar.php", $args);
         });
         // $group->get('/ListaProduto' ,function ($request, $response, $args){
 

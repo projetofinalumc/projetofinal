@@ -13,6 +13,7 @@
     <title>Área do Usuário</title>
 
     <!-- Fontfaces CSS-->
+    <link rel="stylesheet" href="/css/admin_css/style.css" media="all">
     <link href="/css/admin_css/font-face.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
@@ -270,12 +271,12 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <!-- <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                             <form class="form-header" action="" method="POST">
+                                <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form> -->
+                                </button> -->
+                            </form>
                             <div class="header-button">
                                 <!-- <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
@@ -391,9 +392,6 @@
                                 </div> -->
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                        <!-- <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
-                                        </div> -->
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">john doe</a>
                                         </div>
