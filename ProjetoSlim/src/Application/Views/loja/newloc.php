@@ -22,6 +22,74 @@
 
 </head>
 
+<script type="text/javascript" >
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+            document.getElementById('ibge').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
+
 <body>
 
   <div class="site-wrap">
@@ -153,32 +221,67 @@
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
+                      <label for="c_subject" class="text-black">CEP:<span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" id="numero_cep" name="numero_cep" onblur="pesquisacep(this.value);">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                    <label for="c_subject" class="text-black">Estado:<span class="text-danger">*</span> </label>
+                    <select name="uf" id="uf" class="form-control">
+                            <option value="">Selecione</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
                       <label for="c_subject" class="text-black">Logradouro:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="logradouro_end" name="logradouro_end">
+                      <input type="text" class="form-control" id="rua" name="logradouro_end">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">Bairro:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="c_subject" name="bairro_loc">
+                      <input type="text" class="form-control" id="bairro" name="bairro_loc">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label for="c_subject" class="text-black">Cidade:<span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" id="cidade" name="cidade_loc">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">Numero:<span class="text-danger">*</span> </label>
                       <input type="text" class="form-control" id="numero_end" name="numero_end">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-md-12">
-                      <label for="c_subject" class="text-black">CEP:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="numero_cep" name="numero_cep">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-md-12">
-                      <label for="c_subject" class="text-black">Estado:<span class="text-danger">*</span> </label>
-                      <input type="tel" class="form-control" id="estado_end" name="estado_end">
                     </div>
                   </div>
                   <div class="form-group row">
