@@ -168,13 +168,13 @@ return function (App $app) {
             return $renderer->render($response, "novoproduto.php", $args);
             // return $renderer->render($response, "novoproduto.php", $args);
         });
-        // $group->get('/ListaProduto' ,function ($request, $response, $args){
+         $group->get('/ListaPedido' ,function ($request, $response, $args){
 
-        //     $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
 
             
-        //     return $renderer->render($response, "ListaProduto.php", $args);
-        // });
+             return $renderer->render($response, "ListaPedidos.php", $args);
+        });
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->post('/Sair' , ControllerAdmin::class . ':logout');
         $group->get('/ListaProduto', ControllerProduto::class . ':listarprodutoAdmin');

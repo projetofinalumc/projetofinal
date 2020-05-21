@@ -189,7 +189,7 @@
                                 <i class="fas fa-list-ul"></i>Pedido</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index2.html">Lista de Pedidos</a>
+                                    <a href="/Admin/ListaPedido">Lista de Pedidos</a>
                                 </li>
                                 <li>
                                     <a href="#">Dashboard 3</a>

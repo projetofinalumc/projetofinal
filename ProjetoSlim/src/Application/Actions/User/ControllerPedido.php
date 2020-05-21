@@ -131,6 +131,9 @@ class ControllerPedido{
         
         return $renderer->render($response, "sucesso.php", $args);
     }
+    public function ListarPedidos(){
+        
+    }
 
 }
 ?>
