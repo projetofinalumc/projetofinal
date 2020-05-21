@@ -10,26 +10,26 @@ use App\Application\Models\ConnectionFactory;
 class PedidoDAO{
     private $conn;
 
-    public function __construct(\mysqli $conn){
+    public function __construct($conn){
         $this->conn = $conn;
     }
     public function gerarPedido($pedido){
 
      
-        $valorTotal = $pedido->getvalorTotal();
-        $dataPedido = $pedido->getdataPedido();
-        $dataDevolucao = $pedido->getdataDevolucao();
-        $dataRetirada =  $pedido->getdataRetirada();
+        $valorTotal = (float)$pedido->getvalorTotal();
+        $dataPedido = (string)$pedido->getdataPedido();
+        $dataDevolucao = (string)$pedido->getdataDevolucao();
+        $dataRetirada =  (string)$pedido->getdataRetirada();
         
         $EnderecoPedido = $pedido->getEnderecoPedido();
-        $idEndereco = $EnderecoPedido->getId();
+        $idEndereco = (int)$EnderecoPedido->getId();
           
         $LocatarioPedido = $pedido->getLocatarioPedido();
-        $idLocatarioPedido = $LocatarioPedido->getId();
+        $idLocatarioPedido = (int)$LocatarioPedido->getId();
 
         $listaProdutos = $pedido->getlistaProduto();
-        #$sql = 'INSERT INTO Pedido (dataPedido ,dataRetirada, valorTotal, dataDevolucao, id_endereco, idLocatario) values (?,?,?,?,?,?)';
-        $sql = 'INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?)';
+        $sql = "INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values ('$dataPedido','$dataRetirada','$dataDevolucao',$valorTotal,$idEndereco,$idLocatarioPedido);";
+        #$sql = 'INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?);';
         $stmt = $this->conn->prepare($sql);
         #$stmt->bindParam(1, $dataPedido);
         #$stmt->bindParam(2, $valorTotal);
@@ -37,33 +37,29 @@ class PedidoDAO{
         #$stmt->bindParam(4, $LocatarioPedido);
         #$stmt->bindParam(5, $idLocatarioPedido);
 
-        $stmt->bind_param('sssdii', $dataPedido,$dataRetirada,$dataDevolucao,$valorTotal,$idEndereco,$idLocatarioPedido);
+        #$stmt->bind_param('sssdii', $dataPedido,$dataRetirada,$dataDevolucao,$valorTotal,$idEndereco,$idLocatarioPedido);
         $stmt->execute();
-
-        
-        $sql = 'SELECT LAST_INSERT_ID();';
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        if($stmt->num_rows > 0){
+        $PedidoId = $stmt->insert_id;
+       /*  if($stmt->num_rows > 0){
             while($rows = $stmt->fetch_assoc()){
 
                 $PedidoId = $row['LAST_INSERT_ID()'];
               }
-            }
+            } */
 
        foreach($listaProdutos as $produtos ){
-        $sql = 'INSERT INTO itemPedido (valorUnitario,quantidade,fk_Produto,fk_Pedido) values (?,?,?,?)'; 
-       
-        $stmt = $this->conn->prepare($sql);
-
+        
         $quantidade = $produtos->getQuantidade();
         $valorUnitario = $produtos->getValDiaria();
         $produtoID = $produtos->getId();
+
+        $sql = "INSERT INTO itemPedido (valorUnitario,quantidade,fk_Produto,fk_Pedido) values ($valorUnitario,$quantidade,$produtoID,$PedidoId);"; 
         
-        $stmt->bind_param('diii', $valorUnitario,$quantidade,$produtoID,$PedidoId);
+        $stmt = $this->conn->query($sql);
+        //$stmt->bind_param('diii', $valorUnitario,$quantidade,$produtoID,$PedidoId);
 
   
-        $stmt->execute();
+        //$stmt->execute();
 
        }
         

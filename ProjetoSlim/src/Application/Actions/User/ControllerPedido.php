@@ -120,7 +120,7 @@ class ControllerPedido{
 
         $datetime = new DateTime((string)$dataPedido);
         $datetime->modify('+1 day');
-        $dataDevolucao = (string)$datetime->format('m-d-Y');
+        $dataDevolucao = (string)$datetime->format('Y-m-d');
         
         $dataInicial = (string)$_POST['dataInicial'];
         
@@ -128,15 +128,15 @@ class ControllerPedido{
         $pedido->setdataRetirada($dataInicial);
         $pedido->setdataDevolucao($dataDevolucao);
 
-        //$PedidoDAO = new PedidoDAO($conn);
+        $PedidoDAO = new PedidoDAO($conn);
 
-       // $PedidoDAO->gerarPedido($pedido);
+        $PedidoDAO->gerarPedido($pedido);
 
-        // /$args = ['Pedido' => $pedido];
+        $args = ['Pedido' => $pedido];
    
-        $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/loja/');
         
-        return $renderer->render($response, "pedido.php", $args);
+        return $renderer->render($response, "test.php", $args);
     }
 
 }
