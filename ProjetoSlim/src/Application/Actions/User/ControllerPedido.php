@@ -7,7 +7,7 @@ use App\Application\Models\EnderecoDAO;
 
 use App\Application\Models\ProdutoDAO;
 use App\Application\Models\PedidoDAO;
-
+use DateTime;
 use App\Application\Models\LocatarioDAO;
 use App\Application\Models\Pedido;
 use App\Application\Models\Produto;
@@ -92,10 +92,10 @@ class ControllerPedido{
     }
     public function gerandoPedido(Request $request, Response $response, $args)
     {
-            session_start();
+        if(!isset($_SESSION)){ session_start(); }
 
         
-        $pedido = $_SESSION['PedidoLocatario'];
+        $pedido = unserialize($_SESSION['PedidoLocatario']);
         $todosEnderecos = $_POST['inputEndereco'];
         
         $N = count($todosEnderecos);
@@ -116,23 +116,27 @@ class ControllerPedido{
 
         $data = getdate();
 
-        $dataPedido = $data['mday'].'/'.$data['mon'].'/'.$data['year'];
-        //$dataDevolucao = $_POST['dataDevolucao'];
+        $dataPedido = $data['year'].'-'.$data['mon'].'-'.$data['mday'];
+
+        $datetime = new DateTime((string)$dataPedido);
+        $datetime->modify('+1 day');
+        $dataDevolucao = (string)$datetime->format('m-d-Y');
+        
+        $dataInicial = (string)$_POST['dataInicial'];
         
         $pedido->setdataPedido($dataPedido);
-        //$pedido->setDataDevolucao($dataDevolucao);
+        $pedido->setdataRetirada($dataInicial);
+        $pedido->setdataDevolucao($dataDevolucao);
 
-        $PedidoDAO = new PedidoDAO($conn);
+        //$PedidoDAO = new PedidoDAO($conn);
 
-        $PedidoDAO->gerarPedido($pedido);
+       // $PedidoDAO->gerarPedido($pedido);
 
-
-        $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+        // /$args = ['Pedido' => $pedido];
+   
+        $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja/');
         
-        return $renderer->render($response, "sucesso.php", $args);
-    }
-    public function ListarPedidos(){
-        
+        return $renderer->render($response, "pedido.php", $args);
     }
 
 }

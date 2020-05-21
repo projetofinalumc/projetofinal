@@ -15,14 +15,21 @@ class PedidoDAO{
     }
     public function gerarPedido($pedido){
 
+     
         $valorTotal = $pedido->getvalorTotal();
         $dataPedido = $pedido->getdataPedido();
+        $dataDevolucao = $pedido->getdataDevolucao();
+        $dataRetirada =  $pedido->getdataRetirada();
+        
+        $EnderecoPedido = $pedido->getEnderecoPedido();
+        $idEndereco = $EnderecoPedido->getId();
+          
         $LocatarioPedido = $pedido->getLocatarioPedido();
         $idLocatarioPedido = $LocatarioPedido->getId();
 
-        $listaProdutos = $pedidos->getlistaProduto();
+        $listaProdutos = $pedido->getlistaProduto();
         #$sql = 'INSERT INTO Pedido (dataPedido ,dataRetirada, valorTotal, dataDevolucao, id_endereco, idLocatario) values (?,?,?,?,?,?)';
-        $sql = 'INSERT INTO Pedido (dataPedido ,valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?)';
         $stmt = $this->conn->prepare($sql);
         #$stmt->bindParam(1, $dataPedido);
         #$stmt->bindParam(2, $valorTotal);
@@ -30,31 +37,31 @@ class PedidoDAO{
         #$stmt->bindParam(4, $LocatarioPedido);
         #$stmt->bindParam(5, $idLocatarioPedido);
 
-        $stmt->bindParam(1, $dataPedido);
-        $stmt->bindParam(2, $valorTotal);
-        $stmt->bindParam(3, $LocatarioPedido);
-        $stmt->bindParam(4, $LocatarioPedido);
-        $stmt->bindParam(5, $idLocatarioPedido);
+        $stmt->bind_param('sssdii', $dataPedido,$dataRetirada,$dataDevolucao,$valorTotal,$idEndereco,$idLocatarioPedido);
         $stmt->execute();
 
+        
         $sql = 'SELECT LAST_INSERT_ID();';
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         if($stmt->num_rows > 0){
             while($rows = $stmt->fetch_assoc()){
 
                 $PedidoId = $row['LAST_INSERT_ID()'];
-                    }
+              }
             }
 
        foreach($listaProdutos as $produtos ){
-        $sql = 'INSERT INTO itemPedido (quantidade, fk_Produto) values (?,?,?)'; 
+        $sql = 'INSERT INTO itemPedido (valorUnitario,quantidade,fk_Produto,fk_Pedido) values (?,?,?,?)'; 
        
         $stmt = $this->conn->prepare($sql);
 
         $quantidade = $produtos->getQuantidade();
+        $valorUnitario = $produtos->getValDiaria();
+        $produtoID = $produtos->getId();
         
-        $stmt->bindParam(1, $valorDiaria);
-        $stmt->bindParam(3, $PedidoId);
+        $stmt->bind_param('diii', $valorUnitario,$quantidade,$produtoID,$PedidoId);
+
   
         $stmt->execute();
 

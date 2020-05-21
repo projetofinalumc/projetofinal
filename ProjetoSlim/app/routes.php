@@ -251,16 +251,12 @@ return function (App $app) {
     
 
                //ROTAS DE TESTE PARA LOJA
-    $app->group('/Loja', function (Group $group) {
+       $app->group('/Loja', function (Group $group) {
 
-        $group->get('/checkout',ControllerPedido::class . ':gerarPedido');
-        #$group->post('/pedidoFinal',ControllerPedido::class . ':gerandoPedido');
-        $group->get('/pedidoFinal', function ($request, $response, $args) {
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
-            return $renderer->render($response,"teste2.php",$args);
-
-        });
-    });
+                $group->get('/checkout',ControllerPedido::class . ':gerarPedido');
+                #$group->post('/pedidoFinal',ControllerPedido::class . ':gerandoPedido');
+                $group->post('/pedidoFinal', ControllerPedido::class .':gerandoPedido');
+       });
     //Locatario
     // $app->group('/Locatario', function(Group $group){
 

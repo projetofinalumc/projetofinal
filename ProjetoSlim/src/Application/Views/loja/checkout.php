@@ -146,8 +146,8 @@ function checkOutroEndereco() {
     </div>
 
     <div class="site-section">
-    <!-- <form action="/Loja/pedidoFinal" method="POST"> -->
-      <div class="container">
+      <form action="/Loja/pedidoFinal" method="POST">
+       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12">
             <div class="border p-4 rounded" role="alert">
@@ -263,7 +263,7 @@ function checkOutroEndereco() {
                   <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
                   <div class="form-group row">
                         <div class="col-10">
-                          <input class="form-control" type="date" value="" id="example-date-input">
+                          <input class="form-control" type="date" value="" id="example-date-input" name="dataInicial">
                         </div>
                     </div>
 
@@ -331,7 +331,7 @@ function checkOutroEndereco() {
                   </div>
 
                   <div class="form-group">
-                    <a class="btn btn-primary btn-lg py-3 btn-block" href="/Loja/pedidoFinal">Place Order</a>
+                    <input class="btn btn-primary btn-lg py-3 btn-block" type="submit"> Place Order </input>
                   </div>
 
                 </div>
@@ -340,7 +340,7 @@ function checkOutroEndereco() {
 
           </div>
         </div>
-        <!-- </form> -->
+        </form>
       </div>
     <!-- </form> -->
     </div>
