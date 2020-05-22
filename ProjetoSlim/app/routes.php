@@ -175,9 +175,17 @@ return function (App $app) {
             
              return $renderer->render($response, "ListaPedidos.php", $args);
         });
+        $group->get('/AreaAdministrador' ,function ($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+
+            
+             return $renderer->render($response, "index.php", $args);
+        });
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->post('/Sair' , ControllerAdmin::class . ':logout');
         $group->get('/ListaProduto', ControllerProduto::class . ':listarprodutoAdmin');
+        $post->get('/Adicionar', Controller::class . ':Adicionar');
         $group->post('/ExcluirProduto', ControllerProduto::class . ':excluir');
         // $group->get('/table', ControllerProduto::class . ':listarprodutoAdmin');
     });

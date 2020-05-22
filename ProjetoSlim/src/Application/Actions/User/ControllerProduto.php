@@ -89,18 +89,15 @@ class ControllerProduto{
         $ProdutoNovo->setDimensao($_POST['txtDimensao']);
         $ProdutoNovo->setQuantidade((int)$_POST['txtQuantidade']);
         $ProdutoNovo->setPrecoPerda((double)$_POST['txtPrecoPerda']);
-
-        $CatDAO = new CategoriaDAO($conn);
-
-        $CategoriaProdutoNovo = $CatDAO->buscarCategoriaPorId((int)$_POST['id_categoria']);
-
-        $ProdutoNovo->setCategoria($CategoriaProdutoNovo);
         
         $ProdutoDAO = new ProdutoDAO($conn);
 
         $ProdutoDAO->adicionarProduto($ProdutoNovo);
 
-         return $this->listar($request, $response, $args);
+         $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+
+         return $renderer->render($response, "testecrud.php", $args);
+        //  return $this->listar($request, $response, $args);
      } 
 
      public function verEdicaoProduto(Request $request, Response $response, $args) {

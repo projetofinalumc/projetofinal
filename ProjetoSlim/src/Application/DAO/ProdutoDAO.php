@@ -47,7 +47,7 @@ class ProdutoDAO {
 
     public function adicionarProduto(Produto $prodt) {
               //Preparando um comando sql para parametrização     
-        $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda,categoria) Values(?,?,?,?,?,?,?);";                    
+        $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda) Values(?,?,?,?,?,?);";                    
       $stmt = $this->conn->prepare($sql);
       //Passando os parametros e seus tipos (s = String, d = Double , i = Int)
       $nome = $prodt->getNome();
@@ -56,9 +56,8 @@ class ProdutoDAO {
       $Dimensao = $prodt->getDimensao();
       $Quantidade = $prodt->getQuantidade();
       $PrecoPerda = $prodt->getPrecoPerda();
-      $categoria = $prodt->getCategoria()->getIdCategoria();
 
-      $stmt->bind_param('ssisidi',$nome ,$modelo,$valDiaria,$Dimensao ,$Quantidade,$PrecoPerda,$categoria);
+      $stmt->bind_param('ssisid',$nome ,$modelo,$valDiaria,$Dimensao ,$Quantidade,$PrecoPerda);
       // Executando o comando parametrizado
       $stmt->execute();
       $insert_id = $stmt->insert_id();
