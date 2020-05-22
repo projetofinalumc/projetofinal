@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Área do Usuário</title>
+    <title>Área do Administrador</title>
 
     <!-- Fontfaces CSS-->
     <link rel="stylesheet" href="/css/admin_css/style.css" media="all">

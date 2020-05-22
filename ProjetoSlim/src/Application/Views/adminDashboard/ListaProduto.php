@@ -543,7 +543,7 @@
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
                                                 
-                                                        <a href="/produto/<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <a href="/Admin/ExcluirProduto<?php echo (string)$ListaProduto->getId();?>"class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </a>
                                                     </div>

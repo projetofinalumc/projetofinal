@@ -157,8 +157,9 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                <a href="/Inicio">
+                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
+                    <h2>Loca Articles</h2>
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -166,13 +167,13 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <i class="fas fa-tags"></i>Produtos</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="/Admin/NovoProduto">Cadastrar novo produto</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Dashboard 2</a>
+                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
@@ -182,15 +183,34 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-list-ul"></i>Pedido</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="/Admin/ListaPedido">Lista de Pedidos</a>
+                                </li>
+                                <li>
+                                    <a href="#">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
+                         <!-- <li>
+                            <a href="chart.html">
+                                <i class="fas fa-list-ul"></i>Pedidos</a>
+                        </li> -->
+                        <!--
+                        <li class="active">
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
@@ -201,8 +221,8 @@
                         <li>
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li>
-                        <li class="has-sub">
+                        </li> -->
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -216,8 +236,8 @@
                                     <a href="forget-pass.html">Forget Password</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="has-sub">
+                        </li> -->
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -255,7 +275,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -441,24 +461,27 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
+                    <h1>Cadastrar Produto</h1>
+                    <br>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-11">
+                            
                                 <div class="card">
-                                    <div class="card-header">Cadastrar Novo Produto</div>
+                                    <!-- <div class="card-header">Cadastrar Novo Produto</div> -->
                                     <div class="card-body">
                                         <div class="card-title">
-                                            <h3 class="text-center title-2">Pay Invoice</h3>
+                                            <h3 class="text-center title-2"></h3>
                                         </div>
                                         <hr>
-                                        <form action="" method="post" novalidate="novalidate">
+                                        <form action="" method="post">
                                             <div class="form-group">
-                                                <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
+                                                <label for="txtNome" class="control-label mb-1">Nome: </label>
+                                                <input id="cc-pament" name="txtNome" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
                                             </div>
                                             <div class="form-group has-success">
-                                                <label for="cc-name" class="control-label mb-1">Name on card</label>
-                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
+                                                <label for="txtModelo" class="control-label mb-1">Modelo: </label>
+                                                <input id="cc-name" name="txtModelo" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
                                                     autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                             </div>

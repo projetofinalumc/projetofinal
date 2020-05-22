@@ -132,19 +132,22 @@ class ControllerProduto{
      } 
 
      public function excluir(Request $request, Response $response, $args) {
-        $conn = ConnectionFactory::Connect();
+        // $conn = ConnectionFactory::Connect();
 
-        $route = $request->getAttribute('route');
-        $IdProdutoDeletado = $route->getArgument('id');
+        // $route = $request->getAttribute('route');
+        // $IdProdutoDeletado = $route->getArgument('id');
 
-        $ProdutoDeletado = new \Produto();
-        $ProdutoDeletado->setId((int)$IdProdutoDeletado);
+        // $ProdutoDeletado = new \Produto();
+        // $ProdutoDeletado->setId((int)$IdProdutoDeletado);
         
-        $ProdutoDAO = new ProdutoDAO($conn);
+        // $ProdutoDAO = new ProdutoDAO($conn);
 
-         $ProdutoDAO->excluirProduto($ProdutoDeletado);
+        // $ProdutoDAO->excluirProduto($ProdutoDeletado);
 
-         return $this->listar($request, $response, $args);
+        // $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+
+        //  return $renderer->render($response, "ListaProduto.php", $args);
+        //  return $this->listar($request, $response, $args);
      } 
 
      public function alterar(Request $request, Response $response, $args) {
