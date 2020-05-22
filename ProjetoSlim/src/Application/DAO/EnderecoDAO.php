@@ -18,7 +18,7 @@ class EnderecoDAO {
         //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
        
         //Preparando um comando sql para parametrização           
-        $sql = "INSERT INTO Endereco (id_locatario, logradouro, cep, estado, numero, Bairro) VALUES (?,?,?,?,?,?);";
+        $sql = "INSERT INTO Endereco (id_locatario, logradouro, cep, estado, numero, Bairro,Cidade) VALUES (?,?,?,?,?,?,?);";
 
         $stmt = $this->conn->prepare($sql);   
 
@@ -28,9 +28,10 @@ class EnderecoDAO {
         $estado = $endereco->getEstado();
         $numero = $endereco->getNumero();
         $bairro = $endereco->getBairro();
+        $cidade = $endereco->getCidade();
 
         //Passando os parametros e seus tipos (s = String, d = Double , i = Int)
-         $stmt->bind_param('isisis', $idLocatario,$Logradouro,$cep,$estado,$numero,$bairro);
+         $stmt->bind_param('isisis', $idLocatario,$Logradouro,$cep,$estado,$numero,$bairro,$cidade);
         
          // Executando o comando parametrizado
          $stmt->execute();
@@ -67,6 +68,7 @@ class EnderecoDAO {
                     $enderecoLocatario->setNumero((int)$row["numero"]);
                     $enderecoLocatario->setEstado((string)$row["estado"]);
                     $enderecoLocatario->setBairro((string)$row["Bairro"]);
+                    $enderecoLocatario->setCidade((string)$row["Cidade"]);
                     $listEnderecoLocatario[] = $enderecoLocatario;
             
             }
@@ -105,6 +107,7 @@ class EnderecoDAO {
                     $enderecoLocatario->setCep((int)$row["cep"]);
                     $enderecoLocatario->setEstado((string)$row["estado"]);
                     $enderecoLocatario->setBairro((string)$row["Bairro"]);
+                    $enderecoLocatario->setBairro((string)$row["Cidade"]);
                     $listEnderecoLocatario = $enderecoLocatario;
             
             }
@@ -117,14 +120,17 @@ class EnderecoDAO {
     
       public function alterarEndereco(Endereco $endereco) {
 
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+       /// $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
-        $sql = "UPDATE Endereco SET logradouro = ? ,cep = ? , estado = ? ,numero = ? , Bairro = ? WHERE id_endereco = ? AND id_locatario = ?";
-        $stmt = $conexao->prepare($sql);
+        $sql = "UPDATE Endereco SET logradouro = ? ,cep = ? , estado = ? ,numero = ? , Bairro = ?, Cidade= ? WHERE id_endereco = ? AND id_locatario = ?";
+        $stmt = $this->conn->prepare($sql);
 
         $logradouroEditado = $endereco->getLogradouro();
         $cepEditado = $endereco->getCep();
         $estadoEditado = $endereco->getEstado();
+
+        $cidadeEditado = $endereco->getCidade();
+
 
         $numeroEditado = $endereco->getNumero();
         $idEditado = $endereco->getId();
@@ -133,7 +139,7 @@ class EnderecoDAO {
         $bairroEditado = $endereco->getBairro();
 
 
-        $stmt->bind_param('sisisii', $logradouroEditado,$cepEditado,$estadoEditado,$numeroEditado,$bairroEditado,$idEditado,$idLocatarioEditado);
+        $stmt->bind_param('sisissii', $logradouroEditado,$cepEditado,$estadoEditado,$numeroEditado,$bairroEditado,$cidadeEdidado,$idEditado,$idLocatarioEditado);
         $stmt->execute();
         $stmt->close();
     }

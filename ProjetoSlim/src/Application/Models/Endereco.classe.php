@@ -20,6 +20,7 @@ class Endereco {
     private int $numero;
     private String $cep;
     private String $estado;
+    private String $cidade;
     private String $bairro;
     
         
@@ -43,6 +44,10 @@ class Endereco {
 
     function getEstado() {
         return $this->estado;
+    }
+    
+    function getCidade() {
+        return $this->cidade;
     }
     
     function getBairro() {
@@ -69,6 +74,10 @@ class Endereco {
 
     function setEstado($estado) {
         $this->estado = $estado;
+    }
+
+    function setCidade($cidade) {
+        $this->cidade = $cidade;
     }
 
     function setBairro($bairro) {

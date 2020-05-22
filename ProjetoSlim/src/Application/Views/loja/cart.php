@@ -20,6 +20,16 @@
     <link rel="stylesheet" href="css/loja_css/style.css">
     
   </head>
+  <script>
+        function somaBtnOnclick(id) {
+          document.getElementById(id).value = Number(document.getElementById(id).value) + 1;
+        }
+        function subtrairBtnOnclick(id) {
+            if(document.getElementById(id).value != 1){
+              document.getElementById(id).value = Number(document.getElementById(id).value) - 1;
+            }
+        }
+</script>
   <body>
   
   <div class="site-wrap">
@@ -95,9 +105,10 @@
     </header>
 
     <div class="site-section">
+    <form class="col-md-12" method="post" action="/Loja/checkout">
       <div class="container">
         <div class="row mb-5">
-          <form class="col-md-12" method="post">
+          
             <div class="site-blocks-table">
               <table class="table table-bordered">
                 <thead>
@@ -106,7 +117,7 @@
                     <th class="product-name">Produto</th>
                     <th class="product-price">Valor Diária</th>
                     <th class="product-quantity">Quantidade</th>
-                    <th class="product-total">Total</th>
+                    <!--th class="product-total">Total</th> -->
                     <th class="product-remove">Remover</th>
                   </tr>
                 </thead>
@@ -123,22 +134,22 @@
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                          <button class="btn btn-outline-primary js-btn-minus" onclick="subtrairBtnOnclick(<?php echo $produto->getId();?>)" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" class="form-control text-center" name="Produto<?php echo $produto->getId();?>" id="<?php echo $produto->getId();?>" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                          <button class="btn btn-outline-primary js-btn-plus" onclick="somaBtnOnclick(<?php echo $produto->getId();?>)" type="button">&plus;</button>
                         </div>
                       </div>
                     </td>
-                    <td><?php echo $produto->getValDiaria()?></td>
+                   <!-- <td><?php //echo $produto->getValDiaria()?></td>-->
                     <td><a href="retirarCarrinho?Produto_id=<?php echo $produto->getId();?>" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
                  <?php }?>
                 </tbody>
               </table>
             </div>
-          </form>
+          
         </div>
 
         <div class="row">
@@ -146,13 +157,14 @@
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
                 <!-- <button class="btn btn-primary btn-sm btn-block">FINALIZAR</button> -->
-                <a href="/Loja/checkout" class="btn btn-primary btn-sm btn-block">FINALIZAR</a>
+                <button  type="submit" class="btn btn-primary btn-sm btn-block">FINALIZAR</button>
               </div>
               <div class="col-md-6">
                 <!-- <button class="btn btn-outline-primary btn-sm btn-block">Continuar comprando</button> -->
                 <a href="/shop" class="btn btn-outline-primary btn-sm btn-block">CONTINUAR alugando</a>
               </div>
             </div>
+           
             <!-- Cupom de desconto
               <div class="row">
               <div class="col-md-12">
@@ -167,6 +179,7 @@
               </div> -->
             </div>
           </div>
+          </form>
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
               <div class="col-md-7">

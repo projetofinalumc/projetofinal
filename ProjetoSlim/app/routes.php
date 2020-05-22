@@ -254,7 +254,7 @@ return function (App $app) {
                //ROTAS DE TESTE PARA LOJA
        $app->group('/Loja', function (Group $group) {
 
-                $group->get('/checkout',ControllerPedido::class . ':gerarPedido');
+                $group->post('/checkout',ControllerPedido::class . ':gerarPedido');
                 #$group->post('/pedidoFinal',ControllerPedido::class . ':gerandoPedido');
                 $group->post('/pedidoFinal', ControllerPedido::class .':gerandoPedido');
        });

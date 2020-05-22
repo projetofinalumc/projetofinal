@@ -63,6 +63,7 @@ class ControllerLocatario
         $endereco_locatario->setCep((int) $_POST['numero_cep']);
         $endereco_locatario->setEstado($_POST['estado_end']);
         $endereco_locatario->setBairro($_POST['bairro_loc']);
+        $endereco_locatario->setCidade($_POST['cidade_loc']);
         $endereco_locatario->setIdLocatario($locatarioCadastrado->getId());
 
 

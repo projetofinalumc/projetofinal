@@ -34,14 +34,30 @@ class ControllerPedido{
 
         $produtoDAO = new ProdutoDAO($conn);
 
+        foreach($_SESSION['Carrinho'] as $key=>$produto){
+
+                 $obj  = json_decode($produto,false);
+  
+              
+                  $obj->Quantidade = $_POST["Produto$obj->Produtoid"];
+                  
+                  $_SESSION['Carrinho'][$key] = json_encode($obj);
+              }
+
         $produtos = $_SESSION['Carrinho'];
+
 
         $listProdutoPedido = $produtoDAO->buscarProdutosCarrinho($produtos);
 
         $valorTotal = 0;
         
         foreach($listProdutoPedido as $Produto){
-            $valorTotal += $Produto->getValDiaria();
+             $id = $Produto->getId();
+            $QuantidadePedido = $_POST["Produto$id"];
+            $Produto->setQuantidade($QuantidadePedido);
+            $valor = $Produto->getQuantidade() * $Produto->getValDiaria();
+            $valorTotal += $valor;
+           
         }
         
         
@@ -97,7 +113,11 @@ class ControllerPedido{
         
         $pedido = unserialize($_SESSION['PedidoLocatario']);
         $todosEnderecos = $_POST['inputEndereco'];
-        
+
+        unset($_SESSION['PedidoLocatario']);
+        unset($_SESSION['Carrinho']);
+        unset($_SESSION['Total_Carrinho']);
+
         $N = count($todosEnderecos);
         $enderecoSelecionado = 0;
         for($i=0; $i < $N; $i++)
@@ -136,7 +156,7 @@ class ControllerPedido{
    
         $renderer = new PhpRenderer(__DIR__.'/../../Views/loja/');
         
-        return $renderer->render($response, "test.php", $args);
+        return $renderer->render($response, "final.php", $args);
     }
 
 }

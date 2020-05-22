@@ -8,9 +8,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                           
 
    $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);   
-    
-  echo var_dump($_SESSION);
-  //setcookie("PedidoLocatario", $PedidoLocatario);           
+      //setcookie("PedidoLocatario", $PedidoLocatario);           
   ?>
 <html lang="en">
   <head>
@@ -166,7 +164,7 @@ function checkOutroEndereco() {
                 <label for="c_create_account" class="text-black"  aria-controls="create_an_account"><input  name="inputEndereco[]" data-toggle="collapse" href="#endereco<?php echo $Endereco->getId();?>" role="button" aria-expanded="false" onclick="checkEndereco('<?php echo $Endereco->getId();?>')" type="checkbox" value="<?php echo $Endereco->getId();?>" class="c_create_account" id="<?php echo $Endereco->getId();?>"> <?php echo $Endereco->getLogradouro();?></label>
                 <div class="collapse" id="endereco<?php echo $Endereco->getId();?>">
                   <div class="py-2">
-                    <p class="mb-3"> <?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero()." ".$Endereco->getBairro()." ".$Endereco->getEstado();?> </p>
+                    <p class="mb-3"> <?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero()." ".$Endereco->getBairro()." ".$Endereco->getEstado()." ".$Endereco->getCidade();?> </p>
                   </div>
                 </div>
               </div>
@@ -285,8 +283,8 @@ function checkOutroEndereco() {
                     <?php $listaDeProdutos = $PedidoLocatario->getlistaProduto();?>
                     <?php foreach( $listaDeProdutos as $Produto){?>
                       <tr>
-                        <td> <?php echo $Produto->getNome();?> <strong class="mx-2">x</strong> 1</td>
-                        <td>R$ <?php echo $Produto->getValDiaria();?></td>
+                        <td> <?php echo $Produto->getNome();?> <strong class="mx-2">x</strong> <?php echo $Produto->getQuantidade();?> </td>
+                        <td>R$ <?php echo $Produto->getValDiaria() * $Produto->getQuantidade() ?></td>
                       </tr>
                     <?php }?>
                       <tr>
