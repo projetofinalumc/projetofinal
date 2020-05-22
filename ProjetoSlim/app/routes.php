@@ -260,12 +260,14 @@ return function (App $app) {
     
 
                //ROTAS DE TESTE PARA LOJA
-       $app->group('/Loja', function (Group $group) {
+            $app->group('/Loja', function (Group $group) {
 
+                $group->get('/teste',ControllerPedido::class . ':Ver_Pedido_Locatario');
                 $group->post('/checkout',ControllerPedido::class . ':gerarPedido');
                 #$group->post('/pedidoFinal',ControllerPedido::class . ':gerandoPedido');
                 $group->post('/pedidoFinal', ControllerPedido::class .':gerandoPedido');
        });
+
     //Locatario
     // $app->group('/Locatario', function(Group $group){
 

@@ -91,7 +91,28 @@ class ControllerPedido{
     }
     public function Ver_Pedido_Locatario(Request $request, Response $response, $args)
     {
-        $sessaoid = 1;//teste sem sessão
+        $conn = ConnectionFactory::Connect();
+
+        session_start();
+
+        $sessaoid = $_SESSION['idLocatario']; 
+        $locatario = new Locatario();
+        $locatario->setId($sessaoid);
+        $Pedido = new Pedido();
+        $Pedido->setLocatarioPedido($locatario);
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+        $listaPedidos = $PedidoDAO->BuscarPedidos_Locatario($Pedido);
+
+        $args = ['ListaPedidos' => $listaPedidos];
+
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/loja/');
+        
+        return $renderer->render($response, "test.php", $args);
+    }
+
+    public function Ver_Pedido_Admin(Request $request, Response $response, $args)
+    {
         $locatario = new Locatario();
         $locatario->setId($sessaoid);
         $Pedido = new Pedido();
