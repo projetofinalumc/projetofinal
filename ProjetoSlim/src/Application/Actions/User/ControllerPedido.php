@@ -149,8 +149,6 @@ class ControllerPedido{
 
         $listaPedidos = $PedidoDAO->BPA_filtro($Pedido);
 
-        
-
         $args = ['ListaPedidos' => $listaPedidos];
 
         $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');

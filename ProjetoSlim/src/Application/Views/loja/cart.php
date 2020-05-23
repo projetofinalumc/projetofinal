@@ -125,7 +125,7 @@
                 <?php foreach($ListaProdutos as $produto){?>
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
+                      <img src="images/produtos_cad/<?php echo $produto->getImgNome(); ?>" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
                       <h2 class="h5 text-black"><?php echo $produto->getNome()?></h2>

@@ -575,9 +575,9 @@
                                                 <input id="cc-pament" name="idPedido" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
 
-                                 Data Pedido<input class="form-control" type="date"  value="NULL" id="example-date-input" name="dataPedido">
-                                 Data Retirada<input class="form-control" type="date" value="NULL" id="example-date-input" name="dataRetirada">
-                                 Data Devolucao<input class="form-control" type="date"  value="NULL" id="example-date-input" name="dataDevolucao">
+                                 Data Pedido<input class="form-control" type="date"  value="" id="example-date-input" name="dataPedido">
+                                 Data Retirada<input class="form-control" type="date" value="" id="example-date-input" name="dataRetirada">
+                                 Data Devolucao<input class="form-control" type="date"  value="" id="example-date-input" name="dataDevolucao">
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

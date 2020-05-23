@@ -88,19 +88,28 @@ class ControllerProduto{
 
       $ProdutoNovo = new Produto();
 
-        $ProdutoNovo->setNome($_POST['txtNome']);
-        $ProdutoNovo->setModelo($_POST['txtModelo']);
-        $ProdutoNovo->setValDiaria((float)$_POST['txtValDiaria']);
-        $ProdutoNovo->setDimensao($_POST['txtDimensao']);
-        $ProdutoNovo->setQuantidade((Int)$_POST['txtQuantidade']);
-        $ProdutoNovo->setPrecoPerda((float)$_POST['txtPrecoPerda']);
+          $ProdutoNovo->setNome($_POST['txtNome']);
+          $ProdutoNovo->setModelo($_POST['txtModelo']);
+          $ProdutoNovo->setValDiaria((float)$_POST['txtValDiaria']);
+          $ProdutoNovo->setDimensao($_POST['txtDimensao']);
+          $ProdutoNovo->setQuantidade((Int)$_POST['txtQuantidade']);
+          $ProdutoNovo->setPrecoPerda((float)$_POST['txtPrecoPerda']);
 
-        $ProdutoDAO = new ProdutoDAO($conn);
-        $ProdutoDAO->adicionarProduto($ProdutoNovo);
+            $temp = explode(".", $_FILES["img"]["name"]);
+            $newfilename = round(microtime(true)) . '.' . end($temp);
+            move_uploaded_file($_FILES["img"]["tmp_name"], "images/produtos_cad/" . $newfilename);
 
-        return $this->listarprodutoAdmin($request, $response, $args);
+            $ProdutoNovo->setImgNome($newfilename);
+
+
+         $ProdutoDAO = new ProdutoDAO($conn);
+         $ProdutoDAO->adicionarProduto($ProdutoNovo);
+        
+        //return $this->listarprodutoAdmin($request, $response, $args);
         //$renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
-       // return $renderer->render($response, "ListaProduto.php", $args);
+        return $this->listarprodutoAdmin($request, $response, $args);
+        // return $renderer->render($response, "ListaProduto.php", $args);
+       // return $renderer->render($response, "teste.php", $args);
      } 
 
      public function verEdicaoProduto(Request $request, Response $response, $args) {
@@ -153,6 +162,7 @@ class ControllerProduto{
         //$CategoriaProdutoEditado = $CatDAO->buscarCategoriaPorId((int)$_POST['id_categoria']);
 
         $ProdutoEditado = new Produto();
+        $imgNome = $_FILES["img"]["name"];
 
         $ProdutoEditado->setNome($_POST['txtNome']);
         $ProdutoEditado->setId((int)$_POST['txtId']);
@@ -161,6 +171,7 @@ class ControllerProduto{
         $ProdutoEditado->setDimensao($_POST['txtDimensao']);
         $ProdutoEditado->setQuantidade((int)$_POST['txtQuantidade']);
         $ProdutoEditado->setPrecoPerda((double)$_POST['txtPrecoPerda']);
+        $ProdutoEditado->setImgNome($imgNome);
         //$ProdutoEditado->setCategoria($CategoriaProdutoEditado);
 
         $ProdutoDAO = new ProdutoDAO($conn);

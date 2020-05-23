@@ -468,7 +468,7 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
                         </div>
-                        <form action="/Admin/NovoProduto" method="POST">
+                        <form enctype="multipart/form-data" action="/Admin/NovoProduto" method="POST">
 						    <div class="modal-body">
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Nome:</label>
@@ -498,7 +498,7 @@
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Imahem</label>
-                                          <input id="cc-pament" name="idLocatario" type="file" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input name="img" type="file" class="form-control" >
                                  </div>
                          </div>
                         
@@ -524,7 +524,7 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
                         </div>
-                        <form action="/Admin/EditarProduto" method="POST">
+                        <form action="/Admin/EditarProduto" method="POST" enctype="multipart/form-data">
 						    <div class="modal-body">
                             <input id="cc-pament" name="txtId" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getId();?>" hidden>
 
@@ -556,7 +556,7 @@
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Imahem</label>
-                                          <input id="cc-pament" name="idLocatario" type="file" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input id="cc-pament" name="img" type="file" class="form-control" aria-required="true" aria-invalid="false" value="images/produtos_cad/<?php echo $Produto->getImgNome();?>">
                                  </div>
                          </div>
                         

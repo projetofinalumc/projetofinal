@@ -34,6 +34,7 @@ class ProdutoDAO {
                 $prodt->setDimensao($row["dimensao"]);
                 $prodt->setQuantidade($row["quantidade"]);
                 $prodt->setPrecoPerda($row["precoPerda"]);
+                $prodt->setImgNome($row["imgNome"]);
                 $listProd[] = $prodt;
             }
             return $listProd;
@@ -47,7 +48,7 @@ class ProdutoDAO {
 
     public function adicionarProduto($prodt) {
       //Preparando um comando sql para parametrização     
-      $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda) Values(?,?,?,?,?,?);";                    
+      $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda,imgNome) Values(?,?,?,?,?,?,?);";                    
       $stmt = $this->conn->prepare($sql);
       //Passando os parametros e seus tipos (s = String, d = Double , i = Int)
       $nome = $prodt->getNome();
@@ -56,8 +57,9 @@ class ProdutoDAO {
       $Dimensao = $prodt->getDimensao();
       $Quantidade = $prodt->getQuantidade();
       $PrecoPerda = $prodt->getPrecoPerda();
+      $imgNome = $prodt->getImgNome();
 
-       $stmt->bind_param('ssisid',$nome ,$modelo,$valDiaria,$Dimensao ,$Quantidade,$PrecoPerda);
+       $stmt->bind_param('ssisids',$nome ,$modelo,$valDiaria,$Dimensao ,$Quantidade,$PrecoPerda,$imgNome);
 
       // $stmt->bindParam(1, $nome);
       // $stmt->bindParam(2, $modelo);
@@ -84,6 +86,7 @@ class ProdutoDAO {
       $quantidade = $prodt->getQuantidade();
       $precoPerda = $prodt->getPrecoPerda();
       $id = $prodt->getId();
+      $imgNome = $prodt->getImgNome();
 
       //  $conn = ConnectionFactory::Connect();
       $sql = "UPDATE Produto SET nome = '$nome', modelo = '$modelo', valdiaria = $valDiaria, dimensao = '$dimensao', quantidade = $quantidade, precoPerda = $precoPerda WHERE idProduto = $id;";
@@ -129,6 +132,7 @@ class ProdutoDAO {
                 $prodt->setDimensao($row["dimensao"]);
                 $prodt->setQuantidade($row["quantidade"]);
                 $prodt->setPrecoPerda($row["precoPerda"]);
+                $prodt->setImgNome($row["imgNome"]);
                 $listProd[] = $prodt;
             
         }

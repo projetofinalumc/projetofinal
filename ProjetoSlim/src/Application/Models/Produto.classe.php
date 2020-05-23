@@ -11,13 +11,17 @@ class Produto {
     private $dimensao;
     private $quantidade;//#
     private $precoPerda;
-
+    private $imgNome;
     public function getId() {
         return $this->id;
     }
 
     public function getNome() {
         return $this->nome;
+    }
+
+    public function getImgNome() {
+        return $this->imgNome;
     }
 
     public function getModelo() {
@@ -46,6 +50,11 @@ class Produto {
 
     public function setId(int $id) {
         $this->id = $id;
+    }
+
+
+    public function setImgNome($imgNome) {
+        $this->imgNome = $imgNome;
     }
 
     public function setNome(string $nome) {
