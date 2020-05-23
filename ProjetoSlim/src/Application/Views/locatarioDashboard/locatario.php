@@ -144,9 +144,9 @@
                 </div>
             </header>
             <!-- END HEADER DESKTOP-->
-
+            
             <!-- MAIN CONTENT-->
-            <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+            
                 <div class="main-content">
                     <div class="section__content section__content--p30">
                         <div class="container-fluid">
@@ -164,13 +164,14 @@
                                                     <th class="text-right">Valor Total</th>
                                                 </tr>
                                             </thead>
+                                            <?php foreach ($ListaPedidos as $listaPedidos) { ?>
                                             <tbody>
-                                                <tr data-toggle="modal" data-target="#largeModal">
+                                                <tr data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
                                                     <td><?php echo $listaPedidos->getdataPedido(); ?></td>
                                                     <td><?php echo $listaPedidos->getidPedido(); ?></td>
                                                     <td><?php echo $listaPedidos->getdataRetirada(); ?></td>
-                                                    <td class="text-right"><?php //echo $listaPedidos->getEnderecoPedido(); 
-                                                                            ?></td>
+                                                    <?php $Endereco = $listaPedidos->getEnderecoPedido(); ?>
+                                                    <td class="text-right"> <?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero();?></td>
                                                     <td class="text-right"><?php echo $listaPedidos->getdataDevolucao(); ?></td>
                                                     <td class="text-right"><?php echo $listaPedidos->getValorTotal(); ?></td>
 
@@ -178,6 +179,7 @@
                                                 </tr>
 
                                             </tbody>
+                                            <?php } ?>
                                         </table>
                                     </div>
                                 </div>
@@ -192,15 +194,15 @@
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+            
         </div>
 
     </div>
 
 
     <!-- modal large inicio-->
-    <div class="modal fade" id="largeModal<?php //echo $pedido->getid();
-                                            ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+    <div class="modal fade" id="largeModal<?php echo $listaPedidos->getidPedido(); ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -210,25 +212,49 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                <table class="table table-borderless table-striped table-earning">
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-13">
+                                    <div class="table-responsive table--no-card m-b-30">
+                                        <table class="table table-borderless table-striped table-earning">
                                             <thead>
                                                 <tr>
-                                                    <th>Produto</th>
-                                                    <th class="text-right">Quantidade</th>
-                                                   
+                                                    <th>Cód. Pedido</th>
+                                                    <th>Quantidade</th>
+                                                    <th class="text-right">Valor unitario</th>
+                                                    <th class="text-right">Valor Total</th>
                                                 </tr>
                                             </thead>
+                                            <?php $listProduto = $listaPedidos->getlistaProduto();?>
+                                            <?php foreach ($listProduto  as $Produto) { ?>
                                             <tbody>
-                                                <tr data-toggle="modal" data-target="#largeModal">
-                                                    <td>Teste<?php //echo $listaPedidos->getdataPedido(); ?></td>                                                                                                     
-                                                    <td class="text-right">Teste<?php //echo $listaPedidos->getdataDevolucao(); ?></td>
-                                                   
+                                                <tr>
+                                                    <td><?php echo $Produto->getId(); ?></td>
+                                                    <td><?php echo $Produto->getQuantidade(); ?></td>
+                                                    <td><?php echo $Produto->getValDiaria(); ?></td>
+                                                    <td><?php echo $Produto->getValDiaria(); ?></td>
 
 
                                                 </tr>
 
                                             </tbody>
-                                        </table>    
+                                            <?php } ?>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -237,6 +263,7 @@
             </div>
         </div>
     </div>
+    <?php }?>
     <!-- end modal large fiim-->
 
     <!-- Jquery JS-->

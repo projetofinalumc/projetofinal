@@ -90,8 +90,28 @@ class PedidoDAO{
                 $Pedido_cliente->setEnderecoPedido($listEnderecoLocatario);
                 $listaPedidos[] = $Pedido_cliente;//criei a lista de Pedidos 
             }
-            return $listaPedidos;
-        }  
+        } 
+            foreach($listaPedidos as $Pedido){
+                $PedidoId = $Pedido->getidPedido();
+                $sql = "SELECT * FROM itemPedido WHERE fk_Pedido = $PedidoId;";
+                $stmt = $this->conn->query($sql);
+                if($stmt->num_rows > 0){
+                        while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
+                            $prodt = new Produto();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                            $prodt->setId($rows["fk_Produto"]);
+                            $prodt->setValDiaria($rows["valorUnitario"]);
+                            $prodt->setQuantidade($rows["quantidade"]);
+                            $listProd[] = $prodt;
+                        }
+
+                        $Pedido->setlistaProduto($listProd);
+                        $listPedidoNovo[] = $Pedido;
+                    }
+             }
+             return $listPedidoNovo;
+       
+        
+        
     }
     public function BuscarPedidos_Administrador(){
         $sql = 'SELECT * FROM Pedido';

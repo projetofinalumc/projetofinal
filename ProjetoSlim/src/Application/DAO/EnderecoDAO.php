@@ -107,7 +107,8 @@ class EnderecoDAO {
                     $enderecoLocatario->setCep((int)$row["cep"]);
                     $enderecoLocatario->setEstado((string)$row["estado"]);
                     $enderecoLocatario->setBairro((string)$row["Bairro"]);
-                    $enderecoLocatario->setBairro((string)$row["Cidade"]);
+                    $enderecoLocatario->setCidade((string)$row["Cidade"]);
+                    $enderecoLocatario->setNumero((int)$row["numero"]);
                     $listEnderecoLocatario = $enderecoLocatario;
             
             }
