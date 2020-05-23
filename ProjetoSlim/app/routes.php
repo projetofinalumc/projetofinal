@@ -160,6 +160,13 @@ return function (App $app) {
             
             return $renderer->render($response, "login.php", $args);
         });
+        $group->get('/Tabela' ,function ($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+
+            
+            return $renderer->render($response, "table2.php", $args);
+        });
         $group->get('/NovoProduto' ,function ($request, $response, $args){
 
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
@@ -168,13 +175,8 @@ return function (App $app) {
             return $renderer->render($response, "novoproduto.php", $args);
             // return $renderer->render($response, "novoproduto.php", $args);
         });
-         $group->get('/ListaPedido' ,function ($request, $response, $args){
-
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
-
-            
-             return $renderer->render($response, "ListaPedidos.php", $args);
-        });
+        $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
+        $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');
         $group->get('/AreaAdministrador' ,function ($request, $response, $args){
 
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');

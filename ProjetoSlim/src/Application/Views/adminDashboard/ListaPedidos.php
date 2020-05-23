@@ -35,6 +35,16 @@
 
 </head>
 
+<script>
+    function httpGet(theUrl)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+        xmlHttp.send( null );
+        return xmlHttp.responseText;
+    }
+</script>
+
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
@@ -439,40 +449,69 @@
             <!-- END HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
+            
             <div class="main-content">
+                
                 <div class="section__content section__content--p30">
+                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light rs-select2--sm">
+                                            <select class="js-select2" name="time">
+                                                <option selected="selected">Today</option>
+                                                <option value="">3 Days</option>
+                                                <option value="">1 Week</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        
+                                        <button class="au-btn-filter" data-toggle="modal" data-target="#largeModal">
+                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-plus"></i>add item</button>
+                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                            <select class="js-select2" name="type">
+                                                <option selected="selected">Export</option>
+                                                <option value="">Option 1</option>
+                                                <option value="">Option 2</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                    </div>
+                                </div>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-13">
                                 <div class="table-responsive table--no-card m-b-30">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
-                                        <?php
-                                        ?>
+                                    
                                             <tr>
-                                                <th class="text-right">ID</th>
-                                                <th class="text-right">Nome</th>
-                                                <th class="text-right">Modelo</th>
-                                                <th class="text-right">Valor Diário</th>
-                                                <th class="text-right">Quantidade</th>
-                                                <th class="text-right">Preço de Perda</th>
+                                                <th class="text-right">Data Pedido</th>
+                                                <th class="text-right">Cód. Pedido</th>
+                                                <th class="text-right">Data Retirada</th>
+                                                <th class="text-right">Endereço</th>
+                                                <th class="text-right">Data Devolução</th>
+                                                <th class="text-right">Data Devolução</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
-                                            foreach($ListaProduto as $produto){                                      
-                                        ?>
+                                           <?php if(isset($ListaPedidos)){?>    
+                                            <?php foreach ($ListaPedidos as $Pedido) { ?>                                
                                             <tr>
-                                            <td><?php echo $produto->getid();?></td>
-                                            <td><?php echo $produto->getNome();?></td>
-                                            <td><?php echo $produto->getModelo();?></td>
-                                            <td><?php echo $produto->getValDiaria();?></td>
-                                            <td><?php echo $produto->getDimensao();?></td>
-                                            <td><?php echo $produto->getQuantidade();?></td>
+                                            <td><?php echo $Pedido->getdataPedido(); ?></td>
+                                            <td><?php echo $Pedido->getidPedido(); ?></td>
+                                            <td><?php echo $Pedido->getdataRetirada(); ?></td>
+                                            <?php $Endereco = $Pedido->getEnderecoPedido(); ?>
+                                            <td><?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero();?></td>
+                                            <td><?php echo $Pedido->getdataDevolucao(); ?></td>
+                                            <td><?php echo $Pedido->getValorTotal(); ?></td>
                                             </tr>
                                             <?php
                                             }
                                             ?>
+                                     <?php }?>  
                                         </tbody>
                                     </table>
                                 </div>
@@ -516,7 +555,39 @@
 					</div>
 				</div>
 			</div>
-			<!-- end modal large fiim-->
+            <!-- end modal large fiim-->
+            
+        			<!-- modal large -->
+			<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+              <form action="/Admin/ListaPedido" method="POST">
+                <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+                        </div>
+                        
+						<div class="modal-body">
+                                 <div class="form-group">
+                                                <label for="cc-payment" class="control-label mb-1">Codigo do Cliente</label>
+                                                <input id="cc-pament" name="idLocatario" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+
+                                 Data Pedido<input class="form-control" type="date"  value="NULL" id="example-date-input" name="dataPedido">
+                                 Data Retirada<input class="form-control" type="date" value="NULL" id="example-date-input" name="dataRetirada">
+                                 Data Devolucao<input class="form-control" type="date"  value="NULL" id="example-date-input" name="dataDevolucao">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-primary" >Confirm</button>
+						</div>
+					</div>
+                </div>
+              </form>  
+			</div>
+			<!-- end modal large -->
 
     <!-- Jquery JS-->
     <script src="/vendor/jquery-3.2.1.min.js"></script>

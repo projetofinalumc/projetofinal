@@ -113,20 +113,54 @@ class ControllerPedido{
 
     public function Ver_Pedido_Admin(Request $request, Response $response, $args)
     {
-        $locatario = new Locatario();
-        $locatario->setId($sessaoid);
+        $conn = ConnectionFactory::Connect();
+
+        session_start();
+         
         $Pedido = new Pedido();
-        $Pedido->setLocatarioPedido($locatario);
         // $_SESSION['idLocatario']
         $PedidoDAO = new PedidoDAO($conn);
-        $listaPedidos = $PedidoDAO->BuscarPedidos_Locatario($Pedido);
+
+        $listaPedidos = $PedidoDAO->BuscarPedidos_Administrador();
+
+        
 
         $args = ['ListaPedidos' => $listaPedidos];
 
-        $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
         
-        return $renderer->render($response, "pedido.php", $args);
+        return $renderer->render($response, "ListaPedidos.php", $args);
     }
+
+    public function Ver_Pedido_Admin_filtrado(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+
+        session_start();
+         
+        $Pedido = new Pedido();
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+
+        if(isset($_POST['dataRetirada'])){$Pedido->setdataRetirada($_POST['dataRetirada']);}//else{$Pedido->setdataRetirada(NULL);}
+        if(isset($_POST['dataPedido'])){$Pedido->setdataPedido($_POST['dataPedido']);}//else{$Pedido->setdataPedido(NULL);}
+        if(isset($_POST['dataDevolucao'])){$Pedido->setdataDevolucao($_POST['dataDevolucao']);}//else{$Pedido->setdataDevolucao(NULL);}
+        if(isset($_POST['idLocatario'])){$Pedido->setidPedido((int)$_POST['idLocatario']);}
+
+        $listaPedidos = $PedidoDAO->BPA_filtro($Pedido);
+
+        
+
+        $args = ['ListaPedidos' => $listaPedidos];
+
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+        return $renderer->render($response, "ListaPedidos.php", $args);
+    }
+
+
+
+
     public function gerandoPedido(Request $request, Response $response, $args)
     {
         if(!isset($_SESSION)){ session_start(); }
