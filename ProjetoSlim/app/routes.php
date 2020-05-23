@@ -237,11 +237,7 @@ return function (App $app) {
 
         });
 
-        $group->get('/locatario', function ($request, $response, $args) {
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
-            return $renderer->render($response,"locatario.php",$args);
-
-        });
+        
 
         $group->get('/carrinho', function ($request, $response, $args) {
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/locatarioDashboard/');
@@ -254,6 +250,7 @@ return function (App $app) {
         $group->post('/alterar', ControllerTest::class .':alterar');
         $group->post('/Login', ControllerSession::class .':login');
         $group->get('/Sair', ControllerSession::class .':logout');
+        $group->get('/locatario', ControllerPedido::class .':Ver_Pedido_Locatario');
         $group->post('/retornaDados', ControllerLocatario::class .':retornarDadosLocario');
 
     });    

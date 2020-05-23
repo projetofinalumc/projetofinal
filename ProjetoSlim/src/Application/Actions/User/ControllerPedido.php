@@ -106,9 +106,9 @@ class ControllerPedido{
 
         $args = ['ListaPedidos' => $listaPedidos];
 
-        $renderer = new PhpRenderer(__DIR__.'/../../Views/loja/');
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/locatarioDashboard/');
         
-        return $renderer->render($response, "test.php", $args);
+        return $renderer->render($response, "locatario.php", $args);
     }
 
     public function Ver_Pedido_Admin(Request $request, Response $response, $args)

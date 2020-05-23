@@ -77,6 +77,10 @@
                             <a href="/Locatario/DadosLocatario">
                                 <i class="fa fa-user"></i>Meus Dados</a>
                         </li>
+                        <li>
+                            <a href="/produtos">
+                                <i class="fa fa-shopping-bag"></i>Loja</a>
+                        </li>
 
 
                     </ul>
@@ -101,7 +105,7 @@
                                 </button>
                             </form>
                             <div class="header-button">
-                                <div class="noti-wrap"> 
+                                <div class="noti-wrap">
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
@@ -116,14 +120,16 @@
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="content">
-                                                     <span class="email"><?php if (isset($_SESSION['nomeLocatario'])) { echo " " . $_SESSION['nomeLocatario']; } ?></span>
+                                                    <span class="email"><?php if (isset($_SESSION['nomeLocatario'])) {
+                                                                            echo " " . $_SESSION['nomeLocatario'];
+                                                                        } ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="/victor/locatario">
                                                         <i class="zmdi zmdi-account"></i>Conta</a>
-                                                </div>                                                
+                                                </div>
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="/Locatario/Sair">
@@ -140,103 +146,53 @@
             <!-- END HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-13">
-                                <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>date</th>
-                                                <th>order ID</th>
-                                                <th>name</th>
-                                                <th class="text-right">price</th>
-                                                <th class="text-right">quantity</th>
-                                                <th class="text-right">total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr data-toggle="modal" data-target="#largeModal">
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100398</td>
-                                                <td>iPhone X 64Gb Grey</td>
-                                                <td class="text-right">$999.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$999.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-28 01:22</td>
-                                                <td>100397</td>
-                                                <td>Samsung S8 Black</td>
-                                                <td class="text-right">$756.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$756.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>100396</td>
-                                                <td>Game Console Controller</td>
-                                                <td class="text-right">$22.00</td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right">$44.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-26 23:06</td>
-                                                <td>100395</td>
-                                                <td>iPhone X 256Gb Black</td>
-                                                <td class="text-right">$1199.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$1199.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-25 19:03</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100392</td>
-                                                <td>Smartwatch 4.0 LTE Wifi</td>
-                                                <td class="text-right">$199.00</td>
-                                                <td class="text-right">6</td>
-                                                <td class="text-right">$1494.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-24 19:10</td>
-                                                <td>100391</td>
-                                                <td>Camera C430W 4k</td>
-                                                <td class="text-right">$699.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$699.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-22 00:43</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+            <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-13">
+                                    <div class="table-responsive table--no-card m-b-30">
+                                        <table class="table table-borderless table-striped table-earning">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data Pedido</th>
+                                                    <th>Cód. Pedido</th>
+                                                    <th>data Retirada</th>
+                                                    <th class="text-right">Endereço</th>
+                                                    <th class="text-right">Data Devolução</th>
+                                                    <th class="text-right">Valor Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-toggle="modal" data-target="#largeModal">
+                                                    <td><?php echo $listaPedidos->getdataPedido(); ?></td>
+                                                    <td><?php echo $listaPedidos->getidPedido(); ?></td>
+                                                    <td><?php echo $listaPedidos->getdataRetirada(); ?></td>
+                                                    <td class="text-right"><?php //echo $listaPedidos->getEnderecoPedido(); 
+                                                                            ?></td>
+                                                    <td class="text-right"><?php echo $listaPedidos->getdataDevolucao(); ?></td>
+                                                    <td class="text-right"><?php echo $listaPedidos->getValorTotal(); ?></td>
+
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
 
-                        <div class="row">
-                            <div class="col-md-12">
-
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
 
     </div>
@@ -254,12 +210,25 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra and the mountain
-                        zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus Dolichohippus. The latter
-                        resembles an ass, to which it is closely related, while the former two are more horse-like. All three belong to the
-                        genus Equus, along with other living equids.
-                    </p>
+                <table class="table table-borderless table-striped table-earning">
+                                            <thead>
+                                                <tr>
+                                                    <th>Produto</th>
+                                                    <th class="text-right">Quantidade</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-toggle="modal" data-target="#largeModal">
+                                                    <td>Teste<?php //echo $listaPedidos->getdataPedido(); ?></td>                                                                                                     
+                                                    <td class="text-right">Teste<?php //echo $listaPedidos->getdataDevolucao(); ?></td>
+                                                   
+
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

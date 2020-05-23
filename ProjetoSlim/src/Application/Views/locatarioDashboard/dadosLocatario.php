@@ -3,12 +3,12 @@ use Slim\Views\PhpRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-  }
+//if (session_status() !== PHP_SESSION_ACTIVE) {
+    //session_start();
+  //}
 
    
-?>
+//?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -166,21 +166,21 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
                                         </div>
 
-                                        <?php //foreach ($dados_locatario as $dados_locatario){  
-                                            //echo $dadoslocatario->getNome();    
+                                        <?php 
+                                              
                                         ?>
                                         <div class="card-body card-block">
                                             <div class="form-group">
                                                 <label for="company" class=" form-control-label">Nome:</label>
-                                                <input type="text" id="company" value="<?php //echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome">
+                                                <input type="text" id="company" value="<?php echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome">
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Email</label>
-                                                <input type="text" id="vat" value="<?php //echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
+                                                <input type="text" id="vat" value="<?php echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Senha</label>
-                                                <input type="password" id="vat" value="<?php //echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
+                                                <input type="password" id="vat" value="<?php echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
                                             </div>
                                            <!-- <div class="form-group">
                                                 <label for="street" class=" form-control-label">Data de Nascimento</label><?php  //$ = $dados_locatario->getData(); ?>
@@ -190,7 +190,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                                                 <div class="col-8">
                                                     <div class="form-group">
                                                         <label for="city" class=" form-control-label">CPF</label>
-                                                        <input type="text" id="city" value="<?php //echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF"> 
+                                                        <input type="text" id="city" value="<?php echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF"> 
                                                                                                     
                                                     </div>
                                                 </div>
@@ -205,16 +205,16 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                                         </div>
                                     </div>
                                 </form>
-                                <?php //} ?>
+                                <?php  ?>
                             </div>
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>Endereço</strong>
                                     </div>
-                                    <?php //$count = 0
+                                    <?php $count = 0
                                     ?>
-                                    <?php //foreach($lista_endereco as $lista_endereco){
+                                    <?php foreach($lista_endereco as $lista_endereco){
                                     ?>
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -222,25 +222,31 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
                                             <div class="card">
                                                 <div class="card-header">
-                                                    Endereco <strong>#<?php //echo $count +=1 
+                                                    Endereco <strong><?php echo $count +=1 
                                                                         ?></strong>
                                                 </div>
                                                 <div class="card-body card-block">
                                                     <form action="" method="post" class="form-inline">
+
+
                                                         <div class="form-group">
                                                             <label for="exampleInputName2" class="pr-1  form-control-label">CEP</label>
-                                                            <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getCep();
+                                                            <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getCep();
                                                                                                                 ?>" required="" class="form-control">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputName2" class="pr-1  form-control-label">Bairro</label>
-                                                            <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getBairro();
+                                                            <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getBairro();
                                                                                                                 ?>" required="" class="form-control">
                                                             </di>
                                                             <div class="form-group">
                                                                 <label for="exampleInputName2" class="pr-1  form-control-label">Estado</label>
-                                                                <input type="text" id="exampleInputName2" value="<?php //echo $lista_endereco->getEstado();
+                                                                <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getEstado();
                                                                                                                     ?>" class="form-control">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputName2" class="pr-1  form-control-label">Cidade</label>
+                                                                <input type="text" id="cidade" value="<?php echo $lista_endereco->getCidade();                                                                                                                    ?>" class="form-control">
                                                             </div>
                                                     </form>
                                                 </div>
@@ -253,7 +259,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                                                     </button>
                                                 </div>
                                             </div>
-                                            <?php //}
+                                            <?php }
                                             ?>
                                     </div>
 
