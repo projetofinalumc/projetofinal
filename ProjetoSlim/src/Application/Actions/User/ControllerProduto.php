@@ -170,5 +170,17 @@ class ControllerProduto{
         
       return $this->listar($request, $response, $args);
    } 
-
+   public function retornaImagem(Request $request, Response $response, $args) {
+      
+      $diretorio = "images/";
+      $uploadfile = $diretorio . basename($_FILES['img']['name']);
+      move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile);    
+       
+      $img = $_FILES;
+      $args = ['img' => $img];
+   
+      $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+   
+      return $renderer->render($response, "teste.php", $args);
+      }
 }
