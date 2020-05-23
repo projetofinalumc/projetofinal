@@ -164,12 +164,8 @@ class PedidoDAO{
 
     public function BPA_filtro($pedido){
 
-       /// $dataPedido = (string)$pedido->getdataPedido();
-        //$dataDevolucao = (string)$pedido->getdataDevolucao();
-        //$dataRetirada = (string)$pedido->getdataDevolucao();
-        //$idLocatario = $pedido->getIdPedido();
-
         $sql = "SELECT * FROM Pedido WHERE ";
+        
         if($pedido->getdataPedido() !== ""){
             $sql = $sql." AND dataPedido = '".$pedido->getdataPedido()."'"; 
             //$sql = $sql." AND dataPedido = $dataPedido"; 
