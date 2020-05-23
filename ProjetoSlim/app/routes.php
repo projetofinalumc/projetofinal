@@ -167,14 +167,10 @@ return function (App $app) {
             
             return $renderer->render($response, "table2.php", $args);
         });
-        $group->get('/NovoProduto' ,function ($request, $response, $args){
-
-            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
-
-            
-            return $renderer->render($response, "novoproduto.php", $args);
-            // return $renderer->render($response, "novoproduto.php", $args);
-        });
+        $group->get('/NovoProduto' , ControllerProduto::class . ':listarprodutoAdmin');
+        $group->post('/NovoProduto' , ControllerProduto::class . ':adicionar');
+        $group->post('/EditarProduto' , ControllerProduto::class . ':alterar');
+        $group->get('/DeletarProduto' , ControllerProduto::class . ':excluir');
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
         $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');
         $group->get('/AreaAdministrador' ,function ($request, $response, $args){

@@ -45,7 +45,7 @@ class ProdutoDAO {
        
     }
 
-    public function adicionarProduto(Produto $prodt) {
+    public function adicionarProduto($prodt) {
       //Preparando um comando sql para parametrização     
       $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda) Values(?,?,?,?,?,?);";                    
       $stmt = $this->conn->prepare($sql);
@@ -76,10 +76,19 @@ class ProdutoDAO {
  
     }
 
-    public function alterarProduto(\Produto $prodt) {
+    public function alterarProduto($prodt) {
+      $nome = $prodt->getNome();
+      $modelo = $prodt->getModelo();
+      $valDiaria = $prodt->getValDiaria();
+      $dimensao = $prodt->getDimensao();
+      $quantidade = $prodt->getQuantidade();
+      $precoPerda = $prodt->getPrecoPerda();
+      $id = $prodt->getId();
+
       //  $conn = ConnectionFactory::Connect();
-        $sql = "UPDATE Produto SET nome = ".$prodt->getNome()." , modelo = ".$prodt->getModelo()." , valdiaria = ".$prodt->getValDiaria().", dimensao = ".$prodt->getDimensao().", quantidade = ".$prodt->getQuantidade().", precoPerda = ".$prodt->getPrecoPerda().", categoria = ".$prodt->getCategoria()->getIdCategoria()." WHERE id = ".$prodt->getId().";";
-        $conn->query($sql);
+      $sql = "UPDATE Produto SET nome = '$nome', modelo = '$modelo', valdiaria = $valDiaria, dimensao = '$dimensao', quantidade = $quantidade, precoPerda = $precoPerda WHERE idProduto = $id;";
+      //$sql = "UPDATE Produto SET nome = ".$prodt->getNome()." , modelo = ".$prodt->getModelo()." , valdiaria = ".$prodt->getValDiaria().", dimensao = ".$prodt->getDimensao().", quantidade = ".$prodt->getQuantidade().", precoPerda = ".$prodt->getPrecoPerda()." WHERE idProduto = ".$prodt->getId();
+       $this->conn->query($sql);
         //$stmt->bind_param('ssisidii', $prodt->getNome(), $prodt->getModelo(), $prodt->getValDiaria(), $prodt->getDimensao(), $prodt->getQuantidade(),$prodt->getPrecoPerda(),$prodt->getCategoria()->getIdCategoria(),$prodt->getId());
         //$stmt->execute();
         //$stmt->close();
@@ -185,10 +194,10 @@ class ProdutoDAO {
    
 }
 
-    public function excluirProduto(\Produto $prodt) {
+    public function excluirProduto($prodt) {
       //  $conn = ConnectionFactory::Connect();
-        $sql = "DELETE FROM Produto WHERE id = ".$prodt->getId().";";
-        $stmt = $conn->query($sql);
+        $sql = "DELETE FROM Produto WHERE idProduto = ".$prodt->getId().";";
+        $stmt = $this->conn->query($sql);
 
     }
 

@@ -349,86 +349,228 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                    <h1>Cadastrar Produto</h1>
                     <br>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-11">
-                            
-                                <div class="card">
-                                    <!-- <div class="card-header">Cadastrar Novo Produto</div> -->
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h3 class="text-center title-2"></h3>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <h3 class="title-5 m-b-35">data table</h3>
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="property">
+                                                <option selected="selected">All Properties</option>
+                                                <option value="">Option 1</option>
+                                                <option value="">Option 2</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
                                         </div>
-                                        <hr>
-                                        <form action="/Admin/Adicionar" method="POST" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label for="txtNome" class="control-label mb-1">Nome: </label>
-                                                <input id="txtNome" name="txtNome" type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group has-success">
-                                                <label for="txtModelo" class="control-label mb-1">Modelo: </label>
-                                                <input id="cc-name" name="txtModelo" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
-                                                    autocomplete="txtModelo" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtValDiaria" class="control-label mb-1">Valor da Diária: </label>
-                                                <input id="cc-number" name="txtValDiaria" type="number" class="form-control cc-number identified visa" value="" data-val="true"
-                                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                                                    autocomplete="cc-number">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtDimensao" class="control-label mb-1">Dimensão: </label>
-                                                <input id="cc-number" name="txtDimensao" type="text" class="form-control cc-number identified visa" value="" data-val="true"
-                                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                                                    autocomplete="cc-number">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtQuantidade" class="control-label mb-1">Quantidade: </label>
-                                                <input id="cc-number" name="txtQuantidade" type="number" class="form-control cc-number identified visa" value="" data-val="true"
-                                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                                                    autocomplete="cc-number">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="txtPrecoPerda" class="control-label mb-1">Preço de perda: </label>
-                                                <input id="cc-number" name="txtPrecoPerda" type="number" class="form-control cc-number identified visa" value="" data-val="true"
-                                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                                                    autocomplete="cc-number">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <!-- <div class="form-group">
-                                                <label for="img" class="control-label mb-1">Imagens: </label>
-                                               <input type="file" name="img" id="">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div> -->
-                                            <div>
-                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                                        Cadastrar
-                                                </button>
-                                            </div>
-                                        </form>
+                                        <div class="rs-select2--light rs-select2--sm">
+                                            <select class="js-select2" name="time">
+                                                <option selected="selected">Today</option>
+                                                <option value="">3 Days</option>
+                                                <option value="">1 Week</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <button class="au-btn-filter">
+                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
+                                            <i class="zmdi zmdi-plus"></i>add item</button>
+                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                            <select class="js-select2" name="type">
+                                                <option selected="selected">Export</option>
+                                                <option value="">Option 1</option>
+                                                <option value="">Option 2</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- **************************** ACABA AQUI ****************************-->
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <th>name</th>
+                                                <th>email</th>
+                                                <th>description</th>
+                                                <th>date</th>
+                                                <th>status</th>
+                                                <th>price</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <?php foreach($ListaProduto as $Produto){?>
+                                        <tbody >
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td><?php echo $Produto->getNome(); ?></td>
+                                                <td>
+                                                    <?php echo $Produto->getDimensao(); ?>
+                                                </td>
+                                                <td class="desc"><?php echo $Produto->getId(); ?></td>
+                                                <td><?php echo $Produto->getModelo();?></td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>R$ <?php echo $Produto->getValDiaria();?></td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                            <i class="zmdi zmdi-mail-send"></i>
+                                                        </button>
+                                                        <button class="item"  title="Edit" data-toggle="modal" data-target="#largeModalEditar<?php echo $Produto->getId();?>" >
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Delete" href="/Admin/DeletarProduto?idExcluir=<?php echo $Produto->getId();?>">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </a>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                            <i class="zmdi zmdi-more"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                        </tbody>
+                                        <?php }?> 
+                                    </table>
                                 </div>
+                                <!-- END DATA TABLE -->
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
 
     </div>
+
+
+    			<!-- modal large -->
+			<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+                        </div>
+                        <form action="/Admin/NovoProduto" method="POST">
+						    <div class="modal-body">
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Nome:</label>
+                                          <input id="cc-pament" name="txtNome" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Modelo:</label>
+                                          <input id="cc-pament" name="txtModelo" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Quantidade:</label>
+                                          <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria</label>
+                                          <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Dimensao</label>
+                                          <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Preco perda</label>
+                                          <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Imahem</label>
+                                          <input id="cc-pament" name="idLocatario" type="file" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+                         </div>
+                        
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-primary">Confirm</button>
+                        </div>
+                     </form>
+					</div>
+				</div>
+			</div>
+            <!-- end modal large -->
+            
+
+                <!-- modal large EDITAR PRODUTO -->
+            <?php foreach($ListaProduto as $Produto){?>
+			<div class="modal fade" id="largeModalEditar<?php echo $Produto->getId();?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+                        </div>
+                        <form action="/Admin/EditarProduto" method="POST">
+						    <div class="modal-body">
+                            <input id="cc-pament" name="txtId" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getId();?>" hidden>
+
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Nome:</label>
+                                          <input id="cc-pament" name="txtNome" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getNome();?>">
+                                 </div>
+
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Modelo:</label>
+                                          <input id="cc-pament" name="txtModelo" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getModelo();?>">
+                                 </div>
+
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Quantidade:</label>
+                                          <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getQuantidade();?>">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria</label>
+                                          <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getValDiaria();?>">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Dimensao</label>
+                                          <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getDimensao();?>">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Preco perda</label>
+                                          <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getPrecoPerda();?>">
+                                 </div>
+                                 <div class="form-group">
+                                          <label for="cc-payment" class="control-label mb-1">Imahem</label>
+                                          <input id="cc-pament" name="idLocatario" type="file" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                 </div>
+                         </div>
+                        
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-primary">Confirm</button>
+                        </div>
+                     </form>
+					</div>
+				</div>
+            </div>
+            <?php }?>
+			<!-- end modal large -->
+
 
     <!-- Jquery JS-->
     <script src="/vendor/jquery-3.2.1.min.js"></script>

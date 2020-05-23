@@ -145,7 +145,7 @@ class ControllerPedido{
         if(isset($_POST['dataRetirada'])){$Pedido->setdataRetirada($_POST['dataRetirada']);}//else{$Pedido->setdataRetirada(NULL);}
         if(isset($_POST['dataPedido'])){$Pedido->setdataPedido($_POST['dataPedido']);}//else{$Pedido->setdataPedido(NULL);}
         if(isset($_POST['dataDevolucao'])){$Pedido->setdataDevolucao($_POST['dataDevolucao']);}//else{$Pedido->setdataDevolucao(NULL);}
-        if(isset($_POST['idLocatario'])){$Pedido->setidPedido((int)$_POST['idLocatario']);}
+        if(isset($_POST['idPedido'])){$Pedido->setidPedido((int)$_POST['idPedido']);}
 
         $listaPedidos = $PedidoDAO->BPA_filtro($Pedido);
 

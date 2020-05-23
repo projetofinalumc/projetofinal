@@ -571,8 +571,8 @@
                         
 						<div class="modal-body">
                                  <div class="form-group">
-                                                <label for="cc-payment" class="control-label mb-1">Codigo do Cliente</label>
-                                                <input id="cc-pament" name="idLocatario" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                                <label for="cc-payment" class="control-label mb-1">Codigo do Pedido</label>
+                                                <input id="cc-pament" name="idPedido" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
 
                                  Data Pedido<input class="form-control" type="date"  value="NULL" id="example-date-input" name="dataPedido">

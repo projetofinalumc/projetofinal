@@ -53,7 +53,7 @@ class ControllerProduto{
  
          $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
  
-         return $renderer->render($response, "ListaProduto.php", $args);
+         return $renderer->render($response, "novoproduto.php", $args);
  
      }
  
@@ -79,22 +79,7 @@ class ControllerProduto{
 
    public function adicionar(Request $request, Response $response, $args) {
         
-      //   $conn = ConnectionFactory::Connect();
-        
-      //   $ProdutoNovo = new \Produto();
-
-      //   $ProdutoNovo->setNome($_POST['txtNome']);
-      //   $ProdutoNovo->setModelo($_POST['txtModelo']);
-      //   $ProdutoNovo->setValDiaria((double)$_POST['txtValDiaria']);
-      //   $ProdutoNovo->setDimensao($_POST['txtDimensao']);
-      //   $ProdutoNovo->setQuantidade((int)$_POST['txtQuantidade']);
-      //   $ProdutoNovo->setPrecoPerda((double)$_POST['txtPrecoPerda']);
-        
-      //   $ProdutoDAO = new ProdutoDAO($conn);
-
-      //   $ProdutoDAO->adicionarProduto($ProdutoNovo);
-
-      //    $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+      ///    $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
 
       //     return $renderer->render($response, "testecrud.php", $args);
       //     return $this->listar($request, $response, $args);
@@ -113,8 +98,9 @@ class ControllerProduto{
         $ProdutoDAO = new ProdutoDAO($conn);
         $ProdutoDAO->adicionarProduto($ProdutoNovo);
 
-        $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
-        return $renderer->render($response, "ListaProduto.php", $args);
+        return $this->listarprodutoAdmin($request, $response, $args);
+        //$renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+       // return $renderer->render($response, "ListaProduto.php", $args);
      } 
 
      public function verEdicaoProduto(Request $request, Response $response, $args) {
@@ -146,32 +132,27 @@ class ControllerProduto{
      } 
 
      public function excluir(Request $request, Response $response, $args) {
-        // $conn = ConnectionFactory::Connect();
+         $conn = ConnectionFactory::Connect();
 
-        // $route = $request->getAttribute('route');
-        // $IdProdutoDeletado = $route->getArgument('id');
-
-        // $ProdutoDeletado = new \Produto();
-        // $ProdutoDeletado->setId((int)$IdProdutoDeletado);
+          $IdProdutoDeletado = $_GET['idExcluir'];
+          $ProdutoDeletado = new Produto();
+          $ProdutoDeletado->setId((int)$IdProdutoDeletado);
         
-        // $ProdutoDAO = new ProdutoDAO($conn);
+          $ProdutoDAO = new ProdutoDAO($conn);
 
-        // $ProdutoDAO->excluirProduto($ProdutoDeletado);
-
-        // $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
-
-        //  return $renderer->render($response, "ListaProduto.php", $args);
-        //  return $this->listar($request, $response, $args);
+         $ProdutoDAO->excluirProduto($ProdutoDeletado);
+       
+          return $this->listarprodutoAdmin($request, $response, $args);
      } 
 
      public function alterar(Request $request, Response $response, $args) {
         
         $conn = ConnectionFactory::Connect();
         
-        $CatDAO = new CategoriaDAO($conn);
-        $CategoriaProdutoEditado = $CatDAO->buscarCategoriaPorId((int)$_POST['id_categoria']);
+        //$CatDAO = new CategoriaDAO($conn);
+        //$CategoriaProdutoEditado = $CatDAO->buscarCategoriaPorId((int)$_POST['id_categoria']);
 
-        $ProdutoEditado = new \Produto();
+        $ProdutoEditado = new Produto();
 
         $ProdutoEditado->setNome($_POST['txtNome']);
         $ProdutoEditado->setId((int)$_POST['txtId']);
@@ -180,12 +161,12 @@ class ControllerProduto{
         $ProdutoEditado->setDimensao($_POST['txtDimensao']);
         $ProdutoEditado->setQuantidade((int)$_POST['txtQuantidade']);
         $ProdutoEditado->setPrecoPerda((double)$_POST['txtPrecoPerda']);
-        $ProdutoEditado->setCategoria($CategoriaProdutoEditado);
+        //$ProdutoEditado->setCategoria($CategoriaProdutoEditado);
 
         $ProdutoDAO = new ProdutoDAO($conn);
         $ProdutoDAO->alterarProduto($ProdutoEditado);
         
-      return $this->listar($request, $response, $args);
+      return $this->listarprodutoAdmin($request, $response, $args);
    } 
    public function retornaImagem(Request $request, Response $response, $args) {
       
