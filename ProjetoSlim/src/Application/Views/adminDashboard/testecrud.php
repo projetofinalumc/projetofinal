@@ -1,3 +1,5 @@
 <?php
-echo ""
+echo "Adicionado com sucesso";
+
+
 ?>

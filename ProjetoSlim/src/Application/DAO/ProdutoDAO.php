@@ -46,8 +46,8 @@ class ProdutoDAO {
     }
 
     public function adicionarProduto(Produto $prodt) {
-              //Preparando um comando sql para parametrização     
-        $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda) Values(?,?,?,?,?,?);";                    
+      //Preparando um comando sql para parametrização     
+      $sql = "INSERT INTO Produto(nome,modelo,valDiaria,dimensao,quantidade,precoPerda) Values(?,?,?,?,?,?);";                    
       $stmt = $this->conn->prepare($sql);
       //Passando os parametros e seus tipos (s = String, d = Double , i = Int)
       $nome = $prodt->getNome();
@@ -57,10 +57,18 @@ class ProdutoDAO {
       $Quantidade = $prodt->getQuantidade();
       $PrecoPerda = $prodt->getPrecoPerda();
 
-      $stmt->bind_param('ssisid',$nome ,$modelo,$valDiaria,$Dimensao ,$Quantidade,$PrecoPerda);
+       $stmt->bind_param('ssisid',$nome ,$modelo,$valDiaria,$Dimensao ,$Quantidade,$PrecoPerda);
+
+      // $stmt->bindParam(1, $nome);
+      // $stmt->bindParam(2, $modelo);
+      // $stmt->bindParam(3, $valDiaria);
+      // $stmt->bindParam(4, $Dimensao);
+      // $stmt->bindParam(5, $Quantidade);
+      // $stmt->bindParam(6, $PrecoPerda);
+
       // Executando o comando parametrizado
       $stmt->execute();
-      $insert_id = $stmt->insert_id();
+      // $insert_id = $stmt->insert_id();
       $stmt->close();
        // $conn = ConnectionFactory::Connect();
      //  $sql = "INSERT INTO Produto(nome,modelo,valdiaria,dimensao,quantidade,precoPerda,categoria) Values(".$prodt->getNome().",".$prodt->getModelo().",".$prodt->getValDiaria().",".$prodt->getQuantidade().",".$prodt->getPrecoPerda().",".$prodt->getCategoria()->getIdCategoria().";";

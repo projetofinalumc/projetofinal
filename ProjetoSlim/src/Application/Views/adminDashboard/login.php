@@ -67,9 +67,6 @@
                                     <label>
                                         <input type="checkbox" name="remember">Lembre-me
                                     </label>
-                                    <label>
-                                        <a href="#">Esqueceu a senha?</a>
-                                    </label>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Entrar</button>
                                 <div class="social-login-content">
@@ -79,12 +76,6 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="register-link">
-                                <p>
-                                    Não possui uma conta?
-                                    <a href="#">Cadastre-se</a>
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>

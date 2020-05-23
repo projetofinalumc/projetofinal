@@ -315,15 +315,15 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?php echo $_SESSION['nomeAdm'];  ?></a>
+                                                        <a href="/Admin/Home"><?php echo $_SESSION['nomeAdm'];  ?></a>
                                                     </h5>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
+                                                <!-- <div class="account-dropdown__item">
                                                     <a href="/Admin/MeuUsuario">
                                                         <i class="zmdi zmdi-account"></i>Meu Usuario</a>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
@@ -334,7 +334,7 @@
                                                 </div> -->
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="/Admin/logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

@@ -70,12 +70,12 @@ class ControllerAdmin{
 
    public function logout (Request $request, Response $response, $args) {
     
-        if (isset($_GET['sair']) == 'logout'){
+        if (isset($_POST['sair']) == 'logout'){
 
             echo "Logout realizado com sucesso.";
             session_start();
             session_destroy();
-
+            $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
             return $renderer->render($response, "login.php", $args);
         }
     }

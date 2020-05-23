@@ -2,10 +2,6 @@
 
 namespace App\Application\Models;
 
-
-use App\Application\Models\Categoria;
-//require_once (__DIR__."/Categoria.classe.php");
-
 class Produto {
 
     private $id;
@@ -15,7 +11,6 @@ class Produto {
     private $dimensao;
     private $quantidade;//#
     private $precoPerda;
-    private $categoria;
 
     public function getId() {
         return $this->id;

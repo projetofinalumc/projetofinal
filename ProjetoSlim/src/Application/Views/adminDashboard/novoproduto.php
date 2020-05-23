@@ -362,7 +362,7 @@
                                             <h3 class="text-center title-2"></h3>
                                         </div>
                                         <hr>
-                                        <form action="/Admin/retornaImagem" method="post" enctype="multipart/form-data">
+                                        <form action="/Admin/Adicionar" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label for="txtNome" class="control-label mb-1">Nome: </label>
                                                 <input id="txtNome" name="txtNome" type="text" class="form-control">
@@ -388,24 +388,24 @@
                                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtValDiaria" class="control-label mb-1">Quantidade: </label>
-                                                <input id="cc-number" name="txtValDiaria" type="number" class="form-control cc-number identified visa" value="" data-val="true"
+                                                <label for="txtQuantidade" class="control-label mb-1">Quantidade: </label>
+                                                <input id="cc-number" name="txtQuantidade" type="number" class="form-control cc-number identified visa" value="" data-val="true"
                                                     data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
                                                     autocomplete="cc-number">
                                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtValDiaria" class="control-label mb-1">Preço de perda: </label>
-                                                <input id="cc-number" name="txtValDiaria" type="number" class="form-control cc-number identified visa" value="" data-val="true"
+                                                <label for="txtPrecoPerda" class="control-label mb-1">Preço de perda: </label>
+                                                <input id="cc-number" name="txtPrecoPerda" type="number" class="form-control cc-number identified visa" value="" data-val="true"
                                                     data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
                                                     autocomplete="cc-number">
                                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                                             </div>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label for="img" class="control-label mb-1">Imagens: </label>
                                                <input type="file" name="img" id="">
                                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
+                                            </div> -->
                                             <div>
                                                 <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                                                         Cadastrar

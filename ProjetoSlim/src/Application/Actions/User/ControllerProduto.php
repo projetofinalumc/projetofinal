@@ -58,46 +58,63 @@ class ControllerProduto{
      }
  
 
-    public function cadastrarProduto(Request $request, Response $response, $args) {
+   //  public function cadastrarProduto(Request $request, Response $response, $args) {
          
-        $conn = ConnectionFactory::Connect();
+   //      $conn = ConnectionFactory::Connect();
         
-        $CatDAO = new CategoriaDAO($conn);
+   //      $CatDAO = new CategoriaDAO($conn);
         
-        $ListCat = $CatDAO->verCategoria();
+   //      $ListCat = $CatDAO->verCategoria();
 
-        $args = [
-                   "ListaCategoria"=> $ListCat
-         ];
+   //      $args = [
+   //                 "ListaCategoria"=> $ListCat
+   //       ];
          
  
-         $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+   //       $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
  
-         return $renderer->render($response, "edit.php", $args);
-     }
+   //       return $renderer->render($response, "edit.php", $args);
+   //   }
  
 
    public function adicionar(Request $request, Response $response, $args) {
         
-        $conn = ConnectionFactory::Connect();
+      //   $conn = ConnectionFactory::Connect();
         
-        $ProdutoNovo = new \Produto();
+      //   $ProdutoNovo = new \Produto();
+
+      //   $ProdutoNovo->setNome($_POST['txtNome']);
+      //   $ProdutoNovo->setModelo($_POST['txtModelo']);
+      //   $ProdutoNovo->setValDiaria((double)$_POST['txtValDiaria']);
+      //   $ProdutoNovo->setDimensao($_POST['txtDimensao']);
+      //   $ProdutoNovo->setQuantidade((int)$_POST['txtQuantidade']);
+      //   $ProdutoNovo->setPrecoPerda((double)$_POST['txtPrecoPerda']);
+        
+      //   $ProdutoDAO = new ProdutoDAO($conn);
+
+      //   $ProdutoDAO->adicionarProduto($ProdutoNovo);
+
+      //    $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+
+      //     return $renderer->render($response, "testecrud.php", $args);
+      //     return $this->listar($request, $response, $args);
+
+      $conn = ConnectionFactory::Connect();
+
+      $ProdutoNovo = new Produto();
 
         $ProdutoNovo->setNome($_POST['txtNome']);
         $ProdutoNovo->setModelo($_POST['txtModelo']);
-        $ProdutoNovo->setValDiaria((double)$_POST['txtValDiaria']);
+        $ProdutoNovo->setValDiaria((float)$_POST['txtValDiaria']);
         $ProdutoNovo->setDimensao($_POST['txtDimensao']);
-        $ProdutoNovo->setQuantidade((int)$_POST['txtQuantidade']);
-        $ProdutoNovo->setPrecoPerda((double)$_POST['txtPrecoPerda']);
-        
-        $ProdutoDAO = new ProdutoDAO($conn);
+        $ProdutoNovo->setQuantidade((Int)$_POST['txtQuantidade']);
+        $ProdutoNovo->setPrecoPerda((float)$_POST['txtPrecoPerda']);
 
+        $ProdutoDAO = new ProdutoDAO($conn);
         $ProdutoDAO->adicionarProduto($ProdutoNovo);
 
-         $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
-
-         return $renderer->render($response, "testecrud.php", $args);
-        //  return $this->listar($request, $response, $args);
+        $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+        return $renderer->render($response, "ListaProduto.php", $args);
      } 
 
      public function verEdicaoProduto(Request $request, Response $response, $args) {
