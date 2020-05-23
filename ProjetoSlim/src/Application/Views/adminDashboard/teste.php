@@ -1,5 +1,4 @@
 <?php
 
-echo var_dump($img);
-
+echo $sql;
 ?>
