@@ -162,22 +162,25 @@ class PedidoDAO{
     }
 
 
-    public function BPA_filtro($pedido){
+    public function BPA_filtro($Pedido){
 
         $sql = "SELECT * FROM Pedido WHERE ";
         
-        if($pedido->getdataPedido() !== ""){
-            $sql = $sql." AND dataPedido = '".$pedido->getdataPedido()."'"; 
+        if($Pedido->getdataPedido() !== ""){
+            $dataPedido = $Pedido->getdataPedido();
+            $sql = $sql." AND dataPedido = '$dataPedido'"; 
             //$sql = $sql." AND dataPedido = $dataPedido"; 
          }
-       if($pedido->getdataDevolucao() !== ""){
-            $sql = $sql." AND dataDevolucao = '".$pedido->getdataDevolucao()."'"; 
+       if($Pedido->getdataDevolucao() !== ""){
+           $dataDevolucao =  $Pedido->getdataDevolucao();
+            $sql = $sql." AND dataDevolucao = '$dataDevolucao'";
          }
-        if($pedido->getdataRetirada() !== ""){
-            $sql = $sql." AND dataRetirada = '".$pedido->getdataRetirada()."'"; 
+        if($Pedido->getdataRetirada() !== ""){
+             $dataRetirada = $Pedido->getdataRetirada();
+            $sql = $sql." AND dataRetirada = '$dataRetirada'"; 
         }
-        if($pedido->getidPedido() !== ""){
-            $sql = $sql." AND idPedido = ".$pedido->getidPedido(); 
+        if($Pedido->getidPedido() !== 0){
+            $sql = $sql." AND idPedido = ".$Pedido->getidPedido(); 
         }
          
           $partefinalSQL = substr($sql, 32);
