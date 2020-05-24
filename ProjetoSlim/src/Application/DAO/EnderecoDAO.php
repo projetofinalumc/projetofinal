@@ -14,13 +14,9 @@ class EnderecoDAO {
         $this->conn = $conn;
 }
 
-    public function cadastrarEndereco(Endereco $endereco) {
+    public function cadastrarEndereco($endereco) {
         //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
        
-        //Preparando um comando sql para parametrização           
-        $sql = "INSERT INTO Endereco (id_locatario, logradouro, cep, estado, numero, Bairro,Cidade) VALUES (?,?,?,?,?,?,?);";
-
-        $stmt = $this->conn->prepare($sql);   
 
         $idLocatario = $endereco->getIdLocatario();   
         $Logradouro = $endereco->getLogradouro();
@@ -29,12 +25,17 @@ class EnderecoDAO {
         $numero = $endereco->getNumero();
         $bairro = $endereco->getBairro();
         $cidade = $endereco->getCidade();
+        //Preparando um comando sql para parametrização           
+        $sql = "INSERT INTO Endereco (id_locatario, logradouro, cep, estado, numero, Bairro,Cidade) VALUES ($idLocatario,'$Logradouro',$cep,'$estado',$numero,'$bairro','$cidade');";
+
+        $stmt = $this->conn->query($sql);   
+
 
         //Passando os parametros e seus tipos (s = String, d = Double , i = Int)
-         $stmt->bind_param('isisis', $idLocatario,$Logradouro,$cep,$estado,$numero,$bairro,$cidade);
+        // $stmt->bind_param('isisis', $idLocatario,$Logradouro,$cep,$estado,$numero,$bairro,$cidade);
         
          // Executando o comando parametrizado
-         $stmt->execute();
+         //$stmt->execute();
 
          $this->conn->close();
     }

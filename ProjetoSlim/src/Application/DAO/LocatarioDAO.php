@@ -124,6 +124,33 @@ class LocatarioDAO {
         return NULL;
     }
     
+    public function ultimoLocatario(){
+        
+        //$conexao = new \mysqli('localhost', 'root','','bancoteste123');
+
+        $sql = "SELECT * FROM Locatario ORDER BY id DESC LIMIT 1;";
+      
+        $result = $this->conn->query($sql);
+
+
+        if ($result->num_rows > 0){
+                /* store first result set */
+                $novo_locatario = new Locatario();
+              
+                while ($row = $result->fetch_assoc()) {                       
+                        
+
+                        $novo_locatario->setId($row["id"]);
+                        $novo_locatario->setCPF($row["cpf"]);
+                        $novo_locatario->setNome((string)$row["Nome"]);
+                        $novo_locatario->setEmail((string)$row["email"]);
+                
+                }
+          
+          return $novo_locatario;
+        }
+        return NULL;
+    }
     public function cadastrarLocatario ($locatario){
         
         //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
@@ -141,7 +168,6 @@ class LocatarioDAO {
         $stmt->bind_param('isss', $cpf,$nome,$email,$senha);
         //Executando o comando parametrizado
         $stmt->execute();        
-        $stmt->close();
     }
     
     public function alterarLocatario(Locatario $locatario){

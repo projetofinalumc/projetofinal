@@ -8,6 +8,7 @@ use App\Application\Models\EnderecoDAO;
 use App\Application\Models\ProdutoDAO;
 use App\Application\Models\PedidoDAO;
 use DateTime;
+use App\Application\Models\Email;
 use App\Application\Models\LocatarioDAO;
 use App\Application\Models\Pedido;
 use App\Application\Models\Produto;
@@ -18,6 +19,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 require_once(__DIR__ . "/../../DAO/LocatarioDAO.php");
 require_once (__DIR__."/../../Models/Locatario.classe.php");
+require_once (__DIR__."/../../Models/Email.classe.php");
 require_once(__DIR__ . "/../../DAO/EnderecoDAO.php");
 require_once(__DIR__ . "/../../DAO/ProdutoDAO.php");
 require_once(__DIR__ . "/../../DAO/PedidoDAO.php");
@@ -169,6 +171,18 @@ class ControllerPedido{
         //return $renderer->render($response, "ListaPedidos.php", $args);
     }
 
+    public function Email(Request $request, Response $response, $args){
+        $locatario = new Locatario();
+        $locatario->setEmail("c1a0a4e98c@emailmonkey.club");
+        $email = new Email();
+        $mail = $email->mensagem_Bem_Vindo($locatario);
+        $args  = ['mail' => $mail];
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+        return $renderer->render($response, "teste.php", $args);
+
+    }
+    
 
     public function finalizarPedido(Request $request, Response $response, $args)
     {
@@ -274,7 +288,11 @@ class ControllerPedido{
 
         $PedidoDAO = new PedidoDAO($conn);
 
-        $PedidoDAO->gerarPedido($pedido);
+        $pedidoEmail =  $PedidoDAO->gerarPedido($pedido);
+        
+        $email = new Email();
+
+        $email->mensagem_Pedido_Realizado($pedidoEmail);
 
         $args = ['Pedido' => $pedido];
    

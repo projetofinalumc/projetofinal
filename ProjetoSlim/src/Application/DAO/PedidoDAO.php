@@ -62,7 +62,9 @@ class PedidoDAO{
         //$stmt->execute();
 
        }
-        
+
+        $pedido->setidPedido($PedidoId);
+        return $pedido;
     }
    
     public function BuscarPedidos_Locatario(Pedido $pedido){

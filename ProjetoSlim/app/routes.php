@@ -175,6 +175,7 @@ return function (App $app) {
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
         $group->get('/DevolucaoPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_Devolucao');
         $group->get('/FinalizarPedido' , ControllerPedido::class . ':finalizarPedido');
+        $group->get('/Email' , ControllerPedido::class . ':Email');
         $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');
         $group->get('/AreaAdministrador' ,function ($request, $response, $args){
 
