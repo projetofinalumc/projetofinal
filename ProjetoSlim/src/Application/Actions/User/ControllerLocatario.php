@@ -114,15 +114,17 @@ class ControllerLocatario
         session_start();
 
         $endereco_edit->setIdLocatario($_SESSION['idLocatario']);
-        $endereco_edit->setId($_POST['idEndereco']);
+        $endereco_edit->setId((int)$_POST['idEndereco']);
         $endereco_edit->setLogradouro($_POST['logradouro_edit']);
         $endereco_edit->setNumero((int) $_POST['numero_edit']);
         $endereco_edit->setCep((int) $_POST['cep_edit']);
         $endereco_edit->setEstado($_POST['estado_edit']);
+        $endereco_edit->setBairro($_POST['bairro_edit']);
+        $endereco_edit->setCidade($_POST['cidade_edit']);
 
         $endereco_editDAO = new EnderecoDAO($conn);
 
-        $endereco_editDAO->alterarEndereco($_SESSION['idEndereco']);
+        $endereco_editDAO->alterarEndereco($endereco_edit);
 
 
         return $this->retornarDadosLocario($request, $response, $args);
@@ -171,7 +173,11 @@ class ControllerLocatario
 
         $conn = ConnectionFactory::Connect();
 
-        session_start();
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
         $idloc = $_SESSION['idLocatario'];
 
 
@@ -182,12 +188,12 @@ class ControllerLocatario
         $locatario->setCPF((int) $_POST['txtCPF']);
         $locatario->setEmail((string) $_POST['txtEmail']);
         $locatario->setNome((string) $_POST['txtNome']);
-        $locatario->setSenha((string) $_POST['txtSenha']);
+        //$locatario->setSenha((string) $_POST['txtSenha']);
 
 
         $locatarioDAO = new LocatarioDAO($conn);
 
-        $locatarioDAO->alterarLocatario($_SESSION['idLocatario']);
+        $locatarioDAO->alterarLocatario($locatario);
 
 
 
@@ -210,8 +216,6 @@ class ControllerLocatario
         /// FAZER A VERIFICACAO ------>>
         $locatarioLogado =  $locatarioDAO->buscarLocatarioPorEmail($locatario);
 
-
-        
 
         session_start();
 

@@ -85,7 +85,7 @@ private PHPMailer $mail;
   }
 
 
-  public function mensagem_Pedido_Realizado($Pedido){
+public function mensagem_Pedido_Realizado($Pedido){
 
     try {
              

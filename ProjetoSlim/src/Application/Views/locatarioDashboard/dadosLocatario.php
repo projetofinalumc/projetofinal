@@ -159,7 +159,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                             <div class="col-lg-6">
 
                                 
-                                <form action="/Locatario/retornaDados" method="post">
+                                <form action="/Locatario/EditarDados" method="post">
                                     <div class="card">
                                         <div class="card-header">
                                             <strong>Dados Pessoais</strong>
@@ -178,10 +178,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                                                 <label for="vat" class=" form-control-label">Email</label>
                                                 <input type="text" id="vat" value="<?php echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="vat" class=" form-control-label">Senha</label>
-                                                <input type="password" id="vat" value="<?php echo $dados_locatario->getSenha(); ?>" class="form-control" name="txtSenha">
-                                            </div>
                                            <!-- <div class="form-group">
                                                 <label for="street" class=" form-control-label">Data de Nascimento</label><?php  //$ = $dados_locatario->getData(); ?>
                                                 <input type="date" id="street" class="form-control" value="">
@@ -196,7 +192,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                                                 </div>
 
                                             </div>
-                                            <button type="submit" action="/Locatario/EditarDados" class="btn btn-warning">
+                                            <button type="submit" class="btn btn-warning">
                                                 <i class="fa fa-edit"></i> Atualizar
                                             </button>
                                             <button type="reset" class="btn btn-danger">
@@ -216,8 +212,9 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                                     ?>
                                     <?php foreach($lista_endereco as $lista_endereco){
                                     ?>
+                                    <form action="/Locatario/EditarEnd" method="post" class="form-horizontal">
                                     <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        
 
 
                                             <div class="card">
@@ -226,32 +223,38 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                                                                         ?></strong>
                                                 </div>
                                                 <div class="card-body card-block">
-                                                    <form action="" method="post" class="form-inline">
+                                                    <!-- <form action="" method="post" class="form-inline"> -->
 
 
                                                         <div class="form-group">
                                                             <label for="exampleInputName2" class="pr-1  form-control-label">CEP</label>
-                                                            <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getCep();
-                                                                                                                ?>" required="" class="form-control">
+                                                            <input type="text" name="cep_edit" id="exampleInputName2" value="<?php echo $lista_endereco->getCep();?>" required="" class="form-control">
                                                         </div>
+                                                        <input type="text" name="idEndereco" id="exampleInputName2" value="<?php echo $lista_endereco->getId();?>" required="" class="form-control" hidden>
+                                                        <div class="form-group">
+                                                                <label for="exampleInputName2" class="pr-1  form-control-label">Logradouro:</label>
+                                                                <input type="text" name="logradouro_edit" id="exampleInputName2" value="<?php echo $lista_endereco->getLogradouro(); ?>" class="form-control">
+                                                            </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputName2" class="pr-1  form-control-label">Bairro</label>
-                                                            <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getBairro();
-                                                                                                                ?>" required="" class="form-control">
+                                                            <input type="text" name="bairro_edit" id="exampleInputName2" value="<?php echo $lista_endereco->getBairro(); ?>" required="" class="form-control">
                                                             </di>
-                                                            <div class="form-group">
+                                                           <div class="form-group">
                                                                 <label for="exampleInputName2" class="pr-1  form-control-label">Estado</label>
-                                                                <input type="text" id="exampleInputName2" value="<?php echo $lista_endereco->getEstado();
-                                                                                                                    ?>" class="form-control">
-                                                            </div>
+                                                                <input type="text" name="estado_edit" id="exampleInputName2" value="<?php echo $lista_endereco->getEstado(); ?>" class="form-control">
+                                                            </div> 
+                                                            <div class="form-group">
+                                                                <label for="exampleInputName2" class="pr-1  form-control-label">Numero:</label>
+                                                                <input type="text" name="numero_edit" id="exampleInputName2" value="<?php echo $lista_endereco->getNumero();  ?>" class="form-control">
+                                                            </div> 
                                                             <div class="form-group">
                                                                 <label for="exampleInputName2" class="pr-1  form-control-label">Cidade</label>
-                                                                <input type="text" id="cidade" value="<?php echo $lista_endereco->getCidade();                                                                                                                    ?>" class="form-control">
+                                                                <input type="text" name="cidade_edit" id="cidade" value="<?php echo $lista_endereco->getCidade(); ?>" class="form-control">
                                                             </div>
-                                                    </form>
+                                                
                                                 </div>
                                                 <div>
-                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                    <button type="submit" name="" value="<?php echo $lista_endereco->getId(); ?>"class="btn btn-primary btn-sm">
                                                         <i class="fa fa-send"></i> Editar
                                                     </button>
                                                     <button type="reset" class="btn btn-danger btn-sm">
@@ -259,6 +262,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                                                     </button>
                                                 </div>
                                             </div>
+                                        </form>
                                             <?php }
                                             ?>
                                     </div>

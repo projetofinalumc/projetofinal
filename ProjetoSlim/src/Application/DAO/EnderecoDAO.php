@@ -124,7 +124,7 @@ class EnderecoDAO {
 
        /// $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
-        $sql = "UPDATE Endereco SET logradouro = ? ,cep = ? , estado = ? ,numero = ? , Bairro = ?, Cidade= ? WHERE id_endereco = ? AND id_locatario = ?";
+        $sql = "UPDATE Endereco SET logradouro = ? ,cep = ? , estado = ? ,numero = ? , Bairro = ?, Cidade = ? WHERE id_endereco = ? AND id_locatario = ?";
         $stmt = $this->conn->prepare($sql);
 
         $logradouroEditado = $endereco->getLogradouro();
@@ -141,7 +141,7 @@ class EnderecoDAO {
         $bairroEditado = $endereco->getBairro();
 
 
-        $stmt->bind_param('sisissii', $logradouroEditado,$cepEditado,$estadoEditado,$numeroEditado,$bairroEditado,$cidadeEdidado,$idEditado,$idLocatarioEditado);
+        $stmt->bind_param('sisissii', $logradouroEditado,$cepEditado,$estadoEditado,$numeroEditado,$bairroEditado,$cidadeEditado,$idEditado,$idLocatarioEditado);
         $stmt->execute();
         $stmt->close();
     }
