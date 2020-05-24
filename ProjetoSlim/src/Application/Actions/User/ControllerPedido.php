@@ -156,6 +156,7 @@ class ControllerPedido{
         $Pedido->setidPedido(0);
         
         $Pedido->setdataDevolucao($dataDevolucao);
+        $Pedido->setdataRetirada($dataDevolucao);
 
         $listaPedidos = $PedidoDAO->BuscarPedidos_Administrador_Devolucao($Pedido);
 
@@ -182,7 +183,7 @@ class ControllerPedido{
         $PedidoDAO = new PedidoDAO($conn);
 
         $Pedido->setidPedido((int)$_GET['idPedido']);
-        $Pedido->setStatus("FINALIZADO");
+        $Pedido->setStatus($_GET["status"]);
 
 
         $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);

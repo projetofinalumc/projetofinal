@@ -429,9 +429,10 @@
                                                 </td>
                                                 <td><?php echo $Pedido->getdataDevolucao();?></td>
                                                 <td><?php echo $Pedido->getValorTotal();?></td>
-                                                <td>
+                                                <td >
+                                                 <?php if($Pedido->getStatus() == 'ESPERA'){$status = "ARGUARDANDO DEVOLUCAO";}else{$status = "FINALIZADO";}?>
                                                     <div class="table-data-feature">
-                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Send" href="/Admin/FinalizarPedido?idPedido=<?php echo $Pedido->getidPedido();?>">
+                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Send" href="/Admin/FinalizarPedido?idPedido=<?php echo $Pedido->getidPedido();?>&status=<?php echo $status?>">
                                                             <i class="zmdi zmdi-mail-send"></i>
                                                         </a>
                                                         <button class="item"  title="Edit" data-toggle="modal" data-target="#largeModalEditar<?php echo $Pedido->getidPedido();?>" >

@@ -169,7 +169,8 @@ class PedidoDAO{
 
     public function BuscarPedidos_Administrador_Devolucao($Pedido){
         $dataDevolucao = $Pedido->getdataDevolucao();
-        $sql = "SELECT * FROM Pedido WHERE dataDevolucao = '$dataDevolucao';";
+        $dataRetirada = $Pedido->getdataRetirada();
+        $sql = "SELECT * FROM Pedido WHERE dataDevolucao = '$dataDevolucao' OR dataRetirada = '$dataRetirada';";
         $stmt = $this->conn->query($sql);
         //$stmt->execute();
         if($stmt->num_rows > 0){//SE o select for executado($stmt) e retornar un numero de linhas da base de dados MAIOR que 0 então
