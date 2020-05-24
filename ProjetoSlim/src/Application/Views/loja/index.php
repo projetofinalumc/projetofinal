@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Loca Articles</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -40,7 +40,8 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
+                <a href="/Inicio"><img src="/images/loja_img/QUEMSABE.jpg" ></a>
+              <!--  <a href="/Inicio" class="js-logo-clone">Loca Articles</a> -->
               </div>
             </div>
 
