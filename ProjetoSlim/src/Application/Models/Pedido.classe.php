@@ -11,12 +11,19 @@ class Pedido{
     private $valorTotal;
     private $dataDevolucao;
     private $dataPedido;
+    private $status;
     private Endereco $enderecoPedido;
     private array $listaProduto;
     private $locatarioPedido;
     
     public function setidPedido($idPedido){
         $this->idPedido = $idPedido;
+    }
+    public function getStatus(){
+        return $this->status;
+    }
+    public function setStatus($status){
+        $this->status = $status;
     }
     public function getidPedido(){
         return $this->idPedido;

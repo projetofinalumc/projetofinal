@@ -173,6 +173,8 @@ return function (App $app) {
         $group->post('/EditarProduto' , ControllerProduto::class . ':alterar');
         $group->get('/DeletarProduto' , ControllerProduto::class . ':excluir');
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
+        $group->get('/DevolucaoPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_Devolucao');
+        $group->get('/FinalizarPedido' , ControllerPedido::class . ':finalizarPedido');
         $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');
         $group->get('/AreaAdministrador' ,function ($request, $response, $args){
 

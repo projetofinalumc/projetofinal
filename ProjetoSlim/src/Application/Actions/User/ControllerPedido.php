@@ -115,7 +115,9 @@ class ControllerPedido{
     {
         $conn = ConnectionFactory::Connect();
 
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
          
         $Pedido = new Pedido();
         // $_SESSION['idLocatario']
@@ -127,9 +129,73 @@ class ControllerPedido{
 
         $args = ['ListaPedidos' => $listaPedidos];
 
+        
+
         $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
         
+      // return $renderer->render($response, "devolucao.php", $args);
         return $renderer->render($response, "ListaPedidos.php", $args);
+    }
+
+    public function Ver_Pedido_Admin_Devolucao(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
+         
+        $Pedido = new Pedido();
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+
+                
+        $data = getdate();
+
+        $dataDevolucao = $data['year'].'-'.$data['mon'].'-'.$data['mday'];
+        $Pedido->setidPedido(0);
+        
+        $Pedido->setdataDevolucao($dataDevolucao);
+
+        $listaPedidos = $PedidoDAO->BuscarPedidos_Administrador_Devolucao($Pedido);
+
+
+        $args = ['ListaPedidos' => $listaPedidos];
+
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+        return $renderer->render($response, "devolucao.php", $args);
+        //return $renderer->render($response, "ListaPedidos.php", $args);
+    }
+
+
+    public function finalizarPedido(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+        
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
+         
+        $Pedido = new Pedido();
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+
+        $Pedido->setidPedido((int)$_GET['idPedido']);
+        $Pedido->setStatus("FINALIZADO");
+
+
+        $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);
+
+
+//        $args = ['ListaPedidos' => $listaPedidos];
+
+       // $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+        return $this->Ver_Pedido_Admin_Devolucao($request, $response, $args);
+        //return $renderer->render($response, "ListaPedidos.php", $args);
+
+
     }
 
     public function Ver_Pedido_Admin_filtrado(Request $request, Response $response, $args)
@@ -153,6 +219,7 @@ class ControllerPedido{
 
         $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
         
+        //return $renderer->render($response, "ListaPedidos.php", $args);
         return $renderer->render($response, "ListaPedidos.php", $args);
     }
 
@@ -191,11 +258,14 @@ class ControllerPedido{
 
         $dataPedido = $data['year'].'-'.$data['mon'].'-'.$data['mday'];
 
-        $datetime = new DateTime((string)$dataPedido);
+        $dataInicial = (string)$_POST['dataInicial'];
+        //$datetime = new DateTime((string)$dataPedido);
+        $datetime = new DateTime($dataInicial);
         $datetime->modify('+1 day');
         $dataDevolucao = (string)$datetime->format('Y-m-d');
+
+
         
-        $dataInicial = (string)$_POST['dataInicial'];
         
         $pedido->setdataPedido($dataPedido);
         $pedido->setdataRetirada($dataInicial);
