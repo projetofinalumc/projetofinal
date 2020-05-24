@@ -18,6 +18,7 @@
     <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    
 
     <!-- Bootstrap CSS-->
     <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
@@ -162,11 +163,14 @@
                                                     <th class="text-right">Endereço</th>
                                                     <th class="text-right">Data Devolução</th>
                                                     <th class="text-right">Valor Total</th>
+                                                    <th class="text-right">Status</th>
+                                                    <th class="text-right"></th>
                                                 </tr>
                                             </thead>
                                             <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+                                        <form action="/Locatario/CancelarPedido" method="POST">
                                             <tbody>
-                                                <tr data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
+                                                <tr>
                                                     <td><?php echo $listaPedidos->getdataPedido(); ?></td>
                                                     <td><?php echo $listaPedidos->getidPedido(); ?></td>
                                                     <td><?php echo $listaPedidos->getdataRetirada(); ?></td>
@@ -174,11 +178,29 @@
                                                     <td class="text-right"> <?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero();?></td>
                                                     <td class="text-right"><?php echo $listaPedidos->getdataDevolucao(); ?></td>
                                                     <td class="text-right"><?php echo $listaPedidos->getValorTotal(); ?></td>
+                                                    <td><?php echo $listaPedidos->getStatus(); ?><input type="text" name="idPedido" value="<?php echo $listaPedidos->getidPedido(); ?>" hidden></td>
+                                                    <td>
+                                                    <?php if($listaPedidos->getStatus() == 'ESPERA'){?>
+                                                    <div class="table-data-feature">
+                                                        <button type="submit" class="item" data-original-title="Send">
+                                                        <span class="iconify" data-icon="whh:circledelete" data-inline="false" style="font-size: 25px"></span>
+                                                        </button>
+                                                   
+                                                        <button type="button" data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
+                                                        <span class="iconify" data-icon="ic:sharp-more-horiz" data-inline="false"></span>
+                                                        </button>
+                                                      </div>
+                                                      <?php }else{?>
+                                                        <button type="button" data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
+                                                        <span class="iconify" data-icon="ic:sharp-more-horiz" data-inline="false"></span>
+                                                      <?php }?>
+                                                    </td>
 
 
                                                 </tr>
 
                                             </tbody>
+                                        </form>
                                             <?php } ?>
                                         </table>
                                     </div>
@@ -202,6 +224,7 @@
 
     <!-- modal large inicio-->
     <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+ <form>
     <div class="modal fade" id="largeModal<?php echo $listaPedidos->getidPedido(); ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -225,6 +248,7 @@
                                                     <th>Quantidade</th>
                                                     <th class="text-right">Valor unitario</th>
                                                     <th class="text-right">Valor Total</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <?php $listProduto = $listaPedidos->getlistaProduto();?>
@@ -235,8 +259,6 @@
                                                     <td><?php echo $Produto->getQuantidade(); ?></td>
                                                     <td><?php echo $Produto->getValDiaria(); ?></td>
                                                     <td><?php echo $Produto->getValDiaria(); ?></td>
-
-
                                                 </tr>
 
                                             </tbody>
@@ -259,14 +281,17 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-primary">Confirm</button>
+                    <button type="button" class="btn btn-primary">CANCELAR</button>
                 </div>
             </div>
         </div>
     </div>
+   </form> 
     <?php }?>
     <!-- end modal large fiim-->
 
     <!-- Jquery JS-->
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="/vendor/bootstrap-4.1/popper.min.js"></script>

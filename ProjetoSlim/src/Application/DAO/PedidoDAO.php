@@ -83,6 +83,7 @@ class PedidoDAO{
                 $Pedido_cliente->setvalorTotal($rows['valorTotal']);//Atribuindo os dados no objeto
                 $Pedido_cliente->setdataDevolucao($rows['dataDevolucao']);//Atribuindo os dados no objeto
                 $Pedido_cliente->setdataPedido($rows['dataPedido']);//Atribuindo os dados no objeto
+                $Pedido_cliente->setStatus($rows['Status']);
 
                 $Endereco = new Endereco();
                 $Endereco->setId($rows['id_endereco']);

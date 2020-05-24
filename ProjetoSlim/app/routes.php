@@ -256,6 +256,7 @@ return function (App $app) {
         $group->post('/Login', ControllerSession::class .':login');
         $group->post('/EditarEnd', ControllerLocatario::class .':editarEndereco');
         $group->get('/Sair', ControllerSession::class .':logout');
+        $group->post('/CancelarPedido', ControllerPedido::class .':cancelarPedidoLocatario');
         $group->get('/locatario', ControllerPedido::class .':Ver_Pedido_Locatario');
         $group->post('/retornaDados', ControllerLocatario::class .':retornarDadosLocario');
         $group->post('/EditarDados', ControllerLocatario::class .':alterar');

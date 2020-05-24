@@ -95,7 +95,9 @@ class ControllerPedido{
     {
         $conn = ConnectionFactory::Connect();
 
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
 
         $sessaoid = $_SESSION['idLocatario']; 
         $locatario = new Locatario();
@@ -112,6 +114,30 @@ class ControllerPedido{
         
         return $renderer->render($response, "locatario.php", $args);
     }
+
+    public function cancelarPedidoLocatario(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+        
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
+         
+        $Pedido = new Pedido();
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+
+        $Pedido->setidPedido((int)$_POST['idPedido']);
+        $Pedido->setStatus("CANCELADO");
+
+
+        $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);
+
+        
+        return $this->Ver_Pedido_Locatario($request, $response, $args);
+
+    }
+
 
     public function Ver_Pedido_Admin(Request $request, Response $response, $args)
     {

@@ -433,13 +433,10 @@
                                                  <?php if($Pedido->getStatus() == 'ESPERA'){$status = "ARGUARDANDO DEVOLUCAO";}else{$status = "FINALIZADO";}?>
                                                     <div class="table-data-feature">
                                                         <a class="item" data-toggle="tooltip" data-placement="top" title="Send" href="/Admin/FinalizarPedido?idPedido=<?php echo $Pedido->getidPedido();?>&status=<?php echo $status?>">
-                                                            <i class="zmdi zmdi-mail-send"></i>
+                                                            <i class="zmdi zmdi-check"></i>
                                                         </a>
-                                                        <button class="item"  title="Edit" data-toggle="modal" data-target="#largeModalEditar<?php echo $Pedido->getidPedido();?>" >
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
                                                         <a class="item" data-toggle="tooltip" data-placement="top" title="Delete" href="/Admin/DeletarProduto?idExcluir=<?php echo $Pedido->getidPedido();?>">
-                                                            <i class="zmdi zmdi-delete"></i>
+                                                            <i class="zmdi zmdi-close"></i>
                                                         </a>
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
