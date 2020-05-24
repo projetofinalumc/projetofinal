@@ -372,7 +372,7 @@
                                             </select>
                                             <div class="dropDownSelect2"></div>
                                         </div>
-                                        <button class="au-btn-filter">
+                                        <button class="au-btn-filter" data-toggle="modal" data-target="#largeModalFiltro">
                                             <i class="zmdi zmdi-filter-list"></i>filters</button>
                                     </div>
                                     <div class="table-data__tool-right">
@@ -569,6 +569,36 @@
 				</div>
             </div>
             <?php }?>
+			<!-- end modal large -->
+
+           			<!-- modal large FILTRO -->
+			<div class="modal fade" id="largeModalFiltro" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+              <form action="/Admin/FiltroProduto" method="POST">
+                <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+                        </div>
+                        
+						<div class="modal-body">
+                                 Codigo Produto<input class="form-control" type="text"  value="" id="example-date-input" name="idProduto">
+                                 Nome<input class="form-control" type="text"  value="" id="example-date-input" name="txtNome">
+                                 Modelo<input class="form-control" type="text" value="" id="example-date-input" name="txtModelo">
+                                 Valor Diaria<input class="form-control" type="text"  value="" id="example-date-input" name="txtValdiaria">
+                                 Preco Perda<input class="form-control" type="text"  value="" id="example-date-input" name="txtPrecoPerda">
+                                 Quantidade<input class="form-control" type="text"  value="" id="example-date-input" name="txtQuantidade">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-primary" >Confirm</button>
+						</div>
+					</div>
+                </div>
+              </form>  
+			</div>
 			<!-- end modal large -->
 
 

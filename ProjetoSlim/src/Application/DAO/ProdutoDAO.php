@@ -42,8 +42,63 @@ class ProdutoDAO {
             return "0 results";
         } 
 
-      //  $conn->close();
+
        
+    }
+  public function verProdutoFiltrado($prodt){
+     
+      $sql = "SELECT * FROM Produto WHERE ";
+        
+      if($prodt->getNome() !== ""){
+          $nome = $prodt->getNome();
+          $sql = $sql." AND nome = '$nome'"; 
+          //$sql = $sql." AND dataPedido = $dataPedido"; 
+       }
+     if($prodt->getModelo() !== ""){
+          $modelo =  $prodt->getModelo();
+          $sql = $sql." AND modelo = '$modelo'";
+       }
+      if($prodt->getValDiaria() !== (double)0){
+           $valDiaria = $prodt->getValDiaria();
+          $sql = $sql." AND valdiaria = $valDiaria"; 
+      }
+      if($prodt->getQuantidade() !== 0){
+          $sql = $sql." AND quantidade = ".$prodt->getQuantidade(); 
+      }
+      if($prodt->getPrecoPerda() !== (double)0){
+        $sql = $sql." AND precoPerda = ".$prodt->getPrecoPerda(); 
+      } 
+
+      if($prodt->getId() !== 0){
+        $sql = $sql." AND idProduto = ".$prodt->getId(); 
+      } 
+       
+        $partefinalSQL = substr($sql, 33);
+        $sql = "SELECT * FROM Produto WHERE ";
+        $sqlFinal = $sql.$partefinalSQL.";";
+
+              //recebendo os dados da query
+              $resultado = $this->conn->query($sqlFinal);
+              if ($resultado->num_rows > 0) {
+       
+                   
+                   while ($row = $resultado->fetch_assoc()) {
+       
+                       $Produto = new Produto();
+                       $Produto->setId($row["idProduto"]);
+                       $Produto->setNome($row["nome"]);
+                       $Produto->setModelo($row["modelo"]);
+                       $Produto->setValDiaria($row["valdiaria"]);
+                       $Produto->setDimensao($row["dimensao"]);
+                       $Produto->setQuantidade($row["quantidade"]);
+                       $Produto->setPrecoPerda($row["precoPerda"]);
+                       $Produto->setImgNome($row["imgNome"]);
+                       $listProd[] = $Produto;
+                   }
+                   return $listProd;
+               } else {
+                   return "0 results";
+               } 
     }
 
     public function adicionarProduto($prodt) {

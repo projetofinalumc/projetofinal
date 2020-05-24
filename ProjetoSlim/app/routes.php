@@ -169,6 +169,7 @@ return function (App $app) {
         });
         $group->get('/NovoProduto' , ControllerProduto::class . ':listarprodutoAdmin');
         $group->post('/NovoProduto' , ControllerProduto::class . ':adicionar');
+        $group->post('/FiltroProduto' , ControllerProduto::class . ':listarProdutoAdminFiltrado');
         $group->post('/EditarProduto' , ControllerProduto::class . ':alterar');
         $group->get('/DeletarProduto' , ControllerProduto::class . ':excluir');
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');

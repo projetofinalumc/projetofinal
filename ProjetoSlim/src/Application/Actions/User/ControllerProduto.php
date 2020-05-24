@@ -56,6 +56,34 @@ class ControllerProduto{
          return $renderer->render($response, "novoproduto.php", $args);
  
      }
+
+
+     static function listarProdutoAdminFiltrado(Request $request, Response $response, $args) {
+         
+      $conn = ConnectionFactory::Connect();
+
+      $ProdutoFiltrado = new Produto();
+
+      
+      if(isset($_POST['txtNome'])){$ProdutoFiltrado->setNome($_POST['txtNome']);}//else{$ProdutoFiltrado->setdataRetirada(NULL);}
+      if(isset($_POST['txtModelo'])){$ProdutoFiltrado->setModelo($_POST['txtModelo']);}//else{$ProdutoFiltrado->setdataPedido(NULL);}
+      if(isset($_POST['txtValdiaria'])){$ProdutoFiltrado->setValDiaria((double)$_POST['txtValdiaria']);}//else{$ProdutoFiltrado->setdataDevolucao(NULL);}
+      if(isset($_POST["idProduto"])){$ProdutoFiltrado->setId((int)$_POST['idProduto']);}
+      if(isset($_POST["txtPrecoPerda"])){$ProdutoFiltrado->setPrecoPerda((double)$_POST['txtPrecoPerda']);}
+      if(isset($_POST["txtQuantidade"])){$ProdutoFiltrado->setQuantidade((int)$_POST['txtQuantidade']);}
+
+      $ProdutoDAO = new ProdutoDAO($conn);
+      
+      $ListProduto = $ProdutoDAO->verProdutoFiltrado($ProdutoFiltrado);
+
+      $args = ["ListaProduto" => $ListProduto];
+       
+
+       $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
+
+       return $renderer->render($response, "novoproduto.php", $args);
+
+   }
  
 
    //  public function cadastrarProduto(Request $request, Response $response, $args) {
@@ -179,17 +207,5 @@ class ControllerProduto{
         
       return $this->listarprodutoAdmin($request, $response, $args);
    } 
-   public function retornaImagem(Request $request, Response $response, $args) {
-      
-      $diretorio = "images/";
-      $uploadfile = $diretorio . basename($_FILES['img']['name']);
-      move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile);    
-       
-      $img = $_FILES;
-      $args = ['img' => $img];
-   
-      $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
-   
-      return $renderer->render($response, "teste.php", $args);
-      }
+
 }
