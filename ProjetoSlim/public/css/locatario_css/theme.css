@@ -1403,7 +1403,7 @@ section {
 
 .account-item {
     cursor: pointer;
-    margin-left: 815px;
+    
 }
 
 .account-item .image {
@@ -1539,7 +1539,7 @@ section {
 }
 
 .account-dropdown__item a:hover {
-    background: #4272d7;
+    background: #7971ea;
     color: #fff;
 }
 
@@ -1566,7 +1566,7 @@ section {
 }
 
 .account-dropdown__footer a:hover {
-    background: #4272d7;
+    background: #7971ea;
     color: #fff;
 }
 

@@ -70,10 +70,10 @@
                             <a href="/Locatario/locatario">
                                 <i class="fas fa-box"></i>Pedidos</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="/Locatario">
                                 <i class="fas fa-shopping-cart"></i>Carrinho</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="/Locatario/DadosLocatario">
                                 <i class="fa fa-user"></i>Meus Dados</a>
@@ -99,7 +99,12 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                          
+                            <form class="form-header" action="" method="POST">
+                                <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Buscar" />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button> -->
+                            </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
                                 </div>

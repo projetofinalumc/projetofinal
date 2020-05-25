@@ -72,7 +72,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                 <div class="site-logo">
-                    <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
+                <a href="/Inicio" class="js-logo-clone"><img src="/images/loja_img/MENOR.jpg" ></a>
                 </div>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -82,13 +82,17 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                             <a href="/Locatario/locatario">
                                 <i class="fas fa-box"></i>Pedidos</a>
                         </li>
-                        <li>
+                       <!-- <li>
                             <a href="/Locatario">
                                 <i class="fas fa-shopping-cart"></i>Carrinho</a>
-                        </li>
+                        </li> -->
                         <li class="active">
                             <a href="/Locatario/DadosLocatario'">
                                 <i class="fa fa-user"></i>Meus Dados</a>
+                        </li>
+                        <li>
+                            <a href="/produtos">
+                                <i class="fa fa-shopping-bag"></i>Loja</a>
                         </li>
 
 
@@ -108,10 +112,10 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Buscar" />
+                                <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Buscar" />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
-                                </button>
+                                </button> -->
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
