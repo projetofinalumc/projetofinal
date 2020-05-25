@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <!-- Required meta tags-->
@@ -157,7 +157,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="/Inicio">
+                <a href="/Admin/Home">
                     <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
                     <h2>Loca Articles</h2>
                 </a>
@@ -173,7 +173,7 @@
                                     <a href="#">Cadastrar novo produto</a>
                                 </li>
                                 <li>
-                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
+                                    <!-- <a href="/Admin/ListaProduto">Lista de Produtos</a> -->
                                 </li>
                                 <li>
                                     <!-- <a href="index3.html">Dashboard 3</a> -->
@@ -400,13 +400,13 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </th>
+                                                <th>Id</th>
                                                 <th>Nome</th>
                                                 <th>Dimensão</th>
                                                 <th>Quantidade</th>
                                                 <th>Modelo</th>
-                                                <th>status</th>
                                                 <th>Valor diário</th>
-                                                <th></th>
+                                                <th>Preço Perda</th>
                                             </tr>
                                         </thead>
                                         <?php foreach($ListaProduto as $Produto){?>
@@ -418,16 +418,15 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </td>
+                                                <td class="desc"><?php echo $Produto->getId(); ?></td>
                                                 <td><?php echo $Produto->getNome(); ?></td>
                                                 <td>
                                                     <?php echo $Produto->getDimensao(); ?>
                                                 </td>
-                                                <td class="desc"><?php echo $Produto->getId(); ?></td>
+                                                <td><?php echo $Produto->getQuantidade(); ?></td>
                                                 <td><?php echo $Produto->getModelo();?></td>
-                                                <td>
-                                                    
-                                                </td>
                                                 <td>R$ <?php echo $Produto->getValDiaria();?></td>
+                                                <td>R$ <?php echo $Produto->getPrecoPerda();?></td>
                                                 <td>
                                                     <div class="table-data-feature">
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Atualizar Status">
@@ -439,9 +438,9 @@
                                                         <a class="item" data-toggle="tooltip" data-placement="top" title="Excluir produto" href="/Admin/DeletarProduto?idExcluir=<?php echo $Produto->getId();?>">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </a>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                        <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
-                                                        </button>
+                                                        </button> -->
                                                     </div>
                                                 </td>
                                             </tr>
@@ -487,26 +486,26 @@
                                           <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria</label>
+                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria:</label>
                                           <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Dimensao</label>
+                                          <label for="cc-payment" class="control-label mb-1">Dimensao:</label>
                                           <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Preco perda</label>
+                                          <label for="cc-payment" class="control-label mb-1">Preço perda:</label>
                                           <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Imahem</label>
+                                          <label for="cc-payment" class="control-label mb-1">Imagem do Produto:</label>
                                           <input name="img" type="file" class="form-control" >
                                  </div>
                          </div>
                         
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-							<button type="submit" class="btn btn-primary">Confirm</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Confirmar</button>
                         </div>
                      </form>
 					</div>
@@ -521,7 +520,7 @@
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<h5 class="modal-title" id="largeModalLabel">Editar Produto</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -545,26 +544,26 @@
                                           <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getQuantidade();?>">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria</label>
+                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria:</label>
                                           <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getValDiaria();?>">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Dimensao</label>
+                                          <label for="cc-payment" class="control-label mb-1">Dimensao: </label>
                                           <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getDimensao();?>">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Preco perda</label>
+                                          <label for="cc-payment" class="control-label mb-1">Preco perda: </label>
                                           <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getPrecoPerda();?>">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Imahem</label>
+                                          <label for="cc-payment" class="control-label mb-1">Imagem do Produto:</label>
                                           <input id="cc-pament" name="img" type="file" class="form-control" aria-required="true" aria-invalid="false" value="images/produtos_cad/<?php echo $Produto->getImgNome();?>">
                                  </div>
                          </div>
                         
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-							<button type="submit" class="btn btn-primary">Confirm</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Confirmar</button>
                         </div>
                      </form>
 					</div>
@@ -579,7 +578,7 @@
               <form action="/Admin/FiltroProduto" method="POST">
                 <div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<h5 class="modal-title" id="largeModalLabel">Filtrar Produto</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -594,8 +593,8 @@
                                  Quantidade<input class="form-control" type="text"  value="" id="example-date-input" name="txtQuantidade">
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-							<button type="submit" class="btn btn-primary" >Confirm</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary" >Confirmar</button>
 						</div>
 					</div>
                 </div>

@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Novo Produto</title>
+    <title>Devolução de Pedido</title>
 
     <!-- Fontfaces CSS-->
     <link href="/css/admin_css/font-face.css" rel="stylesheet" media="all">
@@ -170,16 +170,16 @@
                                 <i class="fas fa-tags"></i>Produtos</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="#">Cadastrar novo produto</a>
+                                    <a href="/Admin/NovoProduto">Cadastrar novo produto</a>
                                 </li>
                                 <li>
-                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
+                                    <!-- <a href="/Admin/ListaProduto">Lista de Produtos</a> -->
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <!-- <a href="index3.html">Dashboard 3</a> -->
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <!-- <a href="index4.html">Dashboard 4</a> -->
                                 </li>
                             </ul>
                         </li>
@@ -191,13 +191,13 @@
                                     <a href="/Admin/ListaPedido">Lista de Pedidos</a>
                                 </li>
                                 <li>
-                                    <a href="#">Dashboard 3</a>
+                                     <a href="/Admin/DevolucaoPedido">Devolução de Pedido</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <!-- <a href="index3.html">Dashboard 3</a> -->
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <!-- <a href="index4.html">Dashboard 4</a> -->
                                 </li>
                             </ul>
                         </li>
@@ -314,16 +314,16 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?php echo $_SESSION['nomeAdm'];  ?></a>
+                                                        <a href="/Admin/Home"><?php echo $_SESSION['nomeAdm'];  ?></a>
                                                     </h5>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <!-- <div class="account-dropdown__item">
                                                     <a href="/Admin/MeuUsuario">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
+                                                        <i class="zmdi zmdi-account"></i>Meu Usuario</a>
+                                                </div> -->
+                                                <!-- <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div> -->
@@ -333,7 +333,7 @@
                                                 </div> -->
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="/Admin/logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -353,37 +353,39 @@
                     <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">data table</h3>
+                                <h3 class="title-5 m-b-35">Devolução do Pedido</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
-                                            <select class="js-select2" name="property">
+                                            <!-- <select class="js-select2" name="property">
                                                 <option selected="selected">All Properties</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
-                                            </select>
+                                            </select> -->
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                         <div class="rs-select2--light rs-select2--sm">
-                                            <select class="js-select2" name="time">
+                                            <!-- <select class="js-select2" name="time">
                                                 <option selected="selected">Today</option>
                                                 <option value="">3 Days</option>
                                                 <option value="">1 Week</option>
-                                            </select>
+                                            </select> -->
                                             <div class="dropDownSelect2"></div>
                                         </div>
-                                        <button class="au-btn-filter" data-toggle="modal" data-target="#largeModalFiltro">
-                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                        <!-- <button class="au-btn-filter" data-toggle="modal" data-target="#largeModalFiltro">
+                                            <i class="zmdi zmdi-filter-list"></i>filters</button> -->
                                     </div>
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
-                                            <i class="zmdi zmdi-plus"></i>add item</button>
+                                        <!-- <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
+                                            <i class="zmdi zmdi-plus"></i>add item</button> -->
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                            <select class="js-select2" name="type">
+                                        <button class="au-btn-filter" data-toggle="modal" data-target="#largeModalFiltro">
+                                            <i class="zmdi zmdi-filter-list"></i>Filtrar</button>
+                                            <!-- <select class="js-select2" name="type">
                                                 <option selected="selected">Export</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
-                                            </select>
+                                            </select> -->
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
@@ -398,12 +400,14 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </th>
-                                                <th>Data Pedido</th>
                                                 <th>Cód. Pedido</th>
+                                                <th>Data Pedido</th>
+                                                <!-- <th>Cód. Pedido</th> -->
                                                 <th>Data Retirada</th>
                                                 <th>Endereço</th>
+                                                <th>Status</th>
                                                 <th>Data Devolução</th>
-                                                <th>price</th>
+                                                <th>Valor Total</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -417,10 +421,10 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </td>
-                                                <td><?php echo $Pedido->getdataPedido(); ?></td>
                                                 <td>
                                                     <?php echo  $Pedido->getidPedido(); ?>
                                                 </td>
+                                                <td><?php echo $Pedido->getdataPedido(); ?></td>
                                                 <td class="desc"><?php echo $Pedido->getdataRetirada();  ?></td>
                                                 <?php $Endereco = $Pedido->getEnderecoPedido(); ?>
                                                 <td><?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero();?></td>
@@ -430,17 +434,19 @@
                                                 <td><?php echo $Pedido->getdataDevolucao();?></td>
                                                 <td><?php echo $Pedido->getValorTotal();?></td>
                                                 <td >
-                                                 <?php if($Pedido->getStatus() == 'ESPERA'){$status = "ARGUARDANDO DEVOLUCAO";}else{$status = "FINALIZADO";}?>
+                                                 <?php if($Pedido->getStatus() == 'ESPERA'){$status = "AGUARDANDO DEVOLUCAO";}else{$status = "FINALIZADO";}?>
                                                     <div class="table-data-feature">
-                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Send" href="/Admin/FinalizarPedido?idPedido=<?php echo $Pedido->getidPedido();?>&status=<?php echo $status?>">
+                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Finalizar" href="/Admin/FinalizarPedido?idPedido=<?php echo $Pedido->getidPedido();?>&status=<?php echo $status?>">
                                                             <i class="zmdi zmdi-check"></i>
                                                         </a>
+                                                        <?php if($Pedido->getStatus() == 'AGUARDANDO DEVOLUCAO'){ ?>
                                                         <a class="item" data-toggle="tooltip" data-placement="top" title="Delete" href="/Admin/DeletarProduto?idExcluir=<?php echo $Pedido->getidPedido();?>">
                                                             <i class="zmdi zmdi-close"></i>
                                                         </a>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                        <?php } ?>
+                                                        <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
-                                                        </button>
+                                                        </button> -->
                                                     </div>
                                                 </td>
                                             </tr>
@@ -487,26 +493,26 @@
                                           <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria</label>
+                                          <label for="cc-payment" class="control-label mb-1">Valor Diaria:</label>
                                           <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Dimensao</label>
+                                          <label for="cc-payment" class="control-label mb-1">Dimensao:</label>
                                           <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Preco perda</label>
+                                          <label for="cc-payment" class="control-label mb-1">Preco perda:</label>
                                           <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                  </div>
                                  <div class="form-group">
-                                          <label for="cc-payment" class="control-label mb-1">Imahem</label>
+                                          <label for="cc-payment" class="control-label mb-1">Imagem do Produto:</label>
                                           <input name="img" type="file" class="form-control" >
                                  </div>
                          </div>
                         
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-							<button type="submit" class="btn btn-primary">Confirm</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Confirmar</button>
                         </div>
                      </form>
 					</div>

@@ -173,7 +173,7 @@
                                     <a href="/Admin/NovoProduto">Cadastrar novo produto</a>
                                 </li>
                                 <li>
-                                    <a href="/Admin/ListaProduto">Lista de Produtos</a>
+                                    <!-- <a href="/Admin/ListaProduto">Lista de Produtos</a> -->
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
