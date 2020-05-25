@@ -94,9 +94,9 @@
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
             <h2 class="mb-2">Veja esse lindo brinquedo para o seu evento</h2>
             <div class="intro-text text-center text-md-left">
-              <p1 class="mb-4">Consulte os preços no catálogo ou entre em contato com o nosso consultor de venda</p1>
+              <p1 class="mb-4">Consulte os preços no catálogo da loja ou entre em contato com o nosso consultor de venda</p1>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Alugue agora</a>
+                <a href="/produtos" class="btn btn-sm btn-primary">Alugue agora</a>
               </p>
             </div>
           </div>
