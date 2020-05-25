@@ -157,11 +157,11 @@
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="/Inicio">
-                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
-                    <h2>Loca Articles</h2>
-                </a>
+        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                <div class="site-logo">
+                <a href="/Inicio" class="js-logo-clone"><img src="/images/loja_img/MENOR.jpg" ></a>
+                </div>                
+             
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -354,7 +354,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Área do Usuário </h2>
+                                    <h2 class="title-1">Área do Administrador </h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
                                         <!-- <i class="zmdi zmdi-plus"></i>add item</button> -->
                                 </div>

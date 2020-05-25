@@ -185,12 +185,12 @@ return function (App $app) {
              return $renderer->render($response, "index.php", $args);
         });
         $group->post('/Home', ControllerAdmin::class .':login');
-        $group->post('/Sair' , ControllerAdmin::class . ':logout');
+        $group->get('/Sair' , ControllerSession::class . ':logout');
         $group->post('/ListaProduto', ControllerProduto::class . ':listarprodutoAdmin');
         $group->post('/Adicionar', ControllerProduto::class . ':adicionar');
         $group->post('/ExcluirProduto', ControllerProduto::class . ':excluir');
         $group->post('/retornaImagem', ControllerProduto::class . ':retornaImagem');
-        $group->post('/logout', ControllerAdmin::class . ':logout');
+        
         // $group->get('/table', ControllerProduto::class . ':listarprodutoAdmin');
     });
    
