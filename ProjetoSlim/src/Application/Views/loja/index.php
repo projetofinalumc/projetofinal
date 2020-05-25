@@ -39,8 +39,8 @@
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-              <div class="site-logo">
-                <a href="/Inicio"><img src="/images/loja_img/QUEMSABE.jpg" ></a>
+              <div class="">
+                <a href="/Inicio"><img src="/images/loja_img/MENOR.jpg" ></a>
               <!--  <a href="/Inicio" class="js-logo-clone">Loca Articles</a> -->
               </div>
             </div>

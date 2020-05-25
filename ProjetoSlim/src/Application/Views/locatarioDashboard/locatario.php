@@ -43,7 +43,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
+                        <a href="/Inicio" class=""><img scr="/images/loja_img/MENOR.jpg"></a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -58,8 +58,8 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-                <div class="site-logo">
-                    <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
+                <div class="">
+                    <a href="/Inicio" class="js-logo-clone"><img src="/images/loja_img/MENOR.jpg" ></a>
                 </div>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -166,6 +166,7 @@
                                             </thead>
                                             <?php foreach ($ListaPedidos as $listaPedidos) { ?>
                                             <tbody>
+
                                                 <tr data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
                                                     <td><?php echo $listaPedidos->getdataPedido(); ?></td>
                                                     <td><?php echo $listaPedidos->getidPedido(); ?></td>
@@ -173,7 +174,7 @@
                                                     <?php $Endereco = $listaPedidos->getEnderecoPedido(); ?>
                                                     <td class="text-right"> <?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero();?></td>
                                                     <td class="text-right"><?php echo $listaPedidos->getdataDevolucao(); ?></td>
-                                                    <td class="text-right"><?php echo $listaPedidos->getValorTotal(); ?></td>
+                                                    <td class="text-right"><?php echo "R$" .$listaPedidos->getValorTotal(); ?></td>
 
 
                                                 </tr>
@@ -205,11 +206,12 @@
     <div class="modal fade" id="largeModal<?php echo $listaPedidos->getidPedido(); ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+                <div class="modal-header"> 
+                <h4 class="modal-title" id="largeModalLabel">Detalhes do Pedido</h4>              
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                    
                 </div>
                 <div class="modal-body">
                 <div class="main-content">
@@ -221,20 +223,20 @@
                                         <table class="table table-borderless table-striped table-earning">
                                             <thead>
                                                 <tr>
-                                                    <th>Cód. Pedido</th>
-                                                    <th>Quantidade</th>
-                                                    <th class="text-right">Valor unitario</th>
-                                                    <th class="text-right">Valor Total</th>
+                                                    <td><p>Cód. Pedido</p></td>
+                                                    <td><p>Quantidade</p></td>
+                                                    <td><p class="text-right">Valor unitario</p></td>
+                                                    <td><p class="text-right">Valor Total</p></td>
                                                 </tr>
                                             </thead>
                                             <?php $listProduto = $listaPedidos->getlistaProduto();?>
                                             <?php foreach ($listProduto  as $Produto) { ?>
                                             <tbody>
                                                 <tr>
-                                                    <td><?php echo $Produto->getId(); ?></td>
-                                                    <td><?php echo $Produto->getQuantidade(); ?></td>
-                                                    <td><?php echo $Produto->getValDiaria(); ?></td>
-                                                    <td><?php echo $Produto->getValDiaria(); ?></td>
+                                                    <td><p><?php echo $Produto->getId(); ?></p></td>
+                                                    <td><p><?php echo $Produto->getQuantidade(); ?></p></td>
+                                                    <td><p><?php echo $Produto->getValDiaria(); ?></p></td>
+                                                    <td><p><?php echo $Produto->getValDiaria(); ?></p></td>
 
 
                                                 </tr>
