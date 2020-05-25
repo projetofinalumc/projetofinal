@@ -184,29 +184,28 @@ class LocatarioDAO {
         $stmt->close();             
     }
     
-    public function alterarEnderecoLocatario(Locatario $locatario){
+    // public function alterarEnderecoLocatario(Locatario $locatario){
 
-        //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+    //     //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
-        $id = $locatario->getId();
-        $cpf = $locatario->getCpf();
-        $nome = $locatario->getNome();
-        $email = $locatario->getEmail();
-        $senha = $locatario->getSenha();
+    //     $id = $locatario->getId();
+    //     $cpf = $locatario->getCpf();
+    //     $nome = $locatario->getNome();
+    //     $email = $locatario->getEmail();
+    //     $senha = $locatario->getSenha();
         
-        $sql = "UPDATE Locatario SET cpf = ? , Nome = ?, email = ?, senhaloc = ? WHERE id = ?";
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param('isssi', $cpf,$nome,$email,$senha,$id);
-        $stmt->execute();
-        $stmt->close();             
-    }
+    //     $sql = "UPDATE Locatario SET cpf = ? , Nome = ?, email = ?, senhaloc = ? WHERE id = ?";
+    //     $stmt = $conexao->prepare($sql);
+    //     $stmt->bind_param('isssi', $cpf,$nome,$email,$senha,$id);
+    //     $stmt->execute();
+    //     $stmt->close();             
+    // }
     public function excluirLocatario (Locatario $locatario){
         $conn = ConnectionFactory::Connect();
         $sql = "DELETE FROM Locatario WHERE cpf=?;";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $locatario->getId());
         $stmt->execute();
-        $stmt->close();
-        
+        $stmt->close();   
     }
 }

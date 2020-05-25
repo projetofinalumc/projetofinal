@@ -26,7 +26,7 @@ CREATE TABLE `Categoria` (
   `codcategoria` int NOT NULL AUTO_INCREMENT,
   `nomeCategoria` varchar(50) NOT NULL,
   PRIMARY KEY (`codcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `Endereco` (
   PRIMARY KEY (`id_endereco`),
   KEY `fk_Locatario` (`id_locatario`),
   CONSTRAINT `fk_Locatario` FOREIGN KEY (`id_locatario`) REFERENCES `Locatario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +86,7 @@ CREATE TABLE `Locatario` (
   `senhaloc` varchar(100) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `Pedido` (
   KEY `FKlocatario` (`idLocatario`),
   CONSTRAINT `fk_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `Endereco` (`id_endereco`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKlocatario` FOREIGN KEY (`idLocatario`) REFERENCES `Locatario` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +153,7 @@ CREATE TABLE `Produto` (
   PRIMARY KEY (`idProduto`),
   KEY `fk_categoria` (`categoria`),
   CONSTRAINT `fk_categoria` FOREIGN KEY (`categoria`) REFERENCES `Categoria` (`codcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +176,7 @@ DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `login` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +205,7 @@ CREATE TABLE `itemPedido` (
   KEY `fk_Produto` (`fk_Produto`),
   CONSTRAINT `itemPedido_ibfk_1` FOREIGN KEY (`fk_Pedido`) REFERENCES `Pedido` (`idPedido`),
   CONSTRAINT `itemPedido_ibfk_2` FOREIGN KEY (`fk_Produto`) REFERENCES `Produto` (`idProduto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,7 +230,7 @@ CREATE TABLE `usuarios` (
   `nome` varchar(100) DEFAULT NULL,
   `senha` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
