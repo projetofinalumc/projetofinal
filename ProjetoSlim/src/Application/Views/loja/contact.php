@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+        <script src="https://kit.fontawesome.com/a3c008cb1b.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/fonts/loja_fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="/css/loja_css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/loja_css/magnific-popup.css">
@@ -18,6 +20,7 @@
     <link rel="stylesheet" href="/css/loja_css/aos.css">
 
     <link rel="stylesheet" href="/css/loja_css/style.css">
+    <script src="https://kit.fontawesome.com/a3c008cb1b.js" crossorigin="anonymous"></script>
     
   </head>
   <body>
@@ -45,9 +48,9 @@
               <div class="site-top-icons">
                 <ul>
                 <?php session_start();?>
-                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}?>
+                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login";}?>
                   <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Teste";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                  
                   <li>
                   <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
                     <a href="/finalizar" class="site-cart">
@@ -55,6 +58,9 @@
                       <span class="count"><?php echo $_SESSION['Total_Carrinho']?></span>
                     </a>
                     <?php }?>
+                    <?php if(isset($_SESSION['idLocatario'])){ ?>
+                      <li><a href="/Sair"><span class="fa fa-power-off fa-lg"></span></a></li>
+                    <?php } ?>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>

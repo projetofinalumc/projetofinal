@@ -51,7 +51,7 @@
                 <?php if (session_status() !== PHP_SESSION_ACTIVE) {
                             session_start();
                           }?>
-                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}?>
+                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login";}?>
                   <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Locatario/locatario";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
                   <li>
                   <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
@@ -62,7 +62,7 @@
                     <?php }?>
                   </li> 
                   <?php if(isset($_SESSION['idLocatario'])){ ?>
-                  <li><a href="/Sair"><span class="fa fa-power-off fa-lg"></span></a></li>
+                    <li><a href="/Sair"><span class="fa fa-power-off fa-lg"></span></a></li>
                   <?php } ?>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="/" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
