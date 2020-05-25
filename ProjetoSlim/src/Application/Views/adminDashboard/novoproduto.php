@@ -165,9 +165,9 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
+                        <li class="has-sub active">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tags"></i>Produtos</a>
+                                <i class="fas fa-tags "></i>Produtos</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="#">Cadastrar novo produto</a>
