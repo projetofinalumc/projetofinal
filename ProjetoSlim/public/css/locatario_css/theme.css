@@ -1403,6 +1403,7 @@ section {
 
 .account-item {
     cursor: pointer;
+    margin-left: 815px;
 }
 
 .account-item .image {

@@ -96,7 +96,7 @@ class PedidoDAO{
         } 
             foreach($listaPedidos as $Pedido){
                 $PedidoId = $Pedido->getidPedido();
-                $sql = "SELECT * FROM itemPedido WHERE fk_Pedido = $PedidoId;";
+                $sql = "SELECT * FROM itempedido WHERE fk_Pedido = $PedidoId;";
                 $stmt = $this->conn->query($sql);
                 if($stmt->num_rows > 0){
                         while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
