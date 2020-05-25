@@ -124,6 +124,33 @@ class LocatarioDAO {
         return NULL;
     }
     
+    public function ultimoLocatario(){
+        
+        //$conexao = new \mysqli('localhost', 'root','','bancoteste123');
+
+        $sql = "SELECT * FROM Locatario ORDER BY id DESC LIMIT 1;";
+      
+        $result = $this->conn->query($sql);
+
+
+        if ($result->num_rows > 0){
+                /* store first result set */
+                $novo_locatario = new Locatario();
+              
+                while ($row = $result->fetch_assoc()) {                       
+                        
+
+                        $novo_locatario->setId($row["id"]);
+                        $novo_locatario->setCPF($row["cpf"]);
+                        $novo_locatario->setNome((string)$row["Nome"]);
+                        $novo_locatario->setEmail((string)$row["email"]);
+                
+                }
+          
+          return $novo_locatario;
+        }
+        return NULL;
+    }
     public function cadastrarLocatario ($locatario){
         
         //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
@@ -141,29 +168,25 @@ class LocatarioDAO {
         $stmt->bind_param('isss', $cpf,$nome,$email,$senha);
         //Executando o comando parametrizado
         $stmt->execute();        
-        $stmt->close();
     }
     
     public function alterarLocatario(Locatario $locatario){
-
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
         $id = $locatario->getId();
         $cpf = $locatario->getCpf();
         $nome = $locatario->getNome();
         $email = $locatario->getEmail();
-        $senha = $locatario->getSenha();
         
-        $sql = "UPDATE Locatario SET cpf = ? , Nome = ?, email = ?, senhaloc = ? WHERE id = ?";
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param('isssi', $cpf,$nome,$email,$senha,$id);
+        $sql = "UPDATE Locatario SET cpf = ? , Nome = ?, email = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('issi', $cpf,$nome,$email,$id);
         $stmt->execute();
         $stmt->close();             
     }
     
     public function alterarEnderecoLocatario(Locatario $locatario){
 
-        $conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
+        //$conexao = new \mysqli('db4free.net', 'usercaneta123','123456as','bancoteste123');
 
         $id = $locatario->getId();
         $cpf = $locatario->getCpf();

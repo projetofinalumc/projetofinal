@@ -18,6 +18,7 @@
     <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    
 
     <!-- Bootstrap CSS-->
     <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
@@ -162,9 +163,12 @@
                                                     <th class="text-right">Endereço</th>
                                                     <th class="text-right">Data Devolução</th>
                                                     <th class="text-right">Valor Total</th>
+                                                    <th class="text-right">Status</th>
+                                                    <th class="text-right"></th>
                                                 </tr>
                                             </thead>
                                             <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+                                        <form action="/Locatario/CancelarPedido" method="POST">
                                             <tbody>
 
                                                 <tr data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
@@ -180,6 +184,7 @@
                                                 </tr>
 
                                             </tbody>
+                                        </form>
                                             <?php } ?>
                                         </table>
                                     </div>
@@ -203,6 +208,7 @@
 
     <!-- modal large inicio-->
     <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+ <form>
     <div class="modal fade" id="largeModal<?php echo $listaPedidos->getidPedido(); ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -261,14 +267,17 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-primary">Confirm</button>
+                    <button type="button" class="btn btn-primary">CANCELAR</button>
                 </div>
             </div>
         </div>
     </div>
+   </form> 
     <?php }?>
     <!-- end modal large fiim-->
 
     <!-- Jquery JS-->
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="/vendor/bootstrap-4.1/popper.min.js"></script>

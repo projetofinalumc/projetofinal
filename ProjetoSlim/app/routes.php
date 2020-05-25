@@ -123,7 +123,7 @@ return function (App $app) {
         $group->get('/produtos', ControllerProduto::class .':listar');
         $group->post('/Home', ControllerLocatario::class .':login');
         $group->post('/CadastraEnd', ControllerLocatario::class .':cadastrarNovoEndereco');
-        $group->post('/EditarEnd', ControllerLocatario::class .':editarEndereco');
+        
         $group->post('/Editar', ControllerLocatario::class .':alterar');
         $group->post('/registrar', ControllerLocatario::class .':cadastrar');
         $group->get('/register', ControllerLocatario::class .':listar');
@@ -175,6 +175,7 @@ return function (App $app) {
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
         $group->get('/DevolucaoPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_Devolucao');
         $group->get('/FinalizarPedido' , ControllerPedido::class . ':finalizarPedido');
+        $group->get('/Email' , ControllerPedido::class . ':Email');
         $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');
         $group->get('/AreaAdministrador' ,function ($request, $response, $args){
 
@@ -253,9 +254,12 @@ return function (App $app) {
 
         $group->post('/alterar', ControllerTest::class .':alterar');
         $group->post('/Login', ControllerSession::class .':login');
+        $group->post('/EditarEnd', ControllerLocatario::class .':editarEndereco');
         $group->get('/Sair', ControllerSession::class .':logout');
+        $group->post('/CancelarPedido', ControllerPedido::class .':cancelarPedidoLocatario');
         $group->get('/locatario', ControllerPedido::class .':Ver_Pedido_Locatario');
         $group->post('/retornaDados', ControllerLocatario::class .':retornarDadosLocario');
+        $group->post('/EditarDados', ControllerLocatario::class .':alterar');
 
     });    
     

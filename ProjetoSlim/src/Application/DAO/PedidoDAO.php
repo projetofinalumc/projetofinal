@@ -62,7 +62,9 @@ class PedidoDAO{
         //$stmt->execute();
 
        }
-        
+
+        $pedido->setidPedido($PedidoId);
+        return $pedido;
     }
    
     public function BuscarPedidos_Locatario(Pedido $pedido){
@@ -81,6 +83,7 @@ class PedidoDAO{
                 $Pedido_cliente->setvalorTotal($rows['valorTotal']);//Atribuindo os dados no objeto
                 $Pedido_cliente->setdataDevolucao($rows['dataDevolucao']);//Atribuindo os dados no objeto
                 $Pedido_cliente->setdataPedido($rows['dataPedido']);//Atribuindo os dados no objeto
+                $Pedido_cliente->setStatus($rows['Status']);
 
                 $Endereco = new Endereco();
                 $Endereco->setId($rows['id_endereco']);
@@ -169,7 +172,8 @@ class PedidoDAO{
 
     public function BuscarPedidos_Administrador_Devolucao($Pedido){
         $dataDevolucao = $Pedido->getdataDevolucao();
-        $sql = "SELECT * FROM Pedido WHERE dataDevolucao = '$dataDevolucao';";
+        $dataRetirada = $Pedido->getdataRetirada();
+        $sql = "SELECT * FROM Pedido WHERE dataDevolucao = '$dataDevolucao' OR dataRetirada = '$dataRetirada';";
         $stmt = $this->conn->query($sql);
         //$stmt->execute();
         if($stmt->num_rows > 0){//SE o select for executado($stmt) e retornar un numero de linhas da base de dados MAIOR que 0 então

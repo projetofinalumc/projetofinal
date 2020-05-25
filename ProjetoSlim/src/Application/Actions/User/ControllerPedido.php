@@ -8,6 +8,7 @@ use App\Application\Models\EnderecoDAO;
 use App\Application\Models\ProdutoDAO;
 use App\Application\Models\PedidoDAO;
 use DateTime;
+use App\Application\Models\Email;
 use App\Application\Models\LocatarioDAO;
 use App\Application\Models\Pedido;
 use App\Application\Models\Produto;
@@ -18,6 +19,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 require_once(__DIR__ . "/../../DAO/LocatarioDAO.php");
 require_once (__DIR__."/../../Models/Locatario.classe.php");
+require_once (__DIR__."/../../Models/Email.classe.php");
 require_once(__DIR__ . "/../../DAO/EnderecoDAO.php");
 require_once(__DIR__ . "/../../DAO/ProdutoDAO.php");
 require_once(__DIR__ . "/../../DAO/PedidoDAO.php");
@@ -93,7 +95,9 @@ class ControllerPedido{
     {
         $conn = ConnectionFactory::Connect();
 
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
 
         $sessaoid = $_SESSION['idLocatario']; 
         $locatario = new Locatario();
@@ -110,6 +114,30 @@ class ControllerPedido{
         
         return $renderer->render($response, "locatario.php", $args);
     }
+
+    public function cancelarPedidoLocatario(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+        
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
+         
+        $Pedido = new Pedido();
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+
+        $Pedido->setidPedido((int)$_POST['idPedido']);
+        $Pedido->setStatus("CANCELADO");
+
+
+        $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);
+
+        
+        return $this->Ver_Pedido_Locatario($request, $response, $args);
+
+    }
+
 
     public function Ver_Pedido_Admin(Request $request, Response $response, $args)
     {
@@ -156,6 +184,7 @@ class ControllerPedido{
         $Pedido->setidPedido(0);
         
         $Pedido->setdataDevolucao($dataDevolucao);
+        $Pedido->setdataRetirada($dataDevolucao);
 
         $listaPedidos = $PedidoDAO->BuscarPedidos_Administrador_Devolucao($Pedido);
 
@@ -168,6 +197,18 @@ class ControllerPedido{
         //return $renderer->render($response, "ListaPedidos.php", $args);
     }
 
+    public function Email(Request $request, Response $response, $args){
+        $locatario = new Locatario();
+        $locatario->setEmail("c1a0a4e98c@emailmonkey.club");
+        $email = new Email();
+        $mail = $email->mensagem_Bem_Vindo($locatario);
+        $args  = ['mail' => $mail];
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+        return $renderer->render($response, "teste.php", $args);
+
+    }
+    
 
     public function finalizarPedido(Request $request, Response $response, $args)
     {
@@ -182,7 +223,7 @@ class ControllerPedido{
         $PedidoDAO = new PedidoDAO($conn);
 
         $Pedido->setidPedido((int)$_GET['idPedido']);
-        $Pedido->setStatus("FINALIZADO");
+        $Pedido->setStatus($_GET["status"]);
 
 
         $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);
@@ -273,7 +314,11 @@ class ControllerPedido{
 
         $PedidoDAO = new PedidoDAO($conn);
 
-        $PedidoDAO->gerarPedido($pedido);
+        $pedidoEmail =  $PedidoDAO->gerarPedido($pedido);
+        
+        $email = new Email();
+
+        $email->mensagem_Pedido_Realizado($pedidoEmail);
 
         $args = ['Pedido' => $pedido];
    
