@@ -77,7 +77,7 @@ class EnderecoDAO {
       return $listEnderecoLocatario;
     }
 
-         $conexao->close();
+        // $conexao->close();
     }
 
     public function buscarPorIdEndereco($endereco) {
@@ -117,7 +117,7 @@ class EnderecoDAO {
       return $listEnderecoLocatario;
     }
 
-         $conexao->close();
+         //$conexao->close();
     }
     
       public function alterarEndereco(Endereco $endereco) {
@@ -150,7 +150,7 @@ class EnderecoDAO {
         $conn = ConnectionFactory::Connect();
         $sql = "DELETE FROM Endereco WHERE id=?;";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('i', $lcdr->getId());
+        $stmt->bind_param('i', $endereco->getId());
         $stmt->execute();
         $stmt->close();
     }
