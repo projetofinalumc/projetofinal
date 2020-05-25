@@ -138,7 +138,7 @@
       </div>
     </div>
 
-    <div class="site-section site-blocks-2">
+    <!-- <div class="site-section site-blocks-2">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
@@ -176,27 +176,25 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Nossos Produtos</h2>
+            <h2>Mais Alugados</h2>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
               <div class="item">
-                <div class="block-4 text-center">
+                <div class="block-4 text-center" >
                   <figure class="block-4-image">
-                    <img src="images/loja_img/pula.jpg" alt="" class="img-fluid">
+                    <img src="/images/imagens produtos/pulaPula.jpg" alt="" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Pula Pula</a></h3>
-                    <p class="mb-0">Com uma dimensão de 2x1x3, multi-colorido</p>
-                    <br>
+                    <h3><a href="#">Pula Pula</a></h3>                                   
                     <p class="text-primary font-weight-bold">R$250,00 reais</p>
                   </div>
                 </div>
@@ -204,11 +202,10 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/loja_img/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="/images/imagens produtos/camaElastica.jpg" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
+                    <h3><a href="#">Cama Elástica</a></h3>                    
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
                 </div>
@@ -216,11 +213,10 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/loja_img/cloth_2.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="/images/imagens produtos/piscinaBolinha.jpg" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Polo Shirt</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
+                    <h3><a href="#">Piscina de Bolinhas</a></h3>                    
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
                 </div>
@@ -228,11 +224,12 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/loja_img/cloth_3.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="/images/imagens produtos/pebolim2.jpg" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">T-Shirt Mockup</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
+                    
+                    
+                    <h3><a href="#">Mesa Pebolim</a></h3>                   
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
                 </div>
@@ -240,12 +237,11 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/loja_img/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="/images/imagens produtos/tomboLegal.jpg" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="#">Tombo Legal</a></h3>                   
+                    <p class="text-primary font-weight-bold">R$50</p>
                   </div>
                 </div>
               </div>
@@ -255,7 +251,7 @@
       </div>
     </div>
 
-    <div class="site-section block-8">
+    <!-- <div class="site-section block-8">
       <div class="container">
         <div class="row justify-content-center  mb-5">
           <div class="col-md-7 site-section-heading text-center pt-4">
@@ -274,7 +270,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <footer class="site-footer border-top">
       <div class="container">

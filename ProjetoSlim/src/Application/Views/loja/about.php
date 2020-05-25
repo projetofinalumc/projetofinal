@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Loca Articles</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -36,8 +36,8 @@
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-              <div class="site-logo">
-                <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
+              <div class="">
+                <a href="/Inicio" class=""><img src="/images/loja_img/MENOR.jpg" ></a>
               </div>
             </div>
 
@@ -68,7 +68,7 @@
       <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="a">
-              <a href="/Inicio">Inicio</a>
+              <a href="/Inicio">Início</a>
             </li>
             <li class="active">
               <a href="/Sobre">Sobre nós</a>
@@ -83,7 +83,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Sobre</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Início</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Sobre</strong></div>
         </div>
       </div>
     </div>  
