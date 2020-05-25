@@ -177,10 +177,10 @@
                                     <a href="/Admin/ListaProduto">Lista de Produtos</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <!-- <a href="index3.html">Dashboard 3</a> -->
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <!-- <a href="index4.html">Dashboard 4</a> -->
                                 </li>
                             </ul>
                         </li>
@@ -192,13 +192,13 @@
                                     <a href="/Admin/ListaPedido">Lista de Pedidos</a>
                                 </li>
                                 <li>
-                                    <a href="#">Dashboard 3</a>
+                                     <a href="/Admin/DevolucaoPedido">Devolucao de Pedido</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <!-- <a href="index3.html">Dashboard 3</a> -->
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <!-- <a href="index4.html">Dashboard 4</a> -->
                                 </li>
                             </ul>
                         </li>
@@ -354,7 +354,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Bem vindo </h2>
+                                    <h2 class="title-1">Área do Usuário </h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
                                         <!-- <i class="zmdi zmdi-plus"></i>add item</button> -->
                                 </div>
@@ -880,8 +880,7 @@
                         </div> -->
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                <div class="copyright">                                    
                                 </div>
                             </div>
                         </div>
