@@ -171,7 +171,7 @@
                                         <form action="/Locatario/CancelarPedido" method="POST">
                                             <tbody>
 
-                                                <tr data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
+                                                <tr>
                                                     <td><?php echo $listaPedidos->getdataPedido(); ?></td>
                                                     <td><?php echo $listaPedidos->getidPedido(); ?></td>
                                                     <td><?php echo $listaPedidos->getdataRetirada(); ?></td>
@@ -179,7 +179,23 @@
                                                     <td class="text-right"> <?php echo $Endereco->getLogradouro()." ".$Endereco->getNumero();?></td>
                                                     <td class="text-right"><?php echo $listaPedidos->getdataDevolucao(); ?></td>
                                                     <td class="text-right"><?php echo "R$" .$listaPedidos->getValorTotal(); ?></td>
+                                                    <td><?php echo $listaPedidos->getStatus(); ?><input type="text" name="idPedido" value="<?php echo $listaPedidos->getidPedido(); ?>" hidden></td>
+                                                    <td>
+                                                    <?php if($listaPedidos->getStatus() == 'ESPERA'){?>
+                                                    <div class="table-data-feature">
+                                                        <button type="submit" class="item" data-original-title="Send">
+                                                        <span class="iconify" data-icon="whh:circledelete" data-inline="false" style="font-size: 25px"></span>
+                                                        </button>
 
+                                                        <button type="button" data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
+                                                        <span class="iconify" data-icon="ic:sharp-more-horiz" data-inline="false"></span>
+                                                        </button>
+                                                      </div>
+                                                      <?php }else{?>
+                                                        <button type="button" data-toggle="modal" data-target="#largeModal<?php echo $listaPedidos->getidPedido(); ?>">
+                                                        <span class="iconify" data-icon="ic:sharp-more-horiz" data-inline="false"></span>
+                                                      <?php }?>
+                                                    </td>
 
                                                 </tr>
 
@@ -243,7 +259,6 @@
                                                     <td><p><?php echo $Produto->getQuantidade(); ?></p></td>
                                                     <td><p><?php echo $Produto->getValDiaria(); ?></p></td>
                                                     <td><p><?php echo $Produto->getValDiaria(); ?></p></td>
-
 
                                                 </tr>
 
