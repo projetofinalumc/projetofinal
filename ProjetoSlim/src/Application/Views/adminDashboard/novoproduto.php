@@ -165,9 +165,9 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub active">
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tags "></i>Produtos</a>
+                                <i class="fas fa-tags"></i>Produtos</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="#">Cadastrar novo produto</a>
@@ -176,10 +176,10 @@
                                     <a href="/Admin/ListaProduto">Lista de Produtos</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <!-- <a href="index3.html">Dashboard 3</a> -->
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <!-- <a href="index4.html">Dashboard 4</a> -->
                                 </li>
                             </ul>
                         </li>
@@ -191,13 +191,13 @@
                                     <a href="/Admin/ListaPedido">Lista de Pedidos</a>
                                 </li>
                                 <li>
-                                    <a href="#">Dashboard 3</a>
+                                     <a href="/Admin/DevolucaoPedido">Devolução de Pedido</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <!-- <a href="index3.html">Dashboard 3</a> -->
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <!-- <a href="index4.html">Dashboard 4</a> -->
                                 </li>
                             </ul>
                         </li>
@@ -353,37 +353,39 @@
                     <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">data table</h3>
+                                <h3 class="title-5 m-b-35">Lista Produto</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
-                                            <select class="js-select2" name="property">
+                                            <!-- <select class="js-select2" name="property">
                                                 <option selected="selected">All Properties</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
-                                            </select>
+                                            </select> -->
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                         <div class="rs-select2--light rs-select2--sm">
-                                            <select class="js-select2" name="time">
+                                            <!-- <select class="js-select2" name="time">
                                                 <option selected="selected">Today</option>
                                                 <option value="">3 Days</option>
                                                 <option value="">1 Week</option>
-                                            </select>
+                                            </select> -->
                                             <div class="dropDownSelect2"></div>
                                         </div>
-                                        <button class="au-btn-filter" data-toggle="modal" data-target="#largeModalFiltro">
-                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                        <!-- <button class="au-btn-filter" data-toggle="modal" data-target="#largeModalFiltro">
+                                            <i class="zmdi zmdi-filter-list"></i>Filtrar</button> -->
                                     </div>
                                     <div class="table-data__tool-right">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
-                                            <i class="zmdi zmdi-plus"></i>add item</button>
+                                            <i class="zmdi zmdi-plus"></i>Adicionar Produto</button>
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                            <select class="js-select2" name="type">
+                                        <button class="au-btn-filter" data-toggle="modal" data-target="#largeModalFiltro">
+                                            <i class="zmdi zmdi-filter-list"></i>Filtrar</button>
+                                            <!-- <select class="js-select2" name="type">
                                                 <option selected="selected">Export</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
-                                            </select>
+                                            </select> -->
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
@@ -398,12 +400,12 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </th>
-                                                <th>name</th>
-                                                <th>email</th>
-                                                <th>description</th>
-                                                <th>date</th>
+                                                <th>Nome</th>
+                                                <th>Dimensão</th>
+                                                <th>Quantidade</th>
+                                                <th>Modelo</th>
                                                 <th>status</th>
-                                                <th>price</th>
+                                                <th>Valor diário</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -428,13 +430,13 @@
                                                 <td>R$ <?php echo $Produto->getValDiaria();?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Atualizar Status">
                                                             <i class="zmdi zmdi-mail-send"></i>
                                                         </button>
-                                                        <button class="item"  title="Edit" data-toggle="modal" data-target="#largeModalEditar<?php echo $Produto->getId();?>" >
+                                                        <button class="item"  title="Editar produto" data-toggle="modal" data-target="#largeModalEditar<?php echo $Produto->getId();?>" >
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Delete" href="/Admin/DeletarProduto?idExcluir=<?php echo $Produto->getId();?>">
+                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Excluir produto" href="/Admin/DeletarProduto?idExcluir=<?php echo $Produto->getId();?>">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </a>
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="More">
@@ -463,7 +465,7 @@
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+							<h5 class="modal-title" id="largeModalLabel">Adicionar Produto</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
