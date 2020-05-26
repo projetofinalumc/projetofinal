@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Loca Artiles - Carrinho</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/loja_fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/loja_css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/loja_css/magnific-popup.css">
-    <link rel="stylesheet" href="css/loja_css/jquery-ui.css">
-    <link rel="stylesheet" href="css/loja_css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/loja_css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/loja_css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/loja_css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/loja_css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/loja_css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/loja_css/owl.theme.default.min.css">
 
 
     <link rel="stylesheet" href="css/loja_css/aos.css">
 
     <link rel="stylesheet" href="css/loja_css/style.css">
+    <script src="https://kit.fontawesome.com/a3c008cb1b.js" crossorigin="anonymous"></script>
     
   </head>
   <script>
@@ -46,19 +47,30 @@
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-              <div class="site-logo">
-                <a href="/Inicio" class="js-logo-clone">Loca Articles</a>
+              <div class="">
+                <a href="/Inicio" class="js-logo-clone"><img src="/images/loja_img/MENOR.jpg" ></a>
               </div>
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                <?php session_start();?>
-                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}?>
+                <?php if (session_status() !== PHP_SESSION_ACTIVE) {
+                            session_start();
+                          }?>
+                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login";}?>
                   <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Teste";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                  <li><a href="#"><span class=""></span></a></li>
                   <li>
+                  <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
+                    <a href="/finalizar" class="site-cart">
+                      <span class="icon icon-shopping_cart"></span>
+                      <span class="count"><?php echo $_SESSION['Total_Carrinho']?></span>
+                    </a>
+                    <?php }?>
+                  <?php if(isset($_SESSION['idLocatario'])){ ?>
+                  <li><a href="/Sair"><span class="fa fa-power-off fa-lg"></span></a></li>
+                  <?php } ?>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
@@ -69,39 +81,28 @@
         </div>
       </div> 
       <nav class="site-navigation text-right text-md-center" role="navigation">
-        <div class="container">
+      <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
-              <a href="index.html">Home</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <li class="">
+              <a href="/Inicio">Início</a>
             </li>
-            <li class="has-children">
-              <a href="about.html">Sobre Nós</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
-            </li>
-            <li><a href="/produtos">Shop</a></li>
-            <li><a href="#">Catalogo</a></li>
-            <li><a href="#">Novidades</a></li>
-            <li><a href="contact.html">Contatos</a></li>
+            <li class="">
+              <a href="/Sobre">Sobre nós</a>
+            <li class="active"><a href="/produtos">Loja</a></li>
+            <!-- <li><a href="#">New Arrivals</a></li> -->
+            <li><a href="/contato">Contato</a></li>
           </ul>
         </div>
       </nav>
+    </header>
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Início</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Carrinho</strong></div>
+        </div>
+      </div>
+    </div>
     </header>
 
     <div class="site-section">
@@ -292,15 +293,15 @@
     </footer>
   </div>
 
-  <script src="js/loja_js/jquery-3.3.1.min.js"></script>
-  <script src="js/loja_js/jquery-ui.js"></script>
-  <script src="js/loja_js/popper.min.js"></script>
-  <script src="js/loja_js/bootstrap.min.js"></script>
-  <script src="js/loja_js/owl.carousel.min.js"></script>
-  <script src="js/loja_js/jquery.magnific-popup.min.js"></script>
-  <script src="js/loja_js/aos.js"></script>
+  <script src="/js/loja_js/jquery-3.3.1.min.js"></script>
+  <script src="/js/loja_js/jquery-ui.js"></script>
+  <script src="/js/loja_js/popper.min.js"></script>
+  <script src="/js/loja_js/bootstrap.min.js"></script>
+  <script src="/js/loja_js/owl.carousel.min.js"></script>
+  <script src="/js/loja_js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/loja_js/aos.js"></script>
 
-  <script src="js/loja_js/main.js"></script>
+  <script src="/js/loja_js/main.js"></script>
     
   </body>
 </html>
