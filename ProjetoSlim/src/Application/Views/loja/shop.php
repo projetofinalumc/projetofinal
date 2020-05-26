@@ -48,7 +48,7 @@
                 <?php if (session_status() !== PHP_SESSION_ACTIVE) {
                             session_start();
                           }?>
-                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}?>
+                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login";}?>
                   <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Locatario/locatario";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
                   <li>
                   <?php if(isset($_SESSION['Total_Carrinho'])){ ?>

@@ -51,7 +51,7 @@
                 <?php if (session_status() !== PHP_SESSION_ACTIVE) {
                             session_start();
                           }?>
-                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}?>
+                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login";}?>
                   <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Locatario/locatario";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
                   <li>
                   <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
@@ -62,7 +62,7 @@
                     <?php }?>
                   </li> 
                   <?php if(isset($_SESSION['idLocatario'])){ ?>
-                  <li><a href="/Sair"><span class="fa fa-power-off fa-lg"></span></a></li>
+                    <li><a href="/Sair"><span class="fa fa-power-off fa-lg"></span></a></li>
                   <?php } ?>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="/" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
@@ -94,9 +94,9 @@
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
             <h2 class="mb-2">Veja esse lindo brinquedo para o seu evento</h2>
             <div class="intro-text text-center text-md-left">
-              <p1 class="mb-4">Consulte os preços no catálogo ou entre em contato com o nosso consultor de venda</p1>
+              <p1 class="mb-4">Consulte os preços no catálogo da loja ou entre em contato com o nosso consultor de venda</p1>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Alugue agora</a>
+                <a href="/produtos" class="btn btn-sm btn-primary">Alugue agora</a>
               </p>
             </div>
           </div>

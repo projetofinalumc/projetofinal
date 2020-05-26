@@ -156,12 +156,12 @@
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="/Admin/Home">
-                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
-                    <h2>Loca Articles</h2>
-                </a>
+        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                <div class="site-logo">
+                    <a href="/Inicio" class="js-logo-clone"><img src="/images/loja_img/MENOR.jpg" ></a>
+                </div>
             </div>
+            
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
@@ -333,7 +333,7 @@
                                                 </div> -->
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="/Admin/Sair">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
