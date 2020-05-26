@@ -17,7 +17,7 @@ class ProdutoDAO {
 }
     public function verProduto() {
         $listProd = array();
-        $sql = "SELECT * from Produto;"; 
+        $sql = "SELECT * from Produto ORDER BY idProduto DESC;"; 
 
         //recebendo os dados da query
         $resultado = $this->conn->query($sql);

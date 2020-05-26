@@ -439,8 +439,8 @@
                                                         <a class="item" data-toggle="tooltip" data-placement="top" title="Finalizar" href="/Admin/FinalizarPedido?idPedido=<?php echo $Pedido->getidPedido();?>&status=<?php echo $status?>">
                                                             <i class="zmdi zmdi-check"></i>
                                                         </a>
-                                                        <?php if($Pedido->getStatus() == 'AGUARDANDO DEVOLUCAO'){ ?>
-                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Delete" href="/Admin/DeletarProduto?idExcluir=<?php echo $Pedido->getidPedido();?>">
+                                                        <?php if($Pedido->getStatus() == 'ESPERA'){ ?>
+                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Delete"  href="/Admin/FinalizarPedido?idPedido=<?php echo $Pedido->getidPedido();?>&status=CANCELADO">
                                                             <i class="zmdi zmdi-close"></i>
                                                         </a>
                                                         <?php } ?>

@@ -316,9 +316,9 @@ class ControllerPedido{
 
         $pedidoEmail =  $PedidoDAO->gerarPedido($pedido);
         
-        $email = new Email();
+        //$email = new Email();
 
-        $email->mensagem_Pedido_Realizado($pedidoEmail);
+        //$email->mensagem_Pedido_Realizado($pedidoEmail);
 
         $args = ['Pedido' => $pedido];
    

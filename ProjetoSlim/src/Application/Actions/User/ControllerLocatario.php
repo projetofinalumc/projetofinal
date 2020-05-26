@@ -73,12 +73,14 @@ class ControllerLocatario
 
         $enderecoDAO->cadastrarEndereco($endereco_locatario);
 
-        $email = new Email();
+        // $email = new Email();
 
-        $email->mensagem_Bem_Vindo($locatario);
+       // $email->mensagem_Bem_Vindo($locatario);
 
         
-        return $this->listar($request, $response, $args);
+       $renderer = new PhpRenderer(__DIR__ . "/../../Views/loja/");
+
+       return $renderer->render($response, "finalCadastro.php", $args);
     }
 
 

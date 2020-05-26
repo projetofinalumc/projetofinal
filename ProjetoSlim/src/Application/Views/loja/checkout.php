@@ -149,13 +149,13 @@ function checkOutroEndereco() {
         <div class="row mb-5">
           <div class="col-md-12">
             <div class="border p-4 rounded" role="alert">
-              Returning customer? <a href="#">Click here</a> to login
+              Ainda não tem seu cadastro? <a href="#">Clique aqui!</a> para se cadastrar!!
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Billing Details</h2>
+            <h2 class="h3 mb-3 text-black">Endereços</h2>
             <div class="p-3 p-lg-5 border">
 
               <label for="c_country" class="text-black">Escolha um endereço para envio: <span class="text-danger">*</span></label>
@@ -173,7 +173,7 @@ function checkOutroEndereco() {
 
 
               <div class="form-group">
-                <label for="c_ship_different_address" class="text-black"  ><input  aria-controls="ship_different_address" data-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" onclick="checkOutroEndereco()" type="checkbox" value="1" id="c_ship_different_address"> Ship To A Different Address?</label>
+                <label for="c_ship_different_address" class="text-black"  ><input  aria-controls="ship_different_address" data-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" onclick="checkOutroEndereco()" type="checkbox" value="1" id="c_ship_different_address"> Deseja mandar para um Endreço Diferente?</label>
                 <div class="collapse" id="ship_different_address">
                   <div class="py-2">
 
@@ -255,10 +255,10 @@ function checkOutroEndereco() {
 
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Coupon Code</h2>
+                <h2 class="h3 mb-3 text-black">Data Retirada</h2>
                 <div class="p-3 p-lg-5 border">
                   
-                  <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
+                  <label for="c_code" class="text-black mb-3">Selecione uma Data para retirar o seu Pedido.</label>
                   <div class="form-group row">
                         <div class="col-10">
                           <input class="form-control" type="date" value="" id="example-date-input" name="dataInicial">
@@ -271,7 +271,7 @@ function checkOutroEndereco() {
             
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Your Order</h2>
+                <h2 class="h3 mb-3 text-black">Seu Pedido</h2>
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
@@ -288,11 +288,7 @@ function checkOutroEndereco() {
                       </tr>
                     <?php }?>
                       <tr>
-                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">R$<?php echo $PedidoLocatario->getValorTotal(); ?></td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+                        <td class="text-black font-weight-bold"><strong>Valor Total</strong></td>
                         <td class="text-black font-weight-bold"><strong>R$<?php echo $PedidoLocatario->getValorTotal();?></strong></td>
                       </tr>
                     </tbody>

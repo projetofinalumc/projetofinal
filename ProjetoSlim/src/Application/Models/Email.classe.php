@@ -110,9 +110,9 @@ public function mensagem_Pedido_Realizado($Pedido){
             $mail->send();
         
 
-        return 'Message has been sent';
+       // return 'Message has been sent';
     } catch (Exception $e) {
-        return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+       // return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 
   }
