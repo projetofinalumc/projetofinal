@@ -163,7 +163,7 @@ class LocatarioDAO {
         
 
         //Preparando um comando sql para parametrização
-        $stmt =  $this->conn->prepare("INSERT INTO `Locatario` (`cpf`, `Nome`, `email`,`senhaloc`) VALUES (?,?,?,?);");
+        $stmt =  $this->conn->prepare("INSERT INTO `locatario` (`cpf`, `Nome`, `email`,`senhaloc`) VALUES (?,?,?,?);");
         //Passando os parametros e seus tipos (s = String, d = double, i = Int )
         $stmt->bind_param('isss', $cpf,$nome,$email,$senha);
         //Executando o comando parametrizado

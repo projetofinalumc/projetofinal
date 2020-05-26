@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+  <title>Loca Articles - Cadastro</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -118,7 +118,7 @@
               <div class="site-top-icons">
                 <ul>
                 <?php session_start();?>
-                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login";}?>
+                <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login ou Cadastre-se";}?>
                 <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Locatario/locatario";}else{echo  "/Entrar" ;} ?>"><span class="icon icon-person"></span></a></li>
                   <li>
                   <?php if(isset($_SESSION['Total_Carrinho'])){ ?>
@@ -145,7 +145,7 @@
             <li class="a">
               <a href="/Inicio">Início</a>
             </li>
-            <li class="active">
+            <li class="a">
               <a href="/Sobre">Sobre nós</a>
             <li><a href="/produtos">Loja</a></li>
             <!-- <li><a href="#">New Arrivals</a></li> -->
