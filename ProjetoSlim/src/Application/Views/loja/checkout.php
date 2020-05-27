@@ -260,8 +260,13 @@ function checkOutroEndereco() {
                   
                   <label for="c_code" class="text-black mb-3">Selecione uma Data para retirar o seu Pedido.</label>
                   <div class="form-group row">
+                  <?php 
+                     $data = getdate();
+
+                     $hoje = $data['year'].'-'.'0'.$data['mon'].'-'.$data['mday'];
+                  ?>
                         <div class="col-10">
-                          <input class="form-control" type="date" value="" id="example-date-input" name="dataInicial">
+                          <input class="form-control" type="date" id="example-date-input" name="dataInicial" value="<?php echo $hoje?>" min="<?php echo $hoje?>" max="2020-12-31">
                         </div>
                     </div>
 
