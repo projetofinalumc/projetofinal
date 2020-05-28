@@ -423,24 +423,6 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
     </div>
   </footer>
   </div>
-  <script>
-    document.getElementById("c_country").addEventListener("change", myFunction);
-
-    function myFunction() {
-      var e = document.getElementById("c_country");
-      var value = e.options[e.selectedIndex].value;
-
-      switch (value) {
-        <?php foreach ($listaEndereco as $key => $Endereco) { ?>
-          <?php echo "case " . $key . ":"; ?>
-          <?php echo "document.getElementById('c_fname').innerHTML ='" . $Endereco->getLogradouro() . "'" ?>
-          <?php echo "break;" ?>
-        <?php } ?>
-        default:
-          // code block
-      }
-    }
-  </script>
 
   
 <script src="/js/loja_js/jquery-3.3.1.min.js"></script>
