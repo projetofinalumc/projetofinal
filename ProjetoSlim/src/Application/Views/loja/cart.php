@@ -73,7 +73,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                             session_start();
                           }?>
                 <?php if(isset($_SESSION['nomeLocatario'])){echo "Bem Vindo! ".$_SESSION['nomeLocatario'];}else{ echo "Fazer Login ou Cadastre-se";}?>
-                  <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Teste";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
+                  <li><a href="<?php if(isset($_SESSION['idLocatario'])){echo "/Locatario/locatario";}else{echo "/Entrar";} ?>"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class=""></span></a></li>
                   <li>
                   <?php if(isset($_SESSION['Total_Carrinho'])){ ?>

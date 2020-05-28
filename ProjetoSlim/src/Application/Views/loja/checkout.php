@@ -98,7 +98,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                     echo "Fazer Login ou Cadastre-se";
                   } ?>
                   <li><a href="<?php if (isset($_SESSION['idLocatario'])) {
-                                  echo "/Teste";
+                                  echo "/Locatario/locatario";
                                 } else {
                                   echo "/Entrar";
                                 } ?>"><span class="icon icon-person"></span></a></li>
