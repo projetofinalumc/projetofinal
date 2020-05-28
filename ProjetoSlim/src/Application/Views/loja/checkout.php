@@ -15,22 +15,24 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
 <head>
   <title>Loca Artiles - Finalizar Pedido</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
-  <link rel="stylesheet" href="fonts/loja_fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+        <script src="https://kit.fontawesome.com/a3c008cb1b.js" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="/css/loja_css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/loja_css/magnific-popup.css">
-  <link rel="stylesheet" href="/css/loja_css/jquery-ui.css">
-  <link rel="stylesheet" href="/css/loja_css/owl.carousel.min.css">
-  <link rel="stylesheet" href="/css/loja_css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/fonts/loja_fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/css/loja_css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/loja_css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/loja_css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/loja_css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/loja_css/owl.theme.default.min.css">
 
 
-  <link rel="stylesheet" href="/css/loja_css/aos.css">
+    <link rel="stylesheet" href="/css/loja_css/aos.css">
 
-  <link rel="stylesheet" href="/css/loja_css/style.css">
-  <script src="https://kit.fontawesome.com/a3c008cb1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/loja_css/style.css">
+    <script src="https://kit.fontawesome.com/a3c008cb1b.js" crossorigin="anonymous"></script>
 
 </head>
 <script>
@@ -147,13 +149,13 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
     <div class="site-section">
       <form action="/Loja/pedidoFinal" method="POST">
         <div class="container">
-          <div class="row mb-5">
+         <!-- <div class="row mb-5">
             <div class="col-md-12">
               <div class="border p-4 rounded" role="alert">
                 Ainda não tem seu cadastro? <a href="#">Clique aqui!</a> para se cadastrar!!
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="col-md-6 mb-5 mb-md-0">
               <h2 class="h3 mb-3 text-black">Endereços</h2>
@@ -301,37 +303,29 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                     </table>
 
                     <div class="border p-3 mb-3">
-                      <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
+                      <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Transferência Bancária Direta</a></h3>
 
                       <div class="collapse" id="collapsebank">
                         <div class="py-2">
-                          <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                          <p class="mb-0">Faça seu pagamento transferindo diretamente para nossa conta bancária. Por favor, use o seu ID do pedido como referência de pagamento. Seu pedido não será enviado até que os fundos sejam liberados em nossa conta.</p>
                         </div>
                       </div>
                     </div>
 
-                    <div class="border p-3 mb-3">
-                      <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-                      <div class="collapse" id="collapsecheque">
-                        <div class="py-2">
-                          <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                        </div>
-                      </div>
-                    </div>
+                   
 
                     <div class="border p-3 mb-5">
-                      <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
+                      <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Pagamento via Paypal</a></h3>
 
                       <div class="collapse" id="collapsepaypal">
                         <div class="py-2">
-                          <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                          <p class="mb-0">Faça seu pagamentp via Paypal. Com PayPal, você paga suas compras com segurança em milhões de sites ao redor do mundo.</p>
                         </div>
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <input class="btn btn-primary btn-lg py-3 btn-block" type="submit"> Place Order </input>
+                      <input class="btn btn-primary btn-lg py-3 btn-block" type="submit" value="Concluir Pedido"></input>
                     </div>
 
                   </div>
@@ -346,86 +340,52 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
   </div>
 
   <footer class="site-footer border-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="footer-heading mb-4">Navigations</h3>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Sell online</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Shopping cart</a></li>
-                <li><a href="#">Store builder</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Mobile commerce</a></li>
-                <li><a href="#">Dropshipping</a></li>
-                <li><a href="#">Website development</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Point of sale</a></li>
-                <li><a href="#">Hardware</a></li>
-                <li><a href="#">Software</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <h3 class="footer-heading mb-4">Promo</h3>
-          <a href="#" class="block-6">
-            <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-            <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-            <p>Promo from nuary 15 &mdash; 25, 2019</p>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-5 mb-5">
-            <h3 class="footer-heading mb-4">Contact Info</h3>
-            <ul class="list-unstyled">
-              <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
-              <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-              <li class="email">emailaddress@domain.com</li>
-            </ul>
-          </div>
-
-          <div class="block-7">
-            <form action="#" method="post">
-              <label for="email_subscribe" class="footer-heading">Subscribe</label>
-              <div class="form-group">
-                <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                <input type="submit" class="btn btn-sm btn-primary" value="Send">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Navegação</h3>
               </div>
-            </form>
+              <div class="col-md-6 col-lg-4">
+                <ul class="list-unstyled">
+                  <li><a href="/Inicio">Início</a></li>
+                  <li><a href="/Sobre">Sobre Nós</a></li>
+                  <li><a href="/produtos">Loja</a></li>
+                  <li><a href="/contato">Contato</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                
+              </div>
+              <div class="col-md-6 col-lg-4">
+                
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+          
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Contato</h3>
+              <ul class="list-unstyled">
+                <li class="address">Av. Dr. Cândido X. de Almeida e Souza, 200 - Centro Cívico, Mogi das Cruzes - SP, 08780-911/li>
+                <li class="phone"><a href="tel://23923929210">+55 11 47474747</a></li>
+                <li class="email">pfcsisinfo2019@gmail.com/li>
+              </ul>
+            </div>
+
+            <div class="block-7">
+            </div>
+          </div>
+        </div>    
       </div>
-      <div class="row pt-5 mt-5 text-center">
-        <div class="col-md-12">
-          <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-            <script>
-              document.write(new Date().getFullYear());
-            </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-        </div>
-        <?php #session_regenerate_id(); session_write_close();
-        ?>
-      </div>
-    </div>
-  </footer>
+    </footer>
   </div>
 
   
-<script src="/js/loja_js/jquery-3.3.1.min.js"></script>
+  <script src="/js/loja_js/jquery-3.3.1.min.js"></script>
   <script src="/js/loja_js/jquery-ui.js"></script>
   <script src="/js/loja_js/popper.min.js"></script>
   <script src="/js/loja_js/bootstrap.min.js"></script>
@@ -434,6 +394,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
   <script src="/js/loja_js/aos.js"></script>
 
   <script src="/js/loja_js/main.js"></script>
+
 </body>
 
 </html>

@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
+
+
+$PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
+//setcookie("PedidoLocatario", $PedidoLocatario);           
+?>
 <html lang="en">
   <head>
     <title>Loca Artiles - Carrinho</title>
@@ -31,7 +42,10 @@
             }
         }
 </script>
-  <body>
+
+
+<body>
+
   
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
@@ -162,7 +176,7 @@
               </div>
               <div class="col-md-6">
                 <!-- <button class="btn btn-outline-primary btn-sm btn-block">Continuar comprando</button> -->
-                <a href="/shop" class="btn btn-outline-primary btn-sm btn-block">CONTINUAR alugando</a>
+                <a href="/produtos" class="btn btn-outline-primary btn-sm btn-block">CONTINUAR alugando</a>
               </div>
             </div>
            
@@ -187,28 +201,22 @@
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
                     <h3 class="text-black h4 text-uppercase">Resumo do Pedido</h3>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
+                  </div>               
                 </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
                   </div>
+                 
+                  <?php //foreach ($listaDeProdutos as $Produto) { ?>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black">R$<?php //echo $PedidoLocatario->getValorTotal(); ?> </strong>
                   </div>
                 </div>
-
+                  <?php //} ?>  
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Continuar alugando</button>
+                    <a class="btn btn-primary btn-lg py-3 btn-block" href="/produtos">Continuar alugando</a>
                   </div>
                 </div>
               </div>
@@ -224,71 +232,41 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="row">
               <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Navigations</h3>
+                <h3 class="footer-heading mb-4">Navegação</h3>
               </div>
               <div class="col-md-6 col-lg-4">
                 <ul class="list-unstyled">
-                  <li><a href="#">Sell online</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Shopping cart</a></li>
-                  <li><a href="#">Store builder</a></li>
+                  <li><a href="/Inicio">Início</a></li>
+                  <li><a href="/Sobre">Sobre Nós</a></li>
+                  <li><a href="/produtos">Loja</a></li>
+                  <li><a href="/contato">Contato</a></li>
                 </ul>
               </div>
               <div class="col-md-6 col-lg-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Mobile commerce</a></li>
-                  <li><a href="#">Dropshipping</a></li>
-                  <li><a href="#">Website development</a></li>
-                </ul>
+                
               </div>
               <div class="col-md-6 col-lg-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Point of sale</a></li>
-                  <li><a href="#">Hardware</a></li>
-                  <li><a href="#">Software</a></li>
-                </ul>
+                
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-            </a>
+          
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <h3 class="footer-heading mb-4">Contato</h3>
               <ul class="list-unstyled">
-                <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
-                <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-                <li class="email">emailaddress@domain.com</li>
+                <li class="address">Av. Dr. Cândido X. de Almeida e Souza, 200 - Centro Cívico, Mogi das Cruzes - SP, 08780-911/li>
+                <li class="phone"><a href="tel://23923929210">+55 11 47474747</a></li>
+                <li class="email">pfcsisinfo2019@gmail.com/li>
               </ul>
             </div>
 
             <div class="block-7">
-              <form action="#" method="post">
-                <label for="email_subscribe" class="footer-heading">Subscribe</label>
-                <div class="form-group">
-                  <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                  <input type="submit" class="btn btn-sm btn-primary" value="Send">
-                </div>
-              </form>
             </div>
           </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
-          
-        </div>
+        </div>    
       </div>
     </footer>
   </div>
