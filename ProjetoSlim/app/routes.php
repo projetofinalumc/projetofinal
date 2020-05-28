@@ -202,9 +202,9 @@ return function (App $app) {
     $app->group('/victor', function (Group $group) {    
 
         //teste de view
-        $group->get('/entrar', function ($request, $response, $args) {
+        $group->get('/teste', function ($request, $response, $args) {
             $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/loja');
-            return $renderer->render($response,"index.php",$args);
+            return $renderer->render($response,"finalCadastro.php",$args);
 
         });     
 
