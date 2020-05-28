@@ -66,9 +66,9 @@ private PHPMailer $mail;
             //$mail->isHTML(true);    
             $nome = $Locatario->getNome();    
             $id = $Locatario->getId();                           // Set email format to HTML
-            $mail->Subject = "Bem vindo ao Loc $id";
+            $mail->Subject = "Bem vindo ao Loca Articles $id";
             $mail->Body    = "Seja Bem-Vindo <b>$nome</b>";
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail->AltBody = 'Ficamos felizes em saber, que você deu preferência aos nossos produtos. Fique a vontade';
         
             $teste = $mail->send();
       
@@ -97,9 +97,9 @@ public function mensagem_Pedido_Realizado($Pedido){
             $mail->isHTML(true);    
             $nomeLocatario = $locatario->getNome();
             $Codigo = $Pedido->getidPedido();                              // Set email format to HTML
-            $mail->Subject = "O Pedido de cod $Codigo foi realizado!!";
+            $mail->Subject = "Pedido de codigo $Codigo.";
             $mail->Body    = "O Pedido de cod <b>$Codigo</b> foi realizado com sucesso <b>$nomeLocatario</b>";
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail->AltBody = 'O status do seu Pedido foi alterado para aguardando devolução';
         
             $mail->send();
         
