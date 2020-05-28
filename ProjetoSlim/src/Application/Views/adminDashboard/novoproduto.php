@@ -473,29 +473,29 @@
 						    <div class="modal-body">
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Nome:</label>
-                                          <input id="cc-pament" name="txtNome" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input id="cc-pament" name="txtNome" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" required>
                                  </div>
 
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Modelo:</label>
-                                          <input id="cc-pament" name="txtModelo" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input id="cc-pament" name="txtModelo" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" required>
                                  </div>
 
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Quantidade:</label>
-                                          <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Valor Diaria:</label>
-                                          <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Dimensao:</label>
-                                          <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Preço perda:</label>
-                                          <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                          <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Imagem do Produto:</label>
@@ -531,33 +531,33 @@
 
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Nome:</label>
-                                          <input id="cc-pament" name="txtNome" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getNome();?>">
+                                          <input id="cc-pament" name="txtNome" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getNome();?>" required>
                                  </div>
 
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Modelo:</label>
-                                          <input id="cc-pament" name="txtModelo" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getModelo();?>">
+                                          <input id="cc-pament" name="txtModelo" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getModelo();?>" required>
                                  </div>
 
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Quantidade:</label>
-                                          <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getQuantidade();?>">
+                                          <input id="cc-pament" name="txtQuantidade" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getQuantidade();?>" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Valor Diaria:</label>
-                                          <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getValDiaria();?>">
+                                          <input id="cc-pament" name="txtValDiaria" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getValDiaria();?>" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Dimensao: </label>
-                                          <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getDimensao();?>">
+                                          <input id="cc-pament" name="txtDimensao" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getDimensao();?>" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Preco perda: </label>
-                                          <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getPrecoPerda();?>">
+                                          <input id="cc-pament" name="txtPrecoPerda" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $Produto->getPrecoPerda();?>" required>
                                  </div>
                                  <div class="form-group">
                                           <label for="cc-payment" class="control-label mb-1">Imagem do Produto:</label>
-                                          <input id="cc-pament" name="img" type="file" class="form-control" aria-required="true" aria-invalid="false" value="images/produtos_cad/<?php echo $Produto->getImgNome();?>">
+                                          <input id="cc-pament" name="img" type="file" class="form-control" aria-required="true" aria-invalid="false" value="images/produtos_cad/<?php echo $Produto->getImgNome();?>" required>
                                  </div>
                          </div>
                         

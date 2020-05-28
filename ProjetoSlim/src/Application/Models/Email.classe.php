@@ -22,7 +22,7 @@ private PHPMailer $mail;
   }
 
 
-  public function configuracao(){
+  public function _configuracao(){
 
     try {
 
@@ -51,12 +51,8 @@ private PHPMailer $mail;
 
     try {
              
-             $mail = $this->configuracao();
+             $mail = $this->_configuracao();
 
-             $locatarioEmail = $Locatario->getEmail();
-
-             $mail->setFrom('pfcsisinfo2019@gmail.com', 'Mailer');
-             $mail->addAddress($locatarioEmail);     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');
@@ -67,17 +63,15 @@ private PHPMailer $mail;
             //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
         
             // Content
-            $mail->isHTML(true);    
+            //$mail->isHTML(true);    
             $nome = $Locatario->getNome();    
             $id = $Locatario->getId();                           // Set email format to HTML
             $mail->Subject = "Bem vindo ao Loc $id";
             $mail->Body    = "Seja Bem-Vindo <b>$nome</b>";
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         
-            $mail->send();
-        
-
-        return 'Message has been sent';
+            $teste = $mail->send();
+      
     } catch (Exception $e) {
         return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

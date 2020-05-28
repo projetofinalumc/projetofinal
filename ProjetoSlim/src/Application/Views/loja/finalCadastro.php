@@ -6,7 +6,8 @@
 	<div class="row text-center">
         <div class="col-sm-6 col-sm-offset-3">
         <br><br> <h2 style="color:#0fad00">Sucesso</h2>
-        <h3>Seja Muito Bem Vindo</h3>
+        <h3>Seja Muito Bem Vindo <?php echo $locatarioCadastrado->getNome();?></h3>
+        <p style="font-size:20px;color:#5C5C5C;">. Nos enviamos um email para "<?php echo $locatarioCadastrado->getEmail();?>"</p>
         <a href="/Entrar" class="btn btn-success">  Fazer Login</a>
     <br><br>
         </div>

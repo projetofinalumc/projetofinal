@@ -79,26 +79,31 @@ class ProdutoDAO {
 
               //recebendo os dados da query
               $resultado = $this->conn->query($sqlFinal);
-              if ($resultado->num_rows > 0) {
-       
-                   
-                   while ($row = $resultado->fetch_assoc()) {
-       
-                       $Produto = new Produto();
-                       $Produto->setId($row["idProduto"]);
-                       $Produto->setNome($row["nome"]);
-                       $Produto->setModelo($row["modelo"]);
-                       $Produto->setValDiaria($row["valdiaria"]);
-                       $Produto->setDimensao($row["dimensao"]);
-                       $Produto->setQuantidade($row["quantidade"]);
-                       $Produto->setPrecoPerda($row["precoPerda"]);
-                       $Produto->setImgNome($row["imgNome"]);
-                       $listProd[] = $Produto;
-                   }
-                   return $listProd;
-               } else {
-                   return "0 results";
-               } 
+              try{
+                      if ($resultado->num_rows > 0) {
+              
+                          
+                          while ($row = $resultado->fetch_assoc()) {
+              
+                              $Produto = new Produto();
+                              $Produto->setId($row["idProduto"]);
+                              $Produto->setNome($row["nome"]);
+                              $Produto->setModelo($row["modelo"]);
+                              $Produto->setValDiaria($row["valdiaria"]);
+                              $Produto->setDimensao($row["dimensao"]);
+                              $Produto->setQuantidade($row["quantidade"]);
+                              $Produto->setPrecoPerda($row["precoPerda"]);
+                              $Produto->setImgNome($row["imgNome"]);
+                              $listProd[] = $Produto;
+                          }
+                          return $listProd;
+                      } else {
+                          return "0 result";
+                      } 
+
+              }catch(Exception $e){
+                  return $e;
+              }
     }
 
     public function adicionarProduto($prodt) {

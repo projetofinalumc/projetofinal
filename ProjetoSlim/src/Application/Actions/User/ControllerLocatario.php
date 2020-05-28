@@ -73,9 +73,9 @@ class ControllerLocatario
 
          $email = new Email();
 
-        $email->mensagem_Bem_Vindo($locatario);
+         $email->mensagem_Bem_Vindo($locatario);
 
-        
+         $args = ['locatarioCadastrado' => $locatario];
        $renderer = new PhpRenderer(__DIR__ . "/../../Views/loja/");
 
        return $renderer->render($response, "finalCadastro.php", $args);
