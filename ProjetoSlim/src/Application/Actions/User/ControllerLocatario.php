@@ -33,9 +33,7 @@ class ControllerLocatario
 
         $renderer = new PhpRenderer(__DIR__ . "/../../Views/loja/");
 
-        return $renderer->render($response, "newloc.php", $args);
-        //return $renderer->render($response, "test.php", $args);
-    }
+        return $renderer->render($response, "newloc.php", $args);    }
 
     public function cadastrar(Request $request, Response $response, $args)
     {
@@ -73,9 +71,9 @@ class ControllerLocatario
 
         $enderecoDAO->cadastrarEndereco($endereco_locatario);
 
-        // $email = new Email();
+         $email = new Email();
 
-       // $email->mensagem_Bem_Vindo($locatario);
+        $email->mensagem_Bem_Vindo($locatario);
 
         
        $renderer = new PhpRenderer(__DIR__ . "/../../Views/loja/");
@@ -90,7 +88,9 @@ class ControllerLocatario
         $conn = ConnectionFactory::Connect();
 
         $novo_endereco = new Endereco();
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
 
         $novo_endereco->setIdLocatario($_SESSION['idLocatario']);
         $novo_endereco->setLogradouro($_POST['logradouro_end']);
@@ -113,7 +113,9 @@ class ControllerLocatario
         $conn = ConnectionFactory::Connect();
 
         $endereco_edit = new Endereco();
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
 
         $endereco_edit->setIdLocatario($_SESSION['idLocatario']);
         $endereco_edit->setId((int)$_POST['idEndereco']);

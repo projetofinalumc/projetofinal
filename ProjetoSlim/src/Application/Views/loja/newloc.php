@@ -179,33 +179,33 @@
                   <div class="form-group row">
                     <div class="col-md-6">
                       <label for="c_fname" class="text-black">Primeiro nome: <span class="text-danger">*</span></label>
-                      <input type="text" class="form-control" id="first_name" name="first_name">
+                      <input type="text" class="form-control" id="first_name" name="first_name" required>
                     </div>
                     <div class="col-md-6">
-                      <label for="c_lname" class="text-black">Sobrenome: <span class="text-danger">*</span></label>
-                      <input type="text" class="form-control" id="c_lname" name="c_lname">
+                      <label for="c_lname" class="text-black">Sobrenome: <span class="text-danger" >*</span></label>
+                      <input type="text" class="form-control" id="c_lname" name="c_lname" required>
                     </div>
                     <div class="col-md-12">
                       <label for="password" class="text-black">Senha:<span class="text-danger">*</span></label>
-                      <input type="password" class="form-control" id="password" name="password_loc">
+                      <input type="password" class="form-control" id="password" name="password_loc" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_email" class="text-black">Email:<span class="text-danger">*</span></label>
-                      <input type="email" class="form-control" id="email" name="email_loc" placeholder="">
+                      <input type="email" class="form-control" id="email" name="email_loc" placeholder="" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">CPF:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="cpf" name="cpf">
+                      <input type="text" class="form-control" id="cpf" name="cpf" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">CEP:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="numero_cep" name="numero_cep" onblur="pesquisacep(this.value);">
+                      <input type="text" class="form-control" id="numero_cep" name="numero_cep" onblur="pesquisacep(this.value);" required>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -246,30 +246,30 @@
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">Logradouro:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="rua" name="logradouro_end">
+                      <input type="text" class="form-control" id="rua" name="logradouro_end" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">Bairro:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="bairro" name="bairro_loc">
+                      <input type="text" class="form-control" id="bairro" name="bairro_loc" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">Cidade:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="cidade" name="cidade_loc">
+                      <input type="text" class="form-control" id="cidade" name="cidade_loc" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
                       <label for="c_subject" class="text-black">Numero:<span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" id="numero_end" name="numero_end">
+                      <input type="text" class="form-control" id="numero_end" name="numero_end" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-lg-12">
-                      <input type="submit" class="btn btn-primary btn-lg btn-block" value="Cadastrar">
+                      <input type="submit" class="btn btn-primary btn-lg btn-block" value="Cadastrar" required>
                     </div>
                   </div>
                 </div>
