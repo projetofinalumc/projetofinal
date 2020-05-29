@@ -6,10 +6,10 @@
 <div class="container">
 	<div class="row text-center">
         <div class="col-sm-6 col-sm-offset-3">
-        <br><br> <h2 style="color:#0fad00">Sucesso</h2>
+        <br><br> <h2 style="color:#7971ea">Sucesso</h2>
         <h3>Obrigado, <?php echo $Locatario->getNome();?></h3>
         <p style="font-size:20px;color:#5C5C5C;">Obrigado por comprar com agente!!. Nos enviamos um email para "<?php echo $Locatario->getEmail();?>" com os detalhes da sua compra.</p>
-        <a href="/produtos" class="btn btn-success">  Voltar</a>
+        <a href="/produtos" class="btn btn-success" style="background-color: #7971ea; border-color: #7971ea;">  Voltar</a>
     <br><br>
         </div>
         

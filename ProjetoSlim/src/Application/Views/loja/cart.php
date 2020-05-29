@@ -7,8 +7,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 
-$PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
-//setcookie("PedidoLocatario", $PedidoLocatario);           
+  //$PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
+  //setcookie("PedidoLocatario", $PedidoLocatario);           
 ?>
 <html lang="en">
   <head>
@@ -41,7 +41,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
               document.getElementById(id).value = Number(document.getElementById(id).value) - 1;
             }
         }
-</script>
+</script> 
 
 
 <body>
@@ -125,6 +125,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
         <div class="row mb-5">
           
             <div class="site-blocks-table">
+            <?php //if (!is_null($ListaPedidos)){ ?>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -137,7 +138,11 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                   </tr>
                 </thead>
                 <tbody>
-                <?php foreach($ListaProdutos as $produto){?>
+
+                
+                <?php 
+                //if (is_null($ListaPedidos)){ echo "Você ainda não tem nenhum produto no carrinho"; } else{
+                foreach($ListaProdutos as $produto){?>
                   <tr>
                     <td class="product-thumbnail">
                       <img src="images/produtos_cad/<?php echo $produto->getImgNome(); ?>" alt="Image" class="img-fluid">
@@ -161,8 +166,10 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                     <td><a href="retirarCarrinho?Produto_id=<?php echo $produto->getId();?>" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
                  <?php }?>
+                <?php //}?>
                 </tbody>
               </table>
+                <?php  ?>
             </div>
           
         </div>
@@ -195,33 +202,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
             </div>
           </div>
           </form>
-          <div class="col-md-6 pl-5">
-            <div class="row justify-content-end">
-              <div class="col-md-7">
-                <div class="row">
-                  <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Resumo do Pedido</h3>
-                  </div>               
-                </div>
-                <div class="row mb-5">
-                  <div class="col-md-6">
-                    <span class="text-black">Total</span>
-                  </div>
-                 
-                  <?php //foreach ($listaDeProdutos as $Produto) { ?>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">R$<?php //echo $PedidoLocatario->getValorTotal(); ?> </strong>
-                  </div>
-                </div>
-                  <?php //} ?>  
-                <div class="row">
-                  <div class="col-md-12">
-                    <a class="btn btn-primary btn-lg py-3 btn-block" href="/produtos">Continuar alugando</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+       
         </div>
       </div>
     </div>
@@ -257,9 +238,9 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
             <div class="block-5 mb-5">
               <h3 class="footer-heading mb-4">Contato</h3>
               <ul class="list-unstyled">
-                <li class="address">Av. Dr. Cândido X. de Almeida e Souza, 200 - Centro Cívico, Mogi das Cruzes - SP, 08780-911/li>
-                <li class="phone"><a href="tel://23923929210">+55 11 47474747</a></li>
-                <li class="email">pfcsisinfo2019@gmail.com/li>
+                <li class="address">Av. Dr. Cândido X. de Almeida e Souza, 200 - Centro Cívico, Mogi das Cruzes - SP, 08780-911</li>
+                <li class="phone"><a href="">+55 11 47474747</a></li>
+                <li class="email">pfcsisinfo2019@gmail.com</li>
               </ul>
             </div>
 
@@ -277,7 +258,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
   <script src="/js/loja_js/bootstrap.min.js"></script>
   <script src="/js/loja_js/owl.carousel.min.js"></script>
   <script src="/js/loja_js/jquery.magnific-popup.min.js"></script>
-  <script src="/js/loja_js/aos.js"></script>
+  <!-- <script src="/js/loja_js/aos.js"></script> -->
 
   <script src="/js/loja_js/main.js"></script>
     

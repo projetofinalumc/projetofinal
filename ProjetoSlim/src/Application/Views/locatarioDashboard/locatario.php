@@ -153,6 +153,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-13">
+                                <?php if (!is_null($ListaPedidos)){ ?>
                                     <div class="table-responsive table--no-card m-b-30">
                                         <table class="table table-borderless table-striped table-earning">
                                             <thead>
@@ -167,7 +168,11 @@
                                                     <th class="text-right"></th>
                                                 </tr>
                                             </thead>
-                                            <?php foreach ($ListaPedidos as $listaPedidos) { ?>
+                                    <?php } ?>                           
+                                            <?php 
+                                              if (is_null($ListaPedidos)){ echo $msg; } else{ 
+                                            foreach ($ListaPedidos as $listaPedidos) { ?>
+                                               
                                         <form action="/Locatario/CancelarPedido" method="POST">
                                             <tbody>
 
@@ -202,6 +207,8 @@
                                             </tbody>
                                         </form>
                                             <?php } ?>
+                                            <?php }?> 
+
                                         </table>
                                     </div>
                                 </div>
@@ -223,6 +230,8 @@
 
 
     <!-- modal large inicio-->
+
+    <?php  if (!is_null($ListaPedidos)){    ?>
     <?php foreach ($ListaPedidos as $listaPedidos) { ?>
  <form>
     <div class="modal fade" id="largeModal<?php echo $listaPedidos->getidPedido(); ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
@@ -235,6 +244,7 @@
                     </button>
                     
                 </div>
+                <?php }?>
                 <div class="modal-body">
                 <div class="main-content">
                     <div class="section__content section__content--p30">
@@ -264,6 +274,7 @@
 
                                             </tbody>
                                             <?php } ?>
+                                            <?php }?>    
                                         </table>
                                     </div>
                                 </div>
@@ -288,7 +299,7 @@
         </div>
     </div>
    </form> 
-    <?php }?>
+    <?php //}?>
     <!-- end modal large fiim-->
 
     <!-- Jquery JS-->

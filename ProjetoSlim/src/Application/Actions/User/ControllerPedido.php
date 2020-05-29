@@ -108,7 +108,16 @@ class ControllerPedido{
         $PedidoDAO = new PedidoDAO($conn);
         $listaPedidos = $PedidoDAO->BuscarPedidos_Locatario($Pedido);
 
-        $args = ['ListaPedidos' => $listaPedidos];
+        //$args = ['ListaPedidos' => $listaPedidos];
+
+        if (is_null($listaPedidos)){
+
+            $args = ['ListaPedidos' => $listaPedidos, 'msg' => "Você ainda não realizou nenhum Pedido"];
+
+            
+        }else {
+            $args = ['ListaPedidos' => $listaPedidos];
+        }
 
         $renderer = new PhpRenderer(__DIR__.'/../../Views/locatarioDashboard/');
         
