@@ -117,6 +117,8 @@
                     <h3><a href="<?php if(isset($_SESSION['idLocatario'])){ echo "/AdicionarCarrinho?Produto_id=".$ListaProduto->getId()."&Quantidade=".$ListaProduto->getQuantidade();}else{ echo "/Entrar";}?>"><?php echo $ListaProduto->getNome();?></a></h3>
                     <p class="mb-0"><?php echo $ListaProduto->getModelo();?></p>
                     <p class="text-primary font-weight-bold">R$<?php echo $ListaProduto->getValDiaria();?></p>
+
+                    <a class="btn btn-sm btn-primary" href="<?php if(isset($_SESSION['idLocatario'])){ echo "/AdicionarCarrinho?Produto_id=".$ListaProduto->getId()."&Quantidade=".$ListaProduto->getQuantidade();}else{ echo "/Entrar";}?>">Adicionar</a>
                   </div>
                 </div>
               </div>

@@ -176,7 +176,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
 
 
                 <div class="form-group">
-                  <label for="c_ship_different_address" class="text-black"><input aria-controls="ship_different_address" data-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" onclick="checkOutroEndereco()" type="checkbox" value="1" id="c_ship_different_address"> Deseja mandar para um Endreço Diferente?</label>
+                  <!-- <label for="c_ship_different_address" class="text-black"><input aria-controls="ship_different_address" data-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" onclick="checkOutroEndereco()" type="checkbox" value="1" id="c_ship_different_address"> Deseja mandar para um Endreço Diferente?</label> -->
                   <div class="collapse" id="ship_different_address">
                     <div class="py-2">
 
@@ -266,7 +266,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                       <?php
                       $data = getdate();
 
-                      $hoje = $data['year'] . '-' . '0' . $data['mon'] . '-' . $data['mday'];
+                      $hoje = $data['year'] . '-' . '0' . $data['mon'] . '-' . '0'.$data['mday'];
                       ?>
                       <div class="col-10">
                         <input class="form-control" type="date" id="example-date-input" name="dataInicial" value="<?php echo $hoje ?>" min="<?php echo $hoje ?>" max="2020-12-31">

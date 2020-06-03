@@ -167,10 +167,9 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="/Inicio">
-                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
-                    <h2>Loca Articles</h2>
-                </a>
+            <div class="site-logo">
+                <a href="/Inicio" class="js-logo-clone"><img src="/images/loja_img/MENOR.jpg" ></a>
+                </div>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
