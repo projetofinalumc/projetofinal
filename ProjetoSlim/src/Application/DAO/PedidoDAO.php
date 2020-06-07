@@ -27,7 +27,7 @@ class PedidoDAO{
         $LocatarioPedido = $pedido->getLocatarioPedido();
         $idLocatarioPedido = (int)$LocatarioPedido->getId();
 
-        $listaProdutos = $pedido->getlistaProduto();
+        $listaItemPedido= $pedido->getlistaItemPedido();
         $sql = "INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values ('$dataPedido','$dataRetirada','$dataDevolucao',$valorTotal,$idEndereco,$idLocatarioPedido);";
         #$sql = 'INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?);';
         $stmt = $this->conn->prepare($sql);
@@ -47,11 +47,11 @@ class PedidoDAO{
               }
             } */
 
-       foreach($listaProdutos as $produtos ){
+       foreach($listaItemPedido as $itemPedido ){
         
-        $quantidade = $produtos->getQuantidade();
-        $valorUnitario = $produtos->getValDiaria();
-        $produtoID = $produtos->getId();
+        $quantidade = $itemPedido->getQuantidade();
+        $valorUnitario = $itemPedido->getValorUnitario();
+        $produtoID = $itemPedido->getIdProduto();
 
         $sql = "INSERT INTO itemPedido (valorUnitario,quantidade,fk_Produto,fk_Pedido) values ($valorUnitario,$quantidade,$produtoID,$PedidoId);"; 
         

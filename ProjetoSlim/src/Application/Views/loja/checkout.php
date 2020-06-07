@@ -288,11 +288,11 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                       </thead>
                       <tbody>
 
-                        <?php $listaDeProdutos = $PedidoLocatario->getlistaProduto(); ?>
+                        <?php $listaDeProdutos = $PedidoLocatario->getlistaItemPedido(); ?>
                         <?php foreach ($listaDeProdutos as $Produto) { ?>
                           <tr>
-                            <td> <?php echo $Produto->getNome(); ?> <strong class="mx-2">x</strong> <?php echo $Produto->getQuantidade(); ?> </td>
-                            <td>R$ <?php echo $Produto->getValDiaria() * $Produto->getQuantidade() ?></td>
+                            <td> <?php echo $Produto->getNomeProduto(); ?> <strong class="mx-2">x</strong> <?php echo $Produto->getQuantidade(); ?> </td>
+                            <td>R$ <?php echo $Produto->getValorUnitario() * $Produto->getQuantidade() ?></td>
                           </tr>
                         <?php } ?>
                         <tr>

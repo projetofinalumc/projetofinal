@@ -13,7 +13,7 @@ class Pedido{
     private $dataPedido;
     private $status;
     private Endereco $enderecoPedido;
-    private array $listaProduto;
+    private array $listaItemPedido;
     private $locatarioPedido;
     
     public function setidPedido($idPedido){
@@ -68,11 +68,11 @@ class Pedido{
     public function getEnderecoPedido(){
         return $this->EnderecoPedido;
     }
-    public function setlistaProduto($listaProduto){
-        $this->listaProduto = $listaProduto;
+    public function setlistaItemPedido($listaItemPedido){
+        $this->listaItemPedido = $listaItemPedido;
     }
-    public function getlistaProduto(){
-        return $this->listaProduto;
+    public function getlistaItemPedido(){
+        return $this->listaItemPedido;
     }
     public function setLocatarioPedido($locatarioPedido){
         $this->locatarioPedido = $locatarioPedido;

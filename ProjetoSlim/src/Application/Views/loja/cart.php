@@ -159,13 +159,12 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" onclick="subtrairBtnOnclick(<?php echo $produto->getId();?>)" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" name="Produto<?php echo $produto->getId();?>" id="<?php echo $produto->getId();?>" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" disabled="disabled">
+                        <input type="text" class="form-control text-center" name="Produto<?php echo $produto->getId();?>" id="<?php echo $produto->getId();?>" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" onclick="somaBtnOnclick(<?php echo $produto->getId();?>,<?php echo $produto->getQuantidade();?>)" type="button">&plus;</button>
                         </div>
                       </div>
                     </td>
-                   <!-- <td><?php //echo $produto->getValDiaria()?></td>-->
                     <td><a href="retirarCarrinho?Produto_id=<?php echo $produto->getId();?>" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
                  <?php }?>

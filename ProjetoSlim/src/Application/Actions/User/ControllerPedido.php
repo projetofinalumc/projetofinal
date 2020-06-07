@@ -13,6 +13,7 @@ use App\Application\Models\LocatarioDAO;
 use App\Application\Models\Pedido;
 use App\Application\Models\Produto;
 use App\Application\Models\Locatario;
+use App\Application\Models\ItemPedido;
 use App\Application\Models\ConnectionFactory;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -20,6 +21,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 require_once(__DIR__ . "/../../DAO/LocatarioDAO.php");
 require_once (__DIR__."/../../Models/Locatario.classe.php");
 require_once (__DIR__."/../../Models/Email.classe.php");
+require_once (__DIR__."/../../Models/ItemPedido.classe.php");
 require_once(__DIR__ . "/../../DAO/EnderecoDAO.php");
 require_once(__DIR__ . "/../../DAO/ProdutoDAO.php");
 require_once(__DIR__ . "/../../DAO/PedidoDAO.php");
@@ -54,10 +56,22 @@ class ControllerPedido{
         $valorTotal = 0;
         
         foreach($listProdutoPedido as $Produto){
-             $id = $Produto->getId();
+
+             
+
+            $id = $Produto->getId();
             $QuantidadePedido = $_POST["Produto$id"];
-            $Produto->setQuantidade($QuantidadePedido);
-            $valor = $Produto->getQuantidade() * $Produto->getValDiaria();
+            $valorDiaria = $Produto->getValDiaria();
+            $nomeProduto = $Produto->getNome();
+
+            $itemPedido = new ItemPedido();
+            $itemPedido->setNomeProduto($nomeProduto);
+            $itemPedido->setIdProduto($id);
+            $itemPedido->setQuantidade($QuantidadePedido);
+            $itemPedido->setValorUnitario($valorDiaria);
+            $valor =  $itemPedido->getQuantidade() * $itemPedido->getValorUnitario();
+
+            $listaItemPedido[] = $itemPedido;
             $valorTotal += $valor;
            
         }
@@ -81,12 +95,13 @@ class ControllerPedido{
         //$pedido->setvalortotal($_POST['valortotal']);
         //$pedido->setdataPedido(date('d/m/y'));
         $pedido->setLocatarioPedido($locatarioPedido);
-        $pedido->setlistaProduto($listProdutoPedido);
+        $pedido->setlistaItemPedido($listaItemPedido);
         $pedido->setvalorTotal((float)$valorTotal);
        
 
         //$args = ['PedidoLocatario' => $pedido];
          $_SESSION['PedidoLocatario'] = serialize($pedido); 
+
         $renderer = new PhpRenderer(__DIR__.'/../../Views/loja/');
 
         return $renderer->render($response,"checkout.php",$args);       
