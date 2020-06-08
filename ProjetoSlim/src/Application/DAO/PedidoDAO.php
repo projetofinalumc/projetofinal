@@ -3,9 +3,11 @@ namespace App\Application\Models;
 
 use App\Application\Models\Produto;
 use App\Application\Models\Pedido;
+use App\Application\Models\ItemPedido;
 use App\Application\Models\Locatario;
 use App\Application\Models\Endereco;
 use App\Application\Models\ConnectionFactory;
+
 
 class PedidoDAO{
     private $conn;
@@ -27,7 +29,7 @@ class PedidoDAO{
         $LocatarioPedido = $pedido->getLocatarioPedido();
         $idLocatarioPedido = (int)$LocatarioPedido->getId();
 
-        $listaItemPedido= $pedido->getlistaItemPedido();
+        $listaItemPedido = $pedido->getlistaItemPedido();
         $sql = "INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values ('$dataPedido','$dataRetirada','$dataDevolucao',$valorTotal,$idEndereco,$idLocatarioPedido);";
         #$sql = 'INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?);';
         $stmt = $this->conn->prepare($sql);
@@ -47,7 +49,7 @@ class PedidoDAO{
               }
             } */
 
-       foreach($listaItemPedido as $itemPedido ){
+       foreach($listaItemPedido as $itemPedido){
         
         $quantidade = $itemPedido->getQuantidade();
         $valorUnitario = $itemPedido->getValorUnitario();
@@ -102,14 +104,14 @@ class PedidoDAO{
 
                     if($stmt->num_rows > 0){
                             while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
-                                $prodt = new Produto();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
-                                $prodt->setId($rows["fk_Produto"]);
-                                $prodt->setValDiaria($rows["valorUnitario"]);
-                                $prodt->setQuantidade($rows["quantidade"]);
-                                $listProd[] = $prodt;
+                                $itemPedido = new ItemPedido();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                                $itemPedido->setIdProduto($rows["fk_Produto"]);
+                                $itemPedido->setValorUnitario($rows["valorUnitario"]);
+                                $itemPedido->setQuantidade($rows["quantidade"]);
+                                $listItemPedido[] = $itemPedido;
                             }
 
-                            $Pedido->setlistaProduto($listProd);
+                            $Pedido->setlistaItemPedido($listItemPedido);
                             $listPedidoNovo[] = $Pedido;
                         }
                 }

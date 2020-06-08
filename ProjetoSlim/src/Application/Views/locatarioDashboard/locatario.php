@@ -261,14 +261,14 @@
                                                     <td><p class="text-right">Valor Total</p></td>
                                                 </tr>
                                             </thead>
-                                            <?php $listProduto = $listaPedidos->getlistaProduto();?>
-                                            <?php foreach ($listProduto  as $Produto) { ?>
+                                            <?php $listItemPedido = $listaPedidos->getlistaItemPedido();?>
+                                            <?php foreach ($listItemPedido  as $itemPedido) { ?>
                                             <tbody>
                                                 <tr>
-                                                    <td><p><?php echo $Produto->getId(); ?></p></td>
-                                                    <td><p><?php echo $Produto->getQuantidade(); ?></p></td>
-                                                    <td><p><?php echo $Produto->getValDiaria(); ?></p></td>
-                                                    <td><p><?php echo $Produto->getValDiaria(); ?></p></td>
+                                                    <td><p><?php echo $itemPedido->getIdProduto(); ?></p></td>
+                                                    <td><p><?php echo $itemPedido->getQuantidade(); ?></p></td>
+                                                    <td><p><?php echo $itemPedido->getValorUnitario(); ?></p></td>
+                                                    <td><p><?php echo $itemPedido->getValorUnitario(); ?></p></td>
 
                                                 </tr>
 
