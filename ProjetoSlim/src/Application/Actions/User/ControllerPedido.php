@@ -331,7 +331,7 @@ class ControllerPedido{
 
 
         
-        
+
         $pedido->setdataPedido($dataPedido);
         $pedido->setdataRetirada($dataInicial);
         $pedido->setdataDevolucao($dataDevolucao);
@@ -339,7 +339,11 @@ class ControllerPedido{
         $PedidoDAO = new PedidoDAO($conn);
 
         $pedidoEmail =  $PedidoDAO->gerarPedido($pedido);
+
+        $listaItemPedido = $pedido->getlistaItemPedido();
         
+        $ProdutoDAO = new ProdutoDAO($conn);
+        $ProdutoDAO->atualizarEstoqueProduto($listaItemPedido);
         $email = new Email();
 
         $email->mensagem_Pedido_Realizado($pedidoEmail);
