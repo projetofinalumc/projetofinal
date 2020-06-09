@@ -108,20 +108,33 @@
             
             <div class="row mb-5">
             <?php foreach ($ListaProduto as $ListaProduto){?>
+            
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+              <form action="/AdicionarCarrinho" method="POST">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
                     <a href="shop-single.html"><img src="images/produtos_cad/<?php echo $ListaProduto->getImgNome();?>" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="<?php if(isset($_SESSION['idLocatario'])){ echo "/AdicionarCarrinho?Produto_id=".$ListaProduto->getId()."&Quantidade=".$ListaProduto->getQuantidade();}else{ echo "/Entrar";}?>"><?php echo $ListaProduto->getNome();?></a></h3>
+                  
+                    <h3><?php echo $ListaProduto->getNome();?></h3>
+                    <input type="text" name="Produto_id" value="<?php echo $ListaProduto->getId()?>" hidden></input>
+                    <input type="text" name="Quantidade" value="<?php echo $ListaProduto->getQuantidade()?>" hidden></input>
                     <p class="mb-0"><?php echo $ListaProduto->getModelo();?></p>
                     <p class="text-primary font-weight-bold">R$<?php echo $ListaProduto->getValDiaria();?></p>
-
-                    <a class="btn btn-sm btn-primary" href="<?php if(isset($_SESSION['idLocatario'])){ echo "/AdicionarCarrinho?Produto_id=".$ListaProduto->getId()."&Quantidade=".$ListaProduto->getQuantidade();}else{ echo "/Entrar";}?>">Adicionar</a>
+                <?php if($ListaProduto->getQuantidade() > 0){?>
+                    <?php if(isset($_SESSION['idLocatario'])){ ?>
+                    <button class="btn btn-sm btn-primary" type="submit">Adicionar</button>
+                    <?php }else{?>
+                      <a class="btn btn-sm btn-primary" href="/Entrar" >Adicionar</a>
+                    <?php }?>
+                    <?php }else{?>
+                    <h3>ESGOTADO</h3>
+                    <?php }?>
                   </div>
                 </div>
               </div>
+            </form>
             <?php } ?>
             </div>
             <div class="row" data-aos="fade-up">

@@ -31,21 +31,21 @@ class ControllerCarrinho{
         $renderer = new PhpRenderer(__DIR__."/../../Views/locatarioDashboard/"); 
 
        if(!isset($_SESSION['Carrinho'])){
-           $_SESSION['Carrinho'][] = '{"Produtoid":'.$_GET['Produto_id'].', "Quantidade":'.$_GET['Quantidade'].'}';
+           $_SESSION['Carrinho'][] = '{"Produtoid":'.$_POST['Produto_id'].', "Quantidade":'.$_POST['Quantidade'].'}';
        }else{
 
         foreach($_SESSION['Carrinho'] as $key=>$produto){
 
           $obj  = json_decode($produto,false);
 
-            if($obj->Produtoid == $_GET['Produto_id']){
-                $obj->Quantidade = $_GET['Quantidade'];
+            if($obj->Produtoid == $_POST['Produto_id']){
+                $obj->Quantidade = $_POST['Quantidade'];
                 
                 $_SESSION['Carrinho'][$key] = json_encode($obj);
                // return $renderer->render($response, "teste2.php", $args); 
             }
         }
-       array_push($_SESSION['Carrinho'],'{"Produtoid":'.$_GET['Produto_id'].', "Quantidade":'.$_GET['Quantidade'].' }');
+       array_push($_SESSION['Carrinho'],'{"Produtoid":'.$_POST['Produto_id'].', "Quantidade":'.$_POST['Quantidade'].' }');
         
        }
    

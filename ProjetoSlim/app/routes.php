@@ -21,7 +21,7 @@ return function (App $app) {
     //Carrinho
     $app->group('', function (Group $group) {
 
-        $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
+       # $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
         //$group->get('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
         $group->get('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
         $group->get('/finalizar', ControllerCarrinho::class .':finalizarCarrinho');
@@ -113,7 +113,7 @@ return function (App $app) {
             
 
         });
-        $group->get('/AdicionarCarrinho', function($request, $response, $args){
+        $group->post('/AdicionarCarrinho', function($request, $response, $args){
             ControllerCarrinho::adicionarProduto($request, $response,$args);
            return ControllerProduto::listar($request, $response,$args);
         });
