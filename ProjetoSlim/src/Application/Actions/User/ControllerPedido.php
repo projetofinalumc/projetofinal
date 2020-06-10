@@ -152,10 +152,19 @@ class ControllerPedido{
         $PedidoDAO = new PedidoDAO($conn);
 
         $Pedido->setidPedido((int)$_POST['idPedido']);
-        $Pedido->setStatus("CANCELADO");
+
+        $PedidoCancelado = $PedidoDAO->BuscarItemPedido($Pedido);
+        $PedidoCancelado->setStatus("CANCELADO");
+
+        
+        
 
 
-        $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);
+        $listaItemPedido = $PedidoCancelado->getlistaItemPedido();
+        $ProdutoDAO = new ProdutoDAO($conn);
+        $ProdutoDAO->adicionarProdutoEstoque($listaItemPedido);
+
+        $listaPedidos = $PedidoDAO->trocarStatusPedido($PedidoCancelado);
 
         
         return $this->Ver_Pedido_Locatario($request, $response, $args);

@@ -185,6 +185,7 @@
                                                     <td class="text-right"><?php echo $listaPedidos->getdataDevolucao(); ?></td>
                                                     <td class="text-right"><?php echo "R$" .$listaPedidos->getValorTotal(); ?></td>
                                                     <td><?php echo $listaPedidos->getStatus(); ?><input type="text" name="idPedido" value="<?php echo $listaPedidos->getidPedido(); ?>" hidden></td>
+                                                    <input type="text" name="dataDevolucao" value="<?php echo $listaPedidos->getdataDevolucao(); ?>" hidden>
                                                     <td>
                                                     <?php if($listaPedidos->getStatus() == 'ESPERA'){?>
                                                     <div class="table-data-feature">

@@ -158,7 +158,7 @@ class ProdutoDAO {
     }
 
 
-    public function atualizarEstoqueProduto($listItemPedido) {
+    public function retirarProdutoEstoque($listItemPedido) {
         
         $sql = "select idProduto,quantidade from Produto WHERE ";
 
@@ -204,6 +204,54 @@ class ProdutoDAO {
         $this->conn->query($sql);
       }
        
+}
+
+public function adicionarProdutoEstoque($listItemPedido) {
+        
+    $sql = "select idProduto,quantidade from Produto WHERE ";
+
+    foreach($listItemPedido as $item){
+
+        $sql = $sql."idProduto = ".$item->getIdProduto()." OR "; 
+    }
+
+    $sql = substr($sql,0,-3);
+
+    $sql = $sql.";";
+    
+
+
+     $resultado = $this->conn->query($sql);
+
+     $index = 0;
+  if ($resultado->num_rows > 0) {
+   
+    
+      
+    while ($row = $resultado->fetch_assoc()) {
+            $item = $listItemPedido[$index];
+            $prodt = new Produto();
+            $quantidadePedido = $item->getQuantidade();
+            $quantidadeEstoque = $row["quantidade"];
+            $estoqueAtualizado = $quantidadeEstoque  + $quantidadePedido;
+            $prodt->setId($row["idProduto"]);
+            $prodt->setQuantidade($estoqueAtualizado);
+            $listProd[] = $prodt;
+            $index = $index + 1;
+        
+    }
+
+}else{
+    return false;
+}
+
+  foreach($listProd as $prodt){
+    $quantidadeNova = $prodt->getQuantidade();
+    $idProduto= $prodt->getId();
+    $sql = "UPDATE Produto SET quantidade = $quantidadeNova WHERE idProduto = $idProduto";
+    $this->conn->query($sql);
+  }
+   
 }
 
 

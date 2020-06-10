@@ -247,7 +247,8 @@ class PedidoDAO{
             $sql = $sql." AND dataRetirada = '$dataRetirada'"; 
         }
         if($Pedido->getidPedido() !== 0){
-            $sql = $sql." AND idPedido = ".$Pedido->getidPedido(); 
+            $id = $Pedido->getidPedido(); 
+            $sql = $sql." AND idPedido = $id";
         }
          
           $partefinalSQL = substr($sql, 32);
@@ -283,24 +284,49 @@ class PedidoDAO{
         
         }
 
-        foreach($listaPedidos as $Pedido){
+        foreach( $listaPedidos as $Pedido ){
             $PedidoId = $Pedido->getidPedido();
             $sql = "SELECT * FROM itemPedido WHERE fk_Pedido = $PedidoId;";
             $stmt = $this->conn->query($sql);
+
             if($stmt->num_rows > 0){
                     while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
-                        $prodt = new Produto();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
-                        $prodt->setId($rows["fk_Produto"]);
-                        $prodt->setValDiaria($rows["valorUnitario"]);
-                        $prodt->setQuantidade($rows["quantidade"]);
-                        $listProd[] = $prodt;
+                        $itemPedido = new ItemPedido();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                        $itemPedido->setIdProduto($rows["fk_Produto"]);
+                        $itemPedido->setValorUnitario($rows["valorUnitario"]);
+                        $itemPedido->setQuantidade($rows["quantidade"]);
+                        $listItemPedido[] = $itemPedido;
                     }
 
-                    $Pedido->setlistaProduto($listProd);
+                    $Pedido->setlistaItemPedido($listItemPedido);
                     $listPedidoNovo[] = $Pedido;
                 }
-         }
+        }
          return $listPedidoNovo;
     }
+
+    public function BuscarItemPedido($Pedido){
+
+            $PedidoId = $Pedido->getidPedido();
+            $sql = "SELECT * FROM itemPedido WHERE fk_Pedido = $PedidoId;";
+            $stmt = $this->conn->query($sql);
+
+            if($stmt->num_rows > 0){
+                    while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
+                        $itemPedido = new ItemPedido();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                        $itemPedido->setIdProduto($rows["fk_Produto"]);
+                        $itemPedido->setValorUnitario($rows["valorUnitario"]);
+                        $itemPedido->setQuantidade($rows["quantidade"]);
+                        $listItemPedido[] = $itemPedido;
+                    }
+
+                    $Pedido->setlistaItemPedido($listItemPedido);
+    
+                }
+    
+                return $Pedido;
+    }
+
+
 }   
 ?>
