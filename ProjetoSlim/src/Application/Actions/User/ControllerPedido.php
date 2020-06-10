@@ -352,7 +352,7 @@ class ControllerPedido{
         $listaItemPedido = $pedido->getlistaItemPedido();
         
         $ProdutoDAO = new ProdutoDAO($conn);
-        $ProdutoDAO->atualizarEstoqueProduto($listaItemPedido);
+        $ProdutoDAO->retirarProdutoEstoque($listaItemPedido);
         $email = new Email();
 
         $email->mensagem_Pedido_Realizado($pedidoEmail);
