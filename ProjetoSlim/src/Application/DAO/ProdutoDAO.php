@@ -301,6 +301,54 @@ public function adicionarProdutoEstoque($listItemPedido) {
      
   }
 
+  public function buscarProdutosDefeituosos($listaProdutosDefeituosos) {
+      
+    $sql = "";
+
+    
+      
+    foreach($listaProdutosDefeituosos as $ProdutosDefeituoso){
+      
+       
+      $sql = $sql."OR idProduto = ".$ProdutosDefeituoso->getIdProduto." ";
+    
+    
+    }
+
+
+    $sqlInicial = "SELECT * FROM Produto WHERE";
+    $sqlFinal = substr($sql,2);
+    $sql = $sqlInicial.$sqlFinal.";";
+  
+
+    $resultado = $this->conn->query($sql);
+
+
+    if ($resultado->num_rows > 0) {
+
+
+      while ($row = $resultado->fetch_assoc()) {
+              $prodt = new Produto();
+              $prodt->setId($row["idProduto"]);
+              $prodt->setNome($row["nome"]);
+              $prodt->setModelo($row["modelo"]);
+              $prodt->setValDiaria($row["valdiaria"]);
+              $prodt->setDimensao($row["dimensao"]);
+              $prodt->setQuantidade($row["quantidade"]);
+              $prodt->setPrecoPerda($row["precoPerda"]);
+              $prodt->setImgNome($row["imgNome"]);
+              $listProd[] = $prodt;
+          
+      }
+
+      return $listProd;
+  }else{
+      return false;
+  }
+
+   
+}
+
     public function buscarProdutoPorId(\Produto $prodtEdit) {
 
 

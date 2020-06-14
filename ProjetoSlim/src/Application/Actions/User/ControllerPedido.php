@@ -76,6 +76,7 @@ class ControllerPedido{
            
         }
         
+        $multaPedido = $valorTotal * 0.1;
         
         $locatario = new Locatario();
         $locatario->setId((int)$_SESSION['idLocatario']);
@@ -97,6 +98,7 @@ class ControllerPedido{
         $pedido->setLocatarioPedido($locatarioPedido);
         $pedido->setlistaItemPedido($listaItemPedido);
         $pedido->setvalorTotal((float)$valorTotal);
+        $pedido->setMultaPedido($multaPedido);
        
 
         //$args = ['PedidoLocatario' => $pedido];
@@ -156,9 +158,61 @@ class ControllerPedido{
         $PedidoCancelado = $PedidoDAO->BuscarItemPedido($Pedido);
         $PedidoCancelado->setStatus("CANCELADO");
 
+        $listaItemPedido = $PedidoCancelado->getlistaItemPedido();
+        $ProdutoDAO = new ProdutoDAO($conn);
+        $ProdutoDAO->adicionarProdutoEstoque($listaItemPedido);
+
+        $listaPedidos = $PedidoDAO->trocarStatusPedido($PedidoCancelado);
+
         
+        return $this->Ver_Pedido_Locatario($request, $response, $args);
+
+    }
+
+    public function devolucaoPedidoLocatario(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+        
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
+         
+        $Pedido = new Pedido();
+        $Pedido->setId($_POST['idPedido']);
+       
+        
+        $PedidoDAO = new PedidoDAO($conn);
+        $PedidoDevolucao = $PedidoDAO->BPA_filtro($Pedido);
+        
+         
+        $produtoDefeituoso = $_POST['inputDefeituoso'];
         
 
+        $N = count($produtoDefeituoso);
+        $produtoDefeituosoSelecionado = [];
+        for($i=0; $i < $N; $i++)
+        {
+            $produtoDefeituosoSelecionado[] = $produtoDefeituoso[$i];
+        }
+        $ProdutoDAO = new ProdutoDAO($conn);
+
+        $listaProdutoDefeituso = $ProdutoDAO->buscarProdutosDefeituosos($produtoDefeituosoSelecionado);
+
+        $valorPercaTotal = 0;
+        foreach($listaProdutoDefeituso as $ProdutoDefeituoso){
+              $valorPerca = $ProdutoDefeituoso->getPrecoPerda();
+              $valorPercaTotal = $valorPercaTotal + $valorPerca;
+        }
+        
+        if($valorPercaTotal != 0){
+            $multa = $PedidoDevolucao->getPedidoMulta();
+            $multa = $multa + $valorPercaTotal;
+            $PedidoDevolucao->getPedidoMulta();
+        }
+        $Pedido->setidPedido((int)$_POST['idPedido']);
+
+        $PedidoCancelado = $PedidoDAO->BuscarItemPedido($Pedido);
+        $PedidoCancelado->setStatus("CANCELADO");
 
         $listaItemPedido = $PedidoCancelado->getlistaItemPedido();
         $ProdutoDAO = new ProdutoDAO($conn);

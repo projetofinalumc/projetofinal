@@ -15,6 +15,7 @@ class Pedido{
     private Endereco $enderecoPedido;
     private array $listaItemPedido;
     private $locatarioPedido;
+    private $multaPedido;
     
     public function setidPedido($idPedido){
         $this->idPedido = $idPedido;
@@ -54,6 +55,13 @@ class Pedido{
     }
     public function getdataPedido(){
         return $this->dataPedido;
+    }
+
+    public function setMultaPedido($multaPedido){
+        $this->multaPedido = $multaPedido;
+    }
+    public function getMultaPedido(){
+        return $this->multaPedido;
     }
 
     public function setfuncEntrega(date $funcEntrega){

@@ -19,6 +19,7 @@ class PedidoDAO{
 
      
         $valorTotal = (float)$pedido->getvalorTotal();
+        $multaPedido = (float)$pedido->getMultaPedido();
         $dataPedido = (string)$pedido->getdataPedido();
         $dataDevolucao = (string)$pedido->getdataDevolucao();
         $dataRetirada =  (string)$pedido->getdataRetirada();
@@ -30,7 +31,7 @@ class PedidoDAO{
         $idLocatarioPedido = (int)$LocatarioPedido->getId();
 
         $listaItemPedido = $pedido->getlistaItemPedido();
-        $sql = "INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values ('$dataPedido','$dataRetirada','$dataDevolucao',$valorTotal,$idEndereco,$idLocatarioPedido);";
+        $sql = "INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario, Multa) values ('$dataPedido','$dataRetirada','$dataDevolucao',$valorTotal,$idEndereco,$idLocatarioPedido,$multaPedido);";
         #$sql = 'INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?);';
         $stmt = $this->conn->prepare($sql);
         #$stmt->bindParam(1, $dataPedido);
@@ -86,6 +87,7 @@ class PedidoDAO{
                 $Pedido_cliente->setdataDevolucao($rows['dataDevolucao']);//Atribuindo os dados no objeto
                 $Pedido_cliente->setdataPedido($rows['dataPedido']);//Atribuindo os dados no objeto
                 $Pedido_cliente->setStatus($rows['Status']);
+                $Pedido_cliente->getMultaPedido($rows['Multa']);
 
                 $Endereco = new Endereco();
                 $Endereco->setId($rows['id_endereco']);
@@ -135,6 +137,7 @@ class PedidoDAO{
                 $Pedido_adm->setdataDevolucao($rows['dataDevolucao']);//Atribuindo os dados no objeto
                 $Pedido_adm->setdataPedido($rows['dataPedido']);//Atribuindo os dados no objeto
                 $Pedido_adm->setStatus($rows['Status']);
+                $Pedido_adm->setMultaPedido($rows['Multa']);
                 $Endereco = new Endereco();
                 $Endereco->setId($rows['id_endereco']);
                 $Pedido_adm->setLocatarioPedido($LocatarioPedido);
@@ -193,7 +196,7 @@ class PedidoDAO{
                 $Pedido_adm->setdataDevolucao($rows['dataDevolucao']);//Atribuindo os dados no objeto
                 $Pedido_adm->setdataPedido($rows['dataPedido']);
                 $Pedido_adm->setStatus($rows['Status']);//Atribuindo os dados no objeto
-
+                $Pedido_adm->setMultaPedido($rows['Multa']);
                 $Endereco = new Endereco();
                 $Endereco->setId($rows['id_endereco']);
                 $Pedido_adm->setLocatarioPedido($LocatarioPedido);
@@ -271,6 +274,7 @@ class PedidoDAO{
                 $Pedido_adm->setdataDevolucao($rows['dataDevolucao']);//Atribuindo os dados no objeto
                 $Pedido_adm->setdataPedido($rows['dataPedido']);//Atribuindo os dados no objeto
                 $Pedido_adm->setStatus($rows['Status']);
+                $Pedido_adm->setMultaPedido($rows['Multa']);
                 $Endereco = new Endereco();
                 $Endereco->setId($rows['id_endereco']);
                 $Pedido_adm->setLocatarioPedido($LocatarioPedido);

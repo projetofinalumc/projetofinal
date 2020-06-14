@@ -296,6 +296,10 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                           </tr>
                         <?php } ?>
                         <tr>
+                          <td class="text-black font-weight-bold"><strong>Multa de Atraso</strong></td>
+                          <td class="text-black font-weight-bold"><strong>R$<?php echo $PedidoLocatario->getMultaPedido(); ?>/por dia</strong></td>
+                        </tr>
+                        <tr>
                           <td class="text-black font-weight-bold"><strong>Valor Total</strong></td>
                           <td class="text-black font-weight-bold"><strong>R$<?php echo $PedidoLocatario->getValorTotal(); ?></strong></td>
                         </tr>
