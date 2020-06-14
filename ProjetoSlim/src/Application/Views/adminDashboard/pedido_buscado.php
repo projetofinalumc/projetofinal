@@ -36,7 +36,17 @@
     <link href="/css/admin_css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
+<script>
+  function checkDefeito(idProduto) {
+      if(document.getElementById("cb" + idProduto).checked == true){
+      document.getElementById(idProduto).style.visibility = "visible";
+      document.getElementById(idProduto).disabled = false;
+      }else{
+        document.getElementById(idProduto).style.visibility = "hidden";
+        document.getElementById(idProduto).disabled = true;
+      }
+    }
+</script>
 <body class="animsition">
     <div class="page-wrapper">
         <!-- MENU SIDEBAR-->
@@ -251,13 +261,35 @@
                     <div class="position_form">
         <!-- Modal -->
         <?php foreach($ListaPedidos as $Pedido){?>
+<?php 
+$multaPedido = 0;
+           if($Pedido->getStatus() == "ATRASADO"){
+           
+            $dataDevolucao = $Pedido->getDataDevolucao();
+            $dataDevolucao = date_create($dataDevolucao);
+ 
+            $data = getdate();
+            $dataArrumada = $data['year'].'-'.$data['mon'].'-'.$data['mday'];
+            $dataDeHoje = date_create($dataArrumada);
+ 
+            $diff = date_diff($dataDeHoje,$dataDevolucao);
+            $diasAtrasado = $diff->format("%a");
+            
+             $multaPedido = $Pedido->getMultaPedido();
+ 
+             $multaPedido = $multaPedido * (int)$diasAtrasado;
+                 
+         }
+    ?>
          <table class="table table-sm table-dark">
             <thead>
                 <tr>
                     <th scope="col">Cód do Pedido</th>
                     <th scope="col">Data do Pedido</th>
                     <th scope="col">Data para Devolução </th>
+        <?php if($multaPedido != 0){?> <th scope="col">Multa de Atraso(R$)</th><?php }?>
                     <th scope="col">Total do Pedido(R$)</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Lista de Produtos</th>
                 </tr>
             </thead>
@@ -266,33 +298,13 @@
                     <td><?php echo $Pedido->getidPedido();?></td>
                     <td><?php echo $Pedido->getdataPedido();?></td>
                     <td><?php echo $Pedido->getdataDevolucao();?></td>
+    <?php if($multaPedido != 0){?> <td>R$ <?php echo $multaPedido;?></td><?php }?>
                     <td>R$ <?php echo $Pedido->getvalorTotal();?></td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <td><?php echo $Pedido->getStatus();?>
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#largeModalDevolucao">
                      Itens do Pedido
                     </button></td> 
                 </tr>
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-             <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Itens do Pedido</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-      </div>
-            <div class="modal-body">
-            <b><label for="Produto">Pula pula</label></b>
-            <br>
-            Defeito/Não entregue<input type="checkbox">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Executar check-in</button>
-      </div>
-    </div>
-  </div>
-</div>
             </tbody>
         </table>
     <?php }?>
@@ -311,6 +323,66 @@
         </div>
 
     </div>
+
+
+                <!-- modal large FILTRO -->
+        
+<?php foreach($ListaPedidos as $Pedido){?>
+    <?php $ListaItemPedido = $Pedido->getlistaItemPedido();?>
+    <?php $id = $Pedido->getidPedido();?>
+    <?php $Status = $Pedido->getStatus();?>
+    <div class="modal fade" id="largeModalDevolucao" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+        <form action="/Admin/DevolucaoFinal" method="POST">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="largeModalLabel">Checking de Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                
+                    <table class="table table-sm table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Cód do Produto</th>
+                    <th scope="col">Valor Unitario</th>
+                    <th scope="col">Quantidade</th>
+                
+<?php if($Status != "CANCELADO" && $Status != "ESPERA" && $Status != "FINALIZADO"){?>   <th scope="col">Lista de Produtos</th><?php }?>
+                </tr>
+            </thead>
+            
+            <tbody>
+            <input type="text" value="<?php echo $id;?>" name="idPedido" hidden>
+            <?php foreach($ListaItemPedido as $itemPedido){?>
+                <tr>
+                    <td><?php echo $itemPedido->getIdProduto();?></td>
+                   
+                    <td>R$ <?php echo $itemPedido->getValorUnitario();?></td>
+                    <td> <?php echo $itemPedido->getQuantidade();?></td>
+            <?php if($Status != "CANCELADO" && $Status != "ESPERA" && $Status != "FINALIZADO"){?> <td>  <input type="checkbox" id="cb<?php echo $itemPedido->getIdProduto();?>" onclick="checkDefeito(<?php echo $itemPedido->getIdProduto();?>)" name="inputDefeituoso[]" value="<?php echo $itemPedido->getIdProduto();?>"><label> Defeito/Perdido</label><input id="<?php echo $itemPedido->getIdProduto();?>" name="quantidadeDefeito<?php echo $itemPedido->getIdProduto();?>" type="number" max="<?php echo $itemPedido->getQuantidade();?>" min="1" style="visibility: hidden;"></td> <?php }?>
+                </tr>
+                <?php }?>
+            </tbody>
+            
+        </table>
+
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <?php if($Status != "CANCELADO" && $Status != "ESPERA" && $Status != "FINALIZADO" ){?>   <button type="submit" class="btn btn-primary" >Confirmar</button> <?php }?>
+                </div>
+            </div>
+        </div>
+        </form>  
+    </div>
+    <?php }?>
+			<!-- end modal large -->
+
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <!-- Jquery JS-->
     <script src="/vendor/jquery-3.2.1.min.js"></script>

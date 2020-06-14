@@ -377,6 +377,7 @@ class PedidoDAO{
             if($stmt->num_rows > 0){
                     while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
                         $itemPedido = new ItemPedido();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                        $itemPedido->setIdPedido($rows["fk_Pedido"]);
                         $itemPedido->setIdProduto($rows["fk_Produto"]);
                         $itemPedido->setValorUnitario($rows["valorUnitario"]);
                         $itemPedido->setQuantidade($rows["quantidade"]);

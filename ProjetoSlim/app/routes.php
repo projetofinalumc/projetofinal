@@ -190,7 +190,7 @@ return function (App $app) {
         $group->get('/DeletarProduto' , ControllerProduto::class . ':excluir');
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
         $group->post('/BuscarPedido' , ControllerPedido::class . ':buscarPedidoDevolucao');
-        
+        $group->post('/DevolucaoFinal' , ControllerPedido::class . ':devolucaoPedidoLocatario');
         $group->get('/FinalizarPedido' , ControllerPedido::class . ':finalizarPedido');
         $group->get('/Email' , ControllerPedido::class . ':Email');
         $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');

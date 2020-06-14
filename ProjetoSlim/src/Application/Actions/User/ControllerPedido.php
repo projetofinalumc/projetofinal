@@ -178,12 +178,12 @@ class ControllerPedido{
           }
          
         $Pedido = new Pedido();
-        $Pedido->setId((int)$_POST['idPedido']);
+        $Pedido->setidPedido((int)$_POST['idPedido']);
        
         
         $PedidoDAO = new PedidoDAO($conn);
-        $PedidoDevolucao = $PedidoDAO->BPA_filtro($Pedido);
-        
+        $listPedidoDevolucao = $PedidoDAO->buscarPedidoPorId($Pedido);
+        $PedidoDevolucao = $listPedidoDevolucao[0];
         if($PedidoDevolucao->getStatus() == "ATRASADO"){
            
            $dataDevolucao = $PedidoDevolucao->getDataDevolucao();
@@ -196,7 +196,7 @@ class ControllerPedido{
            $diff = date_diff($dataDeHoje,$dataDevolucao);
            $diasAtrasado = $diff->format("%a");
            
-            $multaPedido = $PedidoDevolucao->getMultaPedidos();
+            $multaPedido = $PedidoDevolucao->getMultaPedido();
 
             $multaPedido = $multaPedido * (int)$diasAtrasado;
 
@@ -218,6 +218,7 @@ class ControllerPedido{
             $ProdutoDefeito = new itemPedido();
             $ProdutoDefeito->setIdProduto((int)$produtoDefeituoso[$i]);
             $produtoDefeituosoSelecionado[] = $ProdutoDefeito;
+            $listItemDevolucao = [];
              
             foreach($ItensPedidoDevolucao as $itemDevolucao){
                 $idItemDevolucao = $itemDevolucao->getIdProduto();
@@ -225,10 +226,15 @@ class ControllerPedido{
 
                 if($idItemDevolucao == $idProdutoDefeito){
                     $quantidadeItemPedido = $itemDevolucao->getQuantidade();
-                    $quantidadeItemDefeituoso = (int)$_POST["quantidadeDefeito$id"];
+                    $quantidadeItemDefeituoso = (int)$_POST["quantidadeDefeito$idItemDevolucao"];
                     $quantidadeAtualizada = $quantidadeItemPedido - $quantidadeItemDefeituoso;
                     $itemDevolucao->setQuantidade($quantidadeAtualizada);
+                    $listItemDevolucao[] = $itemDevolucao;
+                }else{
+                    $listItemDevolucao[] = $itemDevolucao;
                 }
+
+               
              }
         }
 
@@ -241,7 +247,7 @@ class ControllerPedido{
         $valorPercaTotal = 0;
         foreach($listaProdutoDefeituso as $ProdutoDefeituoso){
 
-              $id = $Produto->getId();
+              $id = $ProdutoDefeituoso->getId();
               $valorPerca = $ProdutoDefeituoso->getPrecoPerda();
               $quantidadeProdutoDefeito = (int)$_POST["quantidadeDefeito$id"];
               $valorPerca = $valorPerca * $quantidadeProdutoDefeito;
@@ -249,9 +255,9 @@ class ControllerPedido{
         }
         
         if($valorPercaTotal != 0){
-            $multa = $PedidoDevolucao->getPedidoMulta();
+            $multa = $PedidoDevolucao->getMultaPedido();
             $multa = $multa + $valorPercaTotal;
-            $PedidoDevolucao->setPedidoMulta($multa);
+            $PedidoDevolucao->setMultaPedido($multa);
         }
 
        
@@ -259,7 +265,7 @@ class ControllerPedido{
 
 
         $ProdutoDAO = new ProdutoDAO($conn);
-        $ProdutoDAO->adicionarProdutoEstoque($ItensPedidoDevolucao);
+        $ProdutoDAO->adicionarProdutoEstoque($listItemDevolucao);
         $PedidoDevolucao->setStatus("FINALIZADO");
 
         $listaPedidos = $PedidoDAO->trocarStatusPedido($PedidoDevolucao);
@@ -407,7 +413,7 @@ class ControllerPedido{
         $PedidoDAO = new PedidoDAO($conn);
 
         $Pedido->setidPedido((int)$_POST['id_Pedido']);
-        $listaPedidos = $PedidoDAO->BPA_filtro($Pedido);
+        $listaPedidos = $PedidoDAO->buscarPedidoPorId($Pedido);
 
         $args = ['ListaPedidos' => $listaPedidos];
 
