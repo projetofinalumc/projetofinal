@@ -178,47 +178,91 @@ class ControllerPedido{
           }
          
         $Pedido = new Pedido();
-        $Pedido->setId($_POST['idPedido']);
+        $Pedido->setId((int)$_POST['idPedido']);
        
         
         $PedidoDAO = new PedidoDAO($conn);
         $PedidoDevolucao = $PedidoDAO->BPA_filtro($Pedido);
         
+        if($PedidoDevolucao->getStatus() == "ATRASADO"){
+           
+           $dataDevolucao = $PedidoDevolucao->getDataDevolucao();
+           $dataDevolucao = date_create($dataDevolucao);
+
+           $data = getdate();
+           $dataArrumada = $data['year'].'-'.$data['mon'].'-'.$data['mday'];
+           $dataDeHoje = date_create($dataArrumada);
+
+           $diff = date_diff($dataDeHoje,$dataDevolucao);
+           $diasAtrasado = $diff->format("%a");
+           
+            $multaPedido = $PedidoDevolucao->getMultaPedidos();
+
+            $multaPedido = $multaPedido * (int)$diasAtrasado;
+
+            $PedidoDevolucao->setMultaPedido($multaPedido);
+                
+        }else{
+
+            $PedidoDevolucao->setMultaPedido(0);
+        }
          
         $produtoDefeituoso = $_POST['inputDefeituoso'];
         
+        $ItensPedidoDevolucao = $PedidoDevolucao->getlistaItemPedido();
 
         $N = count($produtoDefeituoso);
         $produtoDefeituosoSelecionado = [];
         for($i=0; $i < $N; $i++)
         {
-            $produtoDefeituosoSelecionado[] = $produtoDefeituoso[$i];
+            $ProdutoDefeito = new itemPedido();
+            $ProdutoDefeito->setIdProduto((int)$produtoDefeituoso[$i]);
+            $produtoDefeituosoSelecionado[] = $ProdutoDefeito;
+             
+            foreach($ItensPedidoDevolucao as $itemDevolucao){
+                $idItemDevolucao = $itemDevolucao->getIdProduto();
+                $idProdutoDefeito = $produtoDefeituoso[$i];
+
+                if($idItemDevolucao == $idProdutoDefeito){
+                    $quantidadeItemPedido = $itemDevolucao->getQuantidade();
+                    $quantidadeItemDefeituoso = (int)$_POST["quantidadeDefeito$id"];
+                    $quantidadeAtualizada = $quantidadeItemPedido - $quantidadeItemDefeituoso;
+                    $itemDevolucao->setQuantidade($quantidadeAtualizada);
+                }
+             }
         }
+
+        
         $ProdutoDAO = new ProdutoDAO($conn);
 
         $listaProdutoDefeituso = $ProdutoDAO->buscarProdutosDefeituosos($produtoDefeituosoSelecionado);
 
+         
         $valorPercaTotal = 0;
         foreach($listaProdutoDefeituso as $ProdutoDefeituoso){
+
+              $id = $Produto->getId();
               $valorPerca = $ProdutoDefeituoso->getPrecoPerda();
+              $quantidadeProdutoDefeito = (int)$_POST["quantidadeDefeito$id"];
+              $valorPerca = $valorPerca * $quantidadeProdutoDefeito;
               $valorPercaTotal = $valorPercaTotal + $valorPerca;
         }
         
         if($valorPercaTotal != 0){
             $multa = $PedidoDevolucao->getPedidoMulta();
             $multa = $multa + $valorPercaTotal;
-            $PedidoDevolucao->getPedidoMulta();
+            $PedidoDevolucao->setPedidoMulta($multa);
         }
-        $Pedido->setidPedido((int)$_POST['idPedido']);
 
-        $PedidoCancelado = $PedidoDAO->BuscarItemPedido($Pedido);
-        $PedidoCancelado->setStatus("CANCELADO");
+       
+        
 
-        $listaItemPedido = $PedidoCancelado->getlistaItemPedido();
+
         $ProdutoDAO = new ProdutoDAO($conn);
-        $ProdutoDAO->adicionarProdutoEstoque($listaItemPedido);
+        $ProdutoDAO->adicionarProdutoEstoque($ItensPedidoDevolucao);
+        $PedidoDevolucao->setStatus("FINALIZADO");
 
-        $listaPedidos = $PedidoDAO->trocarStatusPedido($PedidoCancelado);
+        $listaPedidos = $PedidoDAO->trocarStatusPedido($PedidoDevolucao);
 
         
         return $this->Ver_Pedido_Locatario($request, $response, $args);
@@ -349,6 +393,28 @@ class ControllerPedido{
         
         //return $renderer->render($response, "ListaPedidos.php", $args);
         return $renderer->render($response, "ListaPedidos.php", $args);
+    }
+
+
+    public function buscarPedidoDevolucao(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+
+        session_start();
+         
+        $Pedido = new Pedido();
+        // $_SESSION['idLocatario']
+        $PedidoDAO = new PedidoDAO($conn);
+
+        $Pedido->setidPedido((int)$_POST['id_Pedido']);
+        $listaPedidos = $PedidoDAO->BPA_filtro($Pedido);
+
+        $args = ['ListaPedidos' => $listaPedidos];
+
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+        //return $renderer->render($response, "ListaPedidos.php", $args);
+        return $renderer->render($response, "pedido_buscado.php", $args);
     }
 
 

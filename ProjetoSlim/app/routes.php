@@ -167,13 +167,30 @@ return function (App $app) {
             
             return $renderer->render($response, "table2.php", $args);
         });
+
+        $group->get('/DevolucaoPedido' ,function ($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+
+            
+            return $renderer->render($response, "buscar_devolucao_pedido.php", $args);
+        });
+
+        $group->get('/teste' ,function ($request, $response, $args){
+
+            $renderer = new PhpRenderer(__DIR__.'/../src/Application/Views/adminDashboard/');
+
+            
+            return $renderer->render($response, "pedido_buscado.php", $args);
+        });
         $group->get('/NovoProduto' , ControllerProduto::class . ':listarprodutoAdmin');
         $group->post('/NovoProduto' , ControllerProduto::class . ':adicionar');
         $group->post('/FiltroProduto' , ControllerProduto::class . ':listarProdutoAdminFiltrado');
         $group->post('/EditarProduto' , ControllerProduto::class . ':alterar');
         $group->get('/DeletarProduto' , ControllerProduto::class . ':excluir');
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
-        $group->get('/DevolucaoPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_Devolucao');
+        $group->post('/BuscarPedido' , ControllerPedido::class . ':buscarPedidoDevolucao');
+        
         $group->get('/FinalizarPedido' , ControllerPedido::class . ':finalizarPedido');
         $group->get('/Email' , ControllerPedido::class . ':Email');
         $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');

@@ -309,6 +309,65 @@ class PedidoDAO{
          return $listPedidoNovo;
     }
 
+
+    public function buscarPedidoPorId($Pedido){
+
+        $id = $Pedido->getidPedido(); 
+        $sql = "SELECT * FROM Pedido WHERE idPedido = $id;";
+        
+   
+        
+         
+        $stmt = $this->conn->query($sql);
+        //$stmt->execute();
+        if($stmt->num_rows > 0){//SE o select for executado($stmt) e retornar un numero de linhas da base de dados MAIOR que 0 então
+            while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
+                $Pedido_adm = new Pedido();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                
+                $LocatarioPedido = new Locatario();
+                $LocatarioPedido->setId($rows["idLocatario"]);
+                
+                $Pedido_adm->setidPedido($rows["idPedido"]);
+                $Pedido_adm->setdataRetirada($rows['dataRetirada']);//Atribuindo os dados no objeto 
+                $Pedido_adm->setvalorTotal($rows['valorTotal']);//Atribuindo os dados no objeto
+                $Pedido_adm->setdataDevolucao($rows['dataDevolucao']);//Atribuindo os dados no objeto
+                $Pedido_adm->setdataPedido($rows['dataPedido']);//Atribuindo os dados no objeto
+                $Pedido_adm->setStatus($rows['Status']);
+                $Pedido_adm->setMultaPedido($rows['Multa']);
+                $Endereco = new Endereco();
+                $Endereco->setId($rows['id_endereco']);
+                $Pedido_adm->setLocatarioPedido($LocatarioPedido);
+
+                $EnderecoDAO = new EnderecoDAO($this->conn);
+                $listEnderecoLocatario = $EnderecoDAO->buscarPorIdEndereco($Endereco);//retornando a lista de endereço do locatario que vem da EnderecoDAO       
+                $Pedido_adm->setEnderecoPedido($listEnderecoLocatario);
+                $listaPedidos[] = $Pedido_adm;//criei a lista de Pedidos 
+            }
+
+        
+        }
+
+        foreach( $listaPedidos as $Pedido ){
+            $PedidoId = $Pedido->getidPedido();
+            $sql = "SELECT * FROM itemPedido WHERE fk_Pedido = $PedidoId;";
+            $stmt = $this->conn->query($sql);
+
+            if($stmt->num_rows > 0){
+                    while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
+                        $itemPedido = new ItemPedido();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                        $itemPedido->setIdProduto($rows["fk_Produto"]);
+                        $itemPedido->setValorUnitario($rows["valorUnitario"]);
+                        $itemPedido->setQuantidade($rows["quantidade"]);
+                        $listItemPedido[] = $itemPedido;
+                    }
+
+                    $Pedido->setlistaItemPedido($listItemPedido);
+                    $listPedidoNovo[] = $Pedido;
+                }
+        }
+         return $listPedidoNovo;
+    }
+
     public function BuscarItemPedido($Pedido){
 
             $PedidoId = $Pedido->getidPedido();

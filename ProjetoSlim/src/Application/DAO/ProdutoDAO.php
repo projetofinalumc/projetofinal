@@ -310,7 +310,7 @@ public function adicionarProdutoEstoque($listItemPedido) {
     foreach($listaProdutosDefeituosos as $ProdutosDefeituoso){
       
        
-      $sql = $sql."OR idProduto = ".$ProdutosDefeituoso->getIdProduto." ";
+      $sql = $sql."OR idProduto = ".$ProdutosDefeituoso->getIdProduto()." ";
     
     
     }
