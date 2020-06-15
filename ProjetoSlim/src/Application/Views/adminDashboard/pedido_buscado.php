@@ -308,7 +308,54 @@ $multaPedido = 0;
             </tbody>
         </table>
     <?php }?>
+
+    <?php if(isset($msg)){?>
+        <form action="/Admin/Finalizando" method="POST">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Finalizando Pedido</strong> 
+                </div>
+              
+                <div class="card-body card-block">
+
+                
+                    <table class="table table-top-campaign">
+                        <tbody>
+
+                            
+                            <?php foreach ($ListaPedidos as $Pedido) { ?>
+                                <?php $ListaItemPedido = $Pedido->getListaItemPedido();  ?>
+    
+                            <tr>
+                            <td class="text-black font-weight-bold"><strong>Valor do Pedido</strong></td>
+                            <?php $valorTotal = $Pedido->getValorTotal(); 
+                                $valorMulta = $Pedido->getMultaPedido();?>
+                            <td class="text-black font-weight-bold"><strong> R$<?php echo $valorTotal - $valorMulta; ?></strong></td>
+                            <input type="text" name="idPedido" value="<?php echo $Pedido->getidPedido();?>" hidden>
+                            </tr>
+                            <tr>
+                            <td class="text-black font-weight-bold"><strong>Multa</strong></td>
+                            <td class="text-black font-weight-bold"><strong> R$<?php echo $Pedido->getMultaPedido(); ?></strong></td>
+                            </tr>
+                            <tr>
+                            <td class="text-black font-weight-bold"><strong>Valor Total</strong></td>
+                            <td class="text-black font-weight-bold"><strong>R$<?php echo $Pedido->getValorTotal(); ?></strong></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody >
+                    </table>
+                    
+      
+                </div>
+              
+                <button type="submit" class="btn btn-primary" >Finalizar</button>
+            </div>
+            
+        </div>
+    </form>
     </div>
+    <?php }?>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">                                    
@@ -318,8 +365,7 @@ $multaPedido = 0;
                     </div>
                 </div>
             </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
+
         </div>
 
     </div>
@@ -333,7 +379,8 @@ $multaPedido = 0;
     <?php $Status = $Pedido->getStatus();?>
     <div class="modal fade" id="largeModalDevolucao" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-        <form action="/Admin/DevolucaoFinal" method="POST">
+        <?php if($Status == "ESPERA"){$rota = "/Admin/Retirada";}else{$rota = "/Admin/DevolucaoFinal";}?>
+        <form action="<?php echo $rota;?>" method="POST">
         <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="largeModalLabel">Checking de Produto</h5>
@@ -374,7 +421,7 @@ $multaPedido = 0;
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <?php if($Status != "CANCELADO" && $Status != "ESPERA" && $Status != "FINALIZADO" ){?>   <button type="submit" class="btn btn-primary" >Confirmar</button> <?php }?>
+            <?php if($Status != "CANCELADO" && $Status != "FINALIZADO" ){?>   <button type="submit" class="btn btn-primary" >Confirmar</button> <?php }?>
                 </div>
             </div>
         </div>

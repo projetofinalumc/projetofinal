@@ -241,11 +241,11 @@ class ControllerPedido{
         
         $ProdutoDAO = new ProdutoDAO($conn);
 
-        $listaProdutoDefeituso = $ProdutoDAO->buscarProdutosDefeituosos($produtoDefeituosoSelecionado);
+        $listaProdutoDefeituoso = $ProdutoDAO->buscarProdutosDefeituosos($produtoDefeituosoSelecionado);
 
          
         $valorPercaTotal = 0;
-        foreach($listaProdutoDefeituso as $ProdutoDefeituoso){
+        foreach($listaProdutoDefeituoso as $ProdutoDefeituoso){
 
               $id = $ProdutoDefeituoso->getId();
               $valorPerca = $ProdutoDefeituoso->getPrecoPerda();
@@ -259,20 +259,86 @@ class ControllerPedido{
             $multa = $multa + $valorPercaTotal;
             $PedidoDevolucao->setMultaPedido($multa);
         }
-
-       
+        $multa = $PedidoDevolucao->getMultaPedido();
+        $valorTotal = $PedidoDevolucao->getValorTotal();
+        $valorTotalFinal =  $multa + $valorTotal;
         
-
+        $PedidoDevolucao->setValorTotal($valorTotalFinal);
 
         $ProdutoDAO = new ProdutoDAO($conn);
         $ProdutoDAO->adicionarProdutoEstoque($listItemDevolucao);
-        $PedidoDevolucao->setStatus("FINALIZADO");
 
-        $listaPedidos = $PedidoDAO->trocarStatusPedido($PedidoDevolucao);
+        $PedidoDAO->alterarPedido($PedidoDevolucao);
+        $listaPedidos[] = $PedidoDevolucao;
+        $msg = "Finalizando Pedido";
+        $args = ['ListaPedidos' => $listaPedidos, 'msg' => $msg];
 
         
-        return $this->Ver_Pedido_Locatario($request, $response, $args);
 
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+      // return $renderer->render($response, "devolucao.php", $args);
+        return $renderer->render($response, "pedido_buscado.php", $args);
+
+    }
+    public function finalizandoPedidoLocatario(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
+        
+
+         
+        $Pedido = new Pedido();
+        $Pedido->setidPedido((int)$_POST['idPedido']);
+       
+        
+        $PedidoDAO = new PedidoDAO($conn);
+        $listPedidoDevolucao = $PedidoDAO->buscarPedidoPorId($Pedido);
+        $PedidoRetira = $listPedidoDevolucao[0];
+        $PedidoRetira->setStatus("FINALIZADO");
+        $PedidoDAO->trocarStatusPedido($PedidoRetira);
+        $listaPedidos[] = $PedidoRetira;
+        $args = ['ListaPedidos' => $listaPedidos];
+
+        
+
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+      // return $renderer->render($response, "devolucao.php", $args);
+        return $renderer->render($response, "pedido_buscado.php", $args);
+    }
+    
+    public function retiradaPedidoLocatario(Request $request, Response $response, $args)
+    {
+        $conn = ConnectionFactory::Connect();
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+          }
+        
+
+         
+        $Pedido = new Pedido();
+        $Pedido->setidPedido((int)$_POST['idPedido']);
+       
+        
+        $PedidoDAO = new PedidoDAO($conn);
+        $listPedidoDevolucao = $PedidoDAO->buscarPedidoPorId($Pedido);
+        $PedidoRetira = $listPedidoDevolucao[0];
+        $PedidoRetira->setStatus("AGUARDANDO DEVOLUCAO");
+        $PedidoDAO->trocarStatusPedido($PedidoRetira);
+        $listaPedidos[] = $PedidoRetira;
+        $args = ['ListaPedidos' => $listaPedidos];
+
+        
+
+        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+        
+      // return $renderer->render($response, "devolucao.php", $args);
+        return $renderer->render($response, "pedido_buscado.php", $args);
     }
 
 
@@ -301,6 +367,7 @@ class ControllerPedido{
       // return $renderer->render($response, "devolucao.php", $args);
         return $renderer->render($response, "ListaPedidos.php", $args);
     }
+
 
     public function Ver_Pedido_Admin_Devolucao(Request $request, Response $response, $args)
     {

@@ -69,6 +69,27 @@ class PedidoDAO{
         $pedido->setidPedido($PedidoId);
         return $pedido;
     }
+
+    public function alterarPedido($pedido){
+
+     
+        $valorTotal = (float)$pedido->getvalorTotal();
+        $multaPedido = (float)$pedido->getMultaPedido();
+        $idPedido = (int)$pedido->getidPedido();
+
+        $listaItemPedido = $pedido->getlistaItemPedido();
+        $sql = "UPDATE Pedido SET Multa = $multaPedido, valorTotal = $valorTotal WHERE idPedido = $idPedido";
+        #$sql = 'INSERT INTO Pedido (dataPedido, dataRetirada, dataDevolucao, valorTotal, id_endereco, idLocatario) values (?,?,?,?,?,?);';
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->execute();
+       /*  if($stmt->num_rows > 0){
+            while($rows = $stmt->fetch_assoc()){
+
+                $PedidoId = $row['LAST_INSERT_ID()'];
+              }
+            } */
+    }
    
     public function BuscarPedidos_Locatario(Pedido $pedido){
         $locatario = $pedido->getLocatarioPedido();//Aqui instanciei um objeto de Locatario(Com todos os dados)
