@@ -23,7 +23,7 @@ return function (App $app) {
 
        # $group->post('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
         //$group->get('/AdicionarCarrinho', ControllerCarrinho::class .':adicionarProduto');
-        $group->get('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
+        $group->post('/retirarCarrinho', ControllerCarrinho::class .':retirarProduto');
         $group->get('/finalizar', ControllerCarrinho::class .':finalizarCarrinho');
 
         $group->get('/Entrar', function ($request, $response, $args) {
@@ -187,7 +187,7 @@ return function (App $app) {
         $group->post('/NovoProduto' , ControllerProduto::class . ':adicionar');
         $group->post('/FiltroProduto' , ControllerProduto::class . ':listarProdutoAdminFiltrado');
         $group->post('/EditarProduto' , ControllerProduto::class . ':alterar');
-        $group->get('/DeletarProduto' , ControllerProduto::class . ':excluir');
+        $group->post('/DeletarProduto' , ControllerProduto::class . ':excluir');
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
         $group->post('/BuscarPedido' , ControllerPedido::class . ':buscarPedidoDevolucao');
         $group->post('/DevolucaoFinal' , ControllerPedido::class . ':devolucaoPedidoLocatario');

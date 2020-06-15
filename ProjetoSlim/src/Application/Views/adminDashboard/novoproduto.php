@@ -435,9 +435,12 @@
                                                         <button class="item"  title="Editar produto" data-toggle="modal" data-target="#largeModalEditar<?php echo $Produto->getId();?>" >
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <a class="item" data-toggle="tooltip" data-placement="top" title="Excluir produto" href="/Admin/DeletarProduto?idExcluir=<?php echo $Produto->getId();?>">
+                                                        <form action="/Admin/DeletarProduto" method="POST">
+                                                        <input type="number" name="idExcluir" value="<?php echo $Produto->getId();?>" hidden>
+                                                        <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Excluir produto">
                                                             <i class="zmdi zmdi-delete"></i>
-                                                        </a>
+                                                        </button>
+                                                        </form>
                                                         <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
                                                         </button> -->

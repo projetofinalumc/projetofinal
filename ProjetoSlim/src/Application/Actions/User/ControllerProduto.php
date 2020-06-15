@@ -171,7 +171,7 @@ class ControllerProduto{
      public function excluir(Request $request, Response $response, $args) {
          $conn = ConnectionFactory::Connect();
 
-          $IdProdutoDeletado = $_GET['idExcluir'];
+          $IdProdutoDeletado = $_POST['idExcluir'];
           $ProdutoDeletado = new Produto();
           $ProdutoDeletado->setId((int)$IdProdutoDeletado);
         

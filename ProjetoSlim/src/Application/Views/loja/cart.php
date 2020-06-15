@@ -44,8 +44,22 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
               document.getElementById(id).value = Number(document.getElementById(id).value) - 1;
             }
         }
+        $("btnExcluir").click(function() {
+           $(this).closest("form").attr("action", "retirarCarrinho");     
+        });
 </script> 
+<style>
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
 
+}
+
+</style>
 
 <body>
 
@@ -146,6 +160,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <?php 
                 //if (is_null($ListaPedidos)){ echo "Você ainda não tem nenhum produto no carrinho"; } else{
                 foreach($ListaProdutos as $produto){?>
+                
                   <tr>
                     <td class="product-thumbnail">
                       <img src="images/produtos_cad/<?php echo $produto->getImgNome(); ?>" alt="Image" class="img-fluid">
@@ -159,13 +174,15 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" onclick="subtrairBtnOnclick(<?php echo $produto->getId();?>)" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" name="Produto<?php echo $produto->getId();?>" id="<?php echo $produto->getId();?>" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="number" readonly="true" class="form-control text-center" name="Produto<?php echo $produto->getId();?>" id="<?php echo $produto->getId();?>" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" onclick="somaBtnOnclick(<?php echo $produto->getId();?>,<?php echo $produto->getQuantidade();?>)" type="button">&plus;</button>
                         </div>
                       </div>
                     </td>
-                    <td><a href="retirarCarrinho?Produto_id=<?php echo $produto->getId();?>" class="btn btn-primary btn-sm">X</a></td>
+                    <input type=number name="Produto_id" value="<?php echo $produto->getId();?>" hidden>
+                    <td><button formaction="retirarCarrinho" id="btnExcluir" type="submit" class="btn btn-primary btn-sm">X</button></td>
+                    
                   </tr>
                  <?php }?>
                 <?php //}?>

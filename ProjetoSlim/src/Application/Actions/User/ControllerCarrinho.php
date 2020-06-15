@@ -66,7 +66,7 @@ class ControllerCarrinho{
 
             $obj  = json_decode($produto,false);
   
-              if($obj->Produtoid == $_GET['Produto_id']){
+              if($obj->Produtoid == $_POST['Produto_id']){
 
                   unset($_SESSION['Carrinho'][$key]);
               }

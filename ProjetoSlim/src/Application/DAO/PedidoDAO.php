@@ -178,14 +178,14 @@ class PedidoDAO{
             $stmt = $this->conn->query($sql);
             if($stmt->num_rows > 0){
                     while($rows = $stmt->fetch_assoc()){//$ENQUANTO cada linha que for retornada será armazenada em $rows e será quebrada e divida em partes(FETCH_ASSOC)
-                        $prodt = new Produto();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
-                        $prodt->setId($rows["fk_Produto"]);
-                        $prodt->setValDiaria($rows["valorUnitario"]);
-                        $prodt->setQuantidade($rows["quantidade"]);
-                        $listProd[] = $prodt;
+                        $itemPedido = new Produto();//Instanciei um novo objeto para atribuir os dados que vem do banco nele.
+                        $itemPedido->setId($rows["fk_Produto"]);
+                        $itemPedido->setValDiaria($rows["valorUnitario"]);
+                        $itemPedido->setQuantidade($rows["quantidade"]);
+                        $listItemPedido[] = $itemPedido;
                     }
 
-                    $Pedido->setlistaProduto($listProd);
+                    $Pedido->setlistaItemPedido($listItemPedido);
                     $listPedidoNovo[] = $Pedido;
                 }
          }
