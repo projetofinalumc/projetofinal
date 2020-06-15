@@ -149,7 +149,7 @@ class ProdutoDAO {
       $imgNome = $prodt->getImgNome();
 
       //  $conn = ConnectionFactory::Connect();
-      $sql = "UPDATE Produto SET nome = '$nome', modelo = '$modelo', valdiaria = $valDiaria, dimensao = '$dimensao', quantidade = $quantidade, precoPerda = $precoPerda WHERE idProduto = $id;";
+      $sql = "UPDATE Produto SET nome = '$nome', modelo = '$modelo', valdiaria = $valDiaria, dimensao = '$dimensao', quantidade = $quantidade, precoPerda = $precoPerda, imgNome = '$imgNome' WHERE idProduto = $id;";
       //$sql = "UPDATE Produto SET nome = ".$prodt->getNome()." , modelo = ".$prodt->getModelo()." , valdiaria = ".$prodt->getValDiaria().", dimensao = ".$prodt->getDimensao().", quantidade = ".$prodt->getQuantidade().", precoPerda = ".$prodt->getPrecoPerda()." WHERE idProduto = ".$prodt->getId();
        $this->conn->query($sql);
         //$stmt->bind_param('ssisidii', $prodt->getNome(), $prodt->getModelo(), $prodt->getValDiaria(), $prodt->getDimensao(), $prodt->getQuantidade(),$prodt->getPrecoPerda(),$prodt->getCategoria()->getIdCategoria(),$prodt->getId());

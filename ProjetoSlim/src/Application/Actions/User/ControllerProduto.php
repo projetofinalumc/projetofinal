@@ -107,10 +107,6 @@ class ControllerProduto{
 
    public function adicionar(Request $request, Response $response, $args) {
         
-      ///    $renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
-
-      //     return $renderer->render($response, "testecrud.php", $args);
-      //     return $this->listar($request, $response, $args);
 
       $conn = ConnectionFactory::Connect();
 
@@ -133,11 +129,8 @@ class ControllerProduto{
          $ProdutoDAO = new ProdutoDAO($conn);
          $ProdutoDAO->adicionarProduto($ProdutoNovo);
         
-        //return $this->listarprodutoAdmin($request, $response, $args);
-        //$renderer = new PhpRenderer(__DIR__."/../../Views/adminDashboard/");
         return $this->listarprodutoAdmin($request, $response, $args);
-        // return $renderer->render($response, "ListaProduto.php", $args);
-       // return $renderer->render($response, "teste.php", $args);
+
      } 
 
      public function verEdicaoProduto(Request $request, Response $response, $args) {
@@ -199,8 +192,11 @@ class ControllerProduto{
         $ProdutoEditado->setDimensao($_POST['txtDimensao']);
         $ProdutoEditado->setQuantidade((int)$_POST['txtQuantidade']);
         $ProdutoEditado->setPrecoPerda((double)$_POST['txtPrecoPerda']);
+
+        $temp = explode(".", $_FILES["img"]["name"]);
+        $imgNome = round(microtime(true)) . '.' . end($temp);
+        move_uploaded_file($_FILES["img"]["tmp_name"], "images/produtos_cad/" . $imgNome);
         $ProdutoEditado->setImgNome($imgNome);
-        //$ProdutoEditado->setCategoria($CategoriaProdutoEditado);
 
         $ProdutoDAO = new ProdutoDAO($conn);
         $ProdutoDAO->alterarProduto($ProdutoEditado);

@@ -42,7 +42,8 @@ class ControllerCarrinho{
                 $obj->Quantidade = $_POST['Quantidade'];
                 
                 $_SESSION['Carrinho'][$key] = json_encode($obj);
-               // return $renderer->render($response, "teste2.php", $args); 
+                $_SESSION['Total_Carrinho'] = count($_SESSION['Carrinho']);
+                return;
             }
         }
        array_push($_SESSION['Carrinho'],'{"Produtoid":'.$_POST['Produto_id'].', "Quantidade":'.$_POST['Quantidade'].' }');

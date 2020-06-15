@@ -180,7 +180,7 @@ input[type=number] {
                         </div>
                       </div>
                     </td>
-                    <input type=number name="Produto_id" value="<?php echo $produto->getId();?>" hidden>
+                    <input type="number" name="Produto_id" value="<?php echo $produto->getId();?>" hidden>
                     <td><button formaction="retirarCarrinho" id="btnExcluir" type="submit" class="btn btn-primary btn-sm">X</button></td>
                     
                   </tr>
