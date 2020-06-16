@@ -206,13 +206,13 @@ class ControllerPedido{
 
             $PedidoDevolucao->setMultaPedido(0);
         }
-         
-        $produtoDefeituoso = $_POST['inputDefeituoso'];
+         if(isset($_POST['inputDefeituoso'])){$produtoDefeituoso =  $_POST['inputDefeituoso']; $N = count($produtoDefeituoso);}else{ $N = 0;};
+        
         
         $ItensPedidoDevolucao = $PedidoDevolucao->getlistaItemPedido();
-
-        $N = count($produtoDefeituoso);
-        $produtoDefeituosoSelecionado = [];
+        
+        if($N != 0){
+            $produtoDefeituosoSelecionado = [];
         for($i=0; $i < $N; $i++)
         {
             $ProdutoDefeito = new itemPedido();
@@ -238,27 +238,39 @@ class ControllerPedido{
              }
         }
 
-        
         $ProdutoDAO = new ProdutoDAO($conn);
 
         $listaProdutoDefeituoso = $ProdutoDAO->buscarProdutosDefeituosos($produtoDefeituosoSelecionado);
 
-         
         $valorPercaTotal = 0;
+
+       
+
         foreach($listaProdutoDefeituoso as $ProdutoDefeituoso){
 
-              $id = $ProdutoDefeituoso->getId();
-              $valorPerca = $ProdutoDefeituoso->getPrecoPerda();
-              $quantidadeProdutoDefeito = (int)$_POST["quantidadeDefeito$id"];
-              $valorPerca = $valorPerca * $quantidadeProdutoDefeito;
-              $valorPercaTotal = $valorPercaTotal + $valorPerca;
-        }
+            $id = $ProdutoDefeituoso->getId();
+            $valorPerca = $ProdutoDefeituoso->getPrecoPerda();
+            $quantidadeProdutoDefeito = (int)$_POST["quantidadeDefeito$id"];
+            $valorPerca = $valorPerca * $quantidadeProdutoDefeito;
+            $valorPercaTotal = $valorPercaTotal + $valorPerca;
+      }
+      if($valorPercaTotal != 0){
+        $multa = $PedidoDevolucao->getMultaPedido();
+        $multa = $multa + $valorPercaTotal;
+        $PedidoDevolucao->setMultaPedido($multa);
+    }
         
-        if($valorPercaTotal != 0){
-            $multa = $PedidoDevolucao->getMultaPedido();
-            $multa = $multa + $valorPercaTotal;
-            $PedidoDevolucao->setMultaPedido($multa);
-        }
+    }else{
+        $listItemDevolucao = $PedidoDevolucao->getlistaItemPedido();
+    }
+
+        
+    
+
+         
+        
+ 
+    
         $multa = $PedidoDevolucao->getMultaPedido();
         $valorTotal = $PedidoDevolucao->getValorTotal();
         $valorTotalFinal =  $multa + $valorTotal;

@@ -17,6 +17,7 @@ class PedidoDAO{
     }
     public function gerarPedido($pedido){
 
+        
      
         $valorTotal = (float)$pedido->getvalorTotal();
         $multaPedido = (float)$pedido->getMultaPedido();
