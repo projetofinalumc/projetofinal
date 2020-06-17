@@ -367,6 +367,8 @@ class PedidoDAO{
             }
 
         
+        }else{
+            return NULL;
         }
 
         foreach( $listaPedidos as $Pedido ){

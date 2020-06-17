@@ -86,9 +86,9 @@
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
-                        </li>
                         <li>
                             <a href="calendar.html">
+                        </li>
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                         <li>
@@ -350,6 +350,7 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
+                                        <?php if(isset($msgErro)){?><div class="alert alert-danger" role="alert"><?php echo $msgErro?> </div><?php }?>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">

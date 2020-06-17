@@ -491,12 +491,22 @@ class ControllerPedido{
         $Pedido->setidPedido((int)$_POST['id_Pedido']);
         $listaPedidos = $PedidoDAO->buscarPedidoPorId($Pedido);
 
-        $args = ['ListaPedidos' => $listaPedidos];
-
         $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
         
-        //return $renderer->render($response, "ListaPedidos.php", $args);
-        return $renderer->render($response, "pedido_buscado.php", $args);
+        if($listaPedidos != NULL){
+
+            $args = ['ListaPedidos' => $listaPedidos];
+    
+    
+            return $renderer->render($response, "pedido_buscado.php", $args);
+
+
+        }else{
+            $msg = "Codigo de Pedido Invalido";
+            $args = ['msgErro' => $msg];
+            return $renderer->render($response, "buscar_devolucao_pedido.php", $args);
+
+        }
     }
 
 
