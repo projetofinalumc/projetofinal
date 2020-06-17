@@ -224,7 +224,7 @@ class ControllerPedido{
                 $ProdutoDefeito = new itemPedido();
                 $ProdutoDefeito->setIdProduto((int)$produtoDefeituoso[$i]);
                 $produtoDefeituosoSelecionado[] = $ProdutoDefeito;
-                $listItemDevolucao = [];
+                $listItemDevolucao = [];        
                 
                 foreach($ItensPedidoDevolucao as $itemDevolucao){
                     $idItemDevolucao = $itemDevolucao->getIdProduto();
@@ -244,7 +244,9 @@ class ControllerPedido{
                 }
             }
             
+            
             $valorPercaTotal = 0;
+            $ProdutoDAO = new ProdutoDAO($conn);
             $listaProdutoDefeituoso = $ProdutoDAO->buscarProdutosDefeituosos($produtoDefeituosoSelecionado);
             foreach($listaProdutoDefeituoso as $ProdutoDefeituoso){
                 
