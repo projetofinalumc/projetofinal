@@ -129,7 +129,8 @@ class ControllerPedido{
 
         if (is_null($listaPedidos)){
 
-            $args = ['ListaPedidos' => $listaPedidos, 'msg' => "Você ainda não realizou nenhum Pedido"];
+            $msg = "Você ainda não realizou nenhum Pedido";
+            $args = ['ListaPedidos' => $listaPedidos, 'msg' => $msg ];
 
             
         }else {

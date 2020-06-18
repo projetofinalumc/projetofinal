@@ -43,7 +43,7 @@ class ControllerLocatario
         $locatario = new Locatario();
 
 
-        $locatario->setCPF((int) $_POST['cpf']);
+        $locatario->setCPF((string) $_POST['cpf']);
         $locatario->setEmail((string) $_POST['email_loc']);
         $locatario->setNome((string)$_POST['first_name']." ".$_POST['c_lname']);
         //$locatario->setDataNascimento((string) $_POST['data_nascimento']);
@@ -189,7 +189,7 @@ class ControllerLocatario
 
 
         $locatario->setId($idloc);
-        $locatario->setCPF((int) $_POST['txtCPF']);
+        $locatario->setCPF((string) $_POST['txtCPF']);
         $locatario->setEmail((string) $_POST['txtEmail']);
         $locatario->setNome((string) $_POST['txtNome']);
         //$locatario->setSenha((string) $_POST['txtSenha']);

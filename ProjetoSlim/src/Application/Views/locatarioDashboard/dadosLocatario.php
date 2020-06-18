@@ -176,11 +176,11 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                                         <div class="card-body card-block">
                                             <div class="form-group">
                                                 <label for="company" class=" form-control-label">Nome:</label>
-                                                <input type="text" id="company" value="<?php echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome">
+                                                <input type="text" id="company" value="<?php echo $dados_locatario->getNome(); ?>" class="form-control" name="txtNome" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="vat" class=" form-control-label">Email</label>
-                                                <input type="text" id="vat" value="<?php echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail">
+                                                <input type="text" id="vat" value="<?php echo $dados_locatario->getEmail(); ?>" class="form-control" name="txtEmail" required>
                                             </div>
                                            <!-- <div class="form-group">
                                                 <label for="street" class=" form-control-label">Data de Nascimento</label><?php  //$ = $dados_locatario->getData(); ?>
@@ -190,7 +190,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
                                                 <div class="col-8">
                                                     <div class="form-group">
                                                         <label for="city" class=" form-control-label">CPF</label>
-                                                        <input type="text" id="city" value="<?php echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF"> 
+                                                        <input type="text" id="city" value="<?php echo $dados_locatario->getCPF(); ?>" class="form-control" name="txtCPF" required> 
                                                                                                     
                                                     </div>
                                                 </div>

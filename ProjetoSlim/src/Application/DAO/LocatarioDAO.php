@@ -179,7 +179,7 @@ class LocatarioDAO {
         
         $sql = "UPDATE Locatario SET cpf = ? , Nome = ?, email = ? WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param('issi', $cpf,$nome,$email,$id);
+        $stmt->bind_param('sssi', $cpf,$nome,$email,$id);
         $stmt->execute();
         $stmt->close();             
     }

@@ -230,78 +230,61 @@
     </div>
 
 
-    <!-- modal large inicio-->
 
-    <?php  if (!is_null($ListaPedidos)){    ?>
-    <?php foreach ($ListaPedidos as $listaPedidos) { ?>
- <form>
-    <div class="modal fade" id="largeModal<?php echo $listaPedidos->getidPedido(); ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+
+                <!-- modal large FILTRO -->
+        
+<?php foreach($ListaPedidos as $Pedido){?>
+    <?php $ListaItemPedido = $Pedido->getlistaItemPedido();?>
+    <?php $id = $Pedido->getidPedido();?>
+    <?php $Status = $Pedido->getStatus();?>
+    <div class="modal fade" id="largeModal<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header"> 
-                <h4 class="modal-title" id="largeModalLabel">Detalhes do Pedido</h4>              
+        <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="largeModalLabel">Checking de Produto</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    
                 </div>
-                <?php }?>
+                
                 <div class="modal-body">
-                <div class="main-content">
-                    <div class="section__content section__content--p30">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-13">
-                                    <div class="table-responsive table--no-card m-b-30">
-                                        <table class="table table-borderless table-striped table-earning">
-                                            <thead>
-                                                <tr>
-                                                    <td><p>Cód. Pedido</p></td>
-                                                    <td><p>Quantidade</p></td>
-                                                    <td><p class="text-right">Valor unitario</p></td>
-                                                    <td><p class="text-right">Valor Total</p></td>
-                                                </tr>
-                                            </thead>
-                                            <?php $listItemPedido = $listaPedidos->getlistaItemPedido();?>
-                                            <?php foreach ($listItemPedido  as $itemPedido) { ?>
-                                            <tbody>
-                                                <tr>
-                                                    <td><p><?php echo $itemPedido->getIdProduto(); ?></p></td>
-                                                    <td><p><?php echo $itemPedido->getQuantidade(); ?></p></td>
-                                                    <td><p><?php echo $itemPedido->getValorUnitario(); ?></p></td>
-                                                    <td><p><?php echo $itemPedido->getValorUnitario(); ?></p></td>
+                
+                    <table class="table table-sm table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Cód do Produto</th>
+                    <th scope="col">Valor Unitario</th>
+                    <th scope="col">Quantidade</th>
+                
+           <?php if($Status != "CANCELADO" && $Status != "ESPERA" && $Status != "FINALIZADO"){?>   <th scope="col">Lista de Produtos</th><?php }?>
+                </tr>
+            </thead>
+            
+            <tbody>
+            <input type="text" value="<?php echo $id;?>" name="idPedido" hidden>
+            <?php foreach($ListaItemPedido as $itemPedido){?>
+                <tr>
+                    <td><?php echo $itemPedido->getIdProduto();?></td>
+                   
+                    <td>R$ <?php echo $itemPedido->getValorUnitario();?></td>
+                    <td> <?php echo $itemPedido->getQuantidade();?></td>
+                </tr>
+                <?php }?>
+            </tbody>
+            
+        </table>
 
-                                                </tr>
-
-                                            </tbody>
-                                            <?php } ?>
-                                            <?php }?>    
-                                        </table>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Confirm</button>
-                    <button type="button" class="btn btn-primary">CANCELAR</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
-   </form> 
-    <?php //}?>
-    <!-- end modal large fiim-->
+    <?php }?>
+			<!-- end modal large -->
 
     <!-- Jquery JS-->
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>

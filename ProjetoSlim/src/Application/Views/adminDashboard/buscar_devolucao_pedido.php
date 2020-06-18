@@ -192,7 +192,7 @@
                                     <a href="/Admin/ListaPedido">Lista de Pedidos</a>
                                 </li>
                                 <li>
-                                     <a href="/Admin/BuscarDevolucao">Devolucão de Pedido</a>
+                                     <a href="/Admin/DevolucaoPedido">Devolucão de Pedido</a>
                                 </li>
                                 <li>
                                     <!-- <a href="index3.html">Dashboard 3</a> -->
