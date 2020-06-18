@@ -172,7 +172,7 @@ class ControllerLocatario
         return $renderer->render($response, "dadosLocatario.php", $args);
     }
 
-    public function alterar(Request $request, Response $response, $args)
+    public function alterarDadosLocatario(Request $request, Response $response, $args)
     {
 
         $conn = ConnectionFactory::Connect();
@@ -204,7 +204,7 @@ class ControllerLocatario
         return $this->retornarDadosLocario($request, $response, $args);
     }
 
-    public function login(Request $request, Response $response, $args)
+    public function loginLocatario(Request $request, Response $response, $args)
     {
 
         $conn = ConnectionFactory::Connect();

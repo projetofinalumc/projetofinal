@@ -15,7 +15,6 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 require_once  (__DIR__."/../../DAO/ProdutoDAO.php");
-//require_once (__DIR__."/../../Models/Locatario.classe.php");
 require_once  (__DIR__."/../../DAO/EnderecoDAO.php");
 require_once (__DIR__."/../../Models/Produto.classe.php");
 
@@ -54,7 +53,6 @@ class ControllerCarrinho{
       $_SESSION['Total_Carrinho'] = count($_SESSION['Carrinho']);
       
 
-       //return $renderer->render($response, "teste2.php", $args); 
        
 
     }

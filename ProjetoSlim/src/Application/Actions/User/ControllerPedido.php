@@ -30,7 +30,7 @@ require_once(__DIR__ . "/../../Models/Pedido.classe.php");
 
 
 class ControllerPedido{
-    public function gerarPedido(Request $request, Response $response, $args){
+    public function montandoPedido(Request $request, Response $response, $args){
 
         session_start();
          
@@ -424,34 +424,31 @@ class ControllerPedido{
     }
     
 
-    public function finalizarPedido(Request $request, Response $response, $args)
-    {
-        $conn = ConnectionFactory::Connect();
+    // public function finalizarPedido(Request $request, Response $response, $args)
+    // {
+    //     $conn = ConnectionFactory::Connect();
         
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-          }
+    //     if (session_status() !== PHP_SESSION_ACTIVE) {
+    //         session_start();
+    //       }
          
-        $Pedido = new Pedido();
-        // $_SESSION['idLocatario']
-        $PedidoDAO = new PedidoDAO($conn);
+    //     $Pedido = new Pedido();
+    //     // $_SESSION['idLocatario']
+    //     $PedidoDAO = new PedidoDAO($conn);
 
-        $Pedido->setidPedido((int)$_GET['idPedido']);
-        $Pedido->setStatus($_GET["status"]);
-
-
-        $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);
+    //     $Pedido->setidPedido((int)$_GET['idPedido']);
+    //     $Pedido->setStatus($_GET["status"]);
 
 
-//        $args = ['ListaPedidos' => $listaPedidos];
+    //     $listaPedidos = $PedidoDAO->trocarStatusPedido($Pedido);
 
-       // $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
+
+
         
-        return $this->Ver_Pedido_Admin_Devolucao($request, $response, $args);
-        //return $renderer->render($response, "ListaPedidos.php", $args);
+    //     return $this->Ver_Pedido_Admin_Devolucao($request, $response, $args);
 
 
-    }
+    // }
 
     public function Ver_Pedido_Admin_filtrado(Request $request, Response $response, $args)
     {

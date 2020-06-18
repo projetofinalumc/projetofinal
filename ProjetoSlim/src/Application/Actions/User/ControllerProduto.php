@@ -23,7 +23,7 @@ require_once (__DIR__."/../../Models/Categoria.classe.php");
 
 class ControllerProduto{
  
-    static function listar(Request $request, Response $response, $args) {
+    static function listarProdutosLoja(Request $request, Response $response, $args) {
          
        $conn = ConnectionFactory::Connect();
 
@@ -105,7 +105,7 @@ class ControllerProduto{
    //   }
  
 
-   public function adicionar(Request $request, Response $response, $args) {
+   public function adicionarProduto(Request $request, Response $response, $args) {
         
 
       $conn = ConnectionFactory::Connect();
@@ -161,7 +161,7 @@ class ControllerProduto{
           return $renderer->render($response, "edit.php", $args);
      } 
 
-     public function excluir(Request $request, Response $response, $args) {
+     public function excluirProduto(Request $request, Response $response, $args) {
          $conn = ConnectionFactory::Connect();
 
           $IdProdutoDeletado = $_POST['idExcluir'];
@@ -175,7 +175,7 @@ class ControllerProduto{
           return $this->listarprodutoAdmin($request, $response, $args);
      } 
 
-     public function alterar(Request $request, Response $response, $args) {
+     public function alterarProduto(Request $request, Response $response, $args) {
         
         $conn = ConnectionFactory::Connect();
         

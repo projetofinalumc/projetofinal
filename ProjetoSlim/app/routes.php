@@ -115,16 +115,16 @@ return function (App $app) {
         });
         $group->post('/AdicionarCarrinho', function($request, $response, $args){
             ControllerCarrinho::adicionarProduto($request, $response,$args);
-           return ControllerProduto::listar($request, $response,$args);
+           return ControllerProduto::listarProdutosLoja($request, $response,$args);
         });
 
         
         $group->get('/Home/Endereco/{id}', ControllerLocatario::class .':buscarEndereco' );
-        $group->get('/produtos', ControllerProduto::class .':listar');
-        $group->post('/Home', ControllerLocatario::class .':login');
+        $group->get('/produtos', ControllerProduto::class .':listarProdutosLoja');
+        $group->post('/Home', ControllerLocatario::class .':loginLocatario');
         $group->post('/CadastraEnd', ControllerLocatario::class .':cadastrarNovoEndereco');
         
-        $group->post('/Editar', ControllerLocatario::class .':alterar');
+        $group->post('/Editar', ControllerLocatario::class .':alterarDadosLocatario');
         $group->post('/registrar', ControllerLocatario::class .':cadastrar');
         $group->get('/register', ControllerLocatario::class .':listar');
         
@@ -186,15 +186,15 @@ return function (App $app) {
         $group->get('/NovoProduto' , ControllerProduto::class . ':listarprodutoAdmin');
         $group->post('/NovoProduto' , ControllerProduto::class . ':adicionar');
         $group->post('/FiltroProduto' , ControllerProduto::class . ':listarProdutoAdminFiltrado');
-        $group->post('/EditarProduto' , ControllerProduto::class . ':alterar');
-        $group->post('/DeletarProduto' , ControllerProduto::class . ':excluir');
+        $group->post('/EditarProduto' , ControllerProduto::class . ':alterarProduto');
+        $group->post('/DeletarProduto' , ControllerProduto::class . ':excluirProduto');
         $group->get('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin');
         $group->post('/BuscarPedido' , ControllerPedido::class . ':buscarPedidoDevolucao');
         $group->post('/DevolucaoFinal' , ControllerPedido::class . ':devolucaoPedidoLocatario');
         $group->post('/Retirada' , ControllerPedido::class . ':retiradaPedidoLocatario');
         $group->post('/Finalizando' , ControllerPedido::class . ':finalizandoPedidoLocatario');
 
-        $group->get('/FinalizarPedido' , ControllerPedido::class . ':finalizarPedido');
+       # $group->get('/FinalizarPedido' , ControllerPedido::class . ':finalizarPedido');
         $group->get('/Email' , ControllerPedido::class . ':Email');
         $group->post('/ListaPedido' , ControllerPedido::class . ':Ver_Pedido_Admin_filtrado');
         $group->get('/AreaAdministrador' ,function ($request, $response, $args){
@@ -207,8 +207,8 @@ return function (App $app) {
         $group->post('/Home', ControllerAdmin::class .':login');
         $group->get('/Sair' , ControllerSession::class . ':logout');
         $group->post('/ListaProduto', ControllerProduto::class . ':listarprodutoAdmin');
-        $group->post('/Adicionar', ControllerProduto::class . ':adicionar');
-        $group->post('/ExcluirProduto', ControllerProduto::class . ':excluir');
+        $group->post('/Adicionar', ControllerProduto::class . ':adicionarProduto');
+        $group->post('/ExcluirProduto', ControllerProduto::class . ':excluirProduto');
         $group->post('/retornaImagem', ControllerProduto::class . ':retornaImagem');
         
         // $group->get('/table', ControllerProduto::class . ':listarprodutoAdmin');
@@ -288,7 +288,7 @@ return function (App $app) {
             $app->group('/Loja', function (Group $group) {
 
                 $group->get('/teste',ControllerPedido::class . ':Ver_Pedido_Locatario');
-                $group->post('/checkout',ControllerPedido::class . ':gerarPedido');
+                $group->post('/checkout',ControllerPedido::class . ':montandoPedido');
                 #$group->post('/pedidoFinal',ControllerPedido::class . ':gerandoPedido');
                 $group->post('/pedidoFinal', ControllerPedido::class .':gerandoPedido');
        });
