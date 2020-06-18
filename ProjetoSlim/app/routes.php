@@ -184,7 +184,7 @@ return function (App $app) {
             return $renderer->render($response, "pedido_buscado.php", $args);
         });
         $group->get('/NovoProduto' , ControllerProduto::class . ':listarprodutoAdmin');
-        $group->post('/NovoProduto' , ControllerProduto::class . ':adicionar');
+        $group->post('/NovoProduto' , ControllerProduto::class . ':adicionarProduto');
         $group->post('/FiltroProduto' , ControllerProduto::class . ':listarProdutoAdminFiltrado');
         $group->post('/EditarProduto' , ControllerProduto::class . ':alterarProduto');
         $group->post('/DeletarProduto' , ControllerProduto::class . ':excluirProduto');

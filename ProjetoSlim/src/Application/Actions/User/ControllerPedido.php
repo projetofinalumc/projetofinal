@@ -410,18 +410,6 @@ class ControllerPedido{
         return $renderer->render($response, "devolucao.php", $args);
         //return $renderer->render($response, "ListaPedidos.php", $args);
     }
-
-    public function Email(Request $request, Response $response, $args){
-        $locatario = new Locatario();
-        $locatario->setEmail("c1a0a4e98c@emailmonkey.club");
-        $email = new Email();
-        $mail = $email->mensagem_Bem_Vindo($locatario);
-        $args  = ['mail' => $mail];
-        $renderer = new PhpRenderer(__DIR__.'/../../Views/adminDashboard/');
-        
-        return $renderer->render($response, "teste.php", $args);
-
-    }
     
 
     // public function finalizarPedido(Request $request, Response $response, $args)

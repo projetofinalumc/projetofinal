@@ -41,9 +41,9 @@
       if(document.getElementById("cb" + idProduto).checked == true){
       document.getElementById(idProduto).style.visibility = "visible";
       document.getElementById(idProduto).value = 1;         
-      document.getElementById(idProduto).style.visibility = "hidden";
       document.getElementById(idProduto).disabled = false;
       }else{
+        document.getElementById(idProduto).style.visibility = "hidden";
         document.getElementById(idProduto).disabled = true;
       }
     }
@@ -426,7 +426,7 @@ $multaPedido = 0;
 
                     <?php $dataRetirada = date_create($Pedido->getdataRetirada());?>
                     <?php $dataHoje = date_create(date('Y/m/d'));?>
-                    <?php $data = date_diff($dataRetirada,$dataHoje); ?>
+                    <?php $data = date_diff($dataHoje,$dataRetirada); ?>
                     <?php $dataComp = $data->format("%R%a");?>                   
             <?php if($Status != "CANCELADO" && $Status != "FINALIZADO" && $dataComp <= 0){?>   <button type="submit" class="btn btn-primary" >Confirmar</button> <?php }?>
                 </div>

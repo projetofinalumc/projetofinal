@@ -266,7 +266,7 @@ $PedidoLocatario = unserialize($_SESSION['PedidoLocatario']);
                       <?php
                       $data = getdate();
 
-                      $hoje = $data['year'] . '-' . '0' . $data['mon'] . '-' . '0'.$data['mday'];
+                      $hoje = $data['year'] . '-' . '0' . $data['mon'] . '-'.$data['mday'];
                       ?>
                       <div class="col-10">
                         <input class="form-control" type="date" id="example-date-input" name="dataInicial" value="<?php echo $hoje ?>" min="<?php echo $hoje ?>" max="2020-12-31">

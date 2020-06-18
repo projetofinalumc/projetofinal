@@ -429,9 +429,6 @@
                                                 <td>R$ <?php echo $Produto->getPrecoPerda();?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Atualizar Status">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
                                                         <button class="item"  title="Editar produto" data-toggle="modal" data-target="#largeModalEditar<?php echo $Produto->getId();?>" >
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
