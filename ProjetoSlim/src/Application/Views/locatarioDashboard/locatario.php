@@ -208,7 +208,7 @@
                                             </tbody>
                                         </form>
                                             <?php } ?>
-                                            <?php }?> 
+                                           
 
                                         </table>
                                     </div>
@@ -284,6 +284,7 @@
         </div>
     </div>
     <?php }?>
+    <?php }?> 
 			<!-- end modal large -->
 
     <!-- Jquery JS-->

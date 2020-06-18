@@ -40,9 +40,10 @@
   function checkDefeito(idProduto) {
       if(document.getElementById("cb" + idProduto).checked == true){
       document.getElementById(idProduto).style.visibility = "visible";
+      document.getElementById(idProduto).value = 1;         
+      document.getElementById(idProduto).style.visibility = "hidden";
       document.getElementById(idProduto).disabled = false;
       }else{
-        document.getElementById(idProduto).style.visibility = "hidden";
         document.getElementById(idProduto).disabled = true;
       }
     }
@@ -285,7 +286,7 @@ $multaPedido = 0;
             <thead>
                 <tr>
                     <th scope="col">Cód do Pedido</th>
-                    <th scope="col">Data do Pedido</th>
+                    <th scope="col">Data do Retirada</th>
                     <th scope="col">Data para Devolução </th>
         <?php if($multaPedido != 0){?> <th scope="col">Multa de Atraso(R$)</th><?php }?>
                     <th scope="col">Total do Pedido(R$)</th>
@@ -296,7 +297,7 @@ $multaPedido = 0;
             <tbody>
                 <tr>
                     <td><?php echo $Pedido->getidPedido();?></td>
-                    <td><?php echo $Pedido->getdataPedido();?></td>
+                    <td><?php echo $Pedido->getdataRetirada();?></td>
                     <td><?php echo $Pedido->getdataDevolucao();?></td>
     <?php if($multaPedido != 0){?> <td>R$ <?php echo $multaPedido;?></td><?php }?>
                     <td>R$ <?php echo $Pedido->getvalorTotal();?></td>
@@ -410,6 +411,7 @@ $multaPedido = 0;
                    
                     <td>R$ <?php echo $itemPedido->getValorUnitario();?></td>
                     <td> <?php echo $itemPedido->getQuantidade();?></td>
+                  
             <?php if($Status != "CANCELADO" && $Status != "ESPERA" && $Status != "FINALIZADO"){?> <td>  <input type="checkbox" id="cb<?php echo $itemPedido->getIdProduto();?>" onclick="checkDefeito(<?php echo $itemPedido->getIdProduto();?>)" name="inputDefeituoso[]" value="<?php echo $itemPedido->getIdProduto();?>"><label> Defeito/Perdido</label><input id="<?php echo $itemPedido->getIdProduto();?>" name="quantidadeDefeito<?php echo $itemPedido->getIdProduto();?>" type="number" max="<?php echo $itemPedido->getQuantidade();?>" min="1" style="visibility: hidden;"></td> <?php }?>
                 </tr>
                 <?php }?>
@@ -421,7 +423,12 @@ $multaPedido = 0;
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <?php if($Status != "CANCELADO" && $Status != "FINALIZADO" ){?>   <button type="submit" class="btn btn-primary" >Confirmar</button> <?php }?>
+
+                    <?php $dataRetirada = date_create($Pedido->getdataRetirada());?>
+                    <?php $dataHoje = date_create(date('Y/m/d'));?>
+                    <?php $data = date_diff($dataRetirada,$dataHoje); ?>
+                    <?php $dataComp = $data->format("%R%a");?>                   
+            <?php if($Status != "CANCELADO" && $Status != "FINALIZADO" && $dataComp <= 0){?>   <button type="submit" class="btn btn-primary" >Confirmar</button> <?php }?>
                 </div>
             </div>
         </div>
